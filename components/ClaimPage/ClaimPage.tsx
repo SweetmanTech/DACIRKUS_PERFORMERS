@@ -24,7 +24,7 @@ function ClaimPage() {
   })
 
   return (
-    <div className="mt-3 flex flex-col">
+    <div className="flex flex-col mt-3">
       <NavBar />
       <div className="flex flex-col items-center justify-around text-4xl pt-10 h-[75vh]">
         <div>Claim Page</div>
