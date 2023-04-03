@@ -9,6 +9,24 @@
     font-weight: 400;
     src: url("../fonts/Aldrich/Aldrich-Regular.ttf") format("truetype");
   }
+  @font-face{
+    font-family: "ObjectivMK1_Trial_Bd";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/ObjectiveMk1/ObjektivMK1_Trial_Bd.ttf") format("truetype");
+  }
+  @font-face{
+    font-family: "ObjectivMK1_Trial_Rg";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/ObjectiveMk1/ObjektivMK1_Trial_Rg.ttf") format("truetype");
+  }
+  @font-face{
+    font-family: "Eigerdals";
+    font-style: normal;
+    font-weight: 400;
+    src: url("../fonts/Eigerdals/Eigerdals_W00_Heavy.ttf") format("truetype");
+  }
 }
 html,
 body {
