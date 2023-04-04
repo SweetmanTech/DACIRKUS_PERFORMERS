@@ -40,12 +40,11 @@ const Home: NextPage = () => (
         height={2671}
         loader={customLoader}
       />
-      <div className="absolute z-10 justify-center inline-block mt-36 lg:top-96 md:top-80 top-36">
-        <div className="flex flex-row gap-0">
+      <div className="absolute z-10 justify-center inline-block lg:md:mt-36 lg:top-96 md:top-80 top-36">
+        <div className="flex flex-row ">
           <motion.image
             whileHover={{
-              scale: 1.01,
-              transition: { duration: 0.5 },
+              scale: 1.005,
             }}
           >
             <Image
@@ -58,8 +57,7 @@ const Home: NextPage = () => (
           </motion.image>
           <motion.image
             whileHover={{
-              scale: 1.01,
-              transition: { duration: 0.5 },
+              scale: 1.005,
             }}
           >
             <Image
@@ -72,8 +70,7 @@ const Home: NextPage = () => (
           </motion.image>
           <motion.image
             whileHover={{
-              scale: 1.01,
-              transition: { duration: 0.5 },
+              scale: 1.005,
             }}
           >
             <Image
