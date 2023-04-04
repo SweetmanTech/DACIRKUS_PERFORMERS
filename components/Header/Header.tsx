@@ -8,7 +8,7 @@ interface HeaderProps {
   aboutHref?: string
 }
 const Header: FC<HeaderProps> = () => (
-  <nav className="fixed top-0 z-50 flex items-center justify-between w-screen p-2 text-black bg-white font-aldrich">
+  <nav className="fixed top-0 z-50 flex flex-row items-center justify-between w-screen p-2 text-black bg-white font-objektivmk1_bold">
     <span className="relative items-center flex-shrink-0 w-20 mt-6 mr-6 cursor-auto lg:mt-0 lg:md:w-36 lg:flex">
       <Link href="/">
         <Image
@@ -24,28 +24,22 @@ const Header: FC<HeaderProps> = () => (
 
     <div className="flex-row items-center text-xs rounded lg:items-right lg:w-auto lg:md:text-sm font-objektivmk1_bold ">
       <Link href="/">
-        <div className="inline-block px-4 py-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0">
+        <div className="inline-block pl-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0 lg:md:px-4">
           Twitter
         </div>
       </Link>
-      <Link href="/" className="inline-block px-4 py-2 mt-4 hover:border-transparent lg:mt-0">
-        <div className="inline-block px-4 py-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0">
+      <Link href="/">
+        <div className="inline-block pl-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0 lg:md:px-4">
           Discord
         </div>
       </Link>
-      <Link
-        href="/"
-        className="inline-block px-4 py-2 mt-4 text-center hover:border-transparent lg:mt-0"
-      >
-        <div className="inline-block px-4 py-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0">
+      <Link href="/">
+        <div className="inline-block py-2 pl-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0 lg:md:px-4">
           Newsletter
         </div>
       </Link>
-      <Link
-        href="/leaderboard"
-        className="inline-block px-4 py-2 mt-4 text-center hover:border-transparent lg:mt-0"
-      >
-        <div className="inline-block px-4 py-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0">
+      <Link href="/leaderboard">
+        <div className="inline-block py-2 pl-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0 lg:md:px-4">
           Leaderboard
         </div>
       </Link>

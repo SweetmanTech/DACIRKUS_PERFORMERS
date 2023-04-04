@@ -19,7 +19,7 @@ const Home: NextPage = () => (
         height={691}
         loader={customLoader}
       />
-      <div className="absolute z-10 justify-center inline-block mt-36 lg:top-96 md:top-80 top-36">
+      <div className="absolute z-10 justify-center inline-block mt-20 lg:top-96 md:top-80 top-32">
         <Image
           src="/CRE8ORSLOGO_HEROPAGE.png"
           alt="cre8ors logo"
@@ -29,7 +29,7 @@ const Home: NextPage = () => (
         />
       </div>
     </div>
-    <div className="flex flex-col items-center justify-center mb-24 mt-72">
+    <div className="flex flex-col items-center justify-center mt-20 mb-24 lg:md:mt-72">
       <Image src="/main.png" alt="main" width={2055} height={2464} loader={customLoader} />
     </div>
     <div className="relative flex flex-col items-center justify-center mt-24">
@@ -40,7 +40,7 @@ const Home: NextPage = () => (
         height={2671}
         loader={customLoader}
       />
-      <div className="absolute z-10 justify-center inline-block lg:md:mt-36 lg:top-96 md:top-80 top-36">
+      <div className="absolute z-10 justify-center inline-block lg:md:mt-36 lg:top-96 md:top-80 top-24 lg:md:top-36">
         <div className="flex flex-row ">
           <motion.image
             whileHover={{
