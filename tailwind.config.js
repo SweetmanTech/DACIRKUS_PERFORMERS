@@ -9,6 +9,12 @@ module.exports = {
     extend: {
       fontFamily: {
         aldrich: ["Aldrich", "sans-serif"],
+        objektivmk1_bold: ["Objektiv Mk1 Trial", "sans-serif"],
+        eigerdals: ["Eigerdals", "sans-serif"],
+      },
+      screens: {
+        "3xl": "1920px",
+        "4xl": "2560px",
       },
     },
   },
