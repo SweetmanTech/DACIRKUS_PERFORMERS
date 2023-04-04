@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-@layer base{
+
   @font-face {
     font-family: "Aldrich";
     font-style: normal;
@@ -21,7 +21,7 @@
     font-weight: 400;
     src: url("/fonts/Eigerdals/Eigerdals_W00_Heavy.ttf") format("truetype");
   }
-}
+
 html,
 body {
   background-color: #010e17;
