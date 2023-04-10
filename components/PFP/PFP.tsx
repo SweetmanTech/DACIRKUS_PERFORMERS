@@ -6,7 +6,7 @@ import customLoader from "../../lib/customLoader"
 
 /* eslint-disable @next/next/no-img-element */
 const PFP = ({ address, width = 100, height = 100 }: any) => {
-  const [avatar, setAvatar] = useState("/logo-cre8ors.png")
+  const [avatar, setAvatar] = useState("/CRE8ORSLOGO_ICON.png")
 
   useEffect(() => {
     const init = async () => {
