@@ -1,11 +1,12 @@
-import Link from "next/link"
 import React, { useState, useEffect } from "react"
 import * as _ from "lodash"
+import Image from "next/image"
 import getOwnersForCollection from "../../lib/alchemy/getOwnersForCollection"
 import getParticipants from "../../lib/getParticipants"
-import { Button } from "../../shared/Button"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
+import Header from "../Header"
+import customLoader from "../../lib/customLoader"
 
 const LeaderboardPage = () => {
   const [collectors, setCollectors] = useState([])
@@ -30,38 +31,48 @@ const LeaderboardPage = () => {
   }, [])
 
   return (
-    <div className="w-full max-w-2xl mx-auto pt-11">
-      <div className="flex justify-end mr-3">
-        <Link href="/connect">
-          <Button>Connect</Button>
-        </Link>
+    <div className="h-screen overflow-y-auto text-black bg-[url('/leaderboard_background.png')]">
+      <Header connect />
+      <div className="w-full max-w-3xl pt-24 mx-auto">
+        <div className="flex flex-col items-center justify-center w-full gap-2">
+          <Image
+            src="/leaderboard.png"
+            width={486}
+            height={120}
+            alt="leaderboard"
+            loader={customLoader}
+          />
+        </div>
+        <div className="box-content m-4 bg-white border-2 border-black border-solid rounded-lg">
+          <table className="w-full overflow-hidden border-2 border-solid rounded-lg">
+            <thead className="px-4 border-b-2 border-black border-solid ">
+              <tr>
+                <th className="px-4 py-2 text-left border-r-2 border-black">Rank</th>
+                <th className="px-4 py-2 text-left border-r-2 border-black">
+                  Number of NFTs Owned
+                </th>
+                <th className="px-4 py-2 text-left border-r-2 border-black">Address</th>
+                <th className="px-4 py-2 text-left border-r-2 border-black">Twitter</th>
+              </tr>
+            </thead>
+            {collectors.length > 0 ? (
+              <tbody>
+                {collectors.map((collector, index) => (
+                  <LeaderboardRow
+                    key={collector.walletAddress}
+                    address={collector.walletAddress}
+                    numberOwned={collector.nftsOwned}
+                    twitterHandle={collector.twitterHandle}
+                    rank={index + 1}
+                  />
+                ))}
+              </tbody>
+            ) : (
+              <SkeletonTableBody />
+            )}
+          </table>
+        </div>
       </div>
-      <h1 className="text-center text-2xl font-bold text-white mb-6">CRE8ORS Leaderboard</h1>
-      <table className="w-full border-collapse rounded-lg overflow-hidden">
-        <thead className="bg-[#40baff]">
-          <tr>
-            <th className="px-4 py-2 text-left border-b">Rank</th>
-            <th className="px-4 py-2 text-left border-b">Number of NFTs Owned</th>
-            <th className="px-4 py-2 text-left border-b">Address</th>
-            <th className="px-4 py-2 text-left border-b">Twitter</th>
-          </tr>
-        </thead>
-        {collectors.length > 0 ? (
-          <tbody>
-            {collectors.map((collector, index) => (
-              <LeaderboardRow
-                key={collector.walletAddress}
-                address={collector.walletAddress}
-                numberOwned={collector.nftsOwned}
-                twitterHandle={collector.twitterHandle}
-                rank={index + 1}
-              />
-            ))}
-          </tbody>
-        ) : (
-          <SkeletonTableBody />
-        )}
-      </table>
     </div>
   )
 }

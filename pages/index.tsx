@@ -9,7 +9,6 @@ import customLoader from "../lib/customLoader"
 const Home: NextPage = () => (
   <div className="h-screen overflow-y-auto text-black bg-white">
     <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
-
     <Header />
     <div className="relative flex justify-center w-full mt-12">
       <Image
@@ -42,7 +41,7 @@ const Home: NextPage = () => (
       />
       <div className="absolute z-10 justify-center inline-block lg:md:mt-36 lg:top-96 md:top-80 top-24 lg:md:top-36">
         <div className="flex flex-row ">
-          <motion.image
+          <motion.div
             whileHover={{
               scale: 1.005,
             }}
@@ -54,8 +53,8 @@ const Home: NextPage = () => (
               height={513}
               loader={customLoader}
             />
-          </motion.image>
-          <motion.image
+          </motion.div>
+          <motion.div
             whileHover={{
               scale: 1.005,
             }}
@@ -67,8 +66,8 @@ const Home: NextPage = () => (
               height={513}
               loader={customLoader}
             />
-          </motion.image>
-          <motion.image
+          </motion.div>
+          <motion.div
             whileHover={{
               scale: 1.005,
             }}
@@ -80,7 +79,7 @@ const Home: NextPage = () => (
               height={513}
               loader={customLoader}
             />
-          </motion.image>
+          </motion.div>
         </div>
         <div className="flex items-center justify-center w-full mt-2">
           <Image src="scroll.png" alt="scroll" width={1810} height={52} loader={customLoader} />
