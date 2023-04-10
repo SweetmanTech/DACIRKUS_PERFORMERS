@@ -25,6 +25,7 @@ const LeaderboardPage = () => {
         twitterHandle: addressToTwitter[item.walletAddress.toString()],
       }))
       setCollectors(tableData)
+      console.log(tableData)
     }
 
     fetchTopCollectors()
