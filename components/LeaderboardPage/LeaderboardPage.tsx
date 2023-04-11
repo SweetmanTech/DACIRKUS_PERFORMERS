@@ -43,7 +43,7 @@ const LeaderboardPage = () => {
             loader={customLoader}
           />
         </div>
-        <div className="box-content m-4 bg-white rounded-lg">
+        <div className="box-content m-4 bg-white border-b-2 border-black border-solid rounded-lg">
           <table className="w-full overflow-hidden rounded-lg">
             <thead className="px-4 border-2 border-black border-solid rounded-lg">
               <tr>
