@@ -43,9 +43,9 @@ const LeaderboardPage = () => {
             loader={customLoader}
           />
         </div>
-        <div className="box-content m-4 bg-white border-2 border-black border-solid rounded-lg">
-          <table className="w-full overflow-hidden border-2 border-solid rounded-lg">
-            <thead className="px-4 border-b-2 border-black border-solid ">
+        <div className="box-content m-4 bg-white rounded-lg">
+          <table className="w-full overflow-hidden rounded-lg">
+            <thead className="px-4 border-2 border-black border-solid rounded-lg">
               <tr>
                 <th className="px-4 py-2 text-left border-r-2 border-black">Rank</th>
                 <th className="px-4 py-2 text-left border-r-2 border-black">

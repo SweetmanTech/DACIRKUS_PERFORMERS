@@ -20,7 +20,7 @@ const LeaderboardRow = ({ address, numberOwned, rank, twitterHandle }) => {
 
   return (
     <tr key={address} className="text-center bg-white hover:bg-blue-300">
-      <td className="px-4 py-2 border-r-2 border-black">#{rank}</td>
+      <td className="px-4 py-2 border-l-2 border-r-2 border-black">#{rank}</td>
       <td className="px-4 py-2 border-r-2 border-black">{numberOwned}</td>
       <td className="flex items-center gap-3 px-4 py-2 border-r-2 border-black">
         <PFP address={address} height={25} width={25} />
