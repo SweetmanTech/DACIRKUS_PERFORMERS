@@ -1,13 +1,15 @@
 import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
+import { signOut } from "next-auth/react"
 import customLoader from "../../lib/customLoader"
 import { Button } from "../../shared/Button"
 
 interface HeaderProps {
   connect?: boolean
+  logout?: boolean
 }
-const Header: FC<HeaderProps> = ({ connect }) => (
+const Header: FC<HeaderProps> = ({ connect, logout }) => (
   <nav className="fixed top-0 z-50 flex flex-row items-center justify-between w-screen p-2 text-black bg-white font-objektivmk1_bold">
     <span className="relative items-center flex-shrink-0 w-20 mt-6 mr-6 cursor-auto lg:mt-0 lg:md:w-36 lg:flex">
       <Link href="/">
@@ -45,10 +47,21 @@ const Header: FC<HeaderProps> = ({ connect }) => (
           </div>
         </Link>
       )}
-      {connect && (
+      {connect && !logout && (
         <Link href="/connect">
           <Button className="border-none">Connect</Button>
         </Link>
+      )}
+      {connect && logout && (
+        <Button
+          className="border-none"
+          onClick={(e) => {
+            e.preventDefault()
+            signOut()
+          }}
+        >
+          Logout
+        </Button>
       )}
     </div>
   </nav>
