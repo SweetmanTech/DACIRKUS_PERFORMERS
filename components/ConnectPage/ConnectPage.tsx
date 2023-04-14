@@ -44,32 +44,19 @@ function ConnectPage() {
   return (
     <div className="bg-[url('/leaderboard_background.png')]">
       <div className="flex flex-col items-center justify-center h-screen gap-y-4 ">
-        {!session?.user && (
           <Image
-            src="/twitter_log_in.png"
+            src={session?.user ? "/twitter_logout.png" : "/twitter_log_in.png"}
             alt="Twitter Login"
             width={400}
             height={100}
             loader={customLoader}
             onClick={(e) => {
               e.preventDefault()
-              signIn("twitter")
+              if (session?.user) {signOut()}
+              else {sigIn("twitter")}
             }}
           />
-        )}
-        {session?.user && (
-          <Image
-            src="/twitter_logout.png"
-            alt="Twitter Login"
-            width={400}
-            height={100}
-            loader={customLoader}
-            onClick={(e) => {
-              e.preventDefault()
-              signOut()
-            }}
-          />
-        )}
+
         {!address && (
           <WalletConnectButton>
             <Image
