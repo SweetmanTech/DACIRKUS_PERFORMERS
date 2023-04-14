@@ -1,3 +1,3 @@
-import WalletConnectButton from './WalletConnectButton';
+import WalletConnectButton from "./WalletConnectButton"
 
-export default WalletConnectButton;
+export default WalletConnectButton
