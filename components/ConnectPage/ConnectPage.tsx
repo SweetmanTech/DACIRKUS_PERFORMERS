@@ -53,7 +53,7 @@ function ConnectPage() {
             onClick={(e) => {
               e.preventDefault()
               if (session?.user) {signOut()}
-              else {sigIn("twitter")}
+              else {signIn("twitter")}
             }}
           />
 
