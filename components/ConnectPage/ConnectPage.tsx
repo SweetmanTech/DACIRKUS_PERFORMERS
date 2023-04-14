@@ -7,7 +7,7 @@ import { toast } from "react-toastify"
 import Link from "next/link"
 import Image from "next/image"
 import isAddressRegistered from "../../lib/isAddressRegistered"
-import WalletConnectButton from "../WalletConnectButton/WalletConnectButton"
+import WalletConnectButton from "../WalletConnectButton"
 import customLoader from "../../lib/customLoader"
 
 function ConnectPage() {
