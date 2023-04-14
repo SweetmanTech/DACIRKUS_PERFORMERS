@@ -1,14 +1,14 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 import { useEffect } from "react"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
 import { useAccount } from "wagmi"
 import { signIn, useSession, signOut } from "next-auth/react"
 import axios from "axios"
 import { toast } from "react-toastify"
 import Link from "next/link"
+import Image from "next/image"
 import isAddressRegistered from "../../lib/isAddressRegistered"
-import NavBar from "../NavBar"
-import { Button } from "../../shared/Button"
+import WalletConnectButton from "../WalletConnectButton"
+import customLoader from "../../lib/customLoader"
 
 function ConnectPage() {
   const { address } = useAccount()
@@ -42,34 +42,44 @@ function ConnectPage() {
   }, [session, address])
 
   return (
-    <div className="flex flex-col mt-3">
-      {address && <NavBar />}
-      <div className="flex flex-col items-center justify-around text-white pt-10 h-[75vh]">
-        <span>
-          {session?.user && <small>Signed in as</small>}
-          <br />
-          {session?.user && <strong>{session?.user.email || session.user.name}</strong>}
-          <a
-            href={session?.user ? "/api/auth/signout" : "/api/auth/signin"}
-            onClick={(e) => {
-              e.preventDefault()
-              if (session?.user) {
-                signOut()
-              } else {
-                signIn("twitter")
-              }
-            }}
-          >
-            <Button onClick={(e) => e.preventDefault()}>
-              {session?.user ? "Sign out" : "Twitter Sign in"}
-            </Button>
-          </a>
-        </span>
+    <div className="bg-[url('/leaderboard_background.png')]">
+      <div className="flex flex-col items-center justify-center h-screen gap-y-4 ">
+        <Image
+          src={session?.user ? "/twitter_logout.png" : "/twitter_log_in.png"}
+          alt="Twitter Login"
+          width={400}
+          height={100}
+          loader={customLoader}
+          onClick={(e) => {
+            e.preventDefault()
+            if (session?.user) {
+              signOut()
+            } else {
+              signIn("twitter")
+            }
+          }}
+        />
 
-        {!address && <ConnectButton />}
+        {!address && (
+          <WalletConnectButton>
+            <Image
+              src="/connect_wallet.png"
+              alt="WalletConnect"
+              width={400}
+              height={100}
+              loader={customLoader}
+            />
+          </WalletConnectButton>
+        )}
         {session?.user && (
           <Link href="/leaderboard">
-            <Button>Leaderboard</Button>
+            <Image
+              src="/leaderboard.png"
+              alt="WalletConnect"
+              width={400}
+              height={100}
+              loader={customLoader}
+            />
           </Link>
         )}
       </div>
