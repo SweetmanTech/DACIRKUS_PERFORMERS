@@ -25,17 +25,12 @@ const Header: FC<HeaderProps> = ({ connect, logout }) => (
     </span>
 
     <div className="flex-row items-center text-xs rounded lg:items-right lg:w-auto lg:md:text-sm font-objektivmk1_bold ">
-      <Link href="/">
+      <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
         <div className="inline-block pl-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0 lg:md:px-4">
           Twitter
         </div>
-      </Link>
-      <Link href="/">
-        <div className="inline-block pl-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0 lg:md:px-4">
-          Discord
-        </div>
-      </Link>
-      <Link href="/">
+      </a>
+      <Link href="http://subscribe.cre8ors.com" target="_blank" rel="noreferrer">
         <div className="inline-block py-2 pl-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0 lg:md:px-4">
           Newsletter
         </div>
