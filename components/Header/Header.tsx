@@ -35,7 +35,7 @@ const Header: FC<HeaderProps> = ({ connect, logout }) => (
           Discord
         </div>
       </Link>
-      <Link href="/">
+      <Link href="https://cre8ors.beehiiv.com/?_gl=1*16y8c82*_ga*NzQ0MjY2NzkyLjE2NzI4NzY1OTY.*_ga_E6Y4WLQ2EC*MTY4MTQ5NTA5Ny4zNS4xLjE2ODE0OTUxMDAuNTcuMC4w">
         <div className="inline-block py-2 pl-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0 lg:md:px-4">
           Newsletter
         </div>

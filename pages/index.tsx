@@ -2,6 +2,7 @@
 import type { NextPage } from "next"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import Link from "next/link"
 import Header from "../components/Header"
 import SeoHead from "../components/SeoHead"
 import customLoader from "../lib/customLoader"
@@ -39,46 +40,52 @@ const Home: NextPage = () => (
         height={2671}
         loader={customLoader}
       />
-      <div className="absolute z-10 justify-center inline-block lg:md:mt-36 lg:top-96 md:top-80 top-24 lg:md:top-36">
+      <div className="absolute z-10 justify-center inline-block cursor-pointer lg:md:mt-36 lg:top-96 md:top-80 top-24 lg:md:top-36">
         <div className="flex flex-row ">
           <motion.div
             whileHover={{
               scale: 1.005,
             }}
           >
-            <Image
-              src="/COMMUNITYFUNNEL.svg"
-              alt="community funnel"
-              width={980}
-              height={513}
-              loader={customLoader}
-            />
+            <Link href="https://cre8ors.beehiiv.com/?_gl=1*16y8c82*_ga*NzQ0MjY2NzkyLjE2NzI4NzY1OTY.*_ga_E6Y4WLQ2EC*MTY4MTQ5NTA5Ny4zNS4xLjE2ODE0OTUxMDAuNTcuMC4w">
+              <Image
+                src="/COMMUNITYFUNNEL.svg"
+                alt="community funnel"
+                width={980}
+                height={513}
+                loader={customLoader}
+              />
+            </Link>
           </motion.div>
           <motion.div
             whileHover={{
               scale: 1.005,
             }}
           >
-            <Image
-              src="/CRE8ORSWORLD.svg"
-              alt="community funnel"
-              width={980}
-              height={513}
-              loader={customLoader}
-            />
+            <Link href="https://cre8ors.beehiiv.com/?_gl=1*16y8c82*_ga*NzQ0MjY2NzkyLjE2NzI4NzY1OTY.*_ga_E6Y4WLQ2EC*MTY4MTQ5NTA5Ny4zNS4xLjE2ODE0OTUxMDAuNTcuMC4w">
+              <Image
+                src="/CRE8ORSWORLD.svg"
+                alt="community funnel"
+                width={980}
+                height={513}
+                loader={customLoader}
+              />
+            </Link>
           </motion.div>
           <motion.div
             whileHover={{
               scale: 1.005,
             }}
           >
-            <Image
-              src="/EMPATHY.svg"
-              alt="community funnel"
-              width={980}
-              height={513}
-              loader={customLoader}
-            />
+            <Link href="https://cre8ors.beehiiv.com/?_gl=1*16y8c82*_ga*NzQ0MjY2NzkyLjE2NzI4NzY1OTY.*_ga_E6Y4WLQ2EC*MTY4MTQ5NTA5Ny4zNS4xLjE2ODE0OTUxMDAuNTcuMC4w">
+              <Image
+                src="/EMPATHY.svg"
+                alt="community funnel"
+                width={980}
+                height={513}
+                loader={customLoader}
+              />
+            </Link>
           </motion.div>
         </div>
         <div className="flex items-center justify-center w-full mt-2">
