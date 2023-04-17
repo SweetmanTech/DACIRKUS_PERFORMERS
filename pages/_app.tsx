@@ -9,14 +9,7 @@ import { SessionProvider } from "next-auth/react"
 import "react-toastify/dist/ReactToastify.css"
 import { UserProvider } from "../providers/UserProvider"
 
-const { chains, provider, webSocketProvider } = configureChains(
-  allChains.filter(
-    (c) =>
-      c.id === Number(process.env.NEXT_PUBLIC_CHAIN_ID) ||
-      c.id === Number(process.env.NEXT_PUBLIC_ALLOW_LIST_CHAIN_ID),
-  ),
-  [publicProvider()],
-)
+const { chains, provider, webSocketProvider } = configureChains(allChains, [publicProvider()])
 
 const { connectors } = getDefaultWallets({
   appName: "CRE8ORS",
