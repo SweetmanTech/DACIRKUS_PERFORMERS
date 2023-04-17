@@ -30,11 +30,11 @@ const Header: FC<HeaderProps> = ({ connect, logout }) => (
           Twitter
         </div>
       </a>
-      <Link href="http://subscribe.cre8ors.com" target="_blank" rel="noreferrer">
+      <a href="http://subscribe.cre8ors.com" target="_blank" rel="noreferrer">
         <div className="inline-block py-2 pl-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0 lg:md:px-4">
           Newsletter
         </div>
-      </Link>
+      </a>
       {!connect && (
         <Link href="/leaderboard">
           <div className="inline-block py-2 pl-2 mt-4 cursor-pointer hover:border-transparent lg:mt-0 lg:md:px-4">
