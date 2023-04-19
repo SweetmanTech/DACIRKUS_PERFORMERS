@@ -21,6 +21,12 @@
     font-weight: 400;
     src: url("/fonts/Eigerdals/Eigerdals_W00_Heavy.ttf") format("truetype");
   }
+  @font-face{
+    font-family: "Objectiv Mk1 Trial Rg";
+    font-style: light;
+    font-weight: 400;
+    src: url("/fonts/ObjectiveMk1Norm/ObjektivMk1_Trial_Rg.ttf") format("truetype");
+  }
 
 html,
 body {
