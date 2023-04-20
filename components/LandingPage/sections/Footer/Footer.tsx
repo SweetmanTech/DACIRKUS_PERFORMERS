@@ -25,6 +25,7 @@ const CTA_BUTTONS = [
     alt: "newsletter",
     src: "/CTA-NEWSLETTER.png",
     srcHover: "/hover/CTA-NEWSLETTERHOVER.png",
+    link: "https://cre8ors.beehiiv.com/?_gl=1*16y8c82*_ga*NzQ0MjY2NzkyLjE2NzI4NzY1OTY.*_ga_E6Y4WLQ2EC*MTY4MTQ5NTA5Ny4zNS4xLjE2ODE0OTUxMDAuNTcuMC4w",
   },
 ]
 const Footer = () => {
