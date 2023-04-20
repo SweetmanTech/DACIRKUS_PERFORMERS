@@ -2,6 +2,7 @@ import Header from "../Header"
 import SeoHead from "../SeoHead"
 import Community from "./sections/Community"
 import Content from "./sections/Content"
+
 import Hero from "./sections/Hero"
 
 const LandingPage = () => (

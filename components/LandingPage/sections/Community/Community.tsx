@@ -3,6 +3,7 @@ import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import customLoader from "../../../../lib/customLoader"
+import Footer from "../Footer"
 
 const Community = () => {
   const [isHovered, setIsHovered] = useState({ red: false, yellow: false, purple: false })
@@ -74,6 +75,7 @@ const Community = () => {
           <Image src="scroll.png" alt="scroll" width={1810} height={52} loader={customLoader} />
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
