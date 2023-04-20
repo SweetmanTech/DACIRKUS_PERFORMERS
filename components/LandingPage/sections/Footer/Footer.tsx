@@ -1,6 +1,7 @@
 import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
+import Link from "next/link"
 import customLoader from "../../../../lib/customLoader"
 
 const CTA_BUTTONS = [
@@ -8,6 +9,7 @@ const CTA_BUTTONS = [
     alt: "twitter",
     src: "/CTA-TWITTER.png",
     srcHover: "/hover/CTA-TWITTERHOVER.png",
+    link: "https://twitter.com/Cre8orsNFT",
   },
   {
     alt: "discord",
@@ -42,13 +44,15 @@ const Footer = () => {
           onMouseEnter={() => setIsHovered({ ...isHovered, [button.alt]: true })}
           onMouseLeave={() => setIsHovered({ ...isHovered, [button.alt]: false })}
         >
-          <Image
-            src={isHovered[button.alt] ? button.srcHover : button.src}
-            alt={button.alt}
-            width={400}
-            height={200}
-            loader={customLoader}
-          />
+          <Link href={button.link || "/"}>
+            <Image
+              src={isHovered[button.alt] ? button.srcHover : button.src}
+              alt={button.alt}
+              width={400}
+              height={200}
+              loader={customLoader}
+            />
+          </Link>
         </motion.div>
       ))}
     </footer>

@@ -29,7 +29,7 @@ const Header: FC<HeaderProps> = ({ connect, logout }) => {
       </span>
 
       <div className="flex-row items-center text-sm rounded lg:items-right lg:w-auto lg:md:text-sm font-objektivmk1_bold ">
-        <Link href="/">
+        <Link href="https://twitter.com/Cre8orsNFT">
           <div className="inline-block pl-2 mt-4 cursor-pointer text-md hover:border-transparent lg:mt-0 lg:md:px-4">
             {isMobile ? (
               <Image
