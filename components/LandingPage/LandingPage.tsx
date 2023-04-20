@@ -10,8 +10,8 @@ const LandingPage = () => (
   <div className="h-screen overflow-y-auto text-black bg-white">
     <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
     <Header />
-    {/* <Hero />
-    <Content />
+    <Hero />
+    {/* <Content />
     <Community /> */}
   </div>
 )
