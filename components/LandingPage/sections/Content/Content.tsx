@@ -3,7 +3,7 @@ import Image from "next/image"
 const Content = () => (
   <div className="relative flex flex-col items-center justify-center mt-20 mb-24 lg:md:mt-72">
     <Image src="/main_clouds.png" alt="clouds" layout="fill" objectFit="cover" />
-    <div className="abosulute z-20 lg:w-[58%] w-3/4 space-y-8 items-center space-between ">
+    <div className="abosulute z-20 lg:md:w-[58%] w-3/4 space-y-8 items-center space-between ">
       <div className="py-12 space-y-4 lg:pb-72 md:py-24">
         <p className="justify-around text-2xl text-center lg:m-12 lg:text-8xl md:text-6xl font-eigerdals">
           A community built for Web3 creators.
