@@ -11,8 +11,8 @@ const LandingPage = () => (
     <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
     <Header />
     <Hero />
-    {/* <Content />
-    <Community /> */}
+    <Content />
+    {/* <Community /> */}
   </div>
 )
 
