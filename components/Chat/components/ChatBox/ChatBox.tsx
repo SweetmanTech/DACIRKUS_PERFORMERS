@@ -59,7 +59,7 @@ const ChatBox = ({ setOpenChat, roomName }) => {
   return (
     // <!-- chat box -->
 
-    <div className="flex flex-col bg-white border-4 border-black rounded-lg shadow-md w-[400px] h-[600px]">
+    <div className="flex flex-col bg-white border-4 border-black rounded-lg shadow-md lg:md:w-[400px] w-72 lg:md:h-[600px] h-96">
       <div className="flex items-center justify-between p-2 border-b">
         {/* <!-- user info --> */}
         <div className="flex items-center">
