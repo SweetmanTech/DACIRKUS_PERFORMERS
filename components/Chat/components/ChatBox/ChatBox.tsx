@@ -18,7 +18,7 @@ const ChatBox = ({ setOpenChat, roomName }) => {
   }
 
   const myMessage = (message) => (
-    <div className="flex flex-row-reverse items-center mb-4">
+    <div className="flex flex-row-reverse items-center mb-4" key={message}>
       <div className="flex flex-col items-center flex-none ml-4 space-y-1">
         <img
           alt=""
