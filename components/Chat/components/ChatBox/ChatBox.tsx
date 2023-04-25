@@ -1,13 +1,11 @@
 import { useState } from "react"
 import Image from "next/image"
-import useChat from "../../../../hooks/useChat"
 import customLoader from "../../../../lib/customLoader"
+import { useChatProvider } from "../../../../providers/ChatProvider"
 /* eslint-disable @next/next/no-img-element */
-const ChatBox = ({ setOpenChat, roomName }) => {
+const ChatBox = () => {
   const [newMessage, setNewMessage] = useState("")
-  const { messages, ably, messageEnd, sendChatMessage } = useChat(
-    roomName.toLowerCase().replace(" ", "-"),
-  )
+  const { messages, ably, messageEnd, sendChatMessage, setOpenChat } = useChatProvider()
 
   const handleNewMessageChange = (event) => {
     setNewMessage(event.target.value)
@@ -29,7 +27,7 @@ const ChatBox = ({ setOpenChat, roomName }) => {
       <div className="relative flex-1 p-2 mb-2 text-gray-800 bg-gray-300 rounded-lg">
         <div>{message.data}</div>
 
-        <div className="absolute w-4 h-4 transform rotate-45 translate-x-1/2 bg-gray-300 right-1 top-1/2" />
+        <div className="absolute right-0 w-2 h-2 transform rotate-45 translate-x-1/2 bg-gray-300 top-1/2" />
       </div>
     </div>
   )
@@ -48,7 +46,7 @@ const ChatBox = ({ setOpenChat, roomName }) => {
         <div>{message.data}</div>
 
         {/* <!-- arrow --> */}
-        <div className="absolute w-4 h-4 transform rotate-45 -translate-x-1/2 bg-gray-300 left-1 top-1/2" />
+        <div className="absolute left-0 w-2 h-2 transform rotate-45 -translate-x-1/2 bg-gray-300 top-1/2" />
         {/* <!-- end arrow --> */}
       </div>
     </div>

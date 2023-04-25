@@ -5,7 +5,6 @@ import { motion } from "framer-motion"
 import Header from "../components/Header"
 import SeoHead from "../components/SeoHead"
 import customLoader from "../lib/customLoader"
-import Chat from "../components/Chat"
 
 const Home: NextPage = () => (
   <div className="h-screen overflow-y-auto text-black bg-white">
@@ -87,7 +86,6 @@ const Home: NextPage = () => (
         </div>
       </div>
     </div>
-    <Chat />
   </div>
 )
 
