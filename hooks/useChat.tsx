@@ -17,8 +17,7 @@ const useChat = (channelRoom: string) => {
       authUrl: "/api/createTokenRequest",
     })
 
-    const tempChannel = tempAbly.channels.get(channelRoom)
-
+    const tempChannel = tempAbly.channels.get(`[?rewind=60s]${channelRoom}`)
     tempChannel.subscribe((message: Ably.Types.Message) => {
       const history = messages.slice(-199)
       setMessages([...history, message])

@@ -18,21 +18,18 @@ const ChatBox = ({ setOpenChat, roomName }) => {
   }
 
   const myMessage = (message) => (
-    <div className="flex flex-row-reverse items-center mb-4" key={message}>
+    <div className="flex flex-row-reverse items-center mb-4">
       <div className="flex flex-col items-center flex-none ml-4 space-y-1">
         <img
           alt=""
-          className="w-10 h-10 p-0.5 border-2 border-black rounded-md"
+          className="w-10 h-10 rounded-full"
           src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         />
-        <div className="text-sm text-black">Me</div>
       </div>
-      <div className="relative bottom-0 flex-1 p-2 mb-2 text-gray-800 border-2 border-black rounded-lg">
+      <div className="relative flex-1 p-2 mb-2 text-gray-800 bg-gray-100 rounded-lg">
         <div>{message.data}</div>
 
-        {/* <!-- arrow --> */}
-        <div className="absolute right-0 w-2 h-2 transform rotate-45 translate-x-1/2 top-1/2" />
-        {/* <!-- end arrow --> */}
+        <div className="absolute right-0 w-2 h-2 transform rotate-45 translate-x-1/2 bg-gray-100 top-1/2" />
       </div>
     </div>
   )
@@ -60,7 +57,7 @@ const ChatBox = ({ setOpenChat, roomName }) => {
     // <!-- chat box -->
 
     <div className="flex flex-col bg-white border-4 border-black rounded-lg shadow-md lg:md:w-[400px] w-72 lg:md:h-[600px] h-96">
-      <div className="flex items-center justify-between p-2 border-b">
+      <div className="flex items-center justify-between p-2 border-b-4 border-black">
         {/* <!-- user info --> */}
         <div className="flex items-center">
           <div className="pl-2">
@@ -103,10 +100,10 @@ const ChatBox = ({ setOpenChat, roomName }) => {
         />
       </div>
 
-      <div className="flex items-center p-2 border-t">
-        <div className="w-full">
+      <div className="flex items-center p-2 border-t-4 border-black">
+        <div className="w-full focus:outline-none">
           <input
-            className="w-full h-12 p-2 text-black border-4 border-black rounded-md"
+            className="w-full h-12 p-2 text-black border-4 border-black rounded-md focus:border-black focus:ring-0"
             type="text"
             value={newMessage}
             placeholder="Aa"
