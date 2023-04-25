@@ -26,10 +26,10 @@ const ChatBox = ({ setOpenChat, roomName }) => {
           src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
         />
       </div>
-      <div className="relative flex-1 p-2 mb-2 text-gray-800 bg-gray-100 rounded-lg">
+      <div className="relative flex-1 p-2 mb-2 text-gray-800 bg-gray-300 rounded-lg">
         <div>{message.data}</div>
 
-        <div className="absolute right-0 w-2 h-2 transform rotate-45 translate-x-1/2 bg-gray-100 top-1/2" />
+        <div className="absolute w-4 h-4 transform rotate-45 translate-x-1/2 bg-gray-300 right-1 top-1/2" />
       </div>
     </div>
   )
@@ -44,11 +44,11 @@ const ChatBox = ({ setOpenChat, roomName }) => {
         />
         <div className="text-sm text-black">{message.connectionId}</div>
       </div>
-      <div className="relative bottom-0 flex-1 p-2 mb-2 text-gray-800 border-2 border-black rounded-lg">
+      <div className="relative flex-1 p-2 mb-2 text-gray-800 bg-gray-300 rounded-lg">
         <div>{message.data}</div>
 
         {/* <!-- arrow --> */}
-        <div className="absolute left-0 w-2 h-2 transform rotate-45 -translate-x-1/2 top-1/2" />
+        <div className="absolute w-4 h-4 transform rotate-45 -translate-x-1/2 bg-gray-300 left-1 top-1/2" />
         {/* <!-- end arrow --> */}
       </div>
     </div>
