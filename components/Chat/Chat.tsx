@@ -2,7 +2,7 @@ import dynamic from "next/dynamic"
 import ChatButton from "./components/ChatButton"
 import { useChatProvider } from "../../providers/ChatProvider"
 
-const ChatBox = dynamic(() => import("./components/ChatBox"), { ssr: true })
+const ChatBox = dynamic(() => import("./components/ChatBox"), { ssr: false })
 
 const Chat = () => {
   const { openChat } = useChatProvider()
