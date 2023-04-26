@@ -1,0 +1,20 @@
+import dynamic from "next/dynamic"
+import ChatButton from "./components/ChatButton"
+import { useChatProvider } from "../../providers/ChatProvider"
+
+const ChatBox = dynamic(() => import("./components/ChatBox"), { ssr: true })
+
+const Chat = () => {
+  const { openChat } = useChatProvider()
+
+  return (
+    <div className="fixed z-40 bottom-4 right-4">
+      <div className="flex space-x-4">
+        <ChatButton />
+        {openChat && <ChatBox />}
+      </div>
+    </div>
+  )
+}
+
+export default Chat

@@ -8,6 +8,8 @@ import { ToastContainer } from "react-toastify"
 import { SessionProvider } from "next-auth/react"
 import "react-toastify/dist/ReactToastify.css"
 import { UserProvider } from "../providers/UserProvider"
+import { ChatProvider } from "../providers/ChatProvider"
+import Chat from "../components/Chat"
 
 const { chains, provider, webSocketProvider } = configureChains(allChains, [publicProvider()])
 
@@ -29,8 +31,11 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RainbowKitProvider modalSize="compact" chains={chains}>
         <SessionProvider>
           <UserProvider>
-            <Component {...pageProps} />
-            <ToastContainer />
+            <ChatProvider>
+              <Component {...pageProps} />
+              <Chat />
+              <ToastContainer />
+            </ChatProvider>
           </UserProvider>
         </SessionProvider>
       </RainbowKitProvider>

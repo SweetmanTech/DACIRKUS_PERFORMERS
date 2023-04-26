@@ -12,6 +12,7 @@
     "format": "yarn run prettier:fix && yarn run lint:fix"
   },
   "dependencies": {
+    "@ably-labs/react-hooks": "^2.1.0",
     "@heroicons/react": "^2.0.16",
     "@magic-sdk/admin": "^1.8.0",
     "@rainbow-me/rainbowkit": "^0.7.4",
