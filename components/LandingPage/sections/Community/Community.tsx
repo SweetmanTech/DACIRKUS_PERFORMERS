@@ -80,11 +80,11 @@ const Community = () => {
         src="/CITYSCAPE2.png"
         alt="cityscape"
         width={1988}
-        height={3271}
+        height={3071}
         loader={customLoader}
       />
       <div className="absolute z-10 justify-center cursor-pointer lg:md:mt-10 lg:top-96 md:top-80 top-24 lg:md:top-36 samsungS8:top-10 ">
-        <div className="flex gap-5 p-4 overflow-x-auto snap-x snap-mandatory flex-nowrap scroll-h-96 scroll-pl-6 scrollbar scrollbar-thumb-red-600 scrollbar-thumb-rounded-lg scrollbar-track-gray-100 scrollbar-track-rounded-lg scroll-m-20">
+        <div className="flex gap-5 p-4 pr-4 overflow-x-auto border-b-4 border-black scrollbar-thumb-offset-8 snap-x snap-mandatory flex-nowrap scroll-h-96 scroll-pl-6 scrollbar scrollbar-thumb-red-600 scrollbar-thumb-rounded-lg scrollbar-track-gray-100 scrollbar-track-rounded-lg scroll-m-20">
           {COMMUNITY_CARDS.map((card) => (
             <motion.div
               key={card.title}
@@ -100,6 +100,29 @@ const Community = () => {
               </Link>
             </motion.div>
           ))}
+          <style jsx>{`
+            /* Style the scrollbar thumb */
+            ::-webkit-scrollbar-thumb {
+              border-radius: 999px;
+              border: 2px solid #f7fafc;
+              min-height: 48px;
+            }
+            ::-webkit-scrollbar-track {
+              border-radius: 999px;
+              border: 900px solid #f7fafc;
+              min-height: 48px;
+            }
+            /* Offset the scrollbar thumb */
+            ::-webkit-scrollbar-thumb:horizontal {
+              -webkit-transform: translateX(6px);
+              transform: translateX(6px);
+            }
+
+            ::-webkit-scrollbar-thumb:vertical {
+              -webkit-transform: translateY(6px);
+              transform: translateY(6px);
+            }
+          `}</style>
         </div>
         <Footer />
       </div>
