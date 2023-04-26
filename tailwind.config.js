@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -21,8 +22,8 @@ module.exports = {
     },
   },
   plugins: [
-    // eslint-disable-next-line global-require
     require("@tailwindcss/forms"),
+    require("tailwind-scrollbar")({ nocompatible: true }),
     // ...
   ],
 }

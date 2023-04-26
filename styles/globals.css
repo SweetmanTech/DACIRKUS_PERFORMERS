@@ -27,7 +27,16 @@
     font-weight: 400;
     src: url("/fonts/ObjectiveMk1Norm/ObjektivMk1_Trial_Rg.ttf") format("truetype");
   }
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
 
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
 html,
 body {
   background-color: #010e17;
@@ -45,6 +54,18 @@ body::-webkit-scrollbar {
 a {
   color: inherit;
   text-decoration: none;
+}
+
+.scroll-snap-x-mandatory {
+  scroll-snap-type: x mandatory;
+  -webkit-overflow-scrolling: touch;
+}
+
+@media (min-width: 640px) {
+  .scroll-snap-x-mandatory {
+    scroll-padding-left: 2rem;
+    scroll-padding-right: 2rem;
+  }
 }
 
 * {

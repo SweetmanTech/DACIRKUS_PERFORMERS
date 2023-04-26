@@ -35,7 +35,7 @@ const Footer = () => {
     },
   ]
   return (
-    <footer className="absolute flex flex-col items-center w-full mt-48 text-white lg:md:justify-center lg:md:mt-28 lg:md:py-4">
+    <footer className="relative flex flex-col items-center w-full text-white lg:md:justify-center lg:md:mt-28 lg:md:py-4">
       {CTA_BUTTONS.map((button) => (
         <motion.div
           key={button.alt}
