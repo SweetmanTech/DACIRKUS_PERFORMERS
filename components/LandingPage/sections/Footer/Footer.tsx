@@ -1,4 +1,3 @@
-// import { useState } from "react"
 import Image from "next/image"
 import { motion } from "framer-motion"
 import Link from "next/link"
