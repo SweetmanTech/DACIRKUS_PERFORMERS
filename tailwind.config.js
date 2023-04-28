@@ -1,3 +1,4 @@
+/* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -11,16 +12,18 @@ module.exports = {
         aldrich: ["Aldrich", "sans-serif"],
         objektivmk1_bold: ["Objektiv Mk1 Trial", "sans-serif"],
         eigerdals: ["Eigerdals", "sans-serif"],
+        objektivmk1: ["Objectiv Mk1 Trial Rg", "sans-serif"],
       },
       screens: {
         "3xl": "1920px",
         "4xl": "2560px",
+        samsungS8: "360px",
       },
     },
   },
   plugins: [
-    // eslint-disable-next-line global-require
     require("@tailwindcss/forms"),
+    require("tailwind-scrollbar")({ nocompatible: true }),
     // ...
   ],
 }
