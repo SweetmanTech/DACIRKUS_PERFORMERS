@@ -1,4 +1,3 @@
-import axios from "axios"
 import dbConnect from "../utils/db"
 import Avatars from "../Models/Avatars/Avatars"
 
@@ -30,6 +29,10 @@ export const getFoundingMembers = async () => {
 }
 
 export const getFoundingMemberData = async () => {
-  const data = await axios.get("/api/teams/foundingMembers")
-  return data.data
+  const data = await getFoundingMembers()
+  const mappedData = data.map((item) => ({
+    twitterHandle: item.twitterHandle,
+    profileImage: item.profileImage || null,
+  }))
+  return mappedData
 }
