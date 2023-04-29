@@ -17,7 +17,7 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
           </div>
         </div>
         <h2 className="text-lg text-gray-800 ">{twitterHandle || "twitter_handle"}</h2>
-        <Link href={`https://twitter.com/${twitterHandle}`}>
+        <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
           <button
             type="button"
             className="px-4 py-2 mt-4"
