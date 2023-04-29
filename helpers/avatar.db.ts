@@ -1,3 +1,4 @@
+import axios from "axios"
 import dbConnect from "../utils/db"
 import Avatars from "../Models/Avatars/Avatars"
 
@@ -26,4 +27,9 @@ export const getFoundingMembers = async () => {
   } catch (e) {
     throw new Error(e)
   }
+}
+
+export const getFoundingMemberData = async () => {
+  const data = await axios.get("/api/teams/foundingMembers")
+  return data.data
 }
