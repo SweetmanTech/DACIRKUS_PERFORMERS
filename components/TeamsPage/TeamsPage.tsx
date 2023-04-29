@@ -5,7 +5,7 @@ import TeamMembers from "./sections/TeamMembers"
 const TeamsPage = () => (
   <div className="min-h-screen overflow-y-auto text-black bg-white ">
     <Header />
-    <div className="relative flex flex-col items-center justify-center w-full mt-20">
+    <div className="relative flex flex-col items-center justify-center mt-20">
       <TeamMembers />
       <FoundingMembers />
     </div>
