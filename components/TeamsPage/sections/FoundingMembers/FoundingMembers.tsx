@@ -3,10 +3,6 @@ import axios from "axios"
 import { useEffect, useState } from "react"
 import FoundingMembersCard from "../../components/Cards/Founding"
 
-const membersArray = Array(88)
-  .fill(0)
-  .map((_, i) => i + 1)
-
 const FoundingMembers = () => {
   const [foundingMemberData, setFoundingMemberData] = useState([])
 
