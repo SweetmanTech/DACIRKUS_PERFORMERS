@@ -15,7 +15,7 @@ const FoundingMembers = () => (
       an integral part of the leading team of the Cre8ors collective.
     </div>
     <div className="mt-10 overflow-y-scroll h-96 scrollbar scrollbar-thumb-[#f9c003] scrollbar-track-white scrollbar-track-rounded-full scrollbar-thumb-rounded-full">
-      <div className="grid grid-cols-2 gap-4 overflow-y-scroll lg:grid-cols-4 md:grid-cols-2 gap-y-4 ">
+      <div className="grid grid-cols-1 gap-4 overflow-y-scroll lg:grid-cols-4 md:grid-cols-2 gap-y-4 ">
         {membersArray.map((_, i) => (
           <FoundingMembersCard key={`test${i}`} />
         ))}
