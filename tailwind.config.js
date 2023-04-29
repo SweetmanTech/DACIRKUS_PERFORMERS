@@ -15,9 +15,12 @@ module.exports = {
         objektivmk1: ["Objectiv Mk1 Trial Rg", "sans-serif"],
       },
       screens: {
+        samsungS8: "360px",
+        sm: "576px",
+        md: "960px",
+        lg: "1440px",
         "3xl": "1920px",
         "4xl": "2560px",
-        samsungS8: "360px",
       },
     },
   },
