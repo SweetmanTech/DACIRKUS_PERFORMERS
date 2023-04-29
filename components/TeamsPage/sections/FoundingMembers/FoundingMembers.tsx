@@ -19,7 +19,7 @@ const FoundingMembers = () => (
         {membersArray.map((_, i) => (
           <FoundingMembersCard key={`test${i}`} />
         ))}
-        <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-white via-white to-transparent" />
+        <div className="absolute bottom-0 left-0 right-0 h-5 lg:md:h-24 bg-gradient-to-t from-white via-white to-transparent" />
       </div>
     </div>
   </div>
