@@ -1,7 +1,7 @@
 import TeamMembersCard from "../../components/Cards/Team"
 
 const TeamMembers = () => (
-  <div className="flex flex-col lg:w-[90%] w-full m-4 gap-y-4">
+  <div className="flex flex-col lg:md::w-[90%] m-4 gap-y-4">
     <h2 className="text-4xl font-bold font-objektivmk1_bold">Team Members</h2>
     <div className="w-full text-sm font-bold lg:md:w-1/2 lg:md:text-xl font-objektivmk1">
       Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas et lobortis eros. Duis non
