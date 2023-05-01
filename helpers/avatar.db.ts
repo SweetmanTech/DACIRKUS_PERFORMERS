@@ -2,7 +2,7 @@ import dbConnect from "../utils/db"
 import Avatars from "../Models/Avatars/Avatars"
 
 export const addAvatar = async (body: {
-  walletAddress: string
+  walletAddress?: string
   twitterHandle: string
   profileImage?: string
   ensName?: string
@@ -27,7 +27,16 @@ export const getFoundingMembers = async () => {
     throw new Error(e)
   }
 }
-
+export const getExistingTwitterHandles = async () => {
+  try {
+    await dbConnect()
+    const result = await Avatars.find({}).lean()
+    const twitterHandles = result.map((item) => item.twitterHandle)
+    return twitterHandles
+  } catch (e) {
+    throw new Error(e)
+  }
+}
 export const getFoundingMemberData = async () => {
   const data = await getFoundingMembers()
   const mappedData = data.map((item) => ({

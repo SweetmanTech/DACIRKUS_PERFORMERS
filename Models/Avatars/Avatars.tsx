@@ -1,7 +1,7 @@
 import { Schema, model, models, Model } from "mongoose"
 
 interface Avatar {
-  walletAddress: string
+  walletAddress?: string
   twitterHandle: string
   profileImage?: string
   ensName?: string
@@ -12,7 +12,7 @@ interface Avatar {
 const AvatarSchema = new Schema<Avatar>({
   walletAddress: {
     type: String,
-    required: [true, "Please add a wallet address"],
+    required: [false, "Please add a wallet address"],
   },
   twitterHandle: {
     type: String,
