@@ -12,12 +12,13 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
     <div className="m-2 overflow-hidden bg-white shadow-lg rounded-2xl">
       <div className="flex flex-row items-center justify-around">
         <div className="m-2 ">
-          <div className="items-center object-cover object-center p-2 border rounded-full">
+          <div className="items-center object-cover object-center rounded-full">
             <Image
               src={profilePic || "/CRE8ORSLOGO_ICON.png"}
               alt="Profile picture"
-              width={30}
-              height={30}
+              className="rounded-full "
+              width={50}
+              height={50}
             />
           </div>
         </div>
