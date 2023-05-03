@@ -51,8 +51,8 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
                   <Image
                     src={hovered ? "/hover/twitter_hover_button.png" : "/twitter_button.png"}
                     alt="Profile picture"
-                    width={45}
-                    height={28}
+                    width={55}
+                    height={34}
                   />
                 </button>
               </Link>
