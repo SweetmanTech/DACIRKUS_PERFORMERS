@@ -18,7 +18,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
 }) => {
   const [hovered, setHovered] = useState(false)
   return (
-    <div className="flex flex-row items-start justify-around h-full my-2 overflow-hidden bg-white shadow-lg rounded-2xl font-objektivmk1">
+    <div className="flex flex-row items-start justify-around h-full p-4 my-2 overflow-hidden bg-white shadow-lg rounded-2xl font-objektivmk1">
       <div className="flex w-1/4 h-full p-2 ">
         <div className="block w-20 h-20 rounded-full ">
           <Image
@@ -31,15 +31,15 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           />
         </div>
       </div>
-      <div className="flex flex-col w-3/4 h-full p-2 ">
+      <div className="flex flex-col w-3/4 h-full">
         <div className="flex w-full h-full">
-          <div className="flex w-2/3 h-full">
+          <div className="flex w-3/4 h-full">
             <div className="flex flex-col">
               <h2 className="text-xl font-bold text-gray-800 ">{name || "John Doe"}</h2>
               <h5 className="text-gray-800 text-md ">{role || "Person Role"}</h5>
             </div>
           </div>
-          <div className="flex w-1/3 h-full">
+          <div className="flex items-start w-1/4 h-full">
             <div className="flex items-start justify-around w-full h-full">
               <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
                 <button
@@ -59,7 +59,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex w-full h-full py-2">
+        <div className="flex w-full h-full ">
           <div className="justify-center w-full h-full text-left">{favQuote}</div>
         </div>
       </div>
