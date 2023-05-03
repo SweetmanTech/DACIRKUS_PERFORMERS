@@ -1,14 +1,21 @@
 import TeamsPage from "../../components/TeamsPage"
 import { getFoundingMemberData } from "../../helpers/avatar.db"
+import { getTeamMemberData } from "../../helpers/team.db"
 
 export async function getStaticProps() {
-  const foundingMemberData = await getFoundingMemberData()
+  const [foundingMemberData, teamMemberData] = await Promise.all([
+    await getFoundingMemberData(),
+    await getTeamMemberData(),
+  ])
   return {
     props: {
       foundingMemberData,
+      teamMemberData,
     },
   }
 }
-const Teams = ({ foundingMemberData }) => <TeamsPage foundingMemberData={foundingMemberData} />
+const Teams = ({ foundingMemberData, teamMemberData }) => (
+  <TeamsPage foundingMemberData={foundingMemberData} teamMemberData={teamMemberData} />
+)
 
 export default Teams

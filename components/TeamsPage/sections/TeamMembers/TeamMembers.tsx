@@ -1,6 +1,6 @@
 import TeamMembersCard from "../../components/Cards/Team"
 
-const TeamMembers = () => (
+const TeamMembers = ({ teamMemberData }) => (
   <div className="flex flex-col lg:md:w-[90%] m-4 gap-y-4">
     <h2 className="text-4xl font-bold font-objektivmk1_bold">Team Members</h2>
     <div className="w-full text-sm font-bold lg:md:w-1/2 lg:md:text-xl font-objektivmk1">
@@ -11,14 +11,9 @@ const TeamMembers = () => (
       malesuada, at euismod augue aliquet. Aenean eget purus urna. Nulla et sagittis diam.
     </div>
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
-      <TeamMembersCard />
-      <TeamMembersCard />
-      <TeamMembersCard />
-      <TeamMembersCard />
-      <TeamMembersCard />
-      <TeamMembersCard />
-      <TeamMembersCard />
-      <TeamMembersCard />
+      {teamMemberData.map(({ name, role, favQuote, imgSrc }) => (
+        <TeamMembersCard key={name} name={name} role={role} favQuote={favQuote} imgSrc={imgSrc} />
+      ))}
     </div>
   </div>
 )
