@@ -35,7 +35,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
         <div className="flex w-full h-full ">
           <div className="flex flex-col">
             <h2 className="text-xl font-bold text-gray-800 ">{name || "John Doe"}</h2>
-            <h5 className="text-sm text-gray-800 ">{role || "Person Role"}</h5>
+            <h5 className="text-gray-800 text-md ">{role || "Person Role"}</h5>
           </div>
         </div>
         <div className="flex items-start justify-around w-full h-full">
