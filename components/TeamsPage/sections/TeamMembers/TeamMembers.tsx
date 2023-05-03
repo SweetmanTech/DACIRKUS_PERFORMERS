@@ -11,8 +11,15 @@ const TeamMembers = ({ teamMemberData }) => (
       malesuada, at euismod augue aliquet. Aenean eget purus urna. Nulla et sagittis diam.
     </div>
     <div className="grid grid-cols-1 gap-4 lg:grid-cols-4 md:grid-cols-2">
-      {teamMemberData.map(({ name, role, favQuote, imgSrc }) => (
-        <TeamMembersCard key={name} name={name} role={role} favQuote={favQuote} imgSrc={imgSrc} />
+      {teamMemberData.map(({ name, role, favQuote, imgSrc, twitterHandle }) => (
+        <TeamMembersCard
+          key={name}
+          name={name}
+          role={role}
+          favQuote={favQuote}
+          imgSrc={imgSrc}
+          twitterHandle={twitterHandle}
+        />
       ))}
     </div>
   </div>

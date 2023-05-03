@@ -1,4 +1,5 @@
 import Image from "next/image"
+import Link from "next/link"
 import { FC, useState } from "react"
 
 interface TeamMembersCardProps {
@@ -6,8 +7,15 @@ interface TeamMembersCardProps {
   role?: string
   favQuote?: string
   imgSrc?: string
+  twitterHandle?: string
 }
-const TeamMembersCard: FC<TeamMembersCardProps> = ({ name, role, favQuote, imgSrc }) => {
+const TeamMembersCard: FC<TeamMembersCardProps> = ({
+  name,
+  role,
+  favQuote,
+  imgSrc,
+  twitterHandle,
+}) => {
   const [hovered, setHovered] = useState(false)
   return (
     <div className="my-2 overflow-hidden bg-white shadow-lg rounded-2xl">
@@ -30,20 +38,21 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({ name, role, favQuote, imgSr
               <h2 className="mt-4 text-xl font-bold text-gray-800">{name || "John Doe"}</h2>
               <h5>{role || "Person Role"}</h5>
             </div>
-
-            <button
-              type="button"
-              className="px-4 py-2 mt-4"
-              onMouseEnter={() => setHovered(true)}
-              onMouseLeave={() => setHovered(false)}
-            >
-              <Image
-                src={hovered ? "/hover/twitter_hover_button.png" : "/twitter_button.png"}
-                alt="Profile picture"
-                width={45}
-                height={28}
-              />
-            </button>
+            <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
+              <button
+                type="button"
+                className="px-4 py-2 mt-4"
+                onMouseEnter={() => setHovered(true)}
+                onMouseLeave={() => setHovered(false)}
+              >
+                <Image
+                  src={hovered ? "/hover/twitter_hover_button.png" : "/twitter_button.png"}
+                  alt="Profile picture"
+                  width={45}
+                  height={28}
+                />
+              </button>
+            </Link>
           </div>
           <p className="my-2 text-sm text-gray-600">{favQuote || "Favorite Quote"}</p>
         </div>

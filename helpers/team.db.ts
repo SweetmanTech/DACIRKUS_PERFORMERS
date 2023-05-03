@@ -6,6 +6,7 @@ export interface TeamMember {
   role?: string
   favQuote?: string
   imgSrc?: string
+  twitterHandle?: string
 }
 export const addTeamMember = async (body: TeamMember[]) => {
   try {
@@ -16,7 +17,19 @@ export const addTeamMember = async (body: TeamMember[]) => {
     throw new Error(error)
   }
 }
-
+export const updateTeamMember = async (body: TeamMember[]) => {
+  try {
+    await dbConnect()
+    const result = await Promise.all(
+      body.map(async (item) =>
+        Team.updateOne({ name: item.name }, { $set: item }, { upsert: true }),
+      ),
+    )
+    return { sucess: true, result }
+  } catch (error) {
+    throw new Error(error)
+  }
+}
 export const getTeamMembers = async () => {
   try {
     await dbConnect()
@@ -34,6 +47,7 @@ export const getTeamMemberData = async () => {
     role: item.role || null,
     favQuote: item.favQuote || null,
     imgSrc: item.imgSrc || null,
+    twitterHandle: item.twitterHandle || null,
   }))
   return mappedData
 }

@@ -5,6 +5,7 @@ interface TeamMember {
   role?: string
   favQuote?: string
   imgSrc?: string
+  twitterHandle?: string
 }
 
 const TeamSchema = new Schema<TeamMember>({
@@ -23,6 +24,10 @@ const TeamSchema = new Schema<TeamMember>({
   imgSrc: {
     type: String,
     required: [false, "Please add an image source"],
+  },
+  twitterHandle: {
+    type: String,
+    required: [false, "Please add a twitter handle"],
   },
 })
 
