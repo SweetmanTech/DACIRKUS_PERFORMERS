@@ -3,7 +3,7 @@ import FoundingMembersCard from "../../components/Cards/Founding"
 
 const FoundingMembers = ({ foundingMemberData }) => (
   <div className="flex flex-col justify-center m-4 lg:md:w-[90%]">
-    <h2 className="py-4 text-4xl font-bold font-objektivmk1_bold">Founding Members</h2>
+    <h2 className="py-4 text-4xl font-bold font-eigerdals">Founding Members</h2>
     <div className="w-full text-sm font-bold lg:md:w-1/2 lg:md:text-xl font-objektivmk1">
       The original 88 founding members have been chosen for their contributions to the Cre8ors
       collective in the first stage of our community building process. They have collected and
