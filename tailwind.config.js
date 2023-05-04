@@ -10,9 +10,8 @@ module.exports = {
     extend: {
       fontFamily: {
         aldrich: ["Aldrich", "sans-serif"],
-        objektivmk1_bold: ["Objektiv Mk1 Trial Bd", "sans-serif"],
         eigerdals: ["Eigerdals", "sans-serif"],
-        objektivmk1: ["Objektiv Mk1 Trial Rg", "sans-serif"],
+        objektivmk1: ["Objektiv Mk1 Trial", "sans-serif"],
       },
       screens: {
         samsungS8: "360px",
