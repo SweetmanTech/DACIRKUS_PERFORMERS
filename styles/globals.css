@@ -25,7 +25,7 @@
     font-family: "Objektiv Mk1 Trial Rg";
     font-style: normal;
     font-weight: 400;
-    src: url("/fonts/ObjectiveMk1Norm/ObjektivMk1_Trial_Rg.ttf") format("truetype");
+    src: url("/fonts/ObjectiveMK1Norm/ObjektivMk1_Trial_Rg.ttf") format("truetype");
   }
 @layer utilities {
   .no-scrollbar::-webkit-scrollbar {
