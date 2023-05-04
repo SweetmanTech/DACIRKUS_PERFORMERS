@@ -49,7 +49,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
                   onMouseLeave={() => setHovered(false)}
                 >
                   <Image
-                    src={hovered ? "/hover/twitter_hover_button.png" : "/twitter_button.png"}
+                    src={hovered ? "/hover/twitter_hover_button.svg" : "/twitter_button.svg"}
                     alt="Profile picture"
                     width={55}
                     height={34}

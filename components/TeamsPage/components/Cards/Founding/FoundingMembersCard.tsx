@@ -31,7 +31,7 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
             onMouseLeave={() => setHovered(false)}
           >
             <Image
-              src={hovered ? "/hover/twitter_hover_button.png" : "/twitter_button.png"}
+              src={hovered ? "/hover/twitter_hover_button.svg" : "/twitter_button.svg"}
               alt="Profile picture"
               width={45}
               height={28}
