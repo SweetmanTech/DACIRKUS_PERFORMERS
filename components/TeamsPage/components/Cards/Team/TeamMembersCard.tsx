@@ -60,7 +60,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           </div>
         </div>
         <div className="flex w-full h-full ">
-          <div className="justify-center w-full h-full text-left">{favQuote}</div>
+          <div className="justify-center w-full h-full text-left font-objektivmk1">{favQuote}</div>
         </div>
       </div>
     </div>
