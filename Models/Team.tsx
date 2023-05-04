@@ -6,6 +6,7 @@ interface TeamMember {
   favQuote?: string
   imgSrc?: string
   twitterHandle?: string
+  order: number
 }
 
 const TeamSchema = new Schema<TeamMember>({
@@ -28,6 +29,10 @@ const TeamSchema = new Schema<TeamMember>({
   twitterHandle: {
     type: String,
     required: [false, "Please add a twitter handle"],
+  },
+  order: {
+    type: Number,
+    required: [true, "Please add an order"],
   },
 })
 

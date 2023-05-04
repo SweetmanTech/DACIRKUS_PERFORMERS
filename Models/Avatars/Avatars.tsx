@@ -37,4 +37,4 @@ const AvatarSchema = new Schema<Avatar>({
   },
 })
 
-export default (models.Avatar as Model<Avatar>) || model("Avatars", AvatarSchema)
+export default (models.Avatars as Model<Avatar>) || model("Avatars", AvatarSchema)

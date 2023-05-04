@@ -1,3 +1,4 @@
+import _ from "lodash"
 import dbConnect from "../utils/db"
 import Team from "../Models/Team"
 
@@ -7,6 +8,7 @@ export interface TeamMember {
   favQuote?: string
   imgSrc?: string
   twitterHandle?: string
+  order?: number
 }
 export const addTeamMember = async (body: TeamMember[]) => {
   try {
@@ -42,7 +44,8 @@ export const getTeamMembers = async () => {
 
 export const getTeamMemberData = async () => {
   const data = await getTeamMembers()
-  const mappedData = data.map((item) => ({
+  const sortedData = _.sortBy(data, "order")
+  const mappedData = sortedData.map((item) => ({
     name: item.name,
     role: item.role || null,
     favQuote: item.favQuote || null,
