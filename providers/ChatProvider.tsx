@@ -10,6 +10,7 @@ export const ChatProvider = ({ children }) => {
   const [messages, setMessages] = useState([])
   const [channel, setChannel] = useState<Ably.Types.RealtimeChannelPromise | null>(null)
   const [ably, setAbly] = useState<Ably.Types.RealtimePromise | null>(null)
+  const [userType, setUserType] = useState<"twitter" | "wallet" | "anonymous" | null>(null)
   const messageEnd = useRef(null)
   useEffect(() => {
     messageEnd?.current?.scrollIntoView({ behaviour: "smooth" })
@@ -47,8 +48,20 @@ export const ChatProvider = ({ children }) => {
       channel,
       ably,
       messageEnd,
+      userType,
+      setUserType,
     }),
-    [openChat, setOpenChat, sendChatMessage, messages, channel, ably, messageEnd],
+    [
+      openChat,
+      setOpenChat,
+      sendChatMessage,
+      messages,
+      channel,
+      ably,
+      messageEnd,
+      userType,
+      setUserType,
+    ],
   )
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>
 }
