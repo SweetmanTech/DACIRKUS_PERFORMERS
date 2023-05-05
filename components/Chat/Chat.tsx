@@ -9,13 +9,13 @@ import ChatLogin from "./components/ChatLogin"
 const ChatBox = dynamic(() => import("./components/ChatBox"), { ssr: true })
 
 const Chat = () => {
-  const { openChat } = useChatProvider()
+  const { openChat, userType } = useChatProvider()
   const [loggedIn, setLoggedIn] = useState(false)
   const { data: session }: any = useSession()
   const { address } = useAccount()
   useEffect(() => {
-    setLoggedIn(session?.user || address)
-  }, [session, address])
+    setLoggedIn(session?.user || address || userType === "anonymous")
+  }, [session, address, userType])
   return (
     <div className="fixed z-40 bottom-4 right-4">
       <div className="flex space-x-4">

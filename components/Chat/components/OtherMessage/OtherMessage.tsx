@@ -4,8 +4,8 @@ const OtherMessage = ({ message }) => (
     <div className="flex flex-col items-center flex-none mr-4 space-y-1">
       <img
         alt=""
-        className="w-10 h-10 p-0.5 border-2 border-black rounded-md "
-        src="https://images.unsplash.com/photo-1491528323818-fdd1faba62cc?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
+        className="w-6 h-8 p-0.5 border-2 border-black rounded-md "
+        src="/CRE8ORSLOGO_ICON.png"
       />
       <div className="text-sm text-black">{message.connectionId}</div>
     </div>
