@@ -31,7 +31,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           />
         </div>
       </div>
-      <div className="flex flex-col w-3/4 h-full">
+      <div className="flex flex-col w-3/4 space-y-2 h-1/2">
         <div className="flex w-full h-full">
           <div className="flex w-3/4 h-full">
             <div className="flex flex-col">
@@ -59,9 +59,8 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
             </div>
           </div>
         </div>
-        <div className="flex w-full h-full ">
-          <div className="justify-center w-full h-full text-left font-objektivmk1">{favQuote}</div>
-        </div>
+
+        <div className="w-full h-full text-start font-objektivmk1">{favQuote}</div>
       </div>
     </div>
   )
