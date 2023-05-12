@@ -41,4 +41,5 @@ utils/db/serviceAccountKey.json
 # ENV
 .env
 
-/pages/api/temp.ts
+# Testing
+pages/api/temp.ts
