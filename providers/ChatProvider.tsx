@@ -4,6 +4,7 @@ import { configureAbly } from "@ably-labs/react-hooks"
 import { useSession } from "next-auth/react"
 import { useAccount } from "wagmi"
 import { ChatContext } from "./ChatContext"
+import truncateEthAddress from "../lib/truncateEthAddress"
 
 export const useChatProvider = () => useContext(ChatContext)
 
@@ -28,7 +29,7 @@ export const ChatProvider = ({ children }) => {
       })
     } else if (address) {
       setUser({
-        name: address,
+        name: truncateEthAddress(address),
       })
     }
   }, [session, address, userType])
