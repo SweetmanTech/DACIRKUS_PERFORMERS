@@ -1,6 +1,8 @@
 import { useCallback, useContext, useEffect, useMemo, useRef, useState } from "react"
 import * as Ably from "ably/promises"
 import { configureAbly } from "@ably-labs/react-hooks"
+import { useSession } from "next-auth/react"
+import { useAccount } from "wagmi"
 import { ChatContext } from "./ChatContext"
 
 export const useChatProvider = () => useContext(ChatContext)
@@ -12,6 +14,24 @@ export const ChatProvider = ({ children }) => {
   const [ably, setAbly] = useState<Ably.Types.RealtimePromise | null>(null)
   const [userType, setUserType] = useState<"twitter" | "wallet" | "anonymous" | null>(null)
   const messageEnd = useRef(null)
+  const [user, setUser] = useState(null)
+  const { data: session }: any = useSession()
+  const { address } = useAccount()
+  const [loggedIn, setLoggedIn] = useState(false)
+
+  useEffect(() => {
+    setLoggedIn(session?.user || address || userType === "anonymous")
+    if (session?.user) {
+      setUser({
+        name: session.user.handle,
+        avatar: session.user.image,
+      })
+    } else if (address) {
+      setUser({
+        name: address,
+      })
+    }
+  }, [session, address, userType])
   useEffect(() => {
     messageEnd?.current?.scrollIntoView({ behaviour: "smooth" })
   })
@@ -35,9 +55,12 @@ export const ChatProvider = ({ children }) => {
 
   const sendChatMessage = useCallback(
     (message) => {
-      channel.publish({ name: "cre8ors", data: message })
+      channel.publish({
+        name: "cre8ors",
+        data: JSON.stringify({ message, user }),
+      })
     },
-    [channel],
+    [channel, user],
   )
   const value = useMemo(
     () => ({
@@ -50,6 +73,8 @@ export const ChatProvider = ({ children }) => {
       messageEnd,
       userType,
       setUserType,
+      loggedIn,
+      user,
     }),
     [
       openChat,
@@ -61,6 +86,8 @@ export const ChatProvider = ({ children }) => {
       messageEnd,
       userType,
       setUserType,
+      loggedIn,
+      user,
     ],
   )
   return <ChatContext.Provider value={value}>{children}</ChatContext.Provider>

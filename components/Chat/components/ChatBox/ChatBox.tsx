@@ -29,9 +29,21 @@ const ChatBox = () => {
       <div className="flex-1 h-full px-4 py-4 overflow-y-auto">
         {messages.map((message) => {
           if (message.connectionId === ably.connection.id) {
-            return <MyMessage message={message} key={message} />
+            return (
+              <MyMessage
+                message={JSON.parse(message.data)}
+                key={message}
+                connectionId={message.connectionId}
+              />
+            )
           }
-          return <OtherMessage message={message} key={message} />
+          return (
+            <OtherMessage
+              message={JSON.parse(message.data)}
+              key={message}
+              connectionId={message.connectionId}
+            />
+          )
         })}
         <div
           ref={(element) => {

@@ -14,7 +14,7 @@ const ChatLogin = () => {
         text="Twitter"
         onClick={() => {
           setUserType("twitter")
-          signIn()
+          signIn("twitter", { callbackUrl: `${window.location.pathname}` })
         }}
       />
       <WalletConnectButton>
