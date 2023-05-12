@@ -1,17 +1,19 @@
 import dynamic from "next/dynamic"
 import ChatButton from "./components/ChatButton"
 import { useChatProvider } from "../../providers/ChatProvider"
+import ChatLogin from "./components/ChatLogin"
 
 const ChatBox = dynamic(() => import("./components/ChatBox"), { ssr: true })
 
 const Chat = () => {
-  const { openChat } = useChatProvider()
+  const { openChat, loggedIn } = useChatProvider()
 
   return (
     <div className="fixed z-40 bottom-4 right-4">
       <div className="flex space-x-4">
         <ChatButton />
-        {openChat && <ChatBox />}
+        {openChat && loggedIn && <ChatBox />}
+        {openChat && !loggedIn && <ChatLogin />}
       </div>
     </div>
   )
