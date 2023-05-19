@@ -17,7 +17,7 @@ const Content = () => {
             A community built for Web3 creators.
           </p>
           <p className="justify-center w-full text-center text-md lg:text-3xl md:text-2xl font-objektivmk1">
-            We are a curated group of inovators, misfits, inventors, and connectors - building
+            We are a curated group of innovators, misfits, inventors, and connectors - building
             something new today to make the world way better than yesterday.
           </p>
         </div>
