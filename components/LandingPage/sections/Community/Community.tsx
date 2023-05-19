@@ -82,7 +82,6 @@ const Community = () => {
         height={3071}
         layout="intrinsic"
         objectFit="cover"
-        className="object-contain"
       />
       <div className="absolute z-10 justify-center cursor-pointer lg:md:mt-10 lg:top-96 md:top-80 top-24 lg:md:top-36 samsungS8:top-10 ">
         <div className="flex gap-5 p-4 pr-4 overflow-x-auto border-b-4 border-black scrollbar-thumb-offset-8 flex-nowrap scroll-h-96 scroll-pl-6 scrollbar scrollbar-thumb-red-600 scrollbar-thumb-rounded-lg scrollbar-track-gray-100 scrollbar-track-rounded-lg scroll-m-20">
