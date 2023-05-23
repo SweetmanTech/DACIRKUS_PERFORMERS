@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react"
 import * as _ from "lodash"
 import Image from "next/image"
-import { useSession } from "next-auth/react"
 import getOwnersForCollection from "../../lib/alchemy/getOwnersForCollection"
 import getParticipants from "../../lib/getParticipants"
 import LeaderboardRow from "./LeaderboardRow"
@@ -11,7 +10,6 @@ import customLoader from "../../lib/customLoader"
 
 const LeaderboardPage = () => {
   const [collectors, setCollectors] = useState([])
-  const { data: session }: any = useSession()
   useEffect(() => {
     const fetchTopCollectors = async () => {
       const { ownerAddresses } = await getOwnersForCollection()
@@ -33,7 +31,7 @@ const LeaderboardPage = () => {
 
   return (
     <div className="h-screen overflow-y-auto text-black bg-[url('/leaderboard_background.png')]">
-      <Header connect logout={session?.user} />
+      <Header connect />
       <div className="w-full max-w-3xl pt-24 mx-auto">
         <div className="flex flex-col items-center justify-center w-full gap-2">
           <Image
