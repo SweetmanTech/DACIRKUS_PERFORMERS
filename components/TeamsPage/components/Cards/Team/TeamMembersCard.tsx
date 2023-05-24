@@ -18,7 +18,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
 }) => {
   const [hovered, setHovered] = useState(false)
   return (
-    <div className="flex flex-row items-start justify-around h-full p-4 my-2 overflow-hidden bg-white shadow-lg rounded-2xl font-objektivmk1">
+    <div className="flex flex-row items-start justify-around h-full p-4 my-2 overflow-hidden bg-white shadow-lg rounded-2xl font-quicksand">
       <div className="flex w-1/4 h-full p-2 ">
         <div className="block w-20 h-20 rounded-full ">
           <Image
@@ -60,7 +60,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           </div>
         </div>
 
-        <div className="w-full h-full text-start font-objektivmk1">{favQuote}</div>
+        <div className="w-full h-full text-start font-quicksand">{favQuote}</div>
       </div>
     </div>
   )

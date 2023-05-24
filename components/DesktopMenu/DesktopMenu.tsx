@@ -1,7 +1,7 @@
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
 import Image from "next/image"
 import { useState } from "react"
+import CustomConnectWallet from "../CustomConnectWallet"
 
 const DesktopMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -65,8 +65,8 @@ const DesktopMenu = () => {
           <Image src="/Icons/TWITTER.svg" width={24} height={19} alt="twitter" />
         </div>
       </a>
-      <div className="px-3">
-        <ConnectButton chainStatus="none" />
+      <div className="px-4 pt-2">
+        <CustomConnectWallet />
       </div>
     </div>
   )
