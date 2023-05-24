@@ -37,7 +37,7 @@ const CustomConnectWallet = () => (
             if (!connected) {
               return (
                 <button
-                  className="font-bold uppercase text-[17px] lg:md:text-[19px] font-quicksand"
+                  className="font-bold uppercase text-[17px] lg:md:text-md font-quicksand"
                   onClick={openConnectModal}
                   type="button"
                 >
