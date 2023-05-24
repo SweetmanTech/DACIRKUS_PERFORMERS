@@ -37,7 +37,7 @@ const CustomConnectWallet = () => (
             if (!connected) {
               return (
                 <button
-                  className="font-bold uppercase text-[17px] lg:md:text-md font-quicksand"
+                  className="font-bold uppercase text-[17px] lg:md:text-sm font-quicksand"
                   onClick={openConnectModal}
                   type="button"
                 >
@@ -89,7 +89,7 @@ const CustomConnectWallet = () => (
                 <button
                   onClick={openAccountModal}
                   type="button"
-                  className="font-bold uppercase text-[17px] lg:md:text-md font-quicksand"
+                  className="font-bold uppercase text-[17px] lg:md:text-sm font-quicksand"
                 >
                   {account.displayName}
                   {account.displayBalance ? ` (${account.displayBalance})` : ""}
