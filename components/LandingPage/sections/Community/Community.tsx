@@ -76,14 +76,14 @@ const Community = () => {
   return (
     <div className="relative flex flex-col items-center justify-center mt-24">
       <Image
-        src="/CITYSCAPE2.svg"
+        src="/CITY_HQ.png"
         alt="cityscape"
         width={1988}
         height={3071}
         layout="intrinsic"
         objectFit="cover"
       />
-      <div className="absolute z-10 justify-center cursor-pointer lg:md:mt-10 lg:top-96 md:top-80 top-24 lg:md:top-36 samsungS8:top-10 ">
+      <div className="absolute z-10 justify-center cursor-pointer lg:md:mt-10 lg:top-76 md:top-80 top-24 lg:md:top-36 samsungS8:top-10 ">
         <div className="flex gap-5 p-4 pr-4 overflow-x-auto border-b-4 border-black scrollbar-thumb-offset-8 flex-nowrap scroll-h-96 scroll-pl-6 scrollbar scrollbar-thumb-red-600 scrollbar-thumb-rounded-lg scrollbar-track-gray-100 scrollbar-track-rounded-lg scroll-m-20">
           {COMMUNITY_CARDS.map((card) => (
             <motion.div
