@@ -1,5 +1,3 @@
-import * as React from 'react'
-
 interface SectionContentProps {
     children: React.ReactNode
 }

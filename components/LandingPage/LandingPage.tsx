@@ -1,6 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
-
-import * as React from 'react'
 import Header from "../Header"
 import SeoHead from "../SeoHead"
 import WelcomeToCre8ors from './sections/WelcomeToCre8ors'
@@ -11,20 +8,18 @@ import Brands from './sections/Brands'
 import OpenSoon from './sections/OpenSoon'
 import Footer from './sections/Footer'
 
-const LandingPage = () => {
-    return (
-        <div className="h-screen overflow-y-auto text-black bg-white pt-[10rem]">
-            <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
-            <Header />
-            <WelcomeToCre8ors />
-            <InviteForCreator />
-            <Networking />
-            <Cre8orsWay />
-            <Brands />
-            <OpenSoon />
-            <Footer />
-        </div>
-    )
-}
+const LandingPage = () => (
+    <div className="h-screen overflow-y-auto text-black bg-white pt-[10rem]">
+        <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
+        <Header />
+        <WelcomeToCre8ors />
+        <InviteForCreator />
+        <Networking />
+        <Cre8orsWay />
+        <Brands />
+        <OpenSoon />
+        <Footer />
+    </div>
+)
 
 export default LandingPage;

@@ -1,8 +1,7 @@
-import * as React from 'react'
 import SectionTitle from '../SectionTitle';
 import SectionContent from '../SectionContent';
 
-import OpenSoonImage from '../../../assets/Landing/opensoon.png'
+import OpenSoonImage from '../../../public/assets/Landing/opensoon.png'
 import Image from 'next/image'
 
 const OpenSoon = () => {

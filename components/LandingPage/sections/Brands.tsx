@@ -1,10 +1,9 @@
 import Image, { StaticImageData } from 'next/image'
-import * as React from 'react'
 
-import ExtendImage from '../../../assets/Landing/brands/extend.png'
-import LampImage from '../../../assets/Landing/brands/lamp.png'
-import ChainImage from '../../../assets/Landing/brands/chain.png'
-import NetworkingImage from '../../../assets/Landing/brands/networking.png'
+import ExtendImage from '../../../public/assets/Landing/brands/extend.png'
+import LampImage from '../../../public/assets/Landing/brands/lamp.png'
+import ChainImage from '../../../public/assets/Landing/brands/chain.png'
+import NetworkingImage from '../../../public/assets/Landing/brands/networking.png'
 
 interface ItemData {
     image: StaticImageData,
@@ -24,7 +23,7 @@ const Brands = () => {
             text: <>All Cre8ors come with on extended banner that fits within any social header.</>
         },
         {
-            image: ChainImage,
+            image: LampImage,
             width: 160,
             height: 160,
             title: <>On-Chain <br/> Co-Creation</>,

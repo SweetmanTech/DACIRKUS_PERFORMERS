@@ -1,8 +1,7 @@
-import * as React from 'react'
 import SectionTitle from '../SectionTitle';
 import SectionContent from '../SectionContent';
 
-import InviateImage from '../../../assets/Landing/invite.png'
+import InviateImage from '../../../public/assets/Landing/invite.png'
 import Image from 'next/image'
 
 const InviteForCreator = () => {

@@ -1,6 +1,4 @@
-import * as React from 'react'
-
-import LogoImage from '../../../assets/Landing/footer/CRE8ORS LOGO.png'
+import LogoImage from '../../../public/assets/Landing/footer/CRE8ORS LOGO.png'
 import Image from 'next/image'
 
 interface ItemData {

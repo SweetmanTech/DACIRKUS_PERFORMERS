@@ -1,8 +1,7 @@
-import * as React from 'react'
 import SectionTitle from '../SectionTitle';
 import SectionContent from '../SectionContent';
 
-import ProfileImage from '../../../assets/Landing/profile.png'
+import ProfileImage from '../../../public/assets/Landing/profile.png'
 import Image from 'next/image'
 
 const Cre8orsWay = () => {

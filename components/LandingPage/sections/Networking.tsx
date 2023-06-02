@@ -1,16 +1,15 @@
-import * as React from 'react'
 import SectionTitle from '../SectionTitle';
 import SectionContent from '../SectionContent';
 
-import NetworkingImage from '../../../assets/Landing/networking.png'
-import ColumbiaImage from '../../../assets/Landing/networking/columbia.png'
-import FxImage from '../../../assets/Landing/networking/fx.png'
-import ZyngaImage from '../../../assets/Landing/networking/zynga.png'
-import WorldImage from '../../../assets/Landing/networking/world.png'
-import WarnerImage from '../../../assets/Landing/networking/warner.png'
-import EspnImage from '../../../assets/Landing/networking/espn.png'
-import LeagueImage from '../../../assets/Landing/networking/league.png'
-import AlanticImage from '../../../assets/Landing/networking/alantic.png'
+import NetworkingImage from '../../../public/assets/Landing/networking.png'
+import ColumbiaImage from '../../../public/assets/Landing/networking/columbia.png'
+import FxImage from '../../../public/assets/Landing/networking/fx.png'
+import ZyngaImage from '../../../public/assets/Landing/networking/zynga.png'
+import WorldImage from '../../../public/assets/Landing/networking/world.png'
+import WarnerImage from '../../../public/assets/Landing/networking/warner.png'
+import EspnImage from '../../../public/assets/Landing/networking/espn.png'
+import LeagueImage from '../../../public/assets/Landing/networking/league.png'
+import AlanticImage from '../../../public/assets/Landing/networking/alantic.png'
 
 import Image, { StaticImageData } from 'next/image'
 

@@ -1,8 +1,7 @@
-import * as React from 'react'
 import SectionTitle from '../SectionTitle';
 import SectionContent from '../SectionContent';
 
-import CreativityImage from '../../../assets/Landing/creativity.png'
+import CreativityImage from '../../../public/assets/Landing/creativity.png'
 import Image from 'next/image'
 
 const WelcomeToCre8ors = () => {
