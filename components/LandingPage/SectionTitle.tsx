@@ -1,15 +1,9 @@
 interface SectionTitleProps {
-    text: string
+  text: string
 }
 
-const SectionTitle = ({
-    text
-}: SectionTitleProps) => {
-    return (
-        <div className='lg:m-12 lg:text-6xl md:text-6xl font-eigerdals'>
-            { text }
-        </div>
-    )
-}
+const SectionTitle: React.FC<SectionTitleProps> = ({ text }) => (
+  <div className="lg:m-12 lg:text-6xl font-eigerdals">{text}</div>
+)
 
-export default SectionTitle;
+export default SectionTitle
