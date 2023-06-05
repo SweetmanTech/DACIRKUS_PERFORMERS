@@ -4,7 +4,7 @@ interface Props {
     ref: React.RefObject<HTMLDivElement>
 }
 
-const useFadeInstersection = ({
+const useFadeIntersection = ({
     ref
 }: Props) => {
 
@@ -26,4 +26,4 @@ const useFadeInstersection = ({
     }, [ref])
 }
 
-export default useFadeInstersection
+export default useFadeIntersection

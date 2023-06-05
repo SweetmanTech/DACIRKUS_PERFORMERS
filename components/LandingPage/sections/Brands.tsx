@@ -18,7 +18,7 @@ interface ItemData {
 }
 
 const Brands = () => {
-  const match490 = useMediaQuery("(max-width: 490px)")
+  const isMobile = useMediaQuery("(max-width: 490px)")
 
   const Items = [
     {
@@ -82,8 +82,8 @@ const Brands = () => {
           >
             <Image
               src={item.image.src}
-              width={!match490 ? item.width : item.width - 30}
-              height={!match490 ? item.height : item.height - 30}
+              width={!isMobile ? item.width : item.width - 30}
+              height={!isMobile ? item.height : item.height - 30}
               alt="not found image"
             />
             <div>

@@ -1,8 +1,7 @@
-import { FC, ReactNode, useEffect, useState } from "react"
+import { FC, ReactNode } from "react"
 import { classNames } from "./Utils"
 
 import styles from '../styles/Button.module.css'
-import { useTheme } from "../providers/ThemeProvider"
 
 interface ButtonProps {
   id: string
@@ -14,6 +13,7 @@ interface ButtonProps {
 }
 
 interface ToggleButtonProps {
+  id: string
   onClick?: () => void
   children?: ReactNode
   value?: boolean
@@ -46,10 +46,6 @@ export const PageButton: FC<ButtonProps> = ({ children, className, ...rest }) =>
 )
 
 export const ToggleButton: FC<ToggleButtonProps> = ({onClick, value}) => {
-  const {
-    themeMode
-  } = useTheme()
-
   return (
     <div className="flex justify-center w-16 h-6 cursor-pointer">
         <div className={`flex items-center ${!value ? styles.light_line : styles.dark_line} rounded-full w-full h-6 pl-2`} onClick={onClick}>

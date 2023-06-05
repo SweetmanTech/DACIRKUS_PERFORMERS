@@ -13,7 +13,7 @@ interface ImageData {
 }
 
 const Networking = () => {
-  const match490 = useMediaQuery("(max-width: 490px)")
+  const isMobile = useMediaQuery("(max-width: 490px)")
 
   const imagesLightMode: Array<ImageData> = [
     {
@@ -105,8 +105,8 @@ const Networking = () => {
               <div key={imageData.key} className="flex justify-center items-center">
                 <Image
                   src={themeMode === "light" ? imageData.image : imageData.white_image}
-                  width={!match490 ? imageData.width : imageData.width - 10}
-                  height={!match490 ? imageData.height : imageData.height - 10}
+                  width={!isMobile ? imageData.width : imageData.width - 10}
+                  height={!isMobile ? imageData.height : imageData.height - 10}
                   alt="not found img"
                 />
               </div>

@@ -1,8 +1,8 @@
-import * as React from "react"
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CustomConnectWallet from "../CustomConnectWallet"
+import DiscordIcon from "../DiscordIcon"
 import { ToggleButton } from "../../shared/Button"
 import { useTheme } from "../../providers/ThemeProvider"
 
@@ -11,16 +11,15 @@ const DesktopMenu = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-  const [toggle, setToggle] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(false)
 
   const onToggle = () => {
-    setToggle(!toggle)
+    setIsDarkMode(!isDarkMode)
     onChangeThemeConfig()
   }
 
-  React.useEffect(() => {
-    if (themeMode === "light") setToggle(false)
-    if (themeMode === "dark") setToggle(true)
+  useEffect(() => {
+    setIsDarkMode(themeMode !== "light")
   }, [themeMode])
 
   return (
@@ -32,7 +31,7 @@ const DesktopMenu = () => {
       </div>
       <div className="flex items-center font-quicksand font-bold">
         <div className="pr-2 dark:text-white text-black">light</div>
-        <ToggleButton onClick={onToggle} value={toggle} />
+        <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
         <div className="pl-2 dark:text-white text-black">dark</div>
       </div>
       <div className="relative">
@@ -75,22 +74,7 @@ const DesktopMenu = () => {
           </div>
         )}
       </div>
-      <a
-        href="https://discord.com/channels/1055217047908384849/1055218028012392519"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <div className="pt-2 pl-4 cursor-pointer ">
-          <Image
-            src={`${
-              themeMode === "light" ? "/Icons/DISCORD.svg" : "/assets/Header/white_discord.png"
-            }`}
-            width={24}
-            height={19}
-            alt="discord"
-          />
-        </div>
-      </a>
+      <DiscordIcon />
       <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
         <div className="pt-2 pl-10 cursor-pointer ">
           <Image

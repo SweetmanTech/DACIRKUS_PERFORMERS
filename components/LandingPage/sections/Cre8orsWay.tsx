@@ -6,15 +6,15 @@ import SectionContent from "../SectionContent"
 import ProfileImage from "../../../public/assets/Landing/profile.png"
 
 const Cre8orsWay = () => {
-  const match490 = useMediaQuery("(max-width: 490px)")
+  const isMobile = useMediaQuery("(max-width: 490px)")
 
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
       <div className="flex justify-center mb-6 md:mb-0">
         <Image
           src={ProfileImage.src}
-          width={!match490 ? 337 : 250}
-          height={!match490 ? 673 : 446}
+          width={!isMobile ? 337 : 250}
+          height={!isMobile ? 673 : 446}
           alt="not found profile img"
         />
       </div>

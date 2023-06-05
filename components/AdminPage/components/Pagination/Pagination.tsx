@@ -46,6 +46,7 @@ const Pagination = ({
         aria-label="Pagination"
       >
         <PageButton
+          id="first_page_pagination"
           className="rounded-l-md"
           onClick={() => gotoPage(0)}
           disabled={!canPreviousPage}
@@ -53,15 +54,20 @@ const Pagination = ({
           <span className="sr-only">First</span>
           <ChevronDoubleLeftIcon className="w-6 h-6" aria-hidden="true" />
         </PageButton>
-        <PageButton onClick={() => previousPage()} disabled={!canPreviousPage}>
+        <PageButton
+          onClick={() => previousPage()}
+          disabled={!canPreviousPage}
+          id="previous_page_pagination"
+        >
           <span className="sr-only">Previous</span>
           <ChevronLeftIcon className="w-6 h-6" aria-hidden="true" />
         </PageButton>
-        <PageButton onClick={() => nextPage()} disabled={!canNextPage}>
+        <PageButton onClick={() => nextPage()} disabled={!canNextPage} id="next_page_pagination">
           <span className="sr-only">Next</span>
           <ChevronRightIcon className="w-6 h-6" aria-hidden="true" />
         </PageButton>
         <PageButton
+          id="last_page_pagination"
           className="rounded-r-md"
           onClick={() => gotoPage(pageCount - 1)}
           disabled={!canNextPage}
