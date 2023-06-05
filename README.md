@@ -1,6 +1,6 @@
 # CRE8ORS UI
 
-This is a [RainbowKit](https://rainbowkit.com) + [wagmi](https://wagmi.sh) + [Next.js](https://nextjs.org/) project.
+[CRE8ORS](https://cre8ors.com) 
 
 <img width="1440" alt="Screenshot 2023-06-05 at 8 32 08 PM" src="https://github.com/defientco/CRE8ORS-UI/assets/23249402/6bcaa039-a51b-406f-92f9-fd0f147f2b8e">
 
