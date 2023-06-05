@@ -1,5 +1,6 @@
 import Image from "next/image"
 import CustomConnectWallet from "../CustomConnectWallet"
+import DiscordIcon from "../DiscordIcon"
 
 const MenuList = ({ toggleMenu }) => (
   <div className=" fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-4 p-4 bg-gradient-to-r from-[#DDDDDD] from-0% to-[#F2F2F2] to-90% rounded-lg text-lg">
@@ -39,13 +40,7 @@ const MenuList = ({ toggleMenu }) => (
     <div className="ml-4 text-gray-400 cursor-not-allowed">Profiles</div>
     <CustomConnectWallet />
     <div className="flex flex-row justify-around">
-      <a
-        href="https://discord.com/channels/1055217047908384849/1055218028012392519"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <Image src="/Icons/DISCORD.svg" alt="discord" width={42} height={35} />
-      </a>
+      <DiscordIcon />
       <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
         <Image src="/Icons/TWITTER.svg" alt="twitter" width={42} height={35} />
       </a>

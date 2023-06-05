@@ -2,6 +2,7 @@ import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
 import { useState } from "react"
 import CustomConnectWallet from "../CustomConnectWallet"
+import DiscordIcon from "../DiscordIcon"
 
 const DesktopMenu = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -51,15 +52,7 @@ const DesktopMenu = () => {
           </div>
         )}
       </div>
-      <a
-        href="https://discord.com/channels/1055217047908384849/1055218028012392519"
-        target="_blank"
-        rel="noreferrer"
-      >
-        <div className="pt-2 pl-4 cursor-pointer ">
-          <Image src="/Icons/DISCORD.svg" width={24} height={19} alt="discord" />
-        </div>
-      </a>
+      <DiscordIcon />
       <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
         <div className="pt-2 pl-10 cursor-pointer ">
           <Image src="/Icons/TWITTER.svg" width={24} height={19} alt="twitter" />
