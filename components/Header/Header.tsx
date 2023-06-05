@@ -4,19 +4,21 @@ import { FC } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import MobileMenu from "../MobileMenu"
 import DesktopMenu from "../DesktopMenu"
+import { useTheme } from "../../providers/ThemeProvider"
 
 interface HeaderProps {
   connect?: boolean
 }
 const Header: FC<HeaderProps> = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
+  const { themeMode } = useTheme()
 
   return (
-    <nav className="fixed top-0 z-50 flex flex-row items-center justify-between w-screen p-2 text-black bg-white lg:md:justify-around">
+    <nav className="fixed top-0 z-50 flex flex-row items-center justify-between w-screen p-2 text-black bg-white dark:bg-transparent lg:md:justify-around">
       <span className="relative items-center flex-shrink-0 w-20 mr-6 cursor-auto lg:md:mt-6 lg:mt-0 lg:md:w-36 lg:flex">
         <Link href="/">
           <Image
-            src="/CRE8ORS_LOGO.svg"
+            src={`${themeMode === "light" ? "/CRE8ORS_LOGO.svg" : "/assets/Header/white_logo.png"}`}
             alt="cre8ors logo"
             width={87}
             height={16}

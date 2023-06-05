@@ -1,5 +1,5 @@
 import Image from "next/image"
-import LogoImage from "../../../public/assets/Landing/footer/CRE8ORS LOGO.png"
+import { useTheme } from "../../../providers/ThemeProvider"
 
 interface ItemData {
   key: string
@@ -22,33 +22,63 @@ const Footer = () => {
     },
   ]
 
+  const { themeMode } = useTheme()
+
   return (
-    <div className="lg:m-12 grid grid-cols-1 md:grid-cols-5">
-      <div>
-        <Image src={LogoImage.src} width={103} height={18} alt="not found logo img" />
+    <div className="dark:bg-[black] bg-white pt-6 pb-6">
+      <div className="justify-end items-start flex md:hidden pt-6 pr-6">
+        <Image
+          src={
+            themeMode === "light"
+              ? "/assets/Landing/footer/logo.png"
+              : "/assets/Landing/footer/logo_white.png"
+          }
+          width={103}
+          height={18}
+          alt="not found logo img"
+        />
       </div>
-      {Items.map((item: ItemData) => (
-        <div key={item.key} className="font-quicksand flex justify-center">
-          <div className="flex flex-col cursor-[pointer]">
-            {item.list.map((link: string) => (
-              <div key={link}>{link}</div>
-            ))}
-          </div>
-        </div>
-      ))}
-      <div className="">
-        <div className="font-quicksand">Join our newsletter</div>
-        <div className="relative flex items-center pt-[0.5rem]">
-          <input
-            className="border-[1px] border-[black] rounded-[3rem] font-quicksand px-3 py-1"
-            placeholder="Email Address"
+      <div className="px-[5px] pt-6 pb-6 lg:p-12 grid grid-cols-3 md:grid-cols-5">
+        <div className="justify-end items-start hidden md:flex">
+          <Image
+            src={
+              themeMode === "light"
+                ? "/assets/Landing/footer/logo.png"
+                : "/assets/Landing/footer/logo_white.png"
+            }
+            width={103}
+            height={18}
+            alt="not found logo img"
           />
-          <button
-            type="button"
-            className="bg-[black] px-2 py-1 rounded-[2rem] text-[white] text-[0.5rem] absolute right-[5rem]"
+        </div>
+        {Items.map((item: ItemData) => (
+          <div
+            key={item.key}
+            className="font-quicksand flex justify-center text[black] dark:text-white"
           >
-            SUBMIT
-          </button>
+            <div className="flex flex-col cursor-[pointer]">
+              {item.list.map((link: string) => (
+                <div key={link}>{link}</div>
+              ))}
+            </div>
+          </div>
+        ))}
+        <div className="col-span-3 flex flex-col items-center pt-6 md:block md:pt-0 md:col-span-1">
+          <div className="font-quicksand dark:text-[white] text-[black]">Join our newsletter</div>
+          <div className="relative pt-[0.5rem] w-[190px] md:w-[202px]">
+            <input
+              className="border-[1px] border-[black] rounded-[3rem] font-quicksand px-3 py-1"
+              placeholder="Email Address"
+            />
+            <div className="absolute top-[10px] right-[0px] md:right-[10px]">
+              <button
+                type="button"
+                className="bg-[black] px-2 py-1 rounded-[2rem] text-[white] text-[0.5rem]"
+              >
+                SUBMIT
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>

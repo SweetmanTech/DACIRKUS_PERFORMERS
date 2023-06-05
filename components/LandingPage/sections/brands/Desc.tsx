@@ -1,5 +1,5 @@
 const Desc = ({ children }: { children: React.ReactNode }) => (
-  <div className="font-quicksand lg:text-[1rem] md:text-[1rem] text-center w-[200px]">
+  <div className="font-quicksand text-[1rem] text-black dark:text-white text-left md:text-center w-[200px] mt-3">
     {children}
   </div>
 )

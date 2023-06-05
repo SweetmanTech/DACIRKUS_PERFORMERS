@@ -1,78 +1,98 @@
-import Image, { StaticImageData } from "next/image"
+import Image from "next/image"
+import { useMediaQuery } from "usehooks-ts"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
-
-import NetworkingImage from "../../../public/assets/Landing/networking.png"
-import ColumbiaImage from "../../../public/assets/Landing/networking/columbia.png"
-import FxImage from "../../../public/assets/Landing/networking/fx.png"
-import ZyngaImage from "../../../public/assets/Landing/networking/zynga.png"
-import WorldImage from "../../../public/assets/Landing/networking/world.png"
-import WarnerImage from "../../../public/assets/Landing/networking/warner.png"
-import EspnImage from "../../../public/assets/Landing/networking/espn.png"
-import LeagueImage from "../../../public/assets/Landing/networking/league.png"
-import AlanticImage from "../../../public/assets/Landing/networking/alantic.png"
+import { useTheme } from "../../../providers/ThemeProvider"
 
 interface ImageData {
   key: string
-  image: StaticImageData
+  image: string
+  white_image: string
   width: number
   height: number
 }
 
 const Networking = () => {
+  const match490 = useMediaQuery("(max-width: 490px)")
+
   const imagesLightMode: Array<ImageData> = [
     {
       key: "columbia-networking",
-      image: ColumbiaImage,
+      image: "/assets/Landing/networking/columbia.png",
+      white_image: "/assets/Landing/networking/columbia_white.png",
       width: 51,
       height: 51,
     },
     {
       key: "fx-networking",
-      image: FxImage,
+      image: "/assets/Landing/networking/fx.png",
+      white_image: "/assets/Landing/networking/fx_white.png",
       width: 60,
       height: 62,
     },
     {
       key: "zynga-networking",
-      image: ZyngaImage,
+      image: "/assets/Landing/networking/zynga.png",
+      white_image: "/assets/Landing/networking/zynga_white.png",
       width: 77,
       height: 78,
     },
     {
       key: "world-networking",
-      image: WorldImage,
+      image: "/assets/Landing/networking/world.png",
+      white_image: "/assets/Landing/networking/world_white.png",
       width: 54,
       height: 54,
     },
     {
       key: "warner-networking",
-      image: WarnerImage,
+      image: "/assets/Landing/networking/warner.png",
+      white_image: "/assets/Landing/networking/warner_white.png",
       width: 77,
       height: 28,
     },
     {
       key: "espn-networking",
-      image: EspnImage,
+      image: "/assets/Landing/networking/espn.png",
+      white_image: "/assets/Landing/networking/espn_white.png",
       width: 67,
       height: 41,
     },
     {
       key: "league-networking",
-      image: LeagueImage,
-      width: 61,
-      height: 62,
+      image: "/assets/Landing/networking/league.png",
+      white_image: "/assets/Landing/networking/league_white.png",
+      width: 69,
+      height: 40,
     },
     {
-      key: "alantic-networking",
-      image: AlanticImage,
+      key: "atlantic-networking",
+      image: "/assets/Landing/networking/atlantic.png",
+      white_image: "/assets/Landing/networking/atlantic_white.png",
       width: 48,
       height: 48,
     },
+    {
+      key: "pga-networking",
+      image: "/assets/Landing/networking/pga.png",
+      white_image: "/assets/Landing/networking/pga_white.png",
+      width: 43,
+      height: 63,
+    },
   ]
 
+  const { themeMode } = useTheme()
+
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem]">
+    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
+      <div className="flex justify-center md:hidden block mb-6">
+        <Image
+          src="/assets/Landing/networking.png"
+          width={200}
+          height={399}
+          alt="not found networking img"
+        />
+      </div>
       <div className="flex flex-col justify-center">
         <div>
           <SectionTitle text="Networking for Tastemakers and Trendsetters" />
@@ -80,13 +100,13 @@ const Networking = () => {
             {`Cre8ors is built to help the world’s top creators connect with world-class brands. Some
             of our partnerships include:`}
           </SectionContent>
-          <div className="lg:m-12 grid grid-cols-2 gap-4 md:grid-cols-4 gap-y-2">
-            {imagesLightMode.map((imageData: ImageData) => (
+          <div className="lg:m-12 grid grid-cols-3 gap-4 md:grid-cols-4 gap-y-2">
+            {imagesLightMode.slice(0, 9).map((imageData: ImageData) => (
               <div key={imageData.key} className="flex justify-center items-center">
                 <Image
-                  src={imageData.image.src}
-                  width={imageData.width}
-                  height={imageData.height}
+                  src={themeMode === "light" ? imageData.image : imageData.white_image}
+                  width={!match490 ? imageData.width : imageData.width - 10}
+                  height={!match490 ? imageData.height : imageData.height - 10}
                   alt="not found img"
                 />
               </div>
@@ -94,8 +114,13 @@ const Networking = () => {
           </div>
         </div>
       </div>
-      <div className="flex justify-center">
-        <Image src={NetworkingImage.src} width={281} height={561} alt="not found networking img" />
+      <div className="justify-center md:flex hidden">
+        <Image
+          src="/assets/Landing/networking.png"
+          width={281}
+          height={561}
+          alt="not found networking img"
+        />
       </div>
     </div>
   )

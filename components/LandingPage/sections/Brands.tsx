@@ -1,5 +1,6 @@
 import Image, { StaticImageData } from "next/image"
 
+import { useMediaQuery } from "usehooks-ts"
 import ExtendImage from "../../../public/assets/Landing/brands/extend.png"
 import LampImage from "../../../public/assets/Landing/brands/lamp.png"
 import ChainImage from "../../../public/assets/Landing/brands/chain.png"
@@ -17,6 +18,8 @@ interface ItemData {
 }
 
 const Brands = () => {
+  const match490 = useMediaQuery("(max-width: 490px)")
+
   const Items = [
     {
       key: "brand-extend",
@@ -70,19 +73,26 @@ const Brands = () => {
   ]
 
   return (
-    <div className="lg:m-12 grid grid-cols-2 md:grid-cols-4 pt-[10rem]">
-      {Items.map((item: ItemData) => (
-        <div key={item.key} className="flex justify-center flex-col items-center">
-          <Image
-            src={item.image.src}
-            width={item.width}
-            height={item.height}
-            alt="not found image"
-          />
-          <Title> {item.title}</Title>
-          <Desc> {item.text} </Desc>
-        </div>
-      ))}
+    <div className="w-full]">
+      <div className="grid grid-cols-1 md:grid-cols-4 pt-[15rem] pb-[15rem] w-full]">
+        {Items.map((item: ItemData) => (
+          <div
+            key={item.key}
+            className="flex justify-center md:flex-col items-center mb-12 md:mb-0 gap-4 md:gap-0"
+          >
+            <Image
+              src={item.image.src}
+              width={!match490 ? item.width : item.width - 30}
+              height={!match490 ? item.height : item.height - 30}
+              alt="not found image"
+            />
+            <div>
+              <Title> {item.title}</Title>
+              <Desc> {item.text} </Desc>
+            </div>
+          </div>
+        ))}
+      </div>
     </div>
   )
 }

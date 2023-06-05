@@ -1,20 +1,44 @@
+import * as React from "react"
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
 import { useState } from "react"
 import CustomConnectWallet from "../CustomConnectWallet"
+import { ToggleButton } from "../../shared/Button"
+import { useTheme } from "../../providers/ThemeProvider"
 
 const DesktopMenu = () => {
+  const { onChangeThemeConfig, themeMode } = useTheme()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const [toggle, setToggle] = useState(false)
+
+  const onToggle = () => {
+    setToggle(!toggle)
+    onChangeThemeConfig()
+  }
+
+  React.useEffect(() => {
+    if (themeMode === "light") setToggle(false)
+    if (themeMode === "dark") setToggle(true)
+  }, [themeMode])
+
   return (
     <div className="flex flex-row justify-around text-sm uppercase font-quicksand">
-      <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
-        <div className="pt-2 pl-10 pr-4 font-bold cursor-pointer ">Reserve List</div>
-      </a>
+      <div className="flex items-center pr-4">
+        <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
+          <div className="font-bold cursor-pointer dark:text-white text-black">Reserve List</div>
+        </a>
+      </div>
+      <div className="flex items-center font-quicksand font-bold">
+        <div className="pr-2 dark:text-white text-black">light</div>
+        <ToggleButton onClick={onToggle} value={toggle} />
+        <div className="pl-2 dark:text-white text-black">dark</div>
+      </div>
       <div className="relative">
         <button
           type="button"
-          className={`font-bold  uppercase text-sm w-[134px] h-[40px] ${
+          className={`font-bold dark:text-white text-black uppercase text-sm w-[134px] h-[40px] ${
             isMenuOpen &&
             "border rounded-lg bg-gradient-to-r from-[#DDDDDD] from-0% to-[#FAFAFA] to-100% shadow-md"
           }`}
@@ -57,12 +81,26 @@ const DesktopMenu = () => {
         rel="noreferrer"
       >
         <div className="pt-2 pl-4 cursor-pointer ">
-          <Image src="/Icons/DISCORD.svg" width={24} height={19} alt="discord" />
+          <Image
+            src={`${
+              themeMode === "light" ? "/Icons/DISCORD.svg" : "/assets/Header/white_discord.png"
+            }`}
+            width={24}
+            height={19}
+            alt="discord"
+          />
         </div>
       </a>
       <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
         <div className="pt-2 pl-10 cursor-pointer ">
-          <Image src="/Icons/TWITTER.svg" width={24} height={19} alt="twitter" />
+          <Image
+            src={`${
+              themeMode === "light" ? "/Icons/TWITTER.svg" : "/assets/Header/white_twitter.png"
+            }`}
+            width={24}
+            height={19}
+            alt="twitter"
+          />
         </div>
       </a>
       <div className="px-4 pt-2">
