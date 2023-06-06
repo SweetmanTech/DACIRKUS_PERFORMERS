@@ -5,6 +5,8 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
+    "./layouts/**/*.{js,ts,jsx,tsx}",
+    "./shared/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
     container: {
@@ -25,15 +27,15 @@ module.exports = {
         lg: "1024px",
         "3xl": "1920px",
         "4xl": "2560px",
-      }
+      },
     },
   },
   variants: {
     extend: {
-      display: ['dark']
+      display: ["dark"],
     },
   },
-  darkMode: ['class'],
+  darkMode: ["class"],
   plugins: [
     require("@tailwindcss/forms"),
     require("tailwind-scrollbar")({ nocompatible: true }),
