@@ -3,6 +3,7 @@ import { useMediaQuery } from "usehooks-ts"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
 import { useTheme } from "../../../providers/ThemeProvider"
+import FadeInImage from "../FadeInImage"
 
 interface ImageData {
   key: string
@@ -86,11 +87,10 @@ const Networking = () => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
       <div className="flex justify-center md:hidden block mb-6">
-        <Image
-          src="/assets/Landing/networking.png"
+        <FadeInImage
+          url="/assets/Landing/networking.png"
           width={200}
           height={399}
-          alt="not found networking img"
         />
       </div>
       <div className="flex flex-col justify-center">
@@ -115,11 +115,10 @@ const Networking = () => {
         </div>
       </div>
       <div className="justify-center md:flex hidden">
-        <Image
-          src="/assets/Landing/networking.png"
+        <FadeInImage
+          url="/assets/Landing/networking.png"
           width={281}
           height={561}
-          alt="not found networking img"
         />
       </div>
     </div>

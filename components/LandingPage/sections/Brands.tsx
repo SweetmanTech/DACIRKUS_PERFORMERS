@@ -7,6 +7,7 @@ import ChainImage from "../../../public/assets/Landing/brands/chain.png"
 import NetworkingImage from "../../../public/assets/Landing/brands/networking.png"
 import Title from "./brands/Title"
 import Desc from "./brands/Desc"
+import FadeInImage from "../FadeInImage"
 
 interface ItemData {
   image: StaticImageData
@@ -80,11 +81,10 @@ const Brands = () => {
             key={item.key}
             className="flex justify-center md:flex-col items-center mb-12 md:mb-0 gap-4 md:gap-0"
           >
-            <Image
-              src={item.image.src}
+            <FadeInImage
+              url={item.image.src}
               width={!isMobile ? item.width : item.width - 30}
               height={!isMobile ? item.height : item.height - 30}
-              alt="not found image"
             />
             <div>
               <Title> {item.title}</Title>

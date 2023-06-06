@@ -2,13 +2,13 @@ import Image from "next/image"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
 
-import CreativityImage from "../../../public/assets/Landing/creativity.png"
 import { Button } from "../../../shared/Button"
+import FadeInImage from "../FadeInImage"
 
 const WelcomeToCre8ors = () => (
   <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
     <div className="md:hidden flex justify-center mb-6">
-      <Image src={CreativityImage.src} width={200} height={460} alt="not found image" />
+      <FadeInImage url={'/assets/Landing/creativity.png'} width={200} height={460} />
     </div>
     <div className="flex flex-col justify-center">
       <div>
@@ -28,7 +28,7 @@ const WelcomeToCre8ors = () => (
       </div>
     </div>
     <div className="md:flex hidden justify-center ">
-      <Image src={CreativityImage.src} width={319} height={671} alt="not found image" />
+      <FadeInImage url={'/assets/Landing/creativity.png'} width={319} height={671}/>
     </div>
   </div>
 )

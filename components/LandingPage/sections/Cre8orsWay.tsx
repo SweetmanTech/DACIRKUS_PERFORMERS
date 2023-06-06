@@ -1,9 +1,9 @@
-import Image from "next/image"
 import { useMediaQuery } from "usehooks-ts"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
 
 import ProfileImage from "../../../public/assets/Landing/profile.png"
+import FadeInImage from "../FadeInImage"
 
 const Cre8orsWay = () => {
   const isMobile = useMediaQuery("(max-width: 490px)")
@@ -11,11 +11,10 @@ const Cre8orsWay = () => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
       <div className="flex justify-center mb-6 md:mb-0">
-        <Image
-          src={ProfileImage.src}
+        <FadeInImage
+          url={ProfileImage.src}
           width={!isMobile ? 337 : 250}
           height={!isMobile ? 673 : 446}
-          alt="not found profile img"
         />
       </div>
       <div className="flex flex-col justify-center">

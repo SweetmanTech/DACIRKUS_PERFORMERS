@@ -1,14 +1,13 @@
-import Image from "next/image"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
 
-import OpenSoonImage from "../../../public/assets/Landing/opensoon.png"
 import { Button } from "../../../shared/Button"
+import FadeInImage from "../FadeInImage"
 
 const OpenSoon = () => (
   <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[10rem] pb-[6rem]">
     <div className="flex justify-center block md:hidden mb-6">
-      <Image src={OpenSoonImage.src} width={300} height={474} alt="not found soon img" />
+      <FadeInImage url={'/assets/Landing/opensoon.png'} width={300} height={474}/>
     </div>
     <div className="flex flex-col justify-center">
       <div>
@@ -28,7 +27,7 @@ const OpenSoon = () => (
       </div>
     </div>
     <div className="justify-center hidden md:flex">
-      <Image src={OpenSoonImage.src} width={590} height={931} alt="not found soon img" />
+      <FadeInImage url={'/assets/Landing/opensoon.png'} width={590} height={931}/>
     </div>
   </div>
 )
