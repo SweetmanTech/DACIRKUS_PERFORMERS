@@ -10,7 +10,7 @@ interface FooterProps {
   className?: string
 }
 
-const Footer: React.FC<FooterProps> = ({className}) => {
+const Footer: React.FC<FooterProps> = ({ className }) => {
   const Items: ItemData[] = [
     {
       key: "link-pages",
@@ -29,7 +29,9 @@ const Footer: React.FC<FooterProps> = ({className}) => {
   const { themeMode } = useTheme()
 
   return (
-    <div className={`dark:bg-[black] bg-white pt-6 pb-6 w-full flex justify-center ${className || ''}`}>
+    <div
+      className={`dark:bg-[black] bg-white pt-6 pb-6 w-full flex justify-center ${className || ""}`}
+    >
       <div className="md:w-[1280px]">
         <div className="justify-end items-start flex md:hidden pt-6 pr-6">
           <Image
