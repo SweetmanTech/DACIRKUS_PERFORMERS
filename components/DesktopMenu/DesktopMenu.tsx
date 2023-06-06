@@ -23,16 +23,16 @@ const DesktopMenu = () => {
   }, [themeMode])
 
   return (
-    <div className="flex flex-row justify-around text-sm uppercase font-quicksand">
+    <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
       <div className="flex items-center pr-4">
         <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
           <div className="font-bold cursor-pointer dark:text-white text-black">Reserve List</div>
         </a>
       </div>
       <div className="flex items-center font-quicksand font-bold">
-        <div className="pr-2 dark:text-white text-black">light</div>
+        <div className="pr-2 text-[#9C9C9C]">light</div>
         <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
-        <div className="pl-2 dark:text-white text-black">dark</div>
+        <div className="pl-2 text-[#9C9C9C]">dark</div>
       </div>
       <div className="relative">
         <button
