@@ -32,7 +32,7 @@ const EnterPage = () => {
         </div>
         <Button
           id="enter_btn"
-          className="!bg-[black] !text-white"
+          className="!bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
           onClick={() => router.push("/home")}
         >
           ENTER
