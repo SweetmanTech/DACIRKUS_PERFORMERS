@@ -26,7 +26,7 @@ const MenuList = ({ toggleMenu }) => {
         fill="none"
         viewBox="0 0 24 24"
         stroke-width="1.5"
-        stroke="currentColor"
+        stroke={`${isDarkMode ? 'white' : 'currentColor'}`}
         className="absolute top-0 right-0 w-6 h-6 m-2"
         onClick={toggleMenu}
       >

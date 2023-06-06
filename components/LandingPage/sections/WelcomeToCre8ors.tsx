@@ -27,6 +27,12 @@ const WelcomeToCre8ors = () => {
             <Button id="welcome_reserve_btn" onClick={goToReserveList}>
               Reserve list
             </Button>
+            {/* <button
+              type="button"
+              className={`hover:scale-[1.25] transition duration-[500ms] px-4 py-2 font-bold font-quicksand text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)]`}
+            >
+              Reserve list
+            </button> */}
           </div>
         </div>
       </div>

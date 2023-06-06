@@ -10,7 +10,6 @@ const useFadeScrollY = ({ scrollY }: Props) => {
         if (scrollY) {
             scrollY.on('change', () => {
                 let fade_bg_sections = document.querySelectorAll('.fade_bg')
-
                 for (let i = 0; i < fade_bg_sections.length; i++) {
                     let section = fade_bg_sections[i]
 

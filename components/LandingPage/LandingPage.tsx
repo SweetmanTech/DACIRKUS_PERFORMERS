@@ -8,31 +8,47 @@ import Brands from "./sections/Brands"
 import OpenSoon from "./sections/OpenSoon"
 import Footer from "./sections/Footer"
 import SectionLayout from "./SectionLayout"
+import Layout from "../Layout"
+import { useRef } from "react"
+import { useScroll } from "framer-motion"
+import useFadeScrollY from "../../hooks/useFadeScrollY"
 
-const LandingPage = () => (
-  <div className="h-screen overflow-y-auto text-black bg-white">
-    <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
-    <Header />
-    <SectionLayout className="bg-[url('/assets/Landing/dark_bg/overlook.png')]">
-      <WelcomeToCre8ors />
-    </SectionLayout>
-    <SectionLayout className="bg-[url('/assets/Landing/dark_bg/timessquare.png')]">
-      <InviteForCreator />
-    </SectionLayout>
-    <SectionLayout className="bg-[url('/assets/Landing/dark_bg/trainstation.png')]">
-      <Networking />
-    </SectionLayout>
-    <SectionLayout className="bg-[url('/assets/Landing/dark_bg/replicate.png')]">
-      <Cre8orsWay />
-    </SectionLayout>
-    <SectionLayout className="bg-[url('/assets/Landing/dark_bg/path.png')]">
-      <Brands />
-    </SectionLayout>
-    <SectionLayout className="bg-[url('/assets/Landing/dark_bg/factory.png')]">
-      <OpenSoon />
-    </SectionLayout>
-    <Footer />
-  </div>
-)
+const LandingPage = () => {
+  const conatinerRef = useRef(null)
+
+  const {
+    scrollY
+  } = useScroll({container: conatinerRef})
+
+  useFadeScrollY({
+    scrollY
+  })
+
+  return (
+    <Layout type='base'>
+      <div className='h-full overflow-y-scroll' ref={conatinerRef}>
+        <SectionLayout className="bg-[url('/assets/Landing/dark_bg/overlook.png')]">
+          <WelcomeToCre8ors />
+        </SectionLayout>
+        <SectionLayout className="bg-[url('/assets/Landing/dark_bg/timessquare.png')]" containerClassName="fade_bg">
+          <InviteForCreator />
+        </SectionLayout>
+        <SectionLayout className="bg-[url('/assets/Landing/dark_bg/trainstation.png')]" containerClassName="fade_bg">
+          <Networking />
+        </SectionLayout>
+        <SectionLayout className="bg-[url('/assets/Landing/dark_bg/replicate.png')]" containerClassName="fade_bg">
+          <Cre8orsWay />
+        </SectionLayout>
+        <SectionLayout className="bg-[url('/assets/Landing/dark_bg/path.png')]" containerClassName="fade_bg">
+          <Brands />
+        </SectionLayout>
+        <SectionLayout className="bg-[url('/assets/Landing/dark_bg/factory.png')]" containerClassName="fade_bg">
+          <OpenSoon />
+        </SectionLayout>
+        <Footer />
+      </div>
+    </Layout>
+  )
+}
 
 export default LandingPage
