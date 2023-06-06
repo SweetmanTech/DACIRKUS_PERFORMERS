@@ -1,5 +1,6 @@
 import Image from "next/image"
 import { useTheme } from "../../providers/ThemeProvider"
+import Newsletter from "./components/Newsletter"
 
 interface ItemData {
   key: string
@@ -33,7 +34,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
       className={`dark:bg-[black] bg-white pt-6 pb-6 w-full flex justify-center ${className || ""}`}
     >
       <div className="md:w-[1280px]">
-        <div className="justify-end items-start flex md:hidden pt-6 pr-6">
+        <div className="flex items-start justify-end pt-6 pr-6 md:hidden">
           <Image
             src={
               themeMode === "light"
@@ -46,7 +47,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           />
         </div>
         <div className="px-[5px] pt-6 pb-6 lg:p-12 grid grid-cols-3 md:grid-cols-5">
-          <div className="justify-end items-start hidden md:flex">
+          <div className="items-start justify-end hidden md:flex">
             <Image
               src={
                 themeMode === "light"
@@ -70,23 +71,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               </div>
             </div>
           ))}
-          <div className="col-span-3 flex flex-col items-center pt-6 md:block md:pt-0 md:col-span-1">
-            <div className="font-quicksand dark:text-[white] text-[black]">Join our newsletter</div>
-            <div className="relative pt-[0.5rem] w-[190px] md:w-[202px]">
-              <input
-                className="border-[1px] border-[black] rounded-[3rem] font-quicksand px-3 py-1"
-                placeholder="Email Address"
-              />
-              <div className="absolute top-[10px] right-[0px] md:right-[10px]">
-                <button
-                  type="button"
-                  className="bg-[black] px-2 py-1 rounded-[2rem] text-[white] text-[0.5rem]"
-                >
-                  SUBMIT
-                </button>
-              </div>
-            </div>
-          </div>
+          <Newsletter />
         </div>
       </div>
     </div>
