@@ -1,21 +1,43 @@
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import CustomConnectWallet from "../CustomConnectWallet"
 import DiscordIcon from "../DiscordIcon"
+import { ToggleButton } from "../../shared/Button"
+import { useTheme } from "../../providers/ThemeProvider"
 
 const DesktopMenu = () => {
+  const { onChangeThemeConfig, themeMode } = useTheme()
+
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
+  const [isDarkMode, setIsDarkMode] = useState(false)
+
+  const onToggle = () => {
+    setIsDarkMode(!isDarkMode)
+    onChangeThemeConfig()
+  }
+
+  useEffect(() => {
+    setIsDarkMode(themeMode !== "light")
+  }, [themeMode])
+
   return (
-    <div className="flex flex-row justify-around text-sm uppercase font-quicksand">
-      <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
-        <div className="pt-2 pl-10 pr-4 font-bold cursor-pointer ">Reserve List</div>
-      </a>
+    <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
+      <div className="flex items-center pr-4">
+        <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
+          <div className="font-bold cursor-pointer dark:text-white text-black">Reserve List</div>
+        </a>
+      </div>
+      <div className="flex items-center font-quicksand font-bold">
+        <div className="pr-2 text-[#9C9C9C]">light</div>
+        <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
+        <div className="pl-2 text-[#9C9C9C]">dark</div>
+      </div>
       <div className="relative">
         <button
           type="button"
-          className={`font-bold  uppercase text-sm w-[134px] h-[40px] ${
+          className={`font-bold dark:text-white text-black uppercase text-sm w-[134px] h-[40px] ${
             isMenuOpen &&
             "border rounded-lg bg-gradient-to-r from-[#DDDDDD] from-0% to-[#FAFAFA] to-100% shadow-md"
           }`}
@@ -55,7 +77,14 @@ const DesktopMenu = () => {
       <DiscordIcon />
       <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
         <div className="pt-2 pl-10 cursor-pointer ">
-          <Image src="/Icons/TWITTER.svg" width={24} height={19} alt="twitter" />
+          <Image
+            src={`${
+              themeMode === "light" ? "/Icons/TWITTER.svg" : "/assets/Header/white_twitter.png"
+            }`}
+            width={24}
+            height={19}
+            alt="twitter"
+          />
         </div>
       </a>
       <div className="px-4 pt-2">

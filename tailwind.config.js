@@ -7,6 +7,9 @@ module.exports = {
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    container: {
+      center: true,
+    },
     extend: {
       fontFamily: {
         aldrich: ["Aldrich", "sans-serif"],
@@ -22,9 +25,15 @@ module.exports = {
         lg: "1024px",
         "3xl": "1920px",
         "4xl": "2560px",
-      },
+      }
     },
   },
+  variants: {
+    extend: {
+      display: ['dark']
+    },
+  },
+  darkMode: ['class'],
   plugins: [
     require("@tailwindcss/forms"),
     require("tailwind-scrollbar")({ nocompatible: true }),

@@ -37,7 +37,7 @@ const CustomConnectWallet = () => (
             if (!connected) {
               return (
                 <button
-                  className="font-bold uppercase text-[17px] lg:md:text-sm font-quicksand"
+                  className="font-bold uppercase text-[17px] lg:md:text-sm font-quicksand text-[black] dark:text-[white]"
                   onClick={openConnectModal}
                   type="button"
                 >
@@ -48,7 +48,11 @@ const CustomConnectWallet = () => (
 
             if (chain.unsupported) {
               return (
-                <button onClick={openChainModal} type="button">
+                <button
+                  onClick={openChainModal}
+                  type="button"
+                  className="text-[black] dark:text-[white]"
+                >
                   Wrong network
                 </button>
               )
@@ -89,7 +93,7 @@ const CustomConnectWallet = () => (
                 <button
                   onClick={openAccountModal}
                   type="button"
-                  className="font-bold uppercase text-[17px] lg:md:text-sm font-quicksand"
+                  className="font-bold uppercase text-[17px] lg:md:text-sm font-quicksand text-[black] dark:text-[white]"
                 >
                   {account.displayName}
                   {account.displayBalance ? ` (${account.displayBalance})` : ""}

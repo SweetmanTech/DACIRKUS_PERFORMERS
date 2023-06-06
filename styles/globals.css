@@ -80,6 +80,31 @@ a {
   }
 }
 
+/* Fade-in animation on scroll */
+.appear {
+  transition: all 1s;
+  opacity: 0;
+  transform: translateY(80px);
+}
+
+.appear.inview {
+  opacity: 1;
+  transform: none;
+  transition-delay: 0.3s;
+}
+
+/* Fade-in background animation on scroll */
+.fade_bg {
+  opacity: 0.4;
+  /* transform: translate(0, 20px); */
+  transition: all 2s;
+}
+
+.fade_bg.show {
+  opacity: 1;
+  /* transform: translate(0, 0); */
+}
+
 * {
   box-sizing: border-box;
 }

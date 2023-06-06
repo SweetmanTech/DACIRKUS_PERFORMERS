@@ -7,9 +7,11 @@ import { publicProvider } from "wagmi/providers/public"
 import { ToastContainer } from "react-toastify"
 import { SessionProvider } from "next-auth/react"
 import "react-toastify/dist/ReactToastify.css"
+import * as React from "react"
 import { UserProvider } from "../providers/UserProvider"
 import { ChatProvider } from "../providers/ChatProvider"
 import Chat from "../components/Chat"
+import { ThemeProvider } from "../providers/ThemeProvider"
 
 const { chains, provider, webSocketProvider } = configureChains(allChains, [publicProvider()])
 
@@ -29,15 +31,17 @@ function MyApp({ Component, pageProps }: AppProps) {
   return (
     <WagmiConfig client={wagmiClient}>
       <RainbowKitProvider modalSize="compact" chains={chains}>
-        <SessionProvider>
-          <UserProvider>
-            <ChatProvider>
-              <Component {...pageProps} />
-              <Chat />
-              <ToastContainer />
-            </ChatProvider>
-          </UserProvider>
-        </SessionProvider>
+        <ThemeProvider>
+          <SessionProvider>
+            <UserProvider>
+              <ChatProvider>
+                <Component {...pageProps} />
+                <Chat />
+                <ToastContainer />
+              </ChatProvider>
+            </UserProvider>
+          </SessionProvider>
+        </ThemeProvider>
       </RainbowKitProvider>
     </WagmiConfig>
   )

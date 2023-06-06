@@ -1,15 +1,14 @@
 import React, { useState, useEffect } from "react"
 import * as _ from "lodash"
-import Image from "next/image"
 import getOwnersForCollection from "../../lib/alchemy/getOwnersForCollection"
 import getParticipants from "../../lib/getParticipants"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
-import Header from "../Header"
-import customLoader from "../../lib/customLoader"
+import Layout from "../Layout"
 
 const LeaderboardPage = () => {
   const [collectors, setCollectors] = useState([])
+
   useEffect(() => {
     const fetchTopCollectors = async () => {
       const { ownerAddresses } = await getOwnersForCollection()
@@ -25,54 +24,57 @@ const LeaderboardPage = () => {
       }))
       setCollectors(tableData)
     }
-
     fetchTopCollectors()
   }, [])
 
   return (
-    <div className="h-screen overflow-y-auto text-black bg-[url('/leaderboard_background.png')]">
-      <Header connect />
-      <div className="w-full max-w-3xl pt-24 mx-auto">
-        <div className="flex flex-col items-center justify-center w-full gap-2">
-          <Image
-            src="/leaderboard.png"
-            width={486}
-            height={120}
-            alt="leaderboard"
-            loader={customLoader}
-          />
+    <Layout type="contained">
+      <div className="w-full pt-24 mx-auto">
+        <div className="font-[eigerdals] dark:text-white text-center text-[2.5rem] md:text-[4rem] font-bold pt-6">
+          Leaderboard
         </div>
-        <div className="box-content m-4 bg-white border-b-2 border-black border-solid rounded-lg">
-          <table className="w-full overflow-hidden rounded-lg">
-            <thead className="px-4 border-2 border-black border-solid rounded-lg">
-              <tr>
-                <th className="px-4 py-2 text-left border-r-2 border-black">Rank</th>
-                <th className="px-4 py-2 text-left border-r-2 border-black">
-                  Number of NFTs Owned
-                </th>
-                <th className="px-4 py-2 text-left border-r-2 border-black">Address</th>
-                <th className="px-4 py-2 text-left border-r-2 border-black">Twitter</th>
-              </tr>
-            </thead>
-            {collectors.length > 0 ? (
-              <tbody>
-                {collectors.map((collector, index) => (
-                  <LeaderboardRow
-                    key={collector.walletAddress}
-                    address={collector.walletAddress}
-                    numberOwned={collector.nftsOwned}
-                    twitterHandle={collector.twitterHandle}
-                    rank={index + 1}
-                  />
-                ))}
-              </tbody>
-            ) : (
-              <SkeletonTableBody />
-            )}
-          </table>
+        <div className="w-full flex justify-center pb-4">
+          <div className="font-quicksand dark:text-white text-center max-w-[400px] md:max-w-[550px] text-[1rem] md:text-[1.5rem] font-[550]">
+            Currently Tracking: Devine Ancestral Pendants Collect and burn 88 to redeem a Passport
+          </div>
+        </div>
+        <div className="md:px-4 w-full flex justify-center">
+          <div className="w-[370px] md:w-full border-[2px] border-[black] border-solid rounded-lg overflow-hidden overflow-x-scroll shadow-[4px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[4px_4px_4px_rgb(255,255,255,0.25)]">
+            <table className="w-full font-quicksand bg-white">
+              <thead className="border-b-[2px] border-black border-solid">
+                <tr>
+                  <th className="p-4 text-left border-r-[2px] border-black text-center uppercase min-w-[100px]">
+                    Rank
+                  </th>
+                  <th className="p-4 text-left border-r-[2px] border-black text-center uppercase min-w-[200px]">
+                    # of NFTs Owned
+                  </th>
+                  <th className="p-4 text-left border-r-[2px] border-black text-center uppercase">
+                    Address
+                  </th>
+                  <th className="p-4 text-left text-center uppercase">Twitter</th>
+                </tr>
+              </thead>
+              {collectors.length > 0 ? (
+                <tbody>
+                  {collectors.map((collector, index) => (
+                    <LeaderboardRow
+                      key={collector.walletAddress}
+                      address={collector.walletAddress}
+                      numberOwned={collector.nftsOwned}
+                      twitterHandle={collector.twitterHandle}
+                      rank={index + 1}
+                    />
+                  ))}
+                </tbody>
+              ) : (
+                <SkeletonTableBody />
+              )}
+            </table>
+          </div>
         </div>
       </div>
-    </div>
+    </Layout>
   )
 }
 
