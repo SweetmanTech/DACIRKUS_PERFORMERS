@@ -24,8 +24,8 @@ const Brands = () => {
     {
       key: "brand-extend",
       image: ExtendImage,
-      width: 151,
-      height: 151,
+      width: 141,
+      height: 163,
       title: (
         <>
           Extended <br />
@@ -73,8 +73,8 @@ const Brands = () => {
   ]
 
   return (
-    <div className="w-full]">
-      <div className="grid grid-cols-1 md:grid-cols-4 pt-[15rem] pb-[15rem] w-full]">
+    <div className="w-full">
+      <div className="grid grid-cols-1 md:grid-cols-4 pt-[15rem] pb-[15rem] w-full">
         {Items.map((item: ItemData) => (
           <div
             key={item.key}
