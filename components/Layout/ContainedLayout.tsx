@@ -2,11 +2,7 @@ import React from "react"
 import { ILayout } from "./types"
 import SeoHead from "../SeoHead"
 import Header from "../Header"
-import Footer from "../LandingPage/sections/Footer"
-
-// const changeActivePage = () => {
-//   window.scrollTo({ top: 0, behavior: 'smooth' })
-// }
+import Footer from "../Footer/Footer"
 
 function ContainedLayout({ children }: ILayout) {
   return (

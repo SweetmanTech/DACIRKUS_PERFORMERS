@@ -3,10 +3,6 @@ import { ILayout } from "./types"
 import SeoHead from "../SeoHead"
 import Header from "../Header"
 
-// const changeActivePage = () => {
-//   window.scrollTo({ top: 0, behavior: 'smooth' })
-// }
-
 function BaseLayout({ children }: ILayout) {
   return (
     <div className="h-screen text-black bg-white">

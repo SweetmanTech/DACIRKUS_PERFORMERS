@@ -5,11 +5,7 @@ const DiscordIcon = () => {
   const { themeMode } = useTheme()
 
   return (
-    <a
-      href="https://discord.com/channels/1055217047908384849/1055218028012392519"
-      target="_blank"
-      rel="noreferrer"
-    >
+    <a href="https://discord.gg/ZpZBHCrqHQ" target="_blank" rel="noreferrer">
       <div className="pt-2 cursor-pointer">
         <Image
           src={`${

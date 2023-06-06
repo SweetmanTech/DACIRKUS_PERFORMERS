@@ -1,5 +1,5 @@
 import Image from "next/image"
-import { useTheme } from "../../../providers/ThemeProvider"
+import { useTheme } from "../../providers/ThemeProvider"
 
 interface ItemData {
   key: string
