@@ -44,7 +44,7 @@ const OpenSoon = () => {
         <SectionContent>
           {isMobile ? (
             <>
-              Allowlist open in July. Skip the line <br /> and secure your spot by reserving a{" "}
+              Allowlist opens in July. Skip the line <br /> and secure your spot by reserving a{" "}
               <br />
               Cre8ors Collective Passport today.
               <br /> &nbsp;
@@ -54,7 +54,7 @@ const OpenSoon = () => {
             </>
           ) : (
             <>
-              Allowlist open in July. &nbsp;Skpe the line and secure <br /> your spot by reserving a
+              Allowlist opens in July. &nbsp;Skip the line and secure <br /> your spot by reserving a
               Cre8ors Collective <br /> Passport today.&nbsp;
               <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
                 For more info read the FAQ.
