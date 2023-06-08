@@ -50,7 +50,7 @@ const Brands = () => {
       ),
       text: (
         <>
-          Collaborate, license, and <br /> get paid with our CR8 protocol and dApps
+          Collaborate, license, and <br /> get paid with our CR8 protocol and dApps.
         </>
       ),
     },
