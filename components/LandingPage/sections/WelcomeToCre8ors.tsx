@@ -23,6 +23,9 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
   const isMobile = useMediaQuery("(max-width: 490px)")
   const inputRef = useRef()
   const avatarsRef = useRef()
+  const titleRef = useRef()
+  const contentRef = useRef()
+  const imageRef = useRef()
 
   useFadeIntersection({
     ref: inputRef,
@@ -33,7 +36,28 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
   })
 
   useGradualFadeEffect({
-    elements: [avatarsRef.current, inputRef.current],
+    elements: [
+      {
+        domObject: avatarsRef.current,
+        type: "self",
+      },
+      {
+        domObject: inputRef.current,
+        type: "self",
+      },
+      {
+        domObject: contentRef.current,
+        type: "child",
+      },
+      {
+        domObject: titleRef.current,
+        type: "child",
+      },
+      {
+        domObject: imageRef.current,
+        type: "child",
+      },
+    ],
     isScrollUp,
   })
 
@@ -55,25 +79,29 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
         dark:bg-[black] bg-white md:!bg-transparent
         shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none"
       >
-        <SectionTitle
-          text="Welcome to the Next Generation of Creativity"
-          className="w-[300px] md:w-[550px] md:text-left"
-        />
-        <SectionContent>
-          {isMobile ? (
-            <>
-              Cre8ors is a next-gen media brand made <br />
-              for the metaverse; powered by our curated collective of web3 creators, IP co-creation
-              protocols and AI-enabled NFTs.
-            </>
-          ) : (
-            <>
-              Cre8ors is a next-gen media brand made for the metaverse; <br />
-              powered by our curated collective of web3 creators, <br />
-              IP co-creation protocols and AI-enabled NFTs.
-            </>
-          )}
-        </SectionContent>
+        <div ref={titleRef}>
+          <SectionTitle
+            text="Welcome to the Next Generation of Creativity"
+            className="w-[300px] md:w-[550px] md:text-left"
+          />
+        </div>
+        <div ref={contentRef}>
+          <SectionContent>
+            {isMobile ? (
+              <>
+                Cre8ors is a next-gen media brand made <br />
+                for the metaverse; powered by our curated collective of web3 creators, IP
+                co-creation protocols and AI-enabled NFTs.
+              </>
+            ) : (
+              <>
+                Cre8ors is a next-gen media brand made for the metaverse; <br />
+                powered by our curated collective of web3 creators, <br />
+                IP co-creation protocols and AI-enabled NFTs.
+              </>
+            )}
+          </SectionContent>
+        </div>
         <div ref={inputRef} className="appear m-6 lg:mx-12 flex justify-center md:justify-start">
           <div className="w-[95%]">
             <Input
@@ -108,7 +136,7 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
           <span className="text-[14px] text-[#916FE2] font-bold">Join 2K+</span> web3 creators.
         </div>
       </div>
-      <div className="md:flex hidden justify-center">
+      <div className="md:flex hidden justify-center" ref={imageRef}>
         <FadeInImage
           url="/assets/Landing/creativity.png"
           width={319}

@@ -13,10 +13,10 @@ const useGradualFadeEffect = ({
     useEffect(() => {
         if(!isScrollUp) {
             for(let i = 0 ; i < elements.length ; i++) {
-                if(elements[i]?.style) {
-                    console.log(elements[i])
-                    console.log(elements[i])
-                    elements[i].style.transitionDelay = `${1000 * (i + 1)}ms`;
+                if(elements[i]?.type === 'self' && elements[i]?.domObject?.style) {
+                    elements[i].domObject.style.transitionDelay = `${500 * (i + 1)}ms`;
+                } else if(elements[i]?.type === 'child' && elements[i]?.domObject?.children) {
+                    elements[i].domObject.children[0].style.transitionDelay = `${500 * (i + 1)}ms`;
                 }
             }
         }
