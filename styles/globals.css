@@ -82,7 +82,7 @@ a {
 
 /* Fade-in animation on scroll */
 .appear {
-  transition: all 1s;
+  transition: all 0.25s;
   opacity: 0;
   transform: translateY(40px);
   transition-delay: 0.2s;
