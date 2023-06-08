@@ -67,7 +67,7 @@ const Networking = () => {
     },
     {
       key: "atlantic-networking",
-      image: "/assets/Landing/networking/atlantic.png",
+      image: "/assets/Landing/networking/atlantic.svg",
       white_image: "/assets/Landing/networking/atlantic_white.svg",
       width: 48,
       height: 48,
