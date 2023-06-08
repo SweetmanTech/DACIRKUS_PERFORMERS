@@ -39,7 +39,7 @@ const SectionLayout: React.FC<LayoutProps> = ({
       {!isMobile && (
         <div
           ref={cursorRef}
-          className="hidden rounded-full w-[122px] h-[122px] z-[30] absolute border-[5px] border-[black] dark:border-[white] pointer-events-none p-1"
+          className="hidden rounded-full w-[152px] h-[152px] z-[30] absolute border-[5px] border-[black] dark:border-[white] pointer-events-none p-1"
         />
       )}
       <div
@@ -50,12 +50,12 @@ const SectionLayout: React.FC<LayoutProps> = ({
           className={`
               ${themeMode === "light" ? "dark_mode" : "light_mode"}
               ${backgroundImage}
-              md:bg-center bg-cover md:bg-contain bg-no-repeat dark:!bg-[white] dark:!bg-none
-              absolute
-              z-[10] 
-              w-full h-full opacity-0
-              hidden
-              md:!block
+                md:bg-center bg-cover md:bg-contain bg-no-repeat
+                absolute
+                z-[7] dark:z-[6]
+                w-full h-full opacity-0
+                hidden
+                md:!block
             `}
         >
           <Container>{children}</Container>

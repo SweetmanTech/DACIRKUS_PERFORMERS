@@ -20,16 +20,22 @@ interface ToggleButtonProps {
   value?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({ children, className, onClick, ...rest }) => {
+export const Button: FC<ButtonProps> = ({ id, children, className, onClick, ...rest }) => {
   const click = () => {
     if(onClick) onClick()
   }
 
+  const hoverEvent = () => {
+    document.getElementById(id).style.backgroundColor = 'red !important'
+  }
+
   return (
     <button
+      id={id}
       type="button"
-      className={`hover:scale-[1.25] scale-[1] transition duration-[2000ms] px-[28px] py-[11px] font-bold font-quicksand uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
+      className={`hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
       onClick={click}
+      onMouseOver={ hoverEvent }
       {...rest}
     >
       {children}

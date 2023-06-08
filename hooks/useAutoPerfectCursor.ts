@@ -11,7 +11,7 @@ const useAutoPerfectCursor = ({
     cursorRef,
     clipRef
 } : Props) => {
-    const CURSOR_RADIUS = 120 / 2;
+    const CURSOR_RADIUS = 150 / 2;
 
     const sign = (value: number) => {
         return value * -1

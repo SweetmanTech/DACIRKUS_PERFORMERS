@@ -82,10 +82,10 @@ a {
 
 /* Fade-in animation on scroll */
 .appear {
-  transition: all 2s;
+  transition: all 1s;
   opacity: 0;
   transform: translateY(40px);
-  transition-delay: 0.3s;
+  transition-delay: 0.2s;
 }
 
 .appear.inview {
@@ -95,8 +95,8 @@ a {
 
 /* Fade-in background animation on scroll */
 .fade_bg {
-  opacity: 0.2;
-  transition: all 3s;
+  opacity: 0.3;
+  transition: all 0.1s;
 }
 
 .fade_bg.show {
@@ -117,7 +117,7 @@ a {
 }
 
 .light_mode button {
-  background-color: black !important;
+  background-color: white !important;
   color: white !important;
 }
 
@@ -133,6 +133,10 @@ a {
 .dark_mode button {
   background-color: white !important;
   color: black !important;
+}
+
+.no_transition {
+  transition: none !important;
 }
 
 * {

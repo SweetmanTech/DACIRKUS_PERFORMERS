@@ -44,19 +44,17 @@ const OpenSoon = () => {
         <SectionContent>
           {isMobile ? (
             <>
-              Allowlist applications open in July. Reserve <br /> a Cre8ors Collective Passport
-              today and secure your spot.{" "}
+              Allowlist open in July. Skip the line <br /> and secure your spot by reserving a <br/>
+              Cre8ors Collective Passport today.<br/>
               <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
-                For more info read the FAQ
+                For more info read the FAQ.
               </a>
             </>
           ) : (
             <>
-              Allowlist applications open in July. Reserve <br /> a Cre8ors Collective Passport
-              today and <br />
-              secure your spot.{" "}
+              Allowlist open in July. Skpe the line and secure <br/> your spot by reserving a Cre8ors Collective <br/> Passport today.
               <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
-                For more info read the FAQ
+                For more info read the FAQ.
               </a>
             </>
           )}

@@ -14,9 +14,9 @@ const useGradualFadeEffect = ({
         if(!isScrollUp) {
             for(let i = 0 ; i < elements.length ; i++) {
                 if(elements[i]?.type === 'self' && elements[i]?.domObject?.style) {
-                    elements[i].domObject.style.transitionDelay = `${500 * (i + 1)}ms`;
+                    elements[i].domObject.style.transitionDelay = `${200 * (i + 1)}ms`;
                 } else if(elements[i]?.type === 'child' && elements[i]?.domObject?.children) {
-                    elements[i].domObject.children[0].style.transitionDelay = `${500 * (i + 1)}ms`;
+                    elements[i].domObject.children[0].style.transitionDelay = `${200 * (i + 1)}ms`;
                 }
             }
         }
