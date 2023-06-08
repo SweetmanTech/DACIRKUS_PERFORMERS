@@ -33,7 +33,6 @@ const ChatBox = () => {
               <MyMessage
                 message={JSON.parse(message.data)}
                 key={message}
-                // connectionId={message.connectionId}
               />
             )
           }
@@ -41,7 +40,6 @@ const ChatBox = () => {
             <OtherMessage
               message={JSON.parse(message.data)}
               key={message}
-              // connectionId={message.connectionId}
             />
           )
         })}
