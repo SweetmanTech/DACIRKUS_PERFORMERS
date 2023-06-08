@@ -47,15 +47,15 @@ const OpenSoon = () => {
               Allowlist open in July. Skip the line <br /> and secure your spot by reserving a{" "}
               <br />
               Cre8ors Collective Passport today.
-              <br />
+              <br /> &nbsp;
               <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
                 For more info read the FAQ.
               </a>
             </>
           ) : (
             <>
-              Allowlist open in July. Skpe the line and secure <br /> your spot by reserving a
-              Cre8ors Collective <br /> Passport today.
+              Allowlist open in July. &nbsp;Skpe the line and secure <br /> your spot by reserving a
+              Cre8ors Collective <br /> Passport today.&nbsp;
               <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
                 For more info read the FAQ.
               </a>
