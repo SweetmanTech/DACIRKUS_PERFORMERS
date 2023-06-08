@@ -129,9 +129,9 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
           "
         >
           <AvatarGroup count={3}>
-            <Avatar url="/assets/Landing/avatars/avatar_1.png" />
-            <Avatar url="/assets/Landing/avatars/avatar_2.png" />
-            <Avatar url="/assets/Landing/avatars/avatar_3.png" />
+            <Avatar url="/assets/Landing/avatars/avatar_1.svg" />
+            <Avatar url="/assets/Landing/avatars/avatar_2.svg" />
+            <Avatar url="/assets/Landing/avatars/avatar_3.svg" />
           </AvatarGroup>
           <span className="text-[14px] text-[#916FE2] font-bold">Join 2K+</span> web3 creators.
         </div>

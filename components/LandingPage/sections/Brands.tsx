@@ -21,7 +21,7 @@ const Brands = () => {
   const Items = [
     {
       key: "brand-extend",
-      image: "/assets/Landing/brands/extend.png",
+      image: "/assets/Landing/brands/extend.svg",
       mobile_image: "/assets/Landing/brands/mobile_extend.png",
       width: 133,
       height: 155,
@@ -37,7 +37,7 @@ const Brands = () => {
     },
     {
       key: "brand-lamp",
-      image: "/assets/Landing/brands/lamp.png",
+      image: "/assets/Landing/brands/lamp.svg",
       mobile_image: "/assets/Landing/brands/mobile_lamp.png",
       width: 147,
       height: 141,
@@ -56,7 +56,7 @@ const Brands = () => {
     },
     {
       key: "brand-chain",
-      image: "/assets/Landing/brands/chain.png",
+      image: "/assets/Landing/brands/chain.svg",
       mobile_image: "/assets/Landing/brands/mobile_chain.png",
       width: 131,
       height: 150,
@@ -76,7 +76,7 @@ const Brands = () => {
     },
     {
       key: "brand-networking",
-      image: "/assets/Landing/brands/networking.png",
+      image: "/assets/Landing/brands/networking.svg",
       mobile_image: "/assets/Landing/brands/mobile_networking.png",
       width: 167,
       height: 139,

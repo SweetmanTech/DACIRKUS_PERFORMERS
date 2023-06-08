@@ -20,7 +20,7 @@ const Header: FC<HeaderProps> = () => {
           <Link href="/">
             <Image
               src={`${
-                themeMode === "light" ? "/CRE8ORS_LOGO.svg" : "/assets/Header/white_logo.png"
+                themeMode === "light" ? "/CRE8ORS_LOGO.svg" : "/assets/Header/white_logo.svg"
               }`}
               alt="cre8ors logo"
               width={87}

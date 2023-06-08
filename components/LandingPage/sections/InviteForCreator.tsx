@@ -10,7 +10,7 @@ const InviteForCreator = () => {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
       <div className="flex justify-center mb-6 md:mb-0">
         <FadeInImage
-          url="/assets/Landing/invite.png"
+          url="/assets/Landing/invite.svg"
           width={!isMobile ? 511 : 348.41}
           height={!isMobile ? 586 : 399.68}
           className="!translate-y-[340px] md:!translate-y-[0px]"
