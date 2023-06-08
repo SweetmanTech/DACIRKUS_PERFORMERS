@@ -1,21 +1,14 @@
-import Image from "next/image"
-import customLoader from "../../../../lib/customLoader"
+import { Button } from "../../../../shared/Button"
 
 const ChatBoxAction = ({ setOpenChat }) => (
-  <div>
-    <button
-      className="inline-flex p-2 rounded-full hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2"
-      type="button"
+  <div className="absolute right-[20px] top-[20px]">
+    <Button
+      id="chat_action_btn"
+      className="!py-[2px] !px-4 hover:scale-[1.2] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
       onClick={() => setOpenChat(false)}
     >
-      <Image
-        src="/chatbox/BUTTON_MINIMIZE.svg"
-        alt="Minimize Chat"
-        width={20}
-        height={20}
-        loader={customLoader}
-      />
-    </button>
+      -
+    </Button>
   </div>
 )
 

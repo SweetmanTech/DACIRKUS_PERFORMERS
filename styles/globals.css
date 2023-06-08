@@ -82,27 +82,57 @@ a {
 
 /* Fade-in animation on scroll */
 .appear {
-  transition: all 1s;
+  transition: all 2s;
   opacity: 0;
-  transform: translateY(80px);
+  transform: translateY(40px);
+  transition-delay: 0.3s;
 }
 
 .appear.inview {
   opacity: 1;
   transform: none;
-  transition-delay: 0.3s;
 }
 
 /* Fade-in background animation on scroll */
 .fade_bg {
-  opacity: 0.4;
-  /* transform: translate(0, 20px); */
-  transition: all 2s;
+  opacity: 0.2;
+  transition: all 3s;
 }
 
 .fade_bg.show {
   opacity: 1;
-  /* transform: translate(0, 0); */
+}
+
+.light_mode > div {
+  color: white !important;
+}
+
+.light_mode {
+  transition: none !important;
+}
+
+.light_mode div {
+  color: black !important;
+  transition: none !important;
+}
+
+.light_mode button {
+  background-color: black !important;
+  color: white !important;
+}
+
+.dark_mode {
+  transition: none !important;
+}
+
+.dark_mode div {
+  color: white !important;
+  transition: none !important;
+}
+
+.dark_mode button {
+  background-color: white !important;
+  color: black !important;
 }
 
 * {
