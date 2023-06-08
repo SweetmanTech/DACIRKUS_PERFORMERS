@@ -181,25 +181,18 @@ const Networking = () => {
             )}
           </SectionContent>
           <div className="lg:m-12 grid grid-cols-3 gap-4 md:grid-cols-4 md:gap-y-2 gap-y-6">
-            {isMobile
-              ? mobileImagesList.map((imageData: ImageData) => (
-                  <div key={imageData.key} className="flex justify-center items-center">
-                    <FadeInImage
-                      url={themeMode === "light" ? imageData.image : imageData.white_image}
-                      width={imageData.width}
-                      height={imageData.height}
-                    />
-                  </div>
-                ))
-              : imagesList.map((imageData: ImageData) => (
-                  <div key={imageData.key} className="flex justify-center items-center">
-                    <FadeInImage
-                      url={themeMode === "light" ? imageData.image : imageData.white_image}
-                      width={imageData.width}
-                      height={imageData.height}
-                    />
-                  </div>
-                ))}
+            {
+              [].concat(isMobile ? [...mobileImagesList] : [...imagesList]).map((imageData: ImageData) => (
+                <div key={imageData.key} className="flex justify-center items-center">
+                  <FadeInImage
+                    url={themeMode === "light" ? imageData.image : imageData.white_image}
+                    width={imageData.width}
+                    height={imageData.height}
+                  />
+                </div>
+              ))
+            }
+             
           </div>
         </div>
       </div>
