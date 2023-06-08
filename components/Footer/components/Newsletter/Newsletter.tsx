@@ -13,21 +13,23 @@ const Newsletter = () => {
   const onChange = (e) => {
     setEmail(e.target.value)
   }
+
   return (
-    <div className="flex flex-col items-center col-span-3 pt-6 md:block md:pt-0 md:col-span-1">
-      <div className="font-quicksand dark:text-[white] text-[black]">Join our newsletter</div>
-      <div className="relative pt-[0.5rem] w-[190px] md:w-[202px]">
+    <div className="flex flex-col items-start pl-4 md:p-0 md:block col-span-4 md:col-span-1">
+      <div className="font-quicksand text-[8px] md:text-[16px] dark:text-[white] text-[black]">
+        Join our newsletter
+      </div>
+      <div className="relative p-0 md:pt-[0.5rem] w-[116px] md:w-[202px]">
         <input
-          className="border-[1px] border-[black] rounded-[3rem] font-quicksand px-3 py-1"
+          className="text-[8px] md:text-[16px]  border-[1px] border-[black] rounded-[3rem] !w-[116px] md:!w-full font-quicksand px-[10px] md:px-3 py-1"
           placeholder="Email Address"
           onChange={onChange}
           value={email}
-          required
         />
-        <div className="absolute top-[10px] right-[0px] md:right-[10px]">
+        <div className="absolute top-[0.5px] right-[5px] md:top-[10px] md:right-[0px] md:right-[10px]">
           <button
             type="button"
-            className="bg-[black] px-2 py-1 rounded-[2rem] text-[white] text-[0.5rem]"
+            className="bg-[black] px-2 py-[1px] md:py-1 rounded-[2rem] text-[white] text-[0.5rem]"
             onClick={handleClick}
             disabled={!!(email.length === 0 || !email.includes("@"))}
           >

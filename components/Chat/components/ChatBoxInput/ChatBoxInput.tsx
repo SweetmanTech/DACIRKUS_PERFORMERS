@@ -1,7 +1,7 @@
 const ChatBoxInput = ({ newMessage, handleNewMessageChange, handleSendMessage }) => (
-  <div className="w-full focus:outline-none">
+  <div className="w-full focus:outline-none px-4">
     <input
-      className="w-full h-12 p-2 text-black border-4 border-black rounded-md focus:border-black focus:ring-0"
+      className="w-full h-10 p-2 text-black border-[3px] border-black rounded-md focus:border-black focus:ring-0"
       type="text"
       value={newMessage}
       placeholder="Aa"

@@ -37,10 +37,9 @@ const DesktopMenu = () => {
       <div className="relative">
         <button
           type="button"
-          className={`font-bold dark:text-white text-black uppercase text-sm w-[134px] h-[40px] ${
-            isMenuOpen &&
-            "border rounded-lg bg-gradient-to-r from-[#DDDDDD] from-0% to-[#FAFAFA] to-100% shadow-md"
-          }`}
+          className={`font-bold rounded-lg bg-[black] dark:bg-white dark:text-[black] text-white uppercase text-sm w-[134px] h-[40px] ${
+            isMenuOpen && "shadow-md"
+          } ${!isMenuOpen && "!bg-transparent dark:!text-[white] !text-[black]"}`}
           onClick={toggleMenu}
         >
           Explore
@@ -48,26 +47,26 @@ const DesktopMenu = () => {
           {isMenuOpen && <ChevronUpIcon className="inline w-4 h-5 align-middle" />}
         </button>
         {isMenuOpen && (
-          <div className=" absolute right-0 top-[45px] z-200 inline-flex flex-col items-center uppercase justify-between space-y-4 p-4 bg-gradient-to-r from-[#DDDDDD] from-0% to-[#FAFAFA] to-100% shadow-md rounded-lg  font-quicksand text-sm">
+          <div className="absolute right-0 top-[45px] z-200 inline-flex flex-col items-center uppercase justify-between space-y-4 p-4 bg-[black] dark:bg-white shadow-md rounded-lg  font-quicksand text-sm">
             <div className="text-gray-400 cursor-not-allowed ">Allowlist</div>
             <a href="/leaderboard" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer">Leaderboard</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Leaderboard</div>
             </a>
             <a
               href="https://opensea.io/collection/cre8orscollective"
               target="_blank"
               rel="noreferrer"
             >
-              <div className="cursor-pointer">Collective</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Collective</div>
             </a>
             <a href="/teams" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer">Founders</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Founders</div>
             </a>
             <a href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer">Relics</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Relics</div>
             </a>
             <a href="https://cre8ors.beehiiv.com/" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer">Blog</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Blog</div>
             </a>
             <div className="text-gray-400 cursor-not-allowed">Warehouse</div>
             <div className="text-gray-400 cursor-not-allowed">Profiles</div>

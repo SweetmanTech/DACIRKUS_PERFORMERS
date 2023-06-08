@@ -6,12 +6,20 @@ const DiscordIcon = () => {
 
   return (
     <a href="https://discord.gg/ZpZBHCrqHQ" target="_blank" rel="noreferrer">
-      <div className="pt-2 cursor-pointer">
+      <div className="pt-2 cursor-pointer md:hidden block">
         <Image
           src={`${
-            themeMode === "light"
-              ? "/assets/Header/discord.png"
-              : "/assets/Header/white_discord.png"
+            themeMode === "dark" ? "/assets/Header/discord.png" : "/assets/Header/white_discord.png"
+          }`}
+          width={24}
+          height={19}
+          alt="discord"
+        />
+      </div>
+      <div className="pt-2 cursor-pointer md:block hidden">
+        <Image
+          src={`${
+            themeMode === "dark" ? "/assets/Header/white_discord.png" : "/assets/Header/discord.png"
           }`}
           width={24}
           height={19}

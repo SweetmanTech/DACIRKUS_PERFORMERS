@@ -31,28 +31,30 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <div
-      className={`dark:bg-[black] bg-white pt-6 pb-6 w-full flex justify-center ${className || ""}`}
+      className={`dark:bg-[black] bg-white pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
+        className || ""
+      }`}
     >
-      <div className="md:w-[1280px]">
-        <div className="flex items-start justify-end pt-6 pr-6 md:hidden">
+      <div className="md:w-[1280px] w-[90%]">
+        <div className="justify-start items-start flex md:hidden pt-6 pr-6">
           <Image
             src={
               themeMode === "light"
-                ? "/assets/Landing/footer/logo.png"
-                : "/assets/Landing/footer/logo_white.png"
+                ? "/assets/Landing/footer/mobile_logo.png"
+                : "/assets/Landing/footer/mobile_white_logo.png"
             }
-            width={103}
-            height={18}
+            width={58}
+            height={10}
             alt="not found logo img"
           />
         </div>
-        <div className="px-[5px] pt-6 pb-6 lg:p-12 grid grid-cols-3 md:grid-cols-5">
-          <div className="items-start justify-end hidden md:flex">
+        <div className="pt-6 pb-6 lg:p-12 grid grid-cols-10 md:grid-cols-5">
+          <div className="justify-end items-start hidden md:flex">
             <Image
               src={
                 themeMode === "light"
                   ? "/assets/Landing/footer/logo.png"
-                  : "/assets/Landing/footer/logo_white.png"
+                  : "/assets/Header/white_logo.svg"
               }
               width={103}
               height={18}
@@ -62,9 +64,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           {Items.map((item: ItemData) => (
             <div
               key={item.key}
-              className="font-quicksand flex justify-center text[black] dark:text-white"
+              className="font-quicksand flex justify-start text[black] dark:text-white col-span-2 md:col-span-1"
             >
-              <div className="flex flex-col cursor-[pointer]">
+              <div className="flex flex-col cursor-[pointer] text-[8px] md:text-[16px]">
                 {item.list.map((link: string) => (
                   <div key={link}>{link}</div>
                 ))}

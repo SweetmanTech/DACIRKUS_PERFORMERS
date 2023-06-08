@@ -2,6 +2,7 @@ import { FC, ReactNode } from "react"
 import { classNames } from "./Utils"
 
 import styles from '../styles/Button.module.css'
+import { useMediaQuery } from "usehooks-ts"
 
 interface ButtonProps {
   id: string
@@ -19,16 +20,22 @@ interface ToggleButtonProps {
   value?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({ children, className, onClick, ...rest }) => {
+export const Button: FC<ButtonProps> = ({ id, children, className, onClick, ...rest }) => {
   const click = () => {
     if(onClick) onClick()
   }
 
+  const hoverEvent = () => {
+    document.getElementById(id).style.backgroundColor = 'red !important'
+  }
+
   return (
     <button
+      id={id}
       type="button"
-      className={`hover:scale-[1.25] transition duration-[500ms] px-4 py-2 font-bold font-quicksand text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
+      className={`hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
       onClick={click}
+      onMouseOver={ hoverEvent }
       {...rest}
     >
       {children}
@@ -52,8 +59,8 @@ export const PageButton: FC<ButtonProps> = ({ children, className, ...rest }) =>
 export const ToggleButton: FC<ToggleButtonProps> = ({onClick, value}) => {
   return (
     <div className="flex justify-center w-16 h-6 cursor-pointer">
-        <div className={`flex items-center ${!value ? styles.light_line : styles.dark_line} rounded-full w-full h-6 pl-2`} onClick={onClick}>
-          <div className={`${value ? styles.toggle_dot : styles.untoggle_dot} w-5 h-5 rounded-full transition duration-[10000ms] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]`}></div> 
+        <div className={`flex items-center ${!value ? 'bg-[black]' : 'bg-white'} rounded-full w-full h-6 pl-2`} onClick={onClick}>
+          <div className={`${value ? styles.toggle_dot : styles.untoggle_dot} w-5 h-5 rounded-full transition duration-[300ms] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]`}></div> 
         </div>
     </div>
   )

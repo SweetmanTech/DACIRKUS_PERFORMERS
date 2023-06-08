@@ -1,20 +1,8 @@
 /* eslint-disable @next/next/no-img-element */
-const OtherMessage = ({ message, connectionId }) => (
-  <div className="flex items-center mb-4">
-    <div className="flex flex-col items-center flex-none mr-4 space-y-1">
-      <img
-        alt=""
-        className="w-8 h-8 rounded-full"
-        src={message?.user?.avatar || "/CRE8ORSLOGO_ICON.png"}
-      />
-      <div className="text-xs text-black">{message?.user?.name || connectionId}</div>
-    </div>
-    <div className="relative flex-1 p-2 mb-2 text-gray-800 bg-gray-300 rounded-lg">
-      <div>{message.message}</div>
-
-      {/* <!-- arrow --> */}
-      <div className="absolute left-0 w-2 h-2 transform rotate-45 -translate-x-1/2 bg-gray-300 top-1/2" />
-      {/* <!-- end arrow --> */}
+const OtherMessage = ({ message }) => (
+  <div className="w-full flex justify-end mb-4">
+    <div className="p-2 mb-2 text-gray-800 bg-[white] rounded-lg w-[80%] p-[14px] shadow-[3px_3px_4px_rgba(0,0,0,0.25)]">
+      <div className="text-[black] font-quicksand font-medium text-[17px]">{message.message}</div>
     </div>
   </div>
 )
