@@ -25,50 +25,50 @@ const Networking = () => {
     },
     {
       key: "fx-networking",
-      image: "/assets/Landing/networking/fx.png",
-      white_image: "/assets/Landing/networking/fx_white.png",
+      image: "/assets/Landing/networking/fx.svg",
+      white_image: "/assets/Landing/networking/fx_white.svg",
       width: 60,
       height: 62,
     },
     {
       key: "zynga-networking",
-      image: "/assets/Landing/networking/zynga.png",
-      white_image: "/assets/Landing/networking/zynga_white.png",
+      image: "/assets/Landing/networking/zynga.svg",
+      white_image: "/assets/Landing/networking/zynga_white.svg",
       width: 77,
       height: 78,
     },
     {
       key: "world-networking",
-      image: "/assets/Landing/networking/world.png",
-      white_image: "/assets/Landing/networking/world_white.png",
+      image: "/assets/Landing/networking/world.svg",
+      white_image: "/assets/Landing/networking/world_white.svg",
       width: 54,
       height: 54,
     },
     {
       key: "warner-networking",
-      image: "/assets/Landing/networking/warner.png",
-      white_image: "/assets/Landing/networking/warner_white.png",
+      image: "/assets/Landing/networking/warner.svg",
+      white_image: "/assets/Landing/networking/warner_white.svg",
       width: 77,
       height: 28,
     },
     {
       key: "espn-networking",
-      image: "/assets/Landing/networking/espn.png",
-      white_image: "/assets/Landing/networking/espn_white.png",
+      image: "/assets/Landing/networking/espn.svg",
+      white_image: "/assets/Landing/networking/espn_white.svg",
       width: 67,
       height: 41,
     },
     {
       key: "league-networking",
-      image: "/assets/Landing/networking/league.png",
-      white_image: "/assets/Landing/networking/league_white.png",
+      image: "/assets/Landing/networking/league.svg",
+      white_image: "/assets/Landing/networking/league_white.svg",
       width: 69,
       height: 40,
     },
     {
       key: "atlantic-networking",
-      image: "/assets/Landing/networking/atlantic.png",
-      white_image: "/assets/Landing/networking/atlantic_white.png",
+      image: "/assets/Landing/networking/atlantic.svg",
+      white_image: "/assets/Landing/networking/atlantic_white.svg",
       width: 48,
       height: 48,
     },
@@ -145,7 +145,7 @@ const Networking = () => {
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem]">
       <div className="flex justify-center md:hidden block mb-6">
-        <FadeInImage url="/assets/Landing/networking.png" width={182} height={364.57} />
+        <FadeInImage url="/assets/Landing/networking.svg" width={182} height={364.57} />
       </div>
       <div
         className="
@@ -205,7 +205,7 @@ const Networking = () => {
       </div>
       <div className="justify-center items-center md:flex hidden">
         <FadeInImage
-          url="/assets/Landing/networking.png"
+          url="/assets/Landing/networking.svg"
           width={279.85}
           height={560.57}
           className="!translate-y-[100px] !translate-x-[20px]"

@@ -1,8 +1,6 @@
 import { useMediaQuery } from "usehooks-ts"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
-
-import ProfileImage from "../../../public/assets/Landing/profile.png"
 import FadeInImage from "../FadeInImage"
 
 const Cre8orsWay = () => {
@@ -12,7 +10,7 @@ const Cre8orsWay = () => {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 pt-[10rem] pb-[6rem] relative">
       <div className="flex justify-start mb-6 md:mb-0">
         <FadeInImage
-          url={ProfileImage.src}
+          url="/assets/Landing/profile.svg"
           width={!isMobile ? 337 : 215.07}
           height={!isMobile ? 673 : 429.83}
           className={`

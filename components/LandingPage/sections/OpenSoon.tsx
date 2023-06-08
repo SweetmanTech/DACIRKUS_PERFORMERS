@@ -71,7 +71,7 @@ const OpenSoon = () => {
       </div>
       <div className="col-span-3 justify-center hidden md:flex pl-[30px]">
         <FadeInImage
-          url="/assets/Landing/opensoon.png"
+          url="/assets/Landing/opensoon.svg"
           width={590}
           height={931}
           className="!translate-x-[-30px] !translate-y-[50px]"

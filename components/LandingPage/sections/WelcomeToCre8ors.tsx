@@ -65,7 +65,7 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 md:pt-[20rem] md:pb-[6rem]">
       <div className="md:hidden flex justify-center mb-6">
         <FadeInImage
-          url="/assets/Landing/creativity.png"
+          url="/assets/Landing/creativity.svg"
           width={226.65}
           height={476.86}
           className="!translate-y-[220px]"
@@ -129,16 +129,16 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
           "
         >
           <AvatarGroup count={3}>
-            <Avatar url="/assets/Landing/avatars/avatar_1.png" />
-            <Avatar url="/assets/Landing/avatars/avatar_2.png" />
-            <Avatar url="/assets/Landing/avatars/avatar_3.png" />
+            <Avatar url="/assets/Landing/avatars/avatar_1.svg" />
+            <Avatar url="/assets/Landing/avatars/avatar_2.svg" />
+            <Avatar url="/assets/Landing/avatars/avatar_3.svg" />
           </AvatarGroup>
           <span className="text-[14px] text-[#916FE2] font-bold">Join 2K+</span> web3 creators.
         </div>
       </div>
       <div className="md:flex hidden justify-center" ref={imageRef}>
         <FadeInImage
-          url="/assets/Landing/creativity.png"
+          url="/assets/Landing/creativity.svg"
           width={319}
           height={671}
           className="!translate-y-[-170px]"

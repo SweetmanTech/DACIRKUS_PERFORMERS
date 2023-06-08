@@ -41,7 +41,7 @@ const EnterPage = () => {
       <div
         className={`${loaded ? "hidden" : "flex"} items-center justify-center w-screen h-screen`}
       >
-        <Image src="/assets/Common/loading.gif" width={64} height={64} alt="not found image" />
+        <Image src="/assets/Common/loading.svg" width={64} height={64} alt="not found image" />
       </div>
     </div>
   )
