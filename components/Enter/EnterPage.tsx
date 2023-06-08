@@ -20,7 +20,7 @@ const EnterPage = () => {
       <div
         className={`${
           styles.fade_out
-        } min-h-screen w-screen items-center justify-center flex-col bg-white gap-y-4 ${
+        } min-h-screen w-screen items-center justify-center flex-col bg-white ${
           loaded ? "flex" : "hidden"
         }`}
       >
@@ -30,13 +30,15 @@ const EnterPage = () => {
         <div className="text-[1.5rem] max-w-[450px] text-center uppercase font-quicksand">
           Someone that brings (something) NEW into existence.
         </div>
-        <Button
-          id="enter_btn"
-          className="!bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
-          onClick={() => router.push("/home")}
-        >
-          ENTER
-        </Button>
+        <div className="pt-[20px]">
+          <Button
+            id="enter_btn"
+            className="!bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
+            onClick={() => router.push("/home")}
+          >
+            ENTER
+          </Button>
+        </div>
       </div>
       <div
         className={`${loaded ? "hidden" : "flex"} items-center justify-center w-screen h-screen`}
