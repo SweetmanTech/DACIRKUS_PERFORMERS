@@ -53,7 +53,6 @@ const LandingPage = () => {
                 z-[4]
               "
             />
-
             <SectionContainer
               className="
                 dark:bg-[url('/assets/Landing/dark_bg/trainstation.png')] 
@@ -66,7 +65,6 @@ const LandingPage = () => {
                 marginTop: width < 985 ? `245px` : `0px`,
               }}
             />
-
             <SectionContainer
               className={`dark:bg-[url('/assets/Landing/dark_bg/replicate.png')]
               `}
@@ -77,11 +75,9 @@ const LandingPage = () => {
                 marginTop: width < 985 ? `338px` : `0px`,
               }}
             />
-
             <SectionContainer className="md:dark:bg-[url('/assets/Landing/dark_bg/path.png')] mt-[-1px]">
               <Brands className="opacity-0" />
             </SectionContainer>
-
             <SectionContainer
               className="
                     dark:bg-[url('/assets/Landing/dark_bg/factory.png')] 
