@@ -27,7 +27,6 @@ const useFadeIntersection = ({
           })
         }
         const io = new IntersectionObserver(cb);
-        
         io.observe(ref.current)
         setInjected(true)
       }

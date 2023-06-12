@@ -41,7 +41,7 @@ const LandingPage = () => {
             <div className="absolute left-0 top-0 backdrop-blur-[5.5px] z-[10] w-full h-full z-[10]" />
             <SectionContainer
               className="
-                  dark:bg-[url('/assets/Landing/dark_bg/overlook.png')]
+                  dark:bg-[url('/assets/Landing/backgrounds/overlook.png')]
                   z-[5]
                 "
               style={{
@@ -52,7 +52,7 @@ const LandingPage = () => {
             />
             <SectionContainer
               className="
-                dark:bg-[url('/assets/Landing/dark_bg/timessquare.png')] 
+                dark:bg-[url('/assets/Landing/backgrounds/timessquare.png')] 
                 dark:bg-[center_bottom]
                 bg-cover 
                 h-[799px] md:h-[972px]
@@ -62,7 +62,7 @@ const LandingPage = () => {
             />
             <SectionContainer
               className="
-                dark:bg-[url('/assets/Landing/dark_bg/trainstation.png')] 
+                dark:bg-[url('/assets/Landing/backgrounds/trainstation.png')] 
                 bg-[right_-50px_bottom] md:bg-[right_bottom]
               "
               style={{
@@ -73,7 +73,7 @@ const LandingPage = () => {
               }}
             />
             <SectionContainer
-              className={`dark:bg-[url('/assets/Landing/dark_bg/replicate.png')]
+              className={`dark:bg-[url('/assets/Landing/backgrounds/replicate.png')]
               `}
               style={{
                 backgroundSize:
@@ -82,12 +82,12 @@ const LandingPage = () => {
                 marginTop: width < 985 ? `338px` : `0px`,
               }}
             />
-            <SectionContainer className="md:dark:bg-[url('/assets/Landing/dark_bg/path.png')] mt-[-1px]">
+            <SectionContainer className="md:dark:bg-[url('/assets/Landing/backgrounds/path.png')] mt-[-1px]">
               <Brands className="opacity-0" />
             </SectionContainer>
             <SectionContainer
               className="
-                    dark:bg-[url('/assets/Landing/dark_bg/factory.png')] 
+                    dark:bg-[url('/assets/Landing/backgrounds/factory.png')] 
                     bg-center 
                   "
               style={{

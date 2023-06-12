@@ -42,7 +42,10 @@ const LandingContent = ({
         className="
           z-[5]
         "
-        backgroundImage="bg-[url('/assets/Landing/dark_bg/overlook.png')]"
+        backgroundImage="
+          bg-[url('/assets/Landing/backgrounds/overlook.png')] 
+          dark:bg-[url('/assets/Landing/backgrounds/color_overlook.png')]
+        "
         backgroundPosition="bg-[right_-50px_bottom] md:bg-[right_bottom]"
         style={{
           backgroundSize:
@@ -70,7 +73,10 @@ const LandingContent = ({
             z-[4]
           "
         containerClassName={themeMode === "light" ? `` : "fade_bg"}
-        backgroundImage="bg-[url('/assets/Landing/dark_bg/timessquare.png')]"
+        backgroundImage="
+          bg-[url('/assets/Landing/backgrounds/timessquare.png')]
+          dark:bg-[url('/assets/Landing/backgrounds/color_timessquare.png')]
+        "
         backgroundPosition="bg-[center_bottom] bg-cover"
       >
         <InviteForCreator mobileHeight={799} deskTopHeight={972} />
@@ -79,10 +85,13 @@ const LandingContent = ({
       <div className="relative z-[3]">
         <SectionContainer
           className="
-              bg-[right_-50px_bottom] md:bg-[right_bottom]
-            "
+            bg-[right_-50px_bottom] md:bg-[right_bottom]
+          "
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/trainstation.png')]"
+          backgroundImage="
+            bg-[url('/assets/Landing/backgrounds/trainstation.png')]
+            dark:bg-[url('/assets/Landing/backgrounds/color_trainstation.png')]
+          "
           backgroundPosition="bg-[right_-50px_bottom] md:bg-[right_bottom]"
           style={{
             backgroundSize:
@@ -105,7 +114,10 @@ const LandingContent = ({
               
             `}
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/replicate.png')]"
+          backgroundImage="
+            bg-[url('/assets/Landing/backgrounds/replicate.png')]
+            dark:bg-[url('/assets/Landing/backgrounds/color_replicate.png')]
+          "
           style={{
             backgroundSize:
               width > 985 ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px` : "985px",
@@ -125,7 +137,10 @@ const LandingContent = ({
         <SectionContainer
           className=" mt-[-1px]"
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/path.png')]"
+          backgroundImage="
+            bg-[url('/assets/Landing/backgrounds/path.png')]
+            dark:bg-[url('/assets/Landing/backgrounds/color_path.png')]
+          "
         >
           <Brands />
         </SectionContainer>
@@ -137,7 +152,10 @@ const LandingContent = ({
               bg-center 
             "
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/factory.png')]"
+          backgroundImage="
+            bg-[url('/assets/Landing/backgrounds/factory.png')]
+            dark:bg-[url('/assets/Landing/backgrounds/color_factory.png')]
+          "
           style={{
             backgroundSize:
               width > 985 ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px` : "910px",

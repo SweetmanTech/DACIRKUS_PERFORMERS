@@ -1,45 +1,54 @@
 import Image from "next/image"
 import Link from "next/link"
-import { FC, useState } from "react"
+import { FC } from "react"
+import Icon from "../../../../../shared/Icon"
 
 interface FoundingMembersCardProps {
   profilePic?: string
   twitterHandle?: string
 }
-const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitterHandle }) => {
-  const [hovered, setHovered] = useState(false)
-  return (
-    <div className="m-2 overflow-hidden bg-white shadow-lg rounded-2xl">
-      <div className="flex flex-row items-center justify-around">
-        <div className="m-2 ">
-          <div className="items-center object-cover object-center rounded-full">
-            <Image
-              src={profilePic || "/CRE8ORSLOGO_ICON.png"}
-              alt="Profile picture"
-              className="rounded-full "
-              width={50}
-              height={50}
-            />
-          </div>
+const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitterHandle }) => (
+  <div
+    className="
+      m-2 overflow-hidden 
+      bg-white rounded-2xl
+      shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]
+    "
+  >
+    <div className="flex flex-row items-center justify-between p-2">
+      <div>
+        <div
+          className="
+            items-center justify-center 
+            rounded-[10px] bg-[black] overlfow-hidden
+            w-[50px] h-[50px]
+          "
+        >
+          <Image
+            src={profilePic || "/CRE8ORSLOGO_ICON.png"}
+            alt="Profile picture"
+            width={50}
+            height={50}
+          />
         </div>
-        <h2 className="text-lg text-gray-800 ">{twitterHandle || "twitter_handle"}</h2>
+      </div>
+      <div className="font-quicksand font-[700] leading-[99.3%]">
+        {twitterHandle || "twitter_handle"}
+      </div>
+      <div
+        className="
+            !w-[26px] !h-[26px] 
+            bg-[black] 
+            flex items-center justify-center 
+            rounded-full
+            shadow-[3px_3px_4px_rgba(0,0,0,0.25)]
+          "
+      >
         <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
-          <button
-            type="button"
-            className="px-4 py-2 mt-4"
-            onMouseEnter={() => setHovered(true)}
-            onMouseLeave={() => setHovered(false)}
-          >
-            <Image
-              src={hovered ? "/hover/twitter_hover_button.svg" : "/twitter_button.svg"}
-              alt="Profile picture"
-              width={45}
-              height={28}
-            />
-          </button>
+          <Icon name="twitter" color="white" raw size={14} />
         </Link>
       </div>
     </div>
-  )
-}
+  </div>
+)
 export default FoundingMembersCard

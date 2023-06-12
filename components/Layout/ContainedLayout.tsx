@@ -12,7 +12,7 @@ function ContainedLayout({ children }: ILayout) {
       <div className="flex justify-center">
         <div className="md:w-[1280px]">{children}</div>
       </div>
-      <Footer />
+      <Footer className="!pt-6" />
     </div>
   )
 }
