@@ -16,9 +16,15 @@ interface LandingContentProps {
   onChangeEmail: (e: any) => void
   email: string
   handleClick: (e: any) => void
+  isSubscribed: boolean
 }
 
-const LandingContent = ({ email, onChangeEmail, handleClick }: LandingContentProps) => {
+const LandingContent = ({
+  email,
+  onChangeEmail,
+  handleClick,
+  isSubscribed,
+}: LandingContentProps) => {
   const { themeMode } = useTheme()
 
   const networkingImageRef = useRef()
@@ -46,6 +52,7 @@ const LandingContent = ({ email, onChangeEmail, handleClick }: LandingContentPro
           value={email}
           onChange={onChangeEmail}
           onSubscribe={handleClick}
+          isSubscribed={isSubscribed}
           contentHeight={width > 985 ? Number((width / 1439) * 975) : 310}
           characterHeight={602}
           desktopImageRef={welcomeImageRef}

@@ -12,6 +12,7 @@ const SectionContainer = dynamic(() => import("./SectionContainer"), { ssr: fals
 
 const LandingPage = () => {
   const [email, setEmail] = useState("")
+  const [isSubscribed, setIsSubscribed] = useState(false)
 
   const { width } = useWindowSize()
 
@@ -24,6 +25,7 @@ const LandingPage = () => {
     await axios.post("/api/newsletter", { email })
     toast.success("Subscribed!")
     setEmail("")
+    setIsSubscribed(true)
   }
 
   return (
@@ -94,7 +96,12 @@ const LandingPage = () => {
             />
           </div>
           <div className="absolute left-0 top-0 z-[2] w-full h-full">
-            <LandingContent email={email} onChangeEmail={onChangeEmail} handleClick={handleClick} />
+            <LandingContent
+              email={email}
+              onChangeEmail={onChangeEmail}
+              handleClick={handleClick}
+              isSubscribed={isSubscribed}
+            />
           </div>
         </div>
       </AutoPerfectArea>

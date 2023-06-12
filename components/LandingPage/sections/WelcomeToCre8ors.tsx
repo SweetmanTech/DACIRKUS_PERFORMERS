@@ -19,6 +19,7 @@ interface Props {
   contentHeight: number
   characterHeight: number
   desktopImageRef: any
+  isSubscribed: boolean
 }
 
 const WelcomeToCre8ors: FC<Props> = ({
@@ -28,6 +29,7 @@ const WelcomeToCre8ors: FC<Props> = ({
   contentHeight,
   characterHeight,
   desktopImageRef,
+  isSubscribed,
 }) => {
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
 
@@ -105,7 +107,7 @@ const WelcomeToCre8ors: FC<Props> = ({
         <div ref={titleRef}>
           <SectionTitle
             text="Welcome to the Next Generation of Creativity"
-            className="w-[300px] md:w-[550px] md:text-left"
+            className="w-[300px] md:w-[550px] md:text-left md:!mt-0"
           />
         </div>
         <div ref={contentRef}>
@@ -132,15 +134,16 @@ const WelcomeToCre8ors: FC<Props> = ({
               endAdornment={
                 <Button
                   id="subscribe_btn"
-                  className="
-                      rounded-tl-[0px] rounded-bl-[0px] 
-                      px-[20px] 
-                      capitalize text-[14px]
-                      border-[none]
-                    "
+                  className={`
+                    rounded-tl-[0px] rounded-bl-[0px] 
+                    px-[20px] 
+                    capitalize text-[14px]
+                    border-[none]
+                    ${isSubscribed && "!text-[#5EE884]"}
+                  `}
                   onClick={onSubscribe}
                 >
-                  Subscribe
+                  {isSubscribed ? "Subscribed!" : "Subscribe"}
                 </Button>
               }
               startAdornment={<Icon name="email" raw color="#b5b4b4" size={17} />}

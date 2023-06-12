@@ -1,8 +1,8 @@
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
 import { useRef, FC } from "react"
+import Link from "next/link"
 import SectionTitle from "../SectionTitle"
 import SectionContent from "../SectionContent"
-
 import { Button } from "../../../shared/Button"
 import FadeInImage from "../FadeInImage"
 import useFadeIntersection from "../../../hooks/useFadeIntersection"
@@ -89,17 +89,17 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
               <br />
               Cre8ors Collective Passport today.
               <br /> &nbsp;
-              <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
+              <Link href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
                 For more info read the FAQ.
-              </a>
+              </Link>
             </>
           ) : (
             <>
               Allowlist opens in July. &nbsp;Skip the line and secure <br /> your spot by reserving
               a Cre8ors Collective <br /> Passport today.&nbsp;
-              <a href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
+              <Link href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
                 For more info read the FAQ.
-              </a>
+              </Link>
             </>
           )}
         </SectionContent>
@@ -109,9 +109,9 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
             className={`w-[242px] ${isMobile && "py-[8px]"}`}
             hasDoubleAnimation
           >
-            <a target="_blank" rel="noreferrer" href="http://reserve.cre8ors.com/">
+            <Link target="_blank" rel="noreferrer" href="http://reserve.cre8ors.com/">
               Reserve List
-            </a>
+            </Link>
           </Button>
         </div>
       </div>
