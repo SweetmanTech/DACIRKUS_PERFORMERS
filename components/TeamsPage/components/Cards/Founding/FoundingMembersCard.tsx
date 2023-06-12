@@ -30,6 +30,7 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
             alt="Profile picture"
             width={50}
             height={50}
+            className="w-[50px] h-[50px]"
           />
         </div>
       </div>
