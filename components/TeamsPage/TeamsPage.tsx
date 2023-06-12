@@ -1,15 +1,15 @@
-import Header from "../Header"
 import FoundingMembers from "./sections/FoundingMembers"
 import TeamMembers from "./sections/TeamMembers"
 
+import Layout from "../Layout"
+
 const TeamsPage = ({ foundingMemberData, teamMemberData }) => (
-  <div className="min-h-screen overflow-y-auto text-black bg-white ">
-    <Header />
-    <div className="relative flex flex-col items-center justify-center mt-20">
+  <Layout type="contained">
+    <div className="relative pt-[12rem]">
       <TeamMembers teamMemberData={teamMemberData} />
       <FoundingMembers foundingMemberData={foundingMemberData} />
     </div>
-  </div>
+  </Layout>
 )
 
 export default TeamsPage

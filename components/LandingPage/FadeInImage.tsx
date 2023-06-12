@@ -7,9 +7,10 @@ interface FadeInImageProps {
   width: number
   height: number
   className?: string
+  style?: any
 }
 
-const FadeInImage: FC<FadeInImageProps> = ({ url, width, height, className }) => {
+const FadeInImage: FC<FadeInImageProps> = ({ url, width, height, className, style }) => {
   const ref = useRef()
 
   useFadeIntersection({
@@ -17,7 +18,7 @@ const FadeInImage: FC<FadeInImageProps> = ({ url, width, height, className }) =>
   })
 
   return (
-    <div ref={ref} className={`appear ${className || ""}`}>
+    <div ref={ref} className={`appear ${className || ""}`} style={style}>
       <Image src={url} width={width} height={height} alt="not found image" />
     </div>
   )

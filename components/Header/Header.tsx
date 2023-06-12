@@ -1,7 +1,7 @@
 import Image from "next/image"
-import Link from "next/link"
 import { FC } from "react"
 import { useMediaQuery } from "usehooks-ts"
+import Link from "next/link"
 import MobileMenu from "../MobileMenu"
 import DesktopMenu from "../DesktopMenu"
 import { useTheme } from "../../providers/ThemeProvider"

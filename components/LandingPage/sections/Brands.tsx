@@ -1,7 +1,5 @@
 import { useMediaQuery } from "usehooks-ts"
-import FadeInImage from "../FadeInImage"
-import Title from "./brands/Title"
-import Desc from "./brands/Desc"
+import BrandItem from "./brands/BrandItem"
 
 interface ItemData {
   image: string
@@ -15,14 +13,18 @@ interface ItemData {
   key: string
 }
 
-const Brands = () => {
+interface BrandsProps {
+  className?: string
+}
+
+const Brands = ({ className }: BrandsProps) => {
   const isMobile = useMediaQuery("(max-width: 490px)")
 
   const Items = [
     {
       key: "brand-extend",
       image: "/assets/Landing/brands/extend.svg",
-      mobile_image: "/assets/Landing/brands/mobile_extend.png",
+      mobile_image: "/assets/Landing/brands/mobile_extend.svg",
       width: 133,
       height: 155,
       mobile_width: 98,
@@ -38,7 +40,7 @@ const Brands = () => {
     {
       key: "brand-lamp",
       image: "/assets/Landing/brands/lamp.svg",
-      mobile_image: "/assets/Landing/brands/mobile_lamp.png",
+      mobile_image: "/assets/Landing/brands/mobile_lamp.svg",
       width: 147,
       height: 141,
       mobile_width: 109,
@@ -57,7 +59,7 @@ const Brands = () => {
     {
       key: "brand-chain",
       image: "/assets/Landing/brands/chain.svg",
-      mobile_image: "/assets/Landing/brands/mobile_chain.png",
+      mobile_image: "/assets/Landing/brands/mobile_chain.svg",
       width: 131,
       height: 150,
       mobile_width: 99,
@@ -77,7 +79,7 @@ const Brands = () => {
     {
       key: "brand-networking",
       image: "/assets/Landing/brands/networking.svg",
-      mobile_image: "/assets/Landing/brands/mobile_networking.png",
+      mobile_image: "/assets/Landing/brands/mobile_networking.svg",
       width: 167,
       height: 139,
       mobile_width: 117,
@@ -96,23 +98,26 @@ const Brands = () => {
   ]
 
   return (
-    <div className="w-full">
-      <div className="grid grid-cols-1 md:grid-cols-4 pt-[15rem] pb-[15rem] w-full">
+    <div className={`w-full ${className || ""}`}>
+      <div
+        className="
+        grid grid-cols-1 md:grid-cols-4 
+        pt-[500px] pb-[50px]
+        gap-y-20 md:gap-y-0 
+        md:pt-[15rem] md:pb-[15rem] w-full
+        dark:bg-black md:!bg-transparent
+        dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none
+      "
+      >
         {Items.map((item: ItemData) => (
-          <div
+          <BrandItem
+            imageUrl={!isMobile ? item.image : item.mobile_image}
+            imageWidth={!isMobile ? item.width : item.mobile_width}
+            imageHeight={!isMobile ? item.height : item.mobile_height}
+            title={item.title}
+            text={item.text}
             key={item.key}
-            className="flex justify-center md:flex-col items-center mb-12 md:mb-0 gap-4 md:gap-0"
-          >
-            <FadeInImage
-              url={!isMobile ? item.image : item.mobile_image}
-              width={!isMobile ? item.width : item.mobile_width}
-              height={!isMobile ? item.height : item.mobile_height}
-            />
-            <div>
-              <Title> {item.title}</Title>
-              <Desc> {item.text} </Desc>
-            </div>
-          </div>
+          />
         ))}
       </div>
     </div>

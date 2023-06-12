@@ -30,9 +30,27 @@ const DesktopMenu = () => {
         </a>
       </div>
       <div className="flex items-center font-quicksand font-bold">
-        <div className="pr-2 text-[#9C9C9C]">light</div>
+        <button
+          type="button"
+          className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
+          onClick={() => {
+            setIsDarkMode(false)
+            if (themeMode === "dark") onChangeThemeConfig()
+          }}
+        >
+          light
+        </button>
         <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
-        <div className="pl-2 text-[#9C9C9C]">dark</div>
+        <button
+          type="button"
+          className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
+          onClick={() => {
+            setIsDarkMode(true)
+            if (themeMode === "light") onChangeThemeConfig()
+          }}
+        >
+          dark
+        </button>
       </div>
       <div className="relative">
         <button

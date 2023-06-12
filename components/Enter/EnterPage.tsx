@@ -24,13 +24,13 @@ const EnterPage = () => {
           loaded ? "flex" : "hidden"
         }`}
       >
-        <div className="font-bold text-[2rem] uppercase font-quicksand">
+        <div className="font-bold text-[18px] md:text-[2rem] uppercase font-quicksand">
           Cre·8·or • krē-ˈā-tər \ noun
         </div>
-        <div className="text-[1.5rem] max-w-[450px] text-center uppercase font-quicksand">
+        <div className="text-[18px] md:text-[1.5rem] max-w-[450px] text-center uppercase font-quicksand">
           Someone that brings (something) NEW into existence.
         </div>
-        <div className="pt-[20px]">
+        <div className="pt-[40px]">
           <Button
             id="enter_btn"
             className="!bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"

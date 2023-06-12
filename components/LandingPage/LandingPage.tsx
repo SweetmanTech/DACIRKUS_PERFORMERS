@@ -1,76 +1,107 @@
-import { useRef, useState } from "react"
-import { useScroll } from "framer-motion"
-import WelcomeToCre8ors from "./sections/WelcomeToCre8ors"
-import InviteForCreator from "./sections/InviteForCreator"
-import Networking from "./sections/Networking"
-import Cre8orsWay from "./sections/Cre8orsWay"
+import axios from "axios"
+import { toast } from "react-toastify"
+import { useState } from "react"
+import { useWindowSize } from "usehooks-ts"
+import dynamic from "next/dynamic"
 import Brands from "./sections/Brands"
-import OpenSoon from "./sections/OpenSoon"
-import Footer from "../Footer"
-import SectionLayout from "./SectionLayout"
+import AutoPerfectArea from "./AutoPerfectArea"
+import LandingContent from "./LandingContent"
 import Layout from "../Layout"
-import useFadeScrollY from "../../hooks/useFadeScrollY"
+
+const SectionContainer = dynamic(() => import("./SectionContainer"), { ssr: false })
 
 const LandingPage = () => {
   const [email, setEmail] = useState("")
-  const conatinerRef = useRef(null)
 
-  const { scrollY } = useScroll({ container: conatinerRef })
-
-  useFadeScrollY({
-    scrollY,
-  })
+  const { width } = useWindowSize()
 
   const onChangeEmail = (e: any) => {
     setEmail(e.target.value)
   }
 
+  const handleClick = async (e: any) => {
+    e.preventDefault()
+    await axios.post("/api/newsletter", { email })
+    toast.success("Subscribed!")
+    setEmail("")
+  }
+
   return (
     <Layout type="base">
-      <div className="h-full overflow-y-scroll" ref={conatinerRef}>
-        <SectionLayout
-          className="dark:bg-[url('/assets/Landing/dark_bg/overlook.png')] dark:bg-[center_bottom] md:h-[975px] z-[5]"
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/overlook.png')]"
-        >
-          <WelcomeToCre8ors value={email} onChange={onChangeEmail} />
-        </SectionLayout>
-        <SectionLayout
-          className="dark:bg-[url('/assets/Landing/dark_bg/timessquare.png')] dark:bg-[center_top] h-[972px] mt-[120px] md:mt-[0px] z-[4]"
-          containerClassName="fade_bg"
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/timessquare.png')]"
-        >
-          <InviteForCreator />
-        </SectionLayout>
-        <SectionLayout
-          className="dark:bg-[url('/assets/Landing/dark_bg/trainstation.png')] dark:bg-[length:922px_625px] bg-[right_-70px_top] h-[975px] mt-[255px] md:mt-0"
-          containerClassName="fade_bg"
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/trainstation.png')]"
-        >
-          <Networking />
-        </SectionLayout>
-        <SectionLayout
-          className="dark:bg-[url('/assets/Landing/dark_bg/replicate.png')] dark:bg-[length:983px_665px] h-[973px] mt-[80px] md:mt-[0px]"
-          containerClassName="fade_bg"
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/replicate.png')]"
-        >
-          <Cre8orsWay />
-        </SectionLayout>
-        <SectionLayout
-          className="md:dark:bg-[url('/assets/Landing/dark_bg/path.png')] h-[984px] mt-[-1px]"
-          containerClassName="fade_bg"
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/path.png')]"
-        >
-          <Brands />
-        </SectionLayout>
-        <SectionLayout
-          className="dark:bg-[url('/assets/Landing/dark_bg/factory.png')] bg-[length:1214px_910px] bg-center h-[1079px] mt-[-1px]"
-          containerClassName="fade_bg"
-          backgroundImage="bg-[url('/assets/Landing/dark_bg/factory.png')]"
-        >
-          <OpenSoon />
-        </SectionLayout>
-        <Footer />
-      </div>
+      <AutoPerfectArea>
+        <div className="relative">
+          <div className="relative z-[1]">
+            <div className="absolute left-0 top-0 backdrop-blur-[5.5px] z-[10] w-full h-full z-[10]" />
+            <SectionContainer
+              className="
+                  dark:bg-[url('/assets/Landing/dark_bg/overlook.png')]
+                  z-[5]
+                "
+              style={{
+                backgroundSize:
+                  width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
+                height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
+              }}
+            />
+            <SectionContainer
+              className="
+                dark:bg-[url('/assets/Landing/dark_bg/timessquare.png')] 
+                dark:bg-[center_bottom]
+                bg-cover 
+                h-[799px] md:h-[972px]
+                mt-[170px] md:mt-[0px]
+                z-[4]
+              "
+            />
+
+            <SectionContainer
+              className="
+                dark:bg-[url('/assets/Landing/dark_bg/trainstation.png')] 
+                bg-[right_-50px_bottom] md:bg-[right_bottom]
+              "
+              style={{
+                backgroundSize:
+                  width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
+                height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
+                marginTop: width < 985 ? `245px` : `0px`,
+              }}
+            />
+
+            <SectionContainer
+              className={`dark:bg-[url('/assets/Landing/dark_bg/replicate.png')]
+              `}
+              style={{
+                backgroundSize:
+                  width > 985 ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px` : "985px",
+                height: width > 985 ? `${Number((width / 1439) * 973)}px` : "665px",
+                marginTop: width < 985 ? `338px` : `0px`,
+              }}
+            />
+
+            <SectionContainer className="md:dark:bg-[url('/assets/Landing/dark_bg/path.png')] mt-[-1px]">
+              <Brands className="opacity-0" />
+            </SectionContainer>
+
+            <SectionContainer
+              className="
+                    dark:bg-[url('/assets/Landing/dark_bg/factory.png')] 
+                    bg-center 
+                  "
+              style={{
+                backgroundSize:
+                  width > 985
+                    ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px`
+                    : "910px",
+                height: width > 985 ? `${Number((width / 1439) * 1079)}px` : "625px",
+                marginTop: width < 985 ? `-1px` : `0px`,
+              }}
+            />
+          </div>
+          <div className="absolute left-0 top-0 z-[2] w-full h-full">
+            <LandingContent email={email} onChangeEmail={onChangeEmail} handleClick={handleClick} />
+          </div>
+        </div>
+      </AutoPerfectArea>
     </Layout>
   )
 }
