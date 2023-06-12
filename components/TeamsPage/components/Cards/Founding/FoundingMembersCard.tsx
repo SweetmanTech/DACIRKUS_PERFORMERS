@@ -20,7 +20,8 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
         <div
           className="
             items-center justify-center 
-            rounded-[10px] bg-[black] overflow-hidden
+            rounded-[10px] overflow-hidden
+            bg-[black]
             w-[50px] h-[50px]
           "
         >
