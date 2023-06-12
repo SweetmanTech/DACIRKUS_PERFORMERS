@@ -20,7 +20,7 @@ interface ToggleButtonProps {
   value?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({ id, children, className, onClick, hasDoubleAnimation, ...rest }) => {
+export const Button: FC<ButtonProps> = ({ id, children, className, onClick, hasDoubleAnimation,  ...rest }) => {
   const hoverEvent = () => {
     if(hasDoubleAnimation) {
       const element = document.getElementsByClassName(`${id}_all`);

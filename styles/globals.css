@@ -132,7 +132,7 @@ a {
 
 .perfect_area button {
   background-color: white !important;
-  color: black !important;
+  color: black;
 }
 
 .perfect_area .light {

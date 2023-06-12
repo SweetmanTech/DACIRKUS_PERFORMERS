@@ -1,4 +1,3 @@
-import { useRef } from "react"
 import { useWindowSize } from "usehooks-ts"
 import dynamic from "next/dynamic"
 import WelcomeToCre8ors from "./sections/WelcomeToCre8ors"
@@ -8,7 +7,6 @@ import Cre8orsWay from "./sections/Cre8orsWay"
 import Brands from "./sections/Brands"
 import OpenSoon from "./sections/OpenSoon"
 import { useTheme } from "../../providers/ThemeProvider"
-import Character from "./Character"
 
 const SectionContainer = dynamic(() => import("./SectionContainer"), { ssr: false })
 
@@ -17,6 +15,10 @@ interface LandingContentProps {
   email: string
   handleClick: (e: any) => void
   isSubscribed: boolean
+  welcomImageRef: any
+  networkingImageRef: any
+  profileImageRef: any
+  openSoonImageRef: any
 }
 
 const LandingContent = ({
@@ -24,13 +26,13 @@ const LandingContent = ({
   onChangeEmail,
   handleClick,
   isSubscribed,
+
+  welcomImageRef,
+  networkingImageRef,
+  profileImageRef,
+  openSoonImageRef,
 }: LandingContentProps) => {
   const { themeMode } = useTheme()
-
-  const networkingImageRef = useRef()
-  const profileImageRef = useRef()
-  const openSoonImageRef = useRef()
-  const welcomeImageRef = useRef()
 
   const { width } = useWindowSize()
 
@@ -55,21 +57,7 @@ const LandingContent = ({
           isSubscribed={isSubscribed}
           contentHeight={width > 985 ? Number((width / 1439) * 975) : 310}
           characterHeight={602}
-          desktopImageRef={welcomeImageRef}
-        />
-        <Character
-          screenWidth={width}
-          bgImgWidth={1439}
-          bgImgHeight={975}
-          offsetX={0.19}
-          offsetY={0.14}
-          characterWidth={318}
-          characterHeight={670.72}
-          characterRef={welcomeImageRef}
-          characterUrl="/assets/Landing/creativity.svg"
-          xDirection="right"
-          yDirection="bottom"
-          responsive={985}
+          desktopImageRef={welcomImageRef}
         />
       </SectionContainer>
 
@@ -84,7 +72,6 @@ const LandingContent = ({
         containerClassName={themeMode === "light" ? `` : "fade_bg"}
         backgroundImage="bg-[url('/assets/Landing/dark_bg/timessquare.png')]"
         backgroundPosition="bg-[center_bottom] bg-cover"
-        style={{}}
       >
         <InviteForCreator mobileHeight={799} deskTopHeight={972} />
       </SectionContainer>
@@ -110,33 +97,6 @@ const LandingContent = ({
             desktopImageRef={networkingImageRef}
           />
         </SectionContainer>
-        <Character
-          screenWidth={width}
-          bgImgWidth={1439}
-          bgImgHeight={975}
-          offsetX={0.18}
-          offsetY={0.13}
-          characterWidth={279.85}
-          characterHeight={560.57}
-          characterRef={networkingImageRef}
-          characterUrl="/assets/Landing/networking.svg"
-          xDirection="right"
-          yDirection="bottom"
-          responsive={985}
-        />
-        <Character
-          screenWidth={width}
-          bgImgWidth={1439}
-          bgImgHeight={975}
-          offsetX={0.05}
-          offsetY={0.38}
-          characterWidth={40}
-          characterHeight={59}
-          characterUrl="/assets/Landing/letter.svg"
-          xDirection="right"
-          yDirection="bottom"
-          responsive={985}
-        />
       </div>
 
       <div className="relative z-[2]">
@@ -159,21 +119,6 @@ const LandingContent = ({
             desktopImageRef={profileImageRef}
           />
         </SectionContainer>
-
-        <Character
-          screenWidth={width}
-          bgImgWidth={1439}
-          bgImgHeight={973}
-          offsetX={0.1}
-          offsetY={0.09}
-          characterWidth={337}
-          characterHeight={673}
-          characterRef={profileImageRef}
-          characterUrl="/assets/Landing/profile.svg"
-          xDirection="left"
-          yDirection="bottom"
-          responsive={1100}
-        />
       </div>
 
       <div className="relative z-[1]">
@@ -206,34 +151,6 @@ const LandingContent = ({
             desktopImageRef={openSoonImageRef}
           />
         </SectionContainer>
-        <Character
-          screenWidth={width}
-          bgImgWidth={1440}
-          bgImgHeight={1079}
-          offsetX={0.2}
-          offsetY={0.04}
-          characterWidth={478.97}
-          characterHeight={931}
-          characterRef={openSoonImageRef}
-          characterUrl="/assets/Landing/opensoon.svg"
-          xDirection="right"
-          yDirection="bottom"
-          responsive={985}
-        />
-        <Character
-          screenWidth={width}
-          bgImgWidth={1440}
-          bgImgHeight={1079}
-          offsetX={0.125}
-          offsetY={0.2}
-          characterWidth={73.91}
-          characterHeight={105.35}
-          characterRef={openSoonImageRef}
-          characterUrl="/assets/Landing/painter.svg"
-          xDirection="right"
-          yDirection="bottom"
-          responsive={985}
-        />
       </div>
     </>
   )

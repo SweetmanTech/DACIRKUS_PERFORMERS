@@ -24,6 +24,7 @@ const SectionContainer: React.FC<LayoutProps> = ({
         bg-white
         dark:bg-transparent
         border-none
+        w-[100%]
         ${containerClassName || ""}
       `}
   >
@@ -47,12 +48,12 @@ const SectionContainer: React.FC<LayoutProps> = ({
     />
     <div
       className={`relative 
-          z-[6]
-          ${className}
-        `}
+        z-[6]
+        ${className}
+      `}
       style={style}
     >
-      <div className="relative z-[10]">
+      <div className="relative z-[10] w-[100%] h-full">
         <Container>{children}</Container>
       </div>
     </div>
