@@ -22,15 +22,17 @@ function ContainedLayout({ children, hasFooter }: ILayout) {
       <div className="flex justify-center relative z-[2]">
         <div className="md:w-[1280px] relative">{children}</div>
       </div>
-      { hasFooter ? <div className="relative z-[3]">
-        <Footer className="!pt-6" />
-      </div> : <></>}
+      {hasFooter && (
+        <div className="relative z-[3]">
+          <Footer className="!pt-6" />
+        </div>
+      )}
     </div>
   )
 }
 
 ContainedLayout.defaultProps = {
-  hasFooter: true  
+  hasFooter: true,
 }
 
 export default ContainedLayout
