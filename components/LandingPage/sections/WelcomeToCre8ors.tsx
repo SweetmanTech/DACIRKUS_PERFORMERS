@@ -34,6 +34,8 @@ const WelcomeToCre8ors: FC<Props> = ({
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
 
   const isMobile = useMediaQuery("(max-width: 490px)")
+  const isIphone = useMediaQuery("(max-width: 390px)")
+
   const inputRef = useRef()
   const avatarsRef = useRef()
   const titleRef = useRef()
@@ -85,11 +87,15 @@ const WelcomeToCre8ors: FC<Props> = ({
           `}
         style={{
           height: `${characterHeight}px`,
-          transform: "translateY(30px)",
+          transform: `translateY(${isIphone ? 20 : 30}px)`,
         }}
         ref={mobileImageRef}
       >
-        <FadeInImage url="/assets/Landing/creativity.svg" width={226.65} height={476.86} />
+        <FadeInImage
+          url="/assets/Landing/creativity.svg"
+          width={isIphone ? 145 : 226.65}
+          height={isIphone ? 304 : 476.86}
+        />
       </div>
 
       <div
@@ -128,7 +134,12 @@ const WelcomeToCre8ors: FC<Props> = ({
           </SectionContent>
         </div>
         <div ref={inputRef} className="appear mb-6 md:mx-12 flex justify-center md:justify-start">
-          <div className="w-[350px] md:w-[416px]">
+          <div
+            className="w-[350px] md:w-[416px]"
+            style={{
+              width: isIphone ? "290px" : "",
+            }}
+          >
             <Input
               id="newsletter_input"
               endAdornment={

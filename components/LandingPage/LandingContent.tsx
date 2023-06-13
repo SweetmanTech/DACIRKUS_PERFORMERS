@@ -1,4 +1,4 @@
-import { useWindowSize } from "usehooks-ts"
+import { useMediaQuery, useWindowSize } from "usehooks-ts"
 import dynamic from "next/dynamic"
 import WelcomeToCre8ors from "./sections/WelcomeToCre8ors"
 import InviteForCreator from "./sections/InviteForCreator"
@@ -35,6 +35,7 @@ const LandingContent = ({
   const { themeMode } = useTheme()
 
   const { width } = useWindowSize()
+  const isIphone = useMediaQuery("(max-width: 390px)")
 
   return (
     <>
@@ -50,7 +51,9 @@ const LandingContent = ({
         style={{
           backgroundSize:
             width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
-          height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
+          height:
+            // eslint-disable-next-line no-nested-ternary
+            width > 985 ? `${Number((width / 1439) * 975)}px` : width > 390 ? "625px" : "420px",
         }}
       >
         <WelcomeToCre8ors
@@ -58,8 +61,9 @@ const LandingContent = ({
           onChange={onChangeEmail}
           onSubscribe={handleClick}
           isSubscribed={isSubscribed}
-          contentHeight={width > 985 ? Number((width / 1439) * 975) : 310}
-          characterHeight={602}
+          // eslint-disable-next-line no-nested-ternary
+          contentHeight={width > 985 ? Number((width / 1439) * 975) : width > 390 ? 310 : 290}
+          characterHeight={width > 390 ? 602 : 390}
           desktopImageRef={welcomImageRef}
         />
       </SectionContainer>
@@ -78,6 +82,9 @@ const LandingContent = ({
           dark:bg-[url('/assets/Landing/backgrounds/color_timessquare.png')]
         "
         backgroundPosition="bg-[center_bottom] bg-cover"
+        style={{
+          marginTop: isIphone ? "110px" : "",
+        }}
       >
         <InviteForCreator mobileHeight={799} deskTopHeight={972} />
       </SectionContainer>
@@ -116,7 +123,7 @@ const LandingContent = ({
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
           backgroundImage="
             bg-[url('/assets/Landing/backgrounds/replicate.png')]
-            dark:bg-[url('/assets/Landing/backgrounds/color_replicate.png')]
+            dark:bg-[url('/assets/Landing/backgrounds/color_replicate.svg')]
           "
           style={{
             backgroundSize:

@@ -1,4 +1,5 @@
 import { useRef } from "react"
+import { useMediaQuery } from "usehooks-ts"
 import useFadeIntersection from "../../hooks/useFadeIntersection"
 
 interface SectionContentProps {
@@ -8,6 +9,8 @@ interface SectionContentProps {
 
 const SectionContent: React.FC<SectionContentProps> = ({ children, className }) => {
   const ref = useRef()
+
+  const isIphone = useMediaQuery("(max-width: 390px)")
 
   useFadeIntersection({
     ref,
@@ -19,6 +22,9 @@ const SectionContent: React.FC<SectionContentProps> = ({ children, className }) 
       className={`appear m-6 md:mx-12 md:mb-8 md:mt-6 text-[16px] leading-[103.3%] md:text-[18px] md:leading-[108.8%] font-medium text-center md:text-left font-quicksand text-[black] dark:text-[white] dark:drop-shadow-[0_4px_2px_rgba(0,0,0,0.75)] ${
         className || ""
       }`}
+      style={{
+        fontSize: isIphone ? "14px" : "",
+      }}
     >
       {children}
     </div>

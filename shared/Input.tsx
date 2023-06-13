@@ -1,3 +1,5 @@
+import { useMediaQuery } from "usehooks-ts"
+
 interface IInput {
   id: string
   name?: string
@@ -25,6 +27,8 @@ function Input({
   containerClassName,
   hasDoubleAnimation
 }: IInput) {
+
+  const isIphone = useMediaQuery('(max-width: 390px)')
 
   const hoverEvent = () => {
     if(hasDoubleAnimation) {
@@ -65,10 +69,13 @@ function Input({
                 {startAdornment}
             </div>
             <div
-                className={`
-                    ${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
-                    w-[70%]
-                `}
+              className={`
+                  ${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
+                  w-[70%]
+              `}
+              style={{
+                width: isIphone ?  '45%' : ''
+              }}
             >
                 <input
                     type={type}

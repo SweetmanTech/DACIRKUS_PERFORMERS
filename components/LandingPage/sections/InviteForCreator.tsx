@@ -1,3 +1,4 @@
+/* eslint no-nested-ternary: "error" */
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
 import { FC, useRef } from "react"
 import SectionTitle from "../SectionTitle"
@@ -10,7 +11,8 @@ interface Props {
   mobileHeight: number
 }
 const InviteForCreator: FC<Props> = ({ mobileHeight, deskTopHeight }) => {
-  const isMobile = useMediaQuery("(max-width: 490px)")
+  const isMobile = useMediaQuery("(max-width: 799px)")
+  const isIphone = useMediaQuery("(max-width: 390px)")
 
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
 
@@ -48,10 +50,12 @@ const InviteForCreator: FC<Props> = ({ mobileHeight, deskTopHeight }) => {
         >
           <FadeInImage
             url="/assets/Landing/invite.svg"
-            width={!isMobile ? 511 : 348.41}
-            height={!isMobile ? 586 : 399.68}
+            // eslint-disable-next-line no-nested-ternary
+            width={!isMobile ? 511 : !isIphone ? 348.41 : 290}
+            // eslint-disable-next-line no-nested-ternary
+            height={!isMobile ? 586 : !isIphone ? 399.68 : 332}
             style={{
-              transform: `translateY(-${mobileHeight * 0.07}px)`,
+              transform: `translateY(-${mobileHeight * 0.08}px)`,
             }}
           />
         </div>
@@ -66,24 +70,24 @@ const InviteForCreator: FC<Props> = ({ mobileHeight, deskTopHeight }) => {
           <div ref={titleRef}>
             <SectionTitle
               text="An Invite-Only Community for Web3 Creators"
-              className="md:text-right mb-4"
+              className="w-[300px] md:w-[550px] md:text-right mb-4"
             />
           </div>
           <div ref={contentRef}>
-            <SectionContent className={`${isMobile ? "w-[300px] mt-0" : "md:mt-2 md:text-right"}`}>
+            <SectionContent className={`${"w-[300px] mt-0 md:mt-2 md:text-right"}`}>
               {isMobile ? (
                 <>
-                  Providing the resources and tools to <br /> help unlock creative potential and{" "}
-                  <br />
-                  financial freedom. We’re building the <br />
-                  best creator community on <br />
-                  the internet, together.
+                  Providing the network, resources and <br />
+                  tools to help unleash your creative <br />
+                  potential and financial freedom. We’re <br />
+                  building the best creator community <br />
+                  on the internet, together.
                 </>
               ) : (
                 <>
-                  Providing the network, resources and tools to help unleash your <br /> creative
-                  potential and financial freedom. We’re building the <br /> best creator community
-                  on the internet, together.
+                  Providing the network, resources and tools to help unleash your <br />
+                  creative potential and financial freedom. We’re building the <br />
+                  best creator community on the internet, together.
                 </>
               )}
             </SectionContent>

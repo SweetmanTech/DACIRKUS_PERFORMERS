@@ -22,7 +22,7 @@ interface Props {
 }
 
 const Networking: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }) => {
-  const isMobile = useMediaQuery("(max-width: 490px)")
+  const isMobile = useMediaQuery("(max-width: 799px)")
 
   const imagesList: Array<ImageData> = [
     {

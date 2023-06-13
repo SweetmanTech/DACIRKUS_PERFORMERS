@@ -1,7 +1,8 @@
+/* eslint no-nested-ternary: "error" */
 import axios from "axios"
 import { toast } from "react-toastify"
 import { useState, useRef } from "react"
-import { useWindowSize } from "usehooks-ts"
+import { useMediaQuery, useWindowSize } from "usehooks-ts"
 import dynamic from "next/dynamic"
 import Brands from "./sections/Brands"
 import AutoPerfectArea from "./AutoPerfectArea"
@@ -20,6 +21,8 @@ const LandingPage = () => {
   const openSoonImageRef = useRef(null)
 
   const { width } = useWindowSize()
+
+  const isIphone = useMediaQuery("(max-width: 390px)")
 
   const onChangeEmail = (e: any) => {
     setEmail(e.target.value)
@@ -46,8 +49,19 @@ const LandingPage = () => {
                 "
               style={{
                 backgroundSize:
-                  width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
-                height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
+                  // eslint-disable-next-line no-nested-ternary
+                  width > 985
+                    ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
+                    : width > 390
+                    ? "985px"
+                    : "620px",
+                height:
+                  // eslint-disable-next-line no-nested-ternary
+                  width > 985
+                    ? `${Number((width / 1439) * 975)}px`
+                    : width > 390
+                    ? "625px"
+                    : "420px",
               }}
             />
             <SectionContainer
@@ -59,6 +73,9 @@ const LandingPage = () => {
                 mt-[170px] md:mt-[0px]
                 z-[4]
               "
+              style={{
+                marginTop: isIphone ? "110px" : "",
+              }}
             />
             <SectionContainer
               className="
@@ -119,7 +136,13 @@ const LandingPage = () => {
               style={{
                 backgroundSize:
                   width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
-                height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
+                height:
+                  // eslint-disable-next-line no-nested-ternary
+                  width > 985
+                    ? `${Number((width / 1439) * 975)}px`
+                    : width > 390
+                    ? "625px"
+                    : "420px",
               }}
               containerClassName="!bg-transparent"
             >
@@ -146,6 +169,9 @@ const LandingPage = () => {
                 mt-[170px] md:mt-[0px]
               "
               containerClassName="!bg-transparent"
+              style={{
+                marginTop: isIphone ? "110px" : "",
+              }}
             />
             <SectionContainer
               style={{
