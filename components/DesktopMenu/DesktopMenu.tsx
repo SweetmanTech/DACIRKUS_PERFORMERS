@@ -12,16 +12,10 @@ const DesktopMenu = () => {
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
-  const [isDarkMode, setIsDarkMode] = useState(false)
 
   const onToggle = () => {
-    setIsDarkMode(!isDarkMode)
     onChangeThemeConfig()
   }
-
-  useEffect(() => {
-    setIsDarkMode(themeMode !== "light")
-  }, [themeMode])
 
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
@@ -34,21 +28,15 @@ const DesktopMenu = () => {
         <button
           type="button"
           className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
-          onClick={() => {
-            setIsDarkMode(false)
-            onChangeThemeConfig("light")
-          }}
+          onClick={() => onChangeThemeConfig("light")}
         >
           light
         </button>
-        <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
+        <ToggleButton onClick={onToggle} value={themeMode === 'dark'} id="light_dark_switch" />
         <button
           type="button"
           className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
-          onClick={() => {
-            setIsDarkMode(true)
-            onChangeThemeConfig("dark")
-          }}
+          onClick={() => onChangeThemeConfig("dark")}
         >
           dark
         </button>
