@@ -4,7 +4,7 @@ import SeoHead from "../SeoHead"
 import Header from "../Header"
 import Footer from "../Footer/Footer"
 
-function ContainedLayout({ children }: ILayout) {
+function ContainedLayout({ children, hasFooter }: ILayout) {
   return (
     <div
       className="min-h-[100vh] w-screen text-black bg-transparent dark:bg-[black] relative overflow-hidden
@@ -22,11 +22,15 @@ function ContainedLayout({ children }: ILayout) {
       <div className="flex justify-center relative z-[2]">
         <div className="md:w-[1280px] relative">{children}</div>
       </div>
-      <div className="relative z-[3]">
+      { hasFooter ? <div className="relative z-[3]">
         <Footer className="!pt-6" />
-      </div>
+      </div> : <></>}
     </div>
   )
+}
+
+ContainedLayout.defaultProps = {
+  hasFooter: true  
 }
 
 export default ContainedLayout
