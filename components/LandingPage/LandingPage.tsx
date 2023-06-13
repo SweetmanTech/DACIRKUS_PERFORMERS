@@ -73,7 +73,6 @@ const LandingPage = () => {
                     h-[799px] md:h-[972px]
                     mt-[110px] xs:mt-[170px] md:mt-[0px]
                     z-[4]
-
                   "
                 />
                 <SectionContainer

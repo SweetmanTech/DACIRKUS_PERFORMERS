@@ -1,7 +1,0 @@
-.untoggle_dot {
-    transform: translateX(-5px);
-}
-
-.toggle_dot {
-    transform: translateX(calc(100% + 11px));
-}
