@@ -1,6 +1,6 @@
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
-import { useState, useEffect } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import CustomConnectWallet from "../CustomConnectWallet"
 import DiscordIcon from "../DiscordIcon"
@@ -32,7 +32,7 @@ const DesktopMenu = () => {
         >
           light
         </button>
-        <ToggleButton onClick={onToggle} value={themeMode === 'dark'} id="light_dark_switch" />
+        <ToggleButton onClick={onToggle} value={themeMode === "dark"} id="light_dark_switch" />
         <button
           type="button"
           className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
