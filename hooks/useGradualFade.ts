@@ -9,17 +9,18 @@ const useGradualFadeEffect = ({
     elements,
     isScrollUp
 }: Props) => {
+    const fadeOffset = 300;
 
     useEffect(() => {
-        if(!isScrollUp) {
-            for(let i = 0 ; i < elements.length ; i++) {
-                if(elements[i]?.type === 'self' && elements[i]?.domObject?.style) {
-                    elements[i].domObject.style.transitionDelay = `${200 * (i + 1)}ms`;
-                } else if(elements[i]?.type === 'child' && elements[i]?.domObject?.children) {
-                    elements[i].domObject.children[0].style.transitionDelay = `${200 * (i + 1)}ms`;
-                }
+        elements.map((_, i: number) => {
+            const element = elements[isScrollUp ? elements.length - (i + 1) : i]
+
+            if(element?.type === 'self' && element?.domObject?.style) {
+                element.domObject.style.transitionDelay = `${fadeOffset * (i + 1)}ms`;
+            } else if(element?.type === 'child' && element?.domObject?.children) {
+                element.domObject.children[0].style.transitionDelay = `${fadeOffset * (i + 1)}ms`;
             }
-        }
+        })
     }, [isScrollUp, elements])
 }
 

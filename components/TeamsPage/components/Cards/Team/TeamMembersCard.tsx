@@ -1,6 +1,8 @@
 import Image from "next/image"
+import { FC } from "react"
 import Link from "next/link"
-import { FC, useState } from "react"
+import { useMediaQuery } from "usehooks-ts"
+import Icon from "../../../../../shared/Icon"
 
 interface TeamMembersCardProps {
   name?: string
@@ -16,51 +18,61 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
   imgSrc,
   twitterHandle,
 }) => {
-  const [hovered, setHovered] = useState(false)
+  const isMobile = useMediaQuery("(max-width: 459px)")
+
   return (
-    <div className="flex flex-row items-start justify-around h-full p-4 my-2 overflow-hidden bg-white shadow-lg rounded-2xl font-quicksand">
-      <div className="flex w-1/4 h-full p-2 ">
-        <div className="block w-20 h-20 rounded-full ">
-          <Image
-            src={imgSrc || "/CRE8ORSLOGO_ICON.png"}
-            alt="Profile picture"
-            className="w-4 h-4 rounded-full"
-            width={100}
-            height={100}
-            layout="responsive"
-          />
+    <div
+      className="
+        p-4 my-2 overflow-hidden 
+        bg-white 
+        md:h-[247px]
+        rounded-2xl font-quicksand 
+        shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]
+      "
+    >
+      <div className="flex justify-between items-center md:items-start">
+        <div className="flex gap-3">
+          <div className="w-[60px] h-[59px] md:w-[108px] md:h-[106px] rounded-[10px] overflow-hidden bg-[black]">
+            <Image
+              src={imgSrc || "/CRE8ORSLOGO_ICON.png"}
+              alt="Profile picture"
+              className="w-[60px] h-[59px] md:w-[108px] md:h-[106px]"
+              width={!isMobile ? 108 : 60}
+              height={!isMobile ? 106 : 59}
+            />
+          </div>
+          <div className="max-w-[170px]">
+            <div className="text-[27px] break-all	font-[900] font-eigerdals leading-[100%]">
+              {name || "John Doe"}
+            </div>
+            <div className="text-md leading-[100%]">{role || "Person Role"}</div>
+          </div>
+        </div>
+        <div
+          className="
+            !w-[44px] !h-[44px] 
+            bg-[black] 
+            flex items-center justify-center 
+            rounded-full
+            shadow-[3px_3px_4px_rgba(0,0,0,0.25)]
+          "
+        >
+          <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
+            <Icon name="twitter" color="white" raw />
+          </Link>
         </div>
       </div>
-      <div className="flex flex-col w-3/4 space-y-2 h-1/2">
-        <div className="flex w-full h-full">
-          <div className="flex w-3/4 h-full">
-            <div className="flex flex-col">
-              <h2 className="text-xl font-bold text-gray-800 ">{name || "John Doe"}</h2>
-              <h5 className="text-gray-800 text-md ">{role || "Person Role"}</h5>
-            </div>
-          </div>
-          <div className="flex items-start w-1/4 h-full">
-            <div className="flex items-start justify-around w-full h-full">
-              <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
-                <button
-                  type="button"
-                  className=""
-                  onMouseEnter={() => setHovered(true)}
-                  onMouseLeave={() => setHovered(false)}
-                >
-                  <Image
-                    src={hovered ? "/hover/twitter_hover_button.svg" : "/twitter_button.svg"}
-                    alt="Profile picture"
-                    width={55}
-                    height={34}
-                  />
-                </button>
-              </Link>
-            </div>
-          </div>
+      <div className="hidden md:block pt-[20px]">
+        <div
+          className="
+            text-[16px] 
+            font-quicksand font-medium 
+            text-[black]
+            leading-[99.3%]
+          "
+        >
+          {favQuote}
         </div>
-
-        <div className="w-full h-full text-start font-quicksand">{favQuote}</div>
       </div>
     </div>
   )

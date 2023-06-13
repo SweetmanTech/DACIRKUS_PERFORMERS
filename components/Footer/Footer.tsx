@@ -49,7 +49,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           />
         </div>
         <div className="pt-6 pb-6 lg:p-12 grid grid-cols-10 md:grid-cols-5">
-          <div className="justify-end items-start hidden md:flex">
+          <div className="justify-start items-start hidden md:flex">
             <Image
               src={
                 themeMode === "light"

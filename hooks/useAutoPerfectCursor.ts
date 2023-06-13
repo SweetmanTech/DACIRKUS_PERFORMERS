@@ -1,38 +1,46 @@
-import * as React from 'react'
+import { MotionValue } from 'framer-motion';
+import { useEffect } from 'react'
+import { useLocalStorage } from 'usehooks-ts';
 
 interface Props {
     containerRef: React.RefObject<HTMLDivElement>,
     cursorRef: React.RefObject<HTMLDivElement>,
-    clipRef: React.RefObject<HTMLImageElement>
+    clipRef: React.RefObject<HTMLImageElement>,
+    scrollY: MotionValue<number>
 }
+
+let posX = 0;
+let posY = 0;
+let prevScrollPos = 0
 
 const useAutoPerfectCursor = ({
     containerRef,
     cursorRef,
-    clipRef
+    clipRef,
+    scrollY
 } : Props) => {
     const CURSOR_RADIUS = 150 / 2;
 
-    const sign = (value: number) => {
-        return value * -1
-    }
+    const [isScrollUp, setIsScrollUp] = useLocalStorage('isScrollUp', false)
 
-    const animationEffect = (event: MouseEvent) => {
+    const animationEffect = (event?: MouseEvent) => {
         if(cursorRef.current && clipRef.current) {
-            const rect = containerRef.current.getBoundingClientRect()
-
-            const x = event.clientX + rect.left - CURSOR_RADIUS
-            const y = event.clientY + sign(rect.top) - CURSOR_RADIUS
-
-            const clipX = event.clientX + rect.left
-            const clipY = event.clientY + sign(rect.top)
+            const x = (event?.clientX || posX)  - CURSOR_RADIUS
+            const y = (event?.clientY || posY) + scrollY.get() - CURSOR_RADIUS
+            const clipX = event?.clientX || posX
+            const clipY = (event?.clientY || posY) + scrollY.get()
 
             cursorRef.current.style.left = `${x}px`;
             cursorRef.current.style.top = `${y}px`;
             cursorRef.current.style.display = 'block';
 
             clipRef.current.style.clipPath = `circle(${CURSOR_RADIUS}px at ${clipX}px ${clipY}px)`;
-            clipRef.current.style.opacity = `1`;
+            clipRef.current.style.opacity = '1'
+
+            if(event) {
+                posX = event.clientX
+                posY = event.clientY
+            }
         }
     }
 
@@ -44,9 +52,30 @@ const useAutoPerfectCursor = ({
         }
     }
 
-    React.useEffect(() => {
-        if(cursorRef?.current && clipRef?.current && containerRef?.current) {
+    useEffect(() => {
+        if(cursorRef?.current && clipRef?.current && containerRef?.current && scrollY) {
             removeAllEventListener()
+            scrollY.clearListeners()
+
+            scrollY.on('change', () => {
+                animationEffect()
+
+                if(scrollY.get() > prevScrollPos) setIsScrollUp(true)
+                else if(scrollY.get() < prevScrollPos) setIsScrollUp(false)
+                
+                prevScrollPos = scrollY.get()
+
+                let fade_bg_sections = document.querySelectorAll('.fade_bg')
+                for (let i = 0; i < fade_bg_sections.length; i++) {
+                    let section = fade_bg_sections[i]
+
+                    if (section.getBoundingClientRect().top < window.innerHeight) {
+                        section.classList.add('show')
+                    } else {
+                        section.classList.remove('show')
+                    }
+                }
+            })
 
             containerRef.current.addEventListener('mousemove', (event: MouseEvent) => {
                 animationEffect(event)
@@ -66,6 +95,10 @@ const useAutoPerfectCursor = ({
             })
         }
     }, [cursorRef, clipRef, containerRef])
+
+    return {
+        isScrollUp
+    }
 }
 
 export default useAutoPerfectCursor

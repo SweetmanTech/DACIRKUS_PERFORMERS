@@ -1,13 +1,15 @@
 interface IInput {
-  id?: string
+  id: string
   name?: string
   value?: string
   className?: string
+  containerClassName?: string
   onChange?: (e: any) => any
   placeholder?: string
   type: 'text' | 'password'
   startAdornment?: React.ReactNode
   endAdornment?: React.ReactNode
+  hasDoubleAnimation?: boolean
 }
 
 function Input({
@@ -19,22 +21,56 @@ function Input({
   onChange,
   className,
   endAdornment,
-  startAdornment
+  startAdornment,
+  containerClassName,
+  hasDoubleAnimation
 }: IInput) {
 
+  const hoverEvent = () => {
+    if(hasDoubleAnimation) {
+      const element = document.getElementsByClassName(`${id}_all`);
+
+      for(let i = 0; i < element.length ; i++) {
+        element[i].setAttribute('style', 'transform:scale(1.1)')
+      }
+    }
+  }
+
+  const leaveEvent = () => {
+    if(hasDoubleAnimation) {
+      const element = document.getElementsByClassName(`${id}_all`);
+
+      for(let i = 0; i < element.length ; i++) {
+        element[i].setAttribute('style', 'transform:scale(1)')
+      }
+    }
+  }
+
   return (
-    <div className="w-full shadow-[0px_2px_2px_rgba(0,0,0,0.25)] bg-[#F2F2F2] dark:shadow-[0px_2px_2px_2px_rgba(255,255,255,0.25)] rounded-[10px]">
-        <div className="w-full flex rounded-[10px] overflow-hidden border-[1px] border-slate-300 items-center">
-            <div className="px-[10px]">
+    <div 
+      id={id}
+      className={`
+          core_input
+          ${id}_all
+          ${containerClassName || ''}
+          w-full 
+          shadow-[0px_2px_2px_rgba(0,0,0,0.25)] dark:shadow-[0px_2px_2px_2px_rgba(255,255,255,0.25)]
+          bg-[#F2F2F2]  rounded-[10px]
+        `}
+        onMouseOver={ hoverEvent }
+        onMouseOut={ leaveEvent }
+      >
+        <div className="w-full flex rounded-[10px] overflow-hidden items-center justify-between">
+            <div className="px-[15px]">
                 {startAdornment}
             </div>
             <div
                 className={`
                     ${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
+                    w-[70%]
                 `}
             >
                 <input
-                    {...(id && { id: id })}
                     type={type}
                     placeholder={placeholder}
                     className={`
@@ -42,7 +78,6 @@ function Input({
                         text-black 
                         bg-[#F2F2F2]
                         h-full
-                        w-[70%]
                         focus:ring-0
                         ${className || ''}
                     `}
@@ -61,7 +96,8 @@ function Input({
 
 Input.defaultProps = {
   hookToForm: false,
-  type: 'text'
+  type: 'text',
+  hasDoubleAnimation: false
 }
 
 export default Input

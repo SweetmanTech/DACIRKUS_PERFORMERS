@@ -1,16 +1,16 @@
-import { FC, ReactNode } from "react"
+import { FC, ReactNode, useRef } from "react"
 import { classNames } from "./Utils"
 
 import styles from '../styles/Button.module.css'
-import { useMediaQuery } from "usehooks-ts"
 
 interface ButtonProps {
   id: string
   children?: ReactNode
   className?: string
   type?: "button" | "submit" | "reset" | undefined
-  onClick?: () => void
+  onClick?: (e: any) => void
   disabled?: boolean
+  hasDoubleAnimation?: boolean
 }
 
 interface ToggleButtonProps {
@@ -20,27 +20,44 @@ interface ToggleButtonProps {
   value?: boolean
 }
 
-export const Button: FC<ButtonProps> = ({ id, children, className, onClick, ...rest }) => {
-  const click = () => {
-    if(onClick) onClick()
+export const Button: FC<ButtonProps> = ({ id, children, className, onClick, hasDoubleAnimation,  ...rest }) => {
+  const hoverEvent = () => {
+    if(hasDoubleAnimation) {
+      const element = document.getElementsByClassName(`${id}_all`);
+
+      for(let i = 0; i < element.length ; i++) {
+        element[i].setAttribute('style', 'transform:scale(1.1)')
+      }
+    }
   }
 
-  const hoverEvent = () => {
-    document.getElementById(id).style.backgroundColor = 'red !important'
+  const leaveEvent = () => {
+    if(hasDoubleAnimation) {
+      const element = document.getElementsByClassName(`${id}_all`);
+
+      for(let i = 0; i < element.length ; i++) {
+        element[i].setAttribute('style', 'transform:scale(1)')
+      }
+    }
   }
 
   return (
     <button
       id={id}
       type="button"
-      className={`hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
-      onClick={click}
+      className={`${id}_all hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
+      onClick={onClick}
       onMouseOver={ hoverEvent }
+      onMouseOut={ leaveEvent }
       {...rest}
     >
       {children}
     </button>
   )
+}
+
+Button.defaultProps = {
+  hasDoubleAnimation: false
 }
 
 export const PageButton: FC<ButtonProps> = ({ children, className, ...rest }) => (

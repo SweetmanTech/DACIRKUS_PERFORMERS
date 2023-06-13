@@ -4,7 +4,7 @@ import { useLocalStorage } from 'usehooks-ts'
 
 interface themeProps {
     themeMode: string
-    onChangeThemeConfig: () => void
+    onChangeThemeConfig: (mode?: string) => void
 }
 
 interface Props {
@@ -28,8 +28,12 @@ export const ThemeProvider: React.FC<Props> = ({ children }) => {
 
     const provider = {
         themeMode,
-        onChangeThemeConfig: () => {
-            setThemeMode(themeMode == 'light' ? 'dark' : 'light')
+        onChangeThemeConfig: (mode?: string) => {
+            if(mode === undefined) {
+                setThemeMode(themeMode == 'light' ? 'dark' : 'light')
+                return
+            }
+            setThemeMode(mode)
         }
     }
 

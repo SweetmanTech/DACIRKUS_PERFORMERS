@@ -82,10 +82,9 @@ a {
 
 /* Fade-in animation on scroll */
 .appear {
-  transition: all 0.25s;
+  transition: all 0.3s;
   opacity: 0;
   transform: translateY(40px);
-  transition-delay: 0.2s;
 }
 
 .appear.inview {
@@ -94,49 +93,62 @@ a {
 }
 
 /* Fade-in background animation on scroll */
-.fade_bg {
-  opacity: 0.3;
-  transition: all 0.1s;
+@keyframes fade_in_bg {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .fade_bg.show {
-  opacity: 1;
-}
-
-.light_mode > div {
-  color: white !important;
-}
-
-.light_mode {
-  transition: none !important;
-}
-
-.light_mode div {
-  color: black !important;
-  transition: none !important;
-}
-
-.light_mode button {
-  background-color: white !important;
-  color: white !important;
-}
-
-.dark_mode {
-  transition: none !important;
-}
-
-.dark_mode div {
-  color: white !important;
-  transition: none !important;
-}
-
-.dark_mode button {
-  background-color: white !important;
-  color: black !important;
+  animation: fade_in_bg 0.3s ease-in-out;
 }
 
 .no_transition {
   transition: none !important;
+}
+
+.core_input button {
+  transform: scale(1) !important;
+}
+
+.perfect_area .blur_area {
+  display: none !important;
+}
+
+.perfect_area .bg_area {
+  opacity: 1 !important;
+}
+
+.perfect_area * {
+  transition: none !important;
+}
+
+.perfect_area div {
+  color: white !important;
+}
+
+.perfect_area button {
+  background-color: white !important;
+  color: black;
+}
+
+.perfect_area .light {
+  color: #6F6F6F !important;
+}
+
+.perfect_area .highlight {
+  color: #916FE2 !important;
+}
+
+.perfect_area .dark_logo {
+  display: none !important;
+}
+
+.perfect_area .light_logo {
+  display: block !important;
 }
 
 * {

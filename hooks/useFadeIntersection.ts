@@ -1,4 +1,4 @@
-import * as React from 'react'
+import { useState, useEffect } from 'react'
 
 import { useTheme } from '../providers/ThemeProvider'
 
@@ -13,24 +13,26 @@ const useFadeIntersection = ({
       themeMode
     } = useTheme()
 
-    React.useEffect(() => {
-        if(ref?.current) {
-              const cb = (entries) => {
-                entries.forEach(entry => {
-                  if(entry.isIntersecting){
-                    entry.target.classList.add('inview');
-                  }else{
-                    entry.target.classList.remove('inview');
-                  }
-                });
-              }
-              const io = new IntersectionObserver(cb);
-              
-              io.observe(ref.current)
+    const [injected, setInjected] = useState(false)
+
+    useEffect(() => {
+      if(ref?.current && !injected) {
+        const cb = (entries) => {
+          entries.map((entry: any) => {
+            if(entry.isIntersecting){
+              entry.target.classList.add('inview');
+            }else{
+              entry.target.classList.remove('inview');
+            }
+          })
         }
+        const io = new IntersectionObserver(cb);
+        io.observe(ref.current)
+        setInjected(true)
+      }
     }, [ref])
 
-    React.useEffect(() => {
+    useEffect(() => {
       if(ref?.current) {
         ref.current.classList.add('no_transition')
         setTimeout(() => {

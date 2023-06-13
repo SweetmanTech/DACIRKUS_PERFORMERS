@@ -15,9 +15,22 @@ import useGradualFadeEffect from "../../../hooks/useGradualFade"
 interface Props {
   value: string
   onChange: (val: string) => void
+  onSubscribe: (e: any) => void
+  contentHeight: number
+  characterHeight: number
+  desktopImageRef: any
+  isSubscribed: boolean
 }
 
-const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
+const WelcomeToCre8ors: FC<Props> = ({
+  value,
+  onChange,
+  onSubscribe,
+  contentHeight,
+  characterHeight,
+  desktopImageRef,
+  isSubscribed,
+}) => {
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
 
   const isMobile = useMediaQuery("(max-width: 490px)")
@@ -25,7 +38,7 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
   const avatarsRef = useRef()
   const titleRef = useRef()
   const contentRef = useRef()
-  const imageRef = useRef()
+  const mobileImageRef = useRef()
 
   useFadeIntersection({
     ref: inputRef,
@@ -54,7 +67,7 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
         type: "child",
       },
       {
-        domObject: imageRef.current,
+        domObject: !isMobile ? desktopImageRef.current : mobileImageRef.current,
         type: "child",
       },
     ],
@@ -62,36 +75,48 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
   })
 
   return (
-    <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-4 md:pt-[20rem] md:pb-[6rem]">
-      <div className="md:hidden flex justify-center mb-6">
-        <FadeInImage
-          url="/assets/Landing/creativity.svg"
-          width={226.65}
-          height={476.86}
-          className="!translate-y-[220px]"
-        />
-      </div>
+    <div className="md:grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-0 md:gap-y-4">
       <div
-        className="
-        translate-y-[220px] 
-        md:translate-y-[0px]
-        flex flex-col items-center md:items-start 
-        dark:bg-[black] bg-white md:!bg-transparent
-        shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none"
+        className={`
+            md:hidden relative
+            md:col-span-2
+            items-center justify-center
+            flex
+          `}
+        style={{
+          height: `${characterHeight}px`,
+          transform: "translateY(30px)",
+        }}
+        ref={mobileImageRef}
+      >
+        <FadeInImage url="/assets/Landing/creativity.svg" width={226.65} height={476.86} />
+      </div>
+
+      <div
+        className={`
+            col-span-1
+            md:col-span-2
+            flex flex-col justify-start items-center md:items-start justify-start md:justify-center
+            dark:bg-[black] bg-white md:!bg-transparent
+            shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
+          `}
+        style={{
+          height: `${contentHeight}px`,
+        }}
       >
         <div ref={titleRef}>
           <SectionTitle
             text="Welcome to the Next Generation of Creativity"
-            className="w-[300px] md:w-[550px] md:text-left"
+            className="w-[300px] md:w-[550px] md:text-left md:!mt-0"
           />
         </div>
         <div ref={contentRef}>
-          <SectionContent>
+          <SectionContent className="!mt-4 md:m-0">
             {isMobile ? (
               <>
-                Cre8ors is a next-gen media brand made <br />
-                for the metaverse; powered by our curated collective of web3 creators, IP
-                co-creation protocols and AI-enabled NFTs.
+                Cre8ors is a next-gen brand made for the <br /> metaverse; powered by our curated
+                collective <br />
+                of web3 creators, IP co-creation protocols <br /> and AI-enabled NFTs.
               </>
             ) : (
               <>
@@ -102,47 +127,54 @@ const WelcomeToCre8ors: FC<Props> = ({ value, onChange }) => {
             )}
           </SectionContent>
         </div>
-        <div ref={inputRef} className="appear m-6 lg:mx-12 flex justify-center md:justify-start">
-          <div className="w-[95%]">
+        <div ref={inputRef} className="appear mb-6 md:mx-12 flex justify-center md:justify-start">
+          <div className="w-[350px] md:w-[416px]">
             <Input
+              id="newsletter_input"
               endAdornment={
                 <Button
                   id="subscribe_btn"
-                  className="rounded-tl-[0px] rounded-bl-[0px] pl-[10px] pr-[10px]"
+                  className={`
+                    rounded-tl-[0px] rounded-bl-[0px] 
+                    px-[20px] 
+                    capitalize text-[14px]
+                    border-[none]
+                    ${isSubscribed && "!text-[#5EE884]"}
+                  `}
+                  onClick={onSubscribe}
                 >
-                  Subscribe
+                  {isSubscribed ? "Subscribed!" : "Subscribe"}
                 </Button>
               }
-              startAdornment={<Icon name="email" raw color="gray" />}
+              startAdornment={<Icon name="email" raw color="#b5b4b4" size={17} />}
               value={value}
               onChange={onChange}
+              placeholder="Your Email"
+              className="font-quicksand"
+              containerClassName="hover:scale-[1.1] scale-[1] transition duration-[250ms]"
+              hasDoubleAnimation
             />
           </div>
         </div>
         <div
           ref={avatarsRef}
-          className="md:ml-12 md:mt-3
-            font-quicksand font-medium 
-            flex items-center gap-x-[10px] 
-            dark:text-white
-            appear
-          "
+          className="
+              md:ml-12 md:mt-3
+              font-quicksand font-medium 
+              flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
+              dark:text-white
+              appear
+            "
         >
           <AvatarGroup count={3}>
             <Avatar url="/assets/Landing/avatars/avatar_1.svg" />
             <Avatar url="/assets/Landing/avatars/avatar_2.svg" />
             <Avatar url="/assets/Landing/avatars/avatar_3.svg" />
           </AvatarGroup>
-          <span className="text-[14px] text-[#916FE2] font-bold">Join 2K+</span> web3 creators.
+          <div className="flex items-center text-[14px] gap-2 text-[#6F6F6F] light">
+            <div className="highlight !text-[#916FE2] font-bold">Join 2K+</div> web3 creators.
+          </div>
         </div>
-      </div>
-      <div className="md:flex hidden justify-center" ref={imageRef}>
-        <FadeInImage
-          url="/assets/Landing/creativity.svg"
-          width={319}
-          height={671}
-          className="!translate-y-[-170px]"
-        />
       </div>
     </div>
   )
