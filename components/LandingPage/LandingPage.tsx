@@ -120,8 +120,9 @@ const LandingPage = () => {
                 />
               </div>
               <div
-                className="absolute left-0 top-0 dark:hidden 
-                w-full h-[calc(100%+500px)]
+                className="
+                absolute left-0 top-0 
+                dark:hidden w-full h-[calc(100%+500px)]
                 bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]
               "
               />
