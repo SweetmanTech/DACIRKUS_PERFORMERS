@@ -4,7 +4,7 @@ import TeamMembers from "./sections/TeamMembers"
 import Layout from "../Layout"
 
 const TeamsPage = ({ foundingMemberData, teamMemberData }) => (
-  <Layout type="contained">
+  <Layout type="contained" hasFooter>
     <div className="relative pt-[12rem]">
       <TeamMembers teamMemberData={teamMemberData} />
       <FoundingMembers foundingMemberData={foundingMemberData} />

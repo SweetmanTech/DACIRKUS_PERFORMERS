@@ -36,7 +36,7 @@ const LandingPage = () => {
   }
 
   return (
-    <Layout type="base">
+    <Layout type="base" hasFooter>
       <AutoPerfectArea>
         <div className="relative overflow-hidden">
           <div className="absolute z-[1] left-0 top-0 w-full">

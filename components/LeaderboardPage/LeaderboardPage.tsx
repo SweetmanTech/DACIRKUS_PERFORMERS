@@ -28,7 +28,7 @@ const LeaderboardPage = () => {
   }, [])
 
   return (
-    <Layout type="contained">
+    <Layout type="contained" hasFooter>
       <div className="w-full pt-24 mx-auto">
         <div className="font-[eigerdals] dark:text-white text-center text-[2.5rem] md:text-[4rem] font-bold pt-6">
           Leaderboard
