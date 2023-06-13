@@ -28,8 +28,6 @@ function Input({
   hasDoubleAnimation
 }: IInput) {
 
-  const isIphone = useMediaQuery('(max-width: 390px)')
-
   const hoverEvent = () => {
     if(hasDoubleAnimation) {
       const element = document.getElementsByClassName(`${id}_all`);
@@ -71,11 +69,8 @@ function Input({
             <div
               className={`
                   ${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
-                  w-[70%]
+                  w-[45%] xs:w-[70%]
               `}
-              style={{
-                width: isIphone ?  '45%' : ''
-              }}
             >
                 <input
                     type={type}

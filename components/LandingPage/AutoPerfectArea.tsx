@@ -2,7 +2,6 @@ import { FC, ReactNode, useRef } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { useScroll } from "framer-motion"
 import useAutoPerfectCursor from "../../hooks/useAutoPerfectCursor"
-import Footer from "../Footer"
 
 interface AutoPerfectAreaProps {
   children: ReactNode
@@ -60,7 +59,6 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({ children }) => {
         {children}
       </div>
       <div className="relative z-[6]">{children}</div>
-      <Footer />
     </div>
   )
 }

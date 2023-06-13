@@ -1,4 +1,4 @@
-import { useMediaQuery, useWindowSize } from "usehooks-ts"
+import { useWindowSize } from "usehooks-ts"
 import dynamic from "next/dynamic"
 import WelcomeToCre8ors from "./sections/WelcomeToCre8ors"
 import InviteForCreator from "./sections/InviteForCreator"
@@ -35,7 +35,6 @@ const LandingContent = ({
   const { themeMode } = useTheme()
 
   const { width } = useWindowSize()
-  const isIphone = useMediaQuery("(max-width: 390px)")
 
   return (
     <>
@@ -73,7 +72,7 @@ const LandingContent = ({
             dark:bg-[center_bottom]
             bg-cover 
             h-[799px] md:h-[972px] 
-            mt-[170px] md:mt-[0px]
+            mt-[110px] xs:mt-[170px] md:mt-[0px]
             z-[4]
           "
         containerClassName={themeMode === "light" ? `` : "fade_bg"}
@@ -82,9 +81,6 @@ const LandingContent = ({
           dark:bg-[url('/assets/Landing/backgrounds/color_timessquare.png')]
         "
         backgroundPosition="bg-[center_bottom] bg-cover"
-        style={{
-          marginTop: isIphone ? "110px" : "",
-        }}
       >
         <InviteForCreator mobileHeight={799} deskTopHeight={972} />
       </SectionContainer>

@@ -21,8 +21,7 @@ const SectionContainer: React.FC<LayoutProps> = ({
   <div
     className={`
         relative 
-        bg-white
-        dark:bg-transparent
+        bg-transparent
         border-none
         w-[100%]
         ${containerClassName || ""}

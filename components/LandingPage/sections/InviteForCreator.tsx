@@ -61,8 +61,8 @@ const InviteForCreator: FC<Props> = ({ mobileHeight, deskTopHeight }) => {
         </div>
         <div
           className={`
-            flex flex-col justify-center items-center
-            dark:bg-[black] bg-white md:!bg-transparent
+            flex flex-col justify-center items-center md:items-end
+            !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
             shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
             mt-[-1px] md:mt-0
           `}
@@ -74,7 +74,7 @@ const InviteForCreator: FC<Props> = ({ mobileHeight, deskTopHeight }) => {
             />
           </div>
           <div ref={contentRef}>
-            <SectionContent className={`${"w-[300px] mt-0 md:mt-2 md:text-right"}`}>
+            <SectionContent className={`${"w-[300px] md:w-[550px] mt-0 md:mt-2 md:text-right"}`}>
               {isMobile ? (
                 <>
                   Providing the network, resources and <br />

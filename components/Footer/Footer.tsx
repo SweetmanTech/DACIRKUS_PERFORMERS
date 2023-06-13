@@ -31,7 +31,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <div
-      className={`dark:bg-[black] bg-white pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
+      className={`footer dark:bg-[black] bg-transparent pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
         className || ""
       }`}
     >

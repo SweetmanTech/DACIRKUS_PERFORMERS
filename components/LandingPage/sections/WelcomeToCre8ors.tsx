@@ -103,7 +103,7 @@ const WelcomeToCre8ors: FC<Props> = ({
             col-span-1
             md:col-span-2
             flex flex-col justify-start items-center md:items-start justify-start md:justify-center
-            dark:bg-[black] bg-white md:!bg-transparent
+            !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
             shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
           `}
         style={{
@@ -134,12 +134,7 @@ const WelcomeToCre8ors: FC<Props> = ({
           </SectionContent>
         </div>
         <div ref={inputRef} className="appear mb-6 md:mx-12 flex justify-center md:justify-start">
-          <div
-            className="w-[350px] md:w-[416px]"
-            style={{
-              width: isIphone ? "290px" : "",
-            }}
-          >
+          <div className="w-[290px] xs:w-[350px] md:w-[416px]">
             <Input
               id="newsletter_input"
               endAdornment={

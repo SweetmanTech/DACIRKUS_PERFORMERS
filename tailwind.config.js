@@ -1,5 +1,7 @@
 /* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -11,6 +13,10 @@ module.exports = {
   theme: {
     container: {
       center: true,
+    },
+    screens: {
+      'xs': '390px',
+      ...defaultTheme.screens,
     },
     extend: {
       fontFamily: {

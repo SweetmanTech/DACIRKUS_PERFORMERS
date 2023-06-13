@@ -210,7 +210,7 @@ const Networking: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
             col-span-1
             md:col-span-2
             flex flex-col justify-end items-center md:items-start justify-start md:justify-center
-            dark:bg-[black] bg-white md:!bg-transparent
+            !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
             shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
             mt-[-1px] md:mt-0
           `}

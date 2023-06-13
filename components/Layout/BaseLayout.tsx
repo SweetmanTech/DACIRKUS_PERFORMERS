@@ -8,7 +8,7 @@ function BaseLayout({ children }: ILayout) {
     <div className="h-screen text-black bg-[black]">
       <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
       <Header />
-      {children}
+      <div className="relative z-[2]">{children}</div>
     </div>
   )
 }
