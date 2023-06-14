@@ -58,7 +58,9 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           "
         >
           <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
-            <Icon name="twitter" color="white" raw />
+            <div className="cursor-pointer">
+              <Icon name="twitter" color="white" raw />
+            </div>
           </Link>
         </div>
       </div>

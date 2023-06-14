@@ -89,16 +89,16 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
               <br />
               Cre8ors Collective Passport today.
               <br /> &nbsp;
-              <Link href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
-                For more info read the FAQ.
+              <Link href="/faq" target="_blank" className="underline cursor-pointer">
+                <span className="underline">For more info read the FAQ.</span>
               </Link>
             </>
           ) : (
             <>
               Allowlist opens in July. &nbsp;Skip the line and secure <br /> your spot by reserving
               a Cre8ors Collective <br /> Passport today.&nbsp;
-              <Link href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
-                For more info read the FAQ.
+              <Link href="/faq" target="_blank">
+                <span className="underline cursor-pointer">For more info read the FAQ.</span>
               </Link>
             </>
           )}

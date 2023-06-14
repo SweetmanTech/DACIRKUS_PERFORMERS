@@ -16,4 +16,5 @@ function BaseLayout({ children }: ILayout) {
 BaseLayout.defaultProps = {
   hasFooter: true,
 }
+
 export default BaseLayout

@@ -117,7 +117,7 @@ const WelcomeToCre8ors: FC<Props> = ({
           />
         </div>
         <div ref={contentRef}>
-          <SectionContent className="!mt-4 md:m-0">
+          <SectionContent className="!mt-2 md:m-0">
             {isMobile ? (
               <>
                 Cre8ors is a next-gen brand made for the <br /> metaverse; powered by our curated
@@ -133,7 +133,10 @@ const WelcomeToCre8ors: FC<Props> = ({
             )}
           </SectionContent>
         </div>
-        <div ref={inputRef} className="appear mb-6 md:mx-12 flex justify-center md:justify-start">
+        <div
+          ref={inputRef}
+          className="appear mt-2 md:mt-0 mb-6 md:mx-12 flex justify-center md:justify-start"
+        >
           <div className="w-[290px] xs:w-[350px] md:w-[416px]">
             <Input
               id="newsletter_input"
@@ -165,7 +168,7 @@ const WelcomeToCre8ors: FC<Props> = ({
         <div
           ref={avatarsRef}
           className="
-              md:ml-12 md:mt-3
+              mt-2 md:ml-12 md:mt-3
               font-quicksand font-medium 
               flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
               dark:text-white

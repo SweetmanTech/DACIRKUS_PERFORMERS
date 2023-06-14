@@ -126,13 +126,8 @@ a {
   transition: none !important;
 }
 
-.perfect_area div {
+.perfect_area div:not(.footer) {
   color: white !important;
-}
-
-.perfect_area button {
-  background-color: white !important;
-  color: black;
 }
 
 .perfect_area .light {

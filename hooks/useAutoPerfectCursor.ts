@@ -30,10 +30,8 @@ const useAutoPerfectCursor = ({
             const clipX = event?.clientX || posX
             const clipY = (event?.clientY || posY) + scrollY.get()
 
-            cursorRef.current.style.left = `${x}px`;
-            cursorRef.current.style.top = `${y}px`;
             cursorRef.current.style.display = 'block';
-
+            cursorRef.current.style.transform = `translate(${x}px, ${y}px)`;
             clipRef.current.style.clipPath = `circle(${CURSOR_RADIUS}px at ${clipX}px ${clipY}px)`;
             clipRef.current.style.opacity = '1'
 
