@@ -80,7 +80,7 @@ export const ToggleButton: FC<ToggleButtonProps> = ({onClick, value}) => {
 
   return (
     <div className="flex justify-center w-16 h-6 cursor-pointer">
-        <div className={`flex items-center dark:bg-[white] bg-[black] rounded-full w-full h-6 pl-2`} onClick={onClick}>
+        <div className="flex items-center dark:bg-[white] bg-[black] rounded-full w-full h-6 pl-2" onClick={onClick}>
           <div className={
             `${isToggle ? 'translate-x-[calc(100%+11px)]' : 'translate-x-[-5px]'} 
             dark:bg-[black]

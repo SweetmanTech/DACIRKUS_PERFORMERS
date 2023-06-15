@@ -126,8 +126,12 @@ a {
   transition: none !important;
 }
 
-.perfect_area div:not(.footer) {
+.perfect_area div {
   color: white !important;
+}
+
+.perfect_area .footer {
+  display: none;
 }
 
 .perfect_area .light {
@@ -144,6 +148,10 @@ a {
 
 .perfect_area .light_logo {
   display: block !important;
+}
+
+.no_typecursor .Typewriter__cursor {
+  display: none;
 }
 
 * {

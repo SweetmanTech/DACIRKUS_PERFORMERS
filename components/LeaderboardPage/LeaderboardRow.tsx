@@ -20,7 +20,7 @@ const LeaderboardRow = ({ address, numberOwned, rank, twitterHandle }) => {
 
   return (
     <tr key={address} className="text-center bg-white hover:bg-blue-300">
-      <td className="px-4 py-2 border-l-2 border-r-2 border-black">#{rank}</td>
+      <td className="px-4 py-2 border-r-2 border-black">#{rank}</td>
       <td className="px-4 py-2 border-r-2 border-black">{numberOwned}</td>
       <td className="flex items-center gap-3 px-4 py-2 border-r-2 border-black">
         <PFP address={address} height={25} width={25} />
@@ -28,9 +28,9 @@ const LeaderboardRow = ({ address, numberOwned, rank, twitterHandle }) => {
           {ensName || truncateEthAddress(address)}
         </Link>
       </td>
-      <td className="px-4 py-2 border-r-2 border-black">
+      <td className="px-4 py-2">
         <Link href={`https://twitter.com/${twitterHandle}`} target="_blank" rel="noreferrer">
-          {twitterHandle}
+          {twitterHandle || "twitter_handle"}
         </Link>
       </td>
     </tr>

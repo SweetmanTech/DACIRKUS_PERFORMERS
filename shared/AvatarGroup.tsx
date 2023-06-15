@@ -22,7 +22,7 @@ const styles = {
 }
   
 const AvatarGroup: React.FC<AvatarGroupProps> = ({children, count, size}) => (
-    <div className={`relative`}
+    <div className="relative"
         style={{
             width: `${(styles.sizes[size] - styles.gap[size]) * count + styles.gap[size]}px`,
             height: `${styles.sizes[size]}px`

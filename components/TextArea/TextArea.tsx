@@ -18,8 +18,7 @@ const TextArea: FC<TextAreaProps> = ({ value, label, setValue }) => {
         {label}
       </label>
       <textarea
-        className="
-        form-control
+        className="form-control
         block
         w-full
         px-3

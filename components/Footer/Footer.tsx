@@ -65,9 +65,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <div
-      className={`footer dark:bg-[black] bg-transparent pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
+      className={`dark:bg-[black] bg-transparent pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
         className || ""
-      }`}
+      } footer`}
     >
       <div className="md:w-[1280px] w-[90%]">
         <div className="justify-start items-start flex md:hidden pt-6 pr-6">

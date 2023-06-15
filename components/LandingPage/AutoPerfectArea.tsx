@@ -25,7 +25,9 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
   const clipRef = useRef(null)
   const containerRef = useRef(null)
 
-  const isMobile = useMediaQuery("(max-width: 490px)")
+  const isMobile = useMediaQuery("(max-width: 768px)")
+  const isIphone = useMediaQuery("(max-width: 390px)")
+
   const { width } = useWindowSize()
 
   const { scrollY } = useScroll({ container: containerRef })
@@ -45,8 +47,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
       {!isMobile && (
         <div
           ref={cursorRef}
-          className="
-            hidden 
+          className="hidden 
             rounded-full 
             w-[152px] h-[152px] z-[30] 
             absolute 
@@ -57,8 +58,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
         />
       )}
       <div
-        className="
-        absolute 
+        className="absolute 
         left-0 top-0 z-[20] 
         w-full
         pointer-events-none
@@ -66,11 +66,12 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
       >
         <SectionContainer
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
+              : "985px",
             height:
               // eslint-disable-next-line no-nested-ternary
-              width > 985 ? `${Number((width / 1439) * 975)}px` : width > 390 ? "625px" : "420px",
+              !isMobile ? `${Number((width / 1439) * 975)}px` : !isIphone ? "625px" : "420px",
           }}
           containerClassName="!bg-transparent"
         >
@@ -86,12 +87,11 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             characterUrl="/assets/Landing/creativity.svg"
             xDirection="right"
             yDirection="bottom"
-            responsive={985}
+            isMobile={isMobile}
           />
         </SectionContainer>
         <SectionContainer
-          className="
-            dark:bg-[center_bottom]
+          className="dark:bg-[center_bottom]
             bg-cover 
             h-[799px] md:h-[972px]
             mt-[110px] xs:mt-[170px] md:mt-[0px]
@@ -100,10 +100,11 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
         />
         <SectionContainer
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
-            height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
-            marginTop: width < 985 ? `245px` : `0px`,
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
+              : "985px",
+            height: !isMobile ? `${Number((width / 1439) * 975)}px` : "625px",
+            marginTop: isMobile ? `245px` : `0px`,
           }}
           containerClassName="!bg-transparent"
         >
@@ -119,7 +120,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             characterUrl="/assets/Landing/networking.svg"
             xDirection="right"
             yDirection="bottom"
-            responsive={985}
+            isMobile={isMobile}
           />
           <Character
             screenWidth={width}
@@ -132,16 +133,17 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             characterUrl="/assets/Landing/letter.svg"
             xDirection="right"
             yDirection="bottom"
-            responsive={985}
+            isMobile={isMobile}
           />
         </SectionContainer>
 
         <SectionContainer
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px` : "985px",
-            height: width > 985 ? `${Number((width / 1439) * 973)}px` : "665px",
-            marginTop: width < 985 ? `338px` : `0px`,
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px`
+              : "985px",
+            height: !isMobile ? `${Number((width / 1439) * 973)}px` : "665px",
+            marginTop: isMobile ? `338px` : `0px`,
           }}
           containerClassName="!bg-transparent"
         >
@@ -157,7 +159,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             characterUrl="/assets/Landing/profile.svg"
             xDirection="left"
             yDirection="bottom"
-            responsive={1100}
+            isMobile={isMobile}
           />
         </SectionContainer>
 
@@ -167,10 +169,11 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
 
         <SectionContainer
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px` : "910px",
-            height: width > 985 ? `${Number((width / 1439) * 1079)}px` : "625px",
-            marginTop: width < 985 ? `-1px` : `0px`,
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px`
+              : "910px",
+            height: !isMobile ? `${Number((width / 1439) * 1079)}px` : "625px",
+            marginTop: isMobile ? `-1px` : `0px`,
           }}
           containerClassName="!bg-transparent"
         >
@@ -186,7 +189,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             characterUrl="/assets/Landing/opensoon.svg"
             xDirection="right"
             yDirection="bottom"
-            responsive={985}
+            isMobile={isMobile}
           />
           <Character
             screenWidth={width}
@@ -200,14 +203,13 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             characterUrl="/assets/Landing/painter.svg"
             xDirection="right"
             yDirection="bottom"
-            responsive={985}
+            isMobile={isMobile}
           />
         </SectionContainer>
       </div>
       <div
         ref={clipRef}
-        className={`
-          absolute
+        className="absolute
           w-full
           z-[10] 
           top-0
@@ -219,7 +221,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
           perfect_area
           z-[10]
           overflow-hidden
-        `}
+        "
       >
         {children}
       </div>

@@ -1,4 +1,4 @@
-import { useWindowSize } from "usehooks-ts"
+import { useMediaQuery, useWindowSize } from "usehooks-ts"
 import dynamic from "next/dynamic"
 import WelcomeToCre8ors from "./sections/WelcomeToCre8ors"
 import InviteForCreator from "./sections/InviteForCreator"
@@ -35,24 +35,25 @@ const LandingContent = ({
   const { themeMode } = useTheme()
 
   const { width } = useWindowSize()
+  const isMobile = useMediaQuery("(max-width: 768px)")
+  const isIphone = useMediaQuery("(max-width: 390px)")
 
   return (
     <>
       <SectionContainer
-        className="
-          z-[5]
-        "
+        className="z-[5]"
         backgroundImage="
           bg-[url('/assets/Landing/backgrounds/overlook.png')] 
           dark:bg-[url('/assets/Landing/backgrounds/color_overlook.png')]
         "
         backgroundPosition="bg-[right_-50px_bottom] md:bg-[right_bottom]"
         style={{
-          backgroundSize:
-            width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
+          backgroundSize: !isMobile
+            ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
+            : "985px",
           height:
             // eslint-disable-next-line no-nested-ternary
-            width > 985 ? `${Number((width / 1439) * 975)}px` : width > 390 ? "625px" : "420px",
+            !isMobile ? `${Number((width / 1439) * 975)}px` : !isIphone ? "625px" : "420px",
         }}
       >
         <WelcomeToCre8ors
@@ -61,15 +62,14 @@ const LandingContent = ({
           onSubscribe={handleClick}
           isSubscribed={isSubscribed}
           // eslint-disable-next-line no-nested-ternary
-          contentHeight={width > 985 ? Number((width / 1439) * 975) : width > 390 ? 310 : 290}
-          characterHeight={width > 390 ? 602 : 390}
+          contentHeight={!isMobile ? Number((width / 1439) * 975) : !isIphone ? 310 : 290}
+          characterHeight={!isIphone ? 602 : 390}
           desktopImageRef={welcomImageRef}
         />
       </SectionContainer>
 
       <SectionContainer
-        className="
-            dark:bg-[center_bottom]
+        className="dark:bg-[center_bottom]
             bg-cover 
             h-[799px] md:h-[972px] 
             mt-[110px] xs:mt-[170px] md:mt-[0px]
@@ -87,9 +87,7 @@ const LandingContent = ({
 
       <div className="relative z-[3]">
         <SectionContainer
-          className="
-            bg-[right_-50px_bottom] md:bg-[right_bottom]
-          "
+          className="bg-[right_-50px_bottom] md:bg-[right_bottom]"
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
           backgroundImage="
             bg-[url('/assets/Landing/backgrounds/trainstation.png')]
@@ -97,14 +95,15 @@ const LandingContent = ({
           "
           backgroundPosition="bg-[right_-50px_bottom] md:bg-[right_bottom]"
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px` : "985px",
-            height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
-            marginTop: width < 985 ? `245px` : `0px`,
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
+              : "985px",
+            height: !isMobile ? `${Number((width / 1439) * 975)}px` : "625px",
+            marginTop: isMobile ? `245px` : `0px`,
           }}
         >
           <Networking
-            contentHeight={width > 985 ? Number((width / 1439) * 973) : 340}
+            contentHeight={!isMobile ? Number((width / 1439) * 973) : 340}
             characterHeight={625}
             desktopImageRef={networkingImageRef}
           />
@@ -113,23 +112,21 @@ const LandingContent = ({
 
       <div className="relative z-[2]">
         <SectionContainer
-          className={`
-              
-            `}
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
           backgroundImage="
             bg-[url('/assets/Landing/backgrounds/replicate.png')]
             dark:bg-[url('/assets/Landing/backgrounds/color_replicate.svg')]
           "
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px` : "985px",
-            height: width > 985 ? `${Number((width / 1439) * 973)}px` : "665px",
-            marginTop: width < 985 ? `338px` : `0px`,
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px`
+              : "985px",
+            height: !isMobile ? `${Number((width / 1439) * 973)}px` : "665px",
+            marginTop: isMobile ? `338px` : `0px`,
           }}
         >
           <Cre8orsWay
-            contentHeight={width > 985 ? Number((width / 1439) * 973) : 180}
+            contentHeight={!isMobile ? Number((width / 1439) * 973) : 180}
             characterHeight={665}
             desktopImageRef={profileImageRef}
           />
@@ -151,23 +148,22 @@ const LandingContent = ({
 
       <div className="relative z-[0]">
         <SectionContainer
-          className="
-              bg-center 
-            "
+          className="bg-center"
           containerClassName={themeMode === "light" ? `` : "fade_bg"}
           backgroundImage="
             bg-[url('/assets/Landing/backgrounds/factory.png')]
             dark:bg-[url('/assets/Landing/backgrounds/color_factory.png')]
           "
           style={{
-            backgroundSize:
-              width > 985 ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px` : "910px",
-            height: width > 985 ? `${Number((width / 1439) * 1079)}px` : "625px",
-            marginTop: width < 985 ? `-1px` : `0px`,
+            backgroundSize: !isMobile
+              ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px`
+              : "910px",
+            height: !isMobile ? `${Number((width / 1439) * 1079)}px` : "625px",
+            marginTop: isMobile ? `-1px` : `0px`,
           }}
         >
           <OpenSoon
-            contentHeight={width > 985 ? Number((width / 1440) * 1079) : 200}
+            contentHeight={!isMobile ? Number((width / 1440) * 1079) : 200}
             characterHeight={625}
             desktopImageRef={openSoonImageRef}
           />

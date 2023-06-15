@@ -32,7 +32,7 @@ const EnterPage = () => {
   useGradualFadeEffect({
     elements: [
       {
-        domObject: buttonRef.current,
+        domObject: titleRef.current,
         type: "self",
       },
       {
@@ -40,7 +40,7 @@ const EnterPage = () => {
         type: "self",
       },
       {
-        domObject: titleRef.current,
+        domObject: buttonRef.current,
         type: "self",
       },
     ],

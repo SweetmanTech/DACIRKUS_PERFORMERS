@@ -79,12 +79,11 @@ const WelcomeToCre8ors: FC<Props> = ({
   return (
     <div className="md:grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-0 md:gap-y-4">
       <div
-        className={`
-            md:hidden relative
-            md:col-span-2
-            items-center justify-center
-            flex
-          `}
+        className="md:hidden relative
+          md:col-span-2
+          items-center justify-center
+          flex
+        "
         style={{
           height: `${characterHeight}px`,
           transform: `translateY(${isIphone ? 20 : 30}px)`,
@@ -99,13 +98,12 @@ const WelcomeToCre8ors: FC<Props> = ({
       </div>
 
       <div
-        className={`
-            col-span-1
+        className="col-span-1
             md:col-span-2
             flex flex-col justify-start items-center md:items-start justify-start md:justify-center
             !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
             shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
-          `}
+          "
         style={{
           height: `${contentHeight}px`,
         }}
@@ -143,8 +141,7 @@ const WelcomeToCre8ors: FC<Props> = ({
               endAdornment={
                 <Button
                   id="subscribe_btn"
-                  className={`
-                    rounded-tl-[0px] rounded-bl-[0px] 
+                  className={`rounded-tl-[0px] rounded-bl-[0px] 
                     px-[20px] 
                     capitalize text-[14px]
                     border-[none]
@@ -167,8 +164,7 @@ const WelcomeToCre8ors: FC<Props> = ({
         </div>
         <div
           ref={avatarsRef}
-          className="
-              mt-2 md:ml-12 md:mt-3
+          className="mt-2 md:ml-12 md:mt-3
               font-quicksand font-medium 
               flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
               dark:text-white

@@ -51,8 +51,7 @@ function Input({
   return (
     <div 
       id={id}
-      className={`
-          core_input
+      className={`core_input
           ${id}_all
           ${containerClassName || ''}
           w-full 
@@ -67,16 +66,14 @@ function Input({
                 {startAdornment}
             </div>
             <div
-              className={`
-                  ${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
+              className={`${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
                   w-[45%] xs:w-[70%]
               `}
             >
                 <input
                     type={type}
                     placeholder={placeholder}
-                    className={`
-                        border-none
+                    className={`border-none
                         text-black 
                         bg-[#F2F2F2]
                         h-full

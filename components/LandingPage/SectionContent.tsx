@@ -16,8 +16,7 @@ const SectionContent: React.FC<SectionContentProps> = ({ children, className }) 
   return (
     <div
       ref={ref}
-      className={`
-        appear 
+      className={`appear 
         m-6 md:mx-12 
         md:mb-8 md:mt-6 
         text-[14px] xs:text-[16px] leading-[103.3%] 

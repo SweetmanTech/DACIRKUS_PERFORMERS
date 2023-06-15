@@ -100,8 +100,7 @@ const Brands = ({ className }: BrandsProps) => {
   return (
     <div className={`w-full ${className || ""}`}>
       <div
-        className="
-        grid grid-cols-1 md:grid-cols-4 
+        className="grid grid-cols-1 md:grid-cols-4 
         pt-[500px] pb-[50px]
         gap-y-20 md:gap-y-0 
         md:pt-[15rem] md:pb-[15rem] w-full

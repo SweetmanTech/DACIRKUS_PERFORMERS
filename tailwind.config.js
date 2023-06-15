@@ -14,10 +14,6 @@ module.exports = {
     container: {
       center: true,
     },
-    screens: {
-      'xs': '390px',
-      ...defaultTheme.screens,
-    },
     extend: {
       fontFamily: {
         aldrich: ["Aldrich", "sans-serif"],
@@ -27,7 +23,9 @@ module.exports = {
         quicksand: ["Quicksand", "sans-serif"],
       },
       screens: {
+        'ios' : '320px',
         samsungS8: "360px",
+        'xs': '390px',
         sm: "640px",
         md: "768px",
         lg: "1024px",

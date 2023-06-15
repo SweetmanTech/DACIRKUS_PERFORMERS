@@ -2,7 +2,7 @@
 import axios from "axios"
 import { toast } from "react-toastify"
 import { useState, useRef } from "react"
-import { useWindowSize } from "usehooks-ts"
+import { useMediaQuery, useWindowSize } from "usehooks-ts"
 import dynamic from "next/dynamic"
 import Brands from "./sections/Brands"
 import AutoPerfectArea from "./AutoPerfectArea"
@@ -20,6 +20,9 @@ const LandingPage = () => {
   const profileImageRef = useRef(null)
   const openSoonImageRef = useRef(null)
 
+  const isMobile = useMediaQuery("(max-width: 758px)")
+  const isIphone = useMediaQuery("(max-width: 390px)")
+
   const { width } = useWindowSize()
 
   const onChangeEmail = (e: any) => {
@@ -35,7 +38,7 @@ const LandingPage = () => {
   }
 
   return (
-    <Layout type="base" hasFooter>
+    <Layout type="base">
       <AutoPerfectArea
         welcomeImageRef={welcomeImageRef}
         networkingImageRef={networkingImageRef}
@@ -48,30 +51,28 @@ const LandingPage = () => {
               <div className="absolute left-0 top-0 dark:backdrop-blur-[5.5px] z-[10] w-full h-full z-[10]" />
               <div>
                 <SectionContainer
-                  className="
-                      dark:bg-[url('/assets/Landing/backgrounds/overlook.png')]
+                  className="dark:bg-[url('/assets/Landing/backgrounds/overlook.png')]
                       z-[5]
                     "
                   style={{
                     backgroundSize:
                       // eslint-disable-next-line no-nested-ternary
-                      width > 985
+                      !isMobile
                         ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
-                        : width > 390
+                        : !isIphone
                         ? "985px"
                         : "620px",
                     height:
                       // eslint-disable-next-line no-nested-ternary
-                      width > 985
+                      !isMobile
                         ? `${Number((width / 1439) * 975)}px`
-                        : width > 390
+                        : !isIphone
                         ? "625px"
                         : "420px",
                   }}
                 />
                 <SectionContainer
-                  className="
-                    dark:bg-[url('/assets/Landing/backgrounds/timessquare.png')] 
+                  className="dark:bg-[url('/assets/Landing/backgrounds/timessquare.png')] 
                     dark:bg-[center_bottom]
                     bg-cover 
                     h-[799px] md:h-[972px]
@@ -80,52 +81,45 @@ const LandingPage = () => {
                   "
                 />
                 <SectionContainer
-                  className="
-                    dark:bg-[url('/assets/Landing/backgrounds/trainstation.png')] 
+                  className="dark:bg-[url('/assets/Landing/backgrounds/trainstation.png')] 
                     bg-[right_-50px_bottom] md:bg-[right_bottom]
                   "
                   style={{
-                    backgroundSize:
-                      width > 985
-                        ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
-                        : "985px",
-                    height: width > 985 ? `${Number((width / 1439) * 975)}px` : "625px",
-                    marginTop: width < 985 ? `245px` : `0px`,
+                    backgroundSize: !isMobile
+                      ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
+                      : "985px",
+                    height: !isMobile ? `${Number((width / 1439) * 975)}px` : "625px",
+                    marginTop: isMobile ? `245px` : `0px`,
                   }}
                 />
                 <SectionContainer
-                  className={`dark:bg-[url('/assets/Landing/backgrounds/replicate.png')]
-                  `}
+                  className="dark:bg-[url('/assets/Landing/backgrounds/replicate.png')]"
                   style={{
-                    backgroundSize:
-                      width > 985
-                        ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px`
-                        : "985px",
-                    height: width > 985 ? `${Number((width / 1439) * 973)}px` : "665px",
-                    marginTop: width < 985 ? `338px` : `0px`,
+                    backgroundSize: !isMobile
+                      ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px`
+                      : "985px",
+                    height: !isMobile ? `${Number((width / 1439) * 973)}px` : "665px",
+                    marginTop: isMobile ? `338px` : `0px`,
                   }}
                 />
                 <SectionContainer className="md:dark:bg-[url('/assets/Landing/backgrounds/path.png')] mt-[-1px]">
                   <Brands className="opacity-0" />
                 </SectionContainer>
                 <SectionContainer
-                  className="
-                        dark:bg-[url('/assets/Landing/backgrounds/factory.png')] 
+                  className="dark:bg-[url('/assets/Landing/backgrounds/factory.png')] 
                         bg-center 
                       "
                   style={{
-                    backgroundSize:
-                      width > 985
-                        ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px`
-                        : "910px",
-                    height: width > 985 ? `${Number((width / 1439) * 1079)}px` : "625px",
-                    marginTop: width < 985 ? `-1px` : `0px`,
+                    backgroundSize: !isMobile
+                      ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px`
+                      : "910px",
+                    height: !isMobile ? `${Number((width / 1439) * 1079)}px` : "625px",
+                    marginTop: isMobile ? `-1px` : `0px`,
                   }}
                 />
               </div>
               <div
-                className="
-                absolute left-0 top-0 
+                className="absolute left-0 top-0 
                 dark:hidden w-full h-[calc(100%+500px)]
                 bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]
               "

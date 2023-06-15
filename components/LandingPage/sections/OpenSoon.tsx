@@ -53,12 +53,11 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
   return (
     <div className="grid grid-cols-1 gap-0 md:grid-cols-2 ">
       <div
-        className={`
-        md:hidden relative
+        className="md:hidden relative
         md:col-span-2
         flex justify-end flex-col items-center
         pb-[20px]
-      `}
+      "
         style={{
           height: `${characterHeight}px`,
         }}
@@ -66,8 +65,7 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
         <FadeInImage url="/assets/Landing/opensoon.svg" width={279} height={542.31} />
       </div>
       <div
-        className="
-          col-span-1
+        className="col-span-1
           md:col-span-2 
           flex flex-col justify-center items-center md:items-start 
           !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
@@ -106,7 +104,7 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
         <div ref={ref} className="appear lg:mx-12 flex justify-center md:justify-start">
           <Button
             id="welcome_reserve_btn"
-            className={`w-[242px] ${isMobile && "py-[8px]"}`}
+            className={`w-[242px] ${isMobile ? "py-[8px]" : ""}`}
             hasDoubleAnimation
           >
             <Link target="_blank" rel="noreferrer" href="http://reserve.cre8ors.com/">

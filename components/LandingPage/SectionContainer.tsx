@@ -19,8 +19,7 @@ const SectionContainer: React.FC<LayoutProps> = ({
   style,
 }) => (
   <div
-    className={`
-        relative 
+    className={`relative 
         bg-transparent
         border-none
         w-[100%]
@@ -46,9 +45,8 @@ const SectionContainer: React.FC<LayoutProps> = ({
       style={style}
     />
     <div
-      className={`relative 
-        z-[6]
-        ${className}
+      className={`relative z-[6]
+        ${className || ""}
       `}
       style={style}
     >
