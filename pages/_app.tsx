@@ -10,7 +10,6 @@ import "react-toastify/dist/ReactToastify.css"
 import * as React from "react"
 import { UserProvider } from "../providers/UserProvider"
 import { ChatProvider } from "../providers/ChatProvider"
-import Chat from "../components/Chat"
 import { ThemeProvider } from "../providers/ThemeProvider"
 
 const { chains, provider, webSocketProvider } = configureChains(allChains, [publicProvider()])
@@ -36,7 +35,6 @@ function MyApp({ Component, pageProps }: AppProps) {
             <UserProvider>
               <ChatProvider>
                 <Component {...pageProps} />
-                <Chat />
                 <ToastContainer />
               </ChatProvider>
             </UserProvider>

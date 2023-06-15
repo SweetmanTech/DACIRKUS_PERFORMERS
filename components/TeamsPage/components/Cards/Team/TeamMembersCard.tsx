@@ -25,7 +25,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
       className="p-4 my-2 overflow-hidden 
         bg-white 
         md:h-[247px]
-        w-[290px] samsungS8:w-[300px] xs:min-w-[340px]
+        w-[290px] samsungS8:w-[300px] xs:w-[380px]
         rounded-2xl font-quicksand 
         shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]"
     >
