@@ -27,8 +27,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
         md:h-[247px]
         w-[290px] samsungS8:w-[300px] xs:min-w-[340px]
         rounded-2xl font-quicksand 
-        shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]
-      "
+        shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]"
     >
       <div className="flex justify-between items-center md:items-start">
         <div className="flex gap-3">
@@ -44,9 +43,8 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           <div className="max-w-[170px]">
             <div
               className="text-[27px] break-words	
-              font-[900] font-eigerdals 
-              leading-[100%]
-            "
+                font-[900] font-eigerdals 
+                leading-[100%]"
             >
               {name || "John Doe"}
             </div>
@@ -58,8 +56,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
             bg-[black] 
             flex items-center justify-center 
             rounded-full
-            shadow-[3px_3px_4px_rgba(0,0,0,0.25)]
-          "
+            shadow-[3px_3px_4px_rgba(0,0,0,0.25)]"
         >
           <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
             <div className="cursor-pointer">
@@ -73,8 +70,7 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
           className="text-[16px] 
             font-quicksand font-medium 
             text-[black]
-            leading-[99.3%]
-          "
+            leading-[99.3%]"
         >
           {favQuote}
         </div>

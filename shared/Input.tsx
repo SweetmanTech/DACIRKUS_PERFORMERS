@@ -67,18 +67,18 @@ function Input({
             </div>
             <div
               className={`${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
-                  w-[45%] xs:w-[70%]
+                w-[45%] xs:w-[70%]
               `}
             >
                 <input
                     type={type}
                     placeholder={placeholder}
                     className={`border-none
-                        text-black 
-                        bg-[#F2F2F2]
-                        h-full
-                        focus:ring-0
-                        ${className || ''}
+                      text-black 
+                      bg-[#F2F2F2]
+                      h-full
+                      focus:ring-0
+                      ${className || ''}
                     `}
                     name={name}
                     value={value}

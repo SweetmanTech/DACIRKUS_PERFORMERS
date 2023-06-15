@@ -12,9 +12,8 @@ function ContainedLayout({ children }: ILayout) {
     >
       <div
         className="dark:hidden absolute left-0 top-[0px] z-[1]
-        w-full h-[calc(100%+500px)]
-        bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]
-      "
+          w-full h-[calc(100%+500px)]
+          bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]"
       />
       <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
       <Header />

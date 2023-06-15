@@ -53,16 +53,14 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
             absolute 
             border-[5px] border-[black] 
             dark:border-[white] 
-            pointer-events-none p-1
-          "
+            pointer-events-none p-1"
         />
       )}
       <div
         className="absolute 
-        left-0 top-0 z-[20] 
-        w-full
-        pointer-events-none
-      "
+          left-0 top-0 z-[20] 
+          w-full
+          pointer-events-none"
       >
         <SectionContainer
           style={{
@@ -94,8 +92,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
           className="dark:bg-[center_bottom]
             bg-cover 
             h-[799px] md:h-[972px]
-            mt-[110px] xs:mt-[170px] md:mt-[0px]
-          "
+            mt-[110px] xs:mt-[170px] md:mt-[0px]"
           containerClassName="!bg-transparent"
         />
         <SectionContainer
@@ -220,8 +217,7 @@ const AutoPerfectArea: FC<AutoPerfectAreaProps> = ({
           h-[full]
           perfect_area
           z-[10]
-          overflow-hidden
-        "
+          overflow-hidden"
       >
         {children}
       </div>

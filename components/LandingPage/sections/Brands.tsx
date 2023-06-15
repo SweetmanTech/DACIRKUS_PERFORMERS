@@ -101,12 +101,11 @@ const Brands = ({ className }: BrandsProps) => {
     <div className={`w-full ${className || ""}`}>
       <div
         className="grid grid-cols-1 md:grid-cols-4 
-        pt-[500px] pb-[50px]
-        gap-y-20 md:gap-y-0 
-        md:pt-[15rem] md:pb-[15rem] w-full
-        dark:bg-black md:!bg-transparent
-        dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none
-      "
+          pt-[500px] pb-[50px]
+          gap-y-20 md:gap-y-0 
+          md:pt-[15rem] md:pb-[15rem] w-full
+          dark:bg-black md:!bg-transparent
+          dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none"
       >
         {Items.map((item: ItemData) => (
           <BrandItem

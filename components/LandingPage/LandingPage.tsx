@@ -52,8 +52,7 @@ const LandingPage = () => {
               <div>
                 <SectionContainer
                   className="dark:bg-[url('/assets/Landing/backgrounds/overlook.png')]
-                      z-[5]
-                    "
+                    z-[5]"
                   style={{
                     backgroundSize:
                       // eslint-disable-next-line no-nested-ternary
@@ -82,8 +81,7 @@ const LandingPage = () => {
                 />
                 <SectionContainer
                   className="dark:bg-[url('/assets/Landing/backgrounds/trainstation.png')] 
-                    bg-[right_-50px_bottom] md:bg-[right_bottom]
-                  "
+                    bg-[right_-50px_bottom] md:bg-[right_bottom]"
                   style={{
                     backgroundSize: !isMobile
                       ? `${width}px ${Number((width / 1439) * 975).toFixed(2)}px`
@@ -107,8 +105,7 @@ const LandingPage = () => {
                 </SectionContainer>
                 <SectionContainer
                   className="dark:bg-[url('/assets/Landing/backgrounds/factory.png')] 
-                        bg-center 
-                      "
+                    bg-center"
                   style={{
                     backgroundSize: !isMobile
                       ? `${width}px ${Number((width / 1439) * 1079).toFixed(2)}px`
@@ -121,8 +118,7 @@ const LandingPage = () => {
               <div
                 className="absolute left-0 top-0 
                 dark:hidden w-full h-[calc(100%+500px)]
-                bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]
-              "
+                bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]"
               />
             </div>
           </div>

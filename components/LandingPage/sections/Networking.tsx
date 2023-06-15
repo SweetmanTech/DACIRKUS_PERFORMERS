@@ -186,8 +186,7 @@ const Networking: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-0 md:gap-y-4">
       <div
         className="md:hidden relative
-          md:col-span-2
-        "
+          md:col-span-2"
         style={{
           height: `${characterHeight}px`,
         }}
@@ -206,12 +205,11 @@ const Networking: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
 
       <div
         className="col-span-1
-            md:col-span-2
-            flex flex-col justify-end items-center md:items-start justify-start md:justify-center
-            !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
-            shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
-            mt-[-1px] md:mt-0
-          "
+          md:col-span-2
+          flex flex-col justify-end items-center md:items-start justify-start md:justify-center
+          !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
+          shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
+          mt-[-1px] md:mt-0"
         style={{
           height: `${contentHeight}px`,
         }}
@@ -245,8 +243,7 @@ const Networking: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
             mt-[20px]  md:mt-0
             w-[300px] md:w-[520px]
             md:pl-[10px]
-            appear
-          "
+            appear"
           ref={logoRef}
         >
           {[]

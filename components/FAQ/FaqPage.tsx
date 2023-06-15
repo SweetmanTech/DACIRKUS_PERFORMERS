@@ -628,29 +628,26 @@ const FaqPage = () => {
         {!isScrollEnded && (
           <div
             className="fixed 
-          w-[100vw] h-[265px] 
-          left-0 bottom-0
-          pointer-events-none
-          bg-gradient-to-t from-[white] dark:from-[black] to-[transparent]
-          z-[20]
-        "
+              w-[100vw] h-[265px] 
+              left-0 bottom-0
+              pointer-events-none
+              bg-gradient-to-t from-[white] dark:from-[black] to-[transparent]
+              z-[20]"
           />
         )}
         <div className="relative w-full">
           <div
             className="font-eigerdals 
-            text-[36px] md:text-[65px] 
-            pt-[10rem] pb-[40px] 
-            dark:text-[white] 
-            mx-4 md:mx-12
-          "
+              text-[36px] md:text-[65px] 
+              pt-[10rem] pb-[40px] 
+              dark:text-[white] 
+              mx-4 md:mx-12"
           >
             FAQ
           </div>
           <div
             className="md:mx-12 md:pl-[90px]
-            mx-4 pl-0
-          "
+            mx-4 pl-0"
           >
             <div className="w-[290px] sumsungS8:w-[320px] xs:w-[350px] md:w-[917px]">
               {sections.map((section: SectionType) => (

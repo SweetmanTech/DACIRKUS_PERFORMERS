@@ -13,18 +13,16 @@ const ManifestoPage = () => {
     <Layout type="contained">
       <div
         className="min-h-[100vh]
-                  flex items-start
-                  pt-[12rem]
-                  pb-[20px]
-                  pl-0 md:pl-12
-              "
+          flex items-start
+          pt-[12rem]
+          pb-[20px]
+          pl-0 md:pl-12"
       >
         <div
           className={`font-quicksand font-medium
-          text-[9px] xs:text-[11px] dark:text-white 
-          md:leading-[137%]
-          ${isTypingEnded && "no_typecursor"}
-          `}
+            text-[9px] xs:text-[11px] dark:text-white 
+            md:leading-[137%]
+            ${isTypingEnded && "no_typecursor"}`}
           style={{
             // eslint-disable-next-line no-nested-ternary
             fontSize: !isMobile ? "19px" : !isFont16 ? "16px" : !isIphone ? "13px" : "",

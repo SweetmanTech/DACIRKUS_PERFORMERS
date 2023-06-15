@@ -55,8 +55,7 @@ const Character: FC<CharacterProps> = ({
     <div
       className="md:block hidden absolute
             z-[11]
-            pointer-events-none
-          "
+            pointer-events-none"
       style={{
         display: isMobile ? "none" : "block",
         ...style,

@@ -64,8 +64,7 @@ const Cre8orsWay: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
           md:col-span-2
           flex flex-col items-center md:items-end justify-end md:justify-center
           dark:bg-[black] !bg-transparent
-          dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none
-        "
+          dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none"
         style={{
           height: `${contentHeight}px`,
         }}

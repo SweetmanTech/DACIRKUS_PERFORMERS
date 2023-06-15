@@ -82,8 +82,7 @@ const WelcomeToCre8ors: FC<Props> = ({
         className="md:hidden relative
           md:col-span-2
           items-center justify-center
-          flex
-        "
+          flex"
         style={{
           height: `${characterHeight}px`,
           transform: `translateY(${isIphone ? 20 : 30}px)`,
@@ -99,11 +98,10 @@ const WelcomeToCre8ors: FC<Props> = ({
 
       <div
         className="col-span-1
-            md:col-span-2
-            flex flex-col justify-start items-center md:items-start justify-start md:justify-center
-            !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
-            shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
-          "
+          md:col-span-2
+          flex flex-col justify-start items-center md:items-start justify-start md:justify-center
+          !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
+          shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none"
         style={{
           height: `${contentHeight}px`,
         }}
@@ -145,8 +143,7 @@ const WelcomeToCre8ors: FC<Props> = ({
                     px-[20px] 
                     capitalize text-[14px]
                     border-[none]
-                    ${isSubscribed && "!text-[#5EE884]"}
-                  `}
+                    ${isSubscribed && "!text-[#5EE884]"}`}
                   onClick={onSubscribe}
                 >
                   {isSubscribed ? "Subscribed!" : "Subscribe"}
@@ -165,11 +162,10 @@ const WelcomeToCre8ors: FC<Props> = ({
         <div
           ref={avatarsRef}
           className="mt-2 md:ml-12 md:mt-3
-              font-quicksand font-medium 
-              flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
-              dark:text-white
-              appear
-            "
+            font-quicksand font-medium 
+            flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
+            dark:text-white
+            appear"
         >
           <AvatarGroup count={3}>
             <Avatar url="/assets/Landing/avatars/avatar_1.svg" />

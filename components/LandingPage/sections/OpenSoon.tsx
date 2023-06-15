@@ -54,10 +54,9 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
     <div className="grid grid-cols-1 gap-0 md:grid-cols-2 ">
       <div
         className="md:hidden relative
-        md:col-span-2
-        flex justify-end flex-col items-center
-        pb-[20px]
-      "
+          md:col-span-2
+          flex justify-end flex-col items-center
+          pb-[20px]"
         style={{
           height: `${characterHeight}px`,
         }}
@@ -70,8 +69,7 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
           flex flex-col justify-center items-center md:items-start 
           !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
           shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
-          mt-[-1px] md:mt-0
-        "
+          mt-[-1px] md:mt-0"
         style={{
           height: `${contentHeight}px`,
         }}
