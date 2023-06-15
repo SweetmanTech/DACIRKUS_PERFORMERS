@@ -1,5 +1,7 @@
 /* eslint-disable global-require */
 /** @type {import('tailwindcss').Config} */
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
@@ -21,7 +23,9 @@ module.exports = {
         quicksand: ["Quicksand", "sans-serif"],
       },
       screens: {
+        'ios' : '320px',
         samsungS8: "360px",
+        'xs': '390px',
         sm: "640px",
         md: "768px",
         lg: "1024px",

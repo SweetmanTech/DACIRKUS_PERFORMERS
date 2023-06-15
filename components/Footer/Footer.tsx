@@ -1,10 +1,17 @@
 import Image from "next/image"
+import { ReactNode } from "react"
+import Link from "next/link"
 import { useTheme } from "../../providers/ThemeProvider"
 import Newsletter from "./components/Newsletter"
 
+interface LinkType {
+  node: ReactNode
+  link: string
+}
+
 interface ItemData {
   key: string
-  list: string[]
+  list: LinkType[]
 }
 
 interface FooterProps {
@@ -15,15 +22,42 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
   const Items: ItemData[] = [
     {
       key: "link-pages",
-      list: ["Home", "FAQ"],
+      list: [
+        {
+          node: "Home",
+          link: "/home",
+        },
+        {
+          node: <span className="underline">FAQ</span>,
+          link: "/faq",
+        },
+      ],
     },
     {
       key: "link-commnity",
-      list: ["Discord", "Twitter"],
+      list: [
+        {
+          node: "Discord",
+          link: "https://discord.com/invite/ZpZBHCrqHQ",
+        },
+        {
+          node: "Twitter",
+          link: "https://twitter.com/Cre8orsNFT",
+        },
+      ],
     },
     {
       key: "link-policy",
-      list: ["Terms of Service", "Privacy Policy"],
+      list: [
+        {
+          node: "Terms of Service",
+          link: "/terms",
+        },
+        {
+          node: "Privacy Policy",
+          link: "/policy",
+        },
+      ],
     },
   ]
 
@@ -31,9 +65,9 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
 
   return (
     <div
-      className={`dark:bg-[black] bg-white pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
+      className={`dark:bg-[black] bg-transparent pt-[250px] md:pt-6 pb-6 w-full flex justify-center ${
         className || ""
-      }`}
+      } footer`}
     >
       <div className="md:w-[1280px] w-[90%]">
         <div className="justify-start items-start flex md:hidden pt-6 pr-6">
@@ -67,8 +101,10 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               className="font-quicksand flex justify-start text[black] dark:text-white col-span-2 md:col-span-1"
             >
               <div className="flex flex-col cursor-[pointer] text-[8px] md:text-[16px]">
-                {item.list.map((link: string) => (
-                  <div key={link}>{link}</div>
+                {item.list.map((row: LinkType) => (
+                  <div key={row.link} className="pb-[10px]">
+                    <Link href={row.link}>{row.node}</Link>
+                  </div>
                 ))}
               </div>
             </div>

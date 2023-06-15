@@ -34,6 +34,8 @@ const WelcomeToCre8ors: FC<Props> = ({
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
 
   const isMobile = useMediaQuery("(max-width: 490px)")
+  const isIphone = useMediaQuery("(max-width: 390px)")
+
   const inputRef = useRef()
   const avatarsRef = useRef()
   const titleRef = useRef()
@@ -77,29 +79,29 @@ const WelcomeToCre8ors: FC<Props> = ({
   return (
     <div className="md:grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-0 md:gap-y-4">
       <div
-        className={`
-            md:hidden relative
-            md:col-span-2
-            items-center justify-center
-            flex
-          `}
+        className="md:hidden relative
+          md:col-span-2
+          items-center justify-center
+          flex"
         style={{
           height: `${characterHeight}px`,
-          transform: "translateY(30px)",
+          transform: `translateY(${isIphone ? 20 : 30}px)`,
         }}
         ref={mobileImageRef}
       >
-        <FadeInImage url="/assets/Landing/creativity.svg" width={226.65} height={476.86} />
+        <FadeInImage
+          url="/assets/Landing/creativity.svg"
+          width={isIphone ? 145 : 226.65}
+          height={isIphone ? 304 : 476.86}
+        />
       </div>
 
       <div
-        className={`
-            col-span-1
-            md:col-span-2
-            flex flex-col justify-start items-center md:items-start justify-start md:justify-center
-            dark:bg-[black] bg-white md:!bg-transparent
-            shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
-          `}
+        className="col-span-1
+          md:col-span-2
+          flex flex-col justify-start items-center md:items-start justify-start md:justify-center
+          !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
+          shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none"
         style={{
           height: `${contentHeight}px`,
         }}
@@ -111,7 +113,7 @@ const WelcomeToCre8ors: FC<Props> = ({
           />
         </div>
         <div ref={contentRef}>
-          <SectionContent className="!mt-4 md:m-0">
+          <SectionContent className="!mt-2 md:m-0">
             {isMobile ? (
               <>
                 Cre8ors is a next-gen brand made for the <br /> metaverse; powered by our curated
@@ -127,20 +129,21 @@ const WelcomeToCre8ors: FC<Props> = ({
             )}
           </SectionContent>
         </div>
-        <div ref={inputRef} className="appear mb-6 md:mx-12 flex justify-center md:justify-start">
-          <div className="w-[350px] md:w-[416px]">
+        <div
+          ref={inputRef}
+          className="appear mt-2 md:mt-0 mb-6 md:mx-12 flex justify-center md:justify-start"
+        >
+          <div className="w-[290px] xs:w-[350px] md:w-[416px]">
             <Input
               id="newsletter_input"
               endAdornment={
                 <Button
                   id="subscribe_btn"
-                  className={`
-                    rounded-tl-[0px] rounded-bl-[0px] 
+                  className={`rounded-tl-[0px] rounded-bl-[0px] 
                     px-[20px] 
                     capitalize text-[14px]
                     border-[none]
-                    ${isSubscribed && "!text-[#5EE884]"}
-                  `}
+                    ${isSubscribed && "!text-[#5EE884]"}`}
                   onClick={onSubscribe}
                 >
                   {isSubscribed ? "Subscribed!" : "Subscribe"}
@@ -158,13 +161,11 @@ const WelcomeToCre8ors: FC<Props> = ({
         </div>
         <div
           ref={avatarsRef}
-          className="
-              md:ml-12 md:mt-3
-              font-quicksand font-medium 
-              flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
-              dark:text-white
-              appear
-            "
+          className="mt-2 md:ml-12 md:mt-3
+            font-quicksand font-medium 
+            flex flex-col md:flex-row items-center gap-y-[5px] gap-x-[10px] 
+            dark:text-white
+            appear"
         >
           <AvatarGroup count={3}>
             <Avatar url="/assets/Landing/avatars/avatar_1.svg" />

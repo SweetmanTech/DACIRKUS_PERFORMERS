@@ -22,13 +22,12 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
 
   return (
     <div
-      className="
-        p-4 my-2 overflow-hidden 
+      className="p-4 my-2 overflow-hidden 
         bg-white 
         md:h-[247px]
+        w-[290px] samsungS8:w-[300px] xs:min-w-[340px]
         rounded-2xl font-quicksand 
-        shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]
-      "
+        shadow-[3px_3px_4px_rgba(0,0,0,0.25)] dark:shadow-[3px_3px_4px_rgba(255,255,255,0.25)]"
     >
       <div className="flex justify-between items-center md:items-start">
         <div className="flex gap-3">
@@ -42,34 +41,36 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
             />
           </div>
           <div className="max-w-[170px]">
-            <div className="text-[27px] break-all	font-[900] font-eigerdals leading-[100%]">
+            <div
+              className="text-[27px] break-words	
+                font-[900] font-eigerdals 
+                leading-[100%]"
+            >
               {name || "John Doe"}
             </div>
-            <div className="text-md leading-[100%]">{role || "Person Role"}</div>
+            <div className="text-[17px] leading-[100%] font-medium">{role || "Person Role"}</div>
           </div>
         </div>
         <div
-          className="
-            !w-[44px] !h-[44px] 
+          className="!w-[44px] !h-[44px] 
             bg-[black] 
             flex items-center justify-center 
             rounded-full
-            shadow-[3px_3px_4px_rgba(0,0,0,0.25)]
-          "
+            shadow-[3px_3px_4px_rgba(0,0,0,0.25)]"
         >
           <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
-            <Icon name="twitter" color="white" raw />
+            <div className="cursor-pointer">
+              <Icon name="twitter" color="white" raw />
+            </div>
           </Link>
         </div>
       </div>
       <div className="hidden md:block pt-[20px]">
         <div
-          className="
-            text-[16px] 
+          className="text-[16px] 
             font-quicksand font-medium 
             text-[black]
-            leading-[99.3%]
-          "
+            leading-[99.3%]"
         >
           {favQuote}
         </div>

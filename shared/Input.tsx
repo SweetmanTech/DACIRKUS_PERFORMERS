@@ -1,3 +1,5 @@
+import { useMediaQuery } from "usehooks-ts"
+
 interface IInput {
   id: string
   name?: string
@@ -49,8 +51,7 @@ function Input({
   return (
     <div 
       id={id}
-      className={`
-          core_input
+      className={`core_input
           ${id}_all
           ${containerClassName || ''}
           w-full 
@@ -65,21 +66,19 @@ function Input({
                 {startAdornment}
             </div>
             <div
-                className={`
-                    ${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
-                    w-[70%]
-                `}
+              className={`${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
+                w-[45%] xs:w-[70%]
+              `}
             >
                 <input
                     type={type}
                     placeholder={placeholder}
-                    className={`
-                        border-none
-                        text-black 
-                        bg-[#F2F2F2]
-                        h-full
-                        focus:ring-0
-                        ${className || ''}
+                    className={`border-none
+                      text-black 
+                      bg-[#F2F2F2]
+                      h-full
+                      focus:ring-0
+                      ${className || ''}
                     `}
                     name={name}
                     value={value}

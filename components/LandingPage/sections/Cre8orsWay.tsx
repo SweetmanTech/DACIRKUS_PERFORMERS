@@ -41,10 +41,9 @@ const Cre8orsWay: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
   return (
     <div className="grid grid-cols-1 gap-4 md:grid-cols-2 gap-y-0 md:gap-y-4 relative">
       <div
-        className={`
-        md:hidden relative
+        className="md:hidden relative
         md:col-span-2
-      `}
+      "
         style={{
           height: `${characterHeight}px`,
         }}
@@ -61,13 +60,11 @@ const Cre8orsWay: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
         </div>
       </div>
       <div
-        className={`
-          col-span-1
+        className="col-span-1
           md:col-span-2
           flex flex-col items-center md:items-end justify-end md:justify-center
-          dark:bg-[black] bg-white md:!bg-transparent
-          dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none
-        `}
+          dark:bg-[black] !bg-transparent
+          dark:shadow-[0_0_10px_10px_rgba(0,0,0)] shadow-none md:!shadow-none"
         style={{
           height: `${contentHeight}px`,
         }}

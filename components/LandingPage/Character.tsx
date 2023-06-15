@@ -14,7 +14,7 @@ interface CharacterProps {
   characterUrl: string
   xDirection: "left" | "right"
   yDirection: "top" | "bottom"
-  responsive: number
+  isMobile: boolean
 }
 
 const Character: FC<CharacterProps> = ({
@@ -29,7 +29,7 @@ const Character: FC<CharacterProps> = ({
   characterUrl,
   xDirection,
   yDirection,
-  responsive,
+  isMobile,
 }) => {
   const [style, setStyle] = useState<any>()
 
@@ -42,38 +42,30 @@ const Character: FC<CharacterProps> = ({
         top: ``,
       }
 
-      temp[`${xDirection}`] = `${(screenWidth < responsive ? bgImgWidth : screenWidth) * offsetX}px`
+      temp[`${xDirection}`] = `${(isMobile ? bgImgWidth : screenWidth) * offsetX}px`
       temp[`${yDirection}`] = `${
-        screenWidth < responsive
-          ? bgImgHeight * offsetY
-          : ((screenWidth * bgImgHeight) / bgImgWidth) * offsetY
+        isMobile ? bgImgHeight * offsetY : ((screenWidth * bgImgHeight) / bgImgWidth) * offsetY
       }px`
 
       setStyle({ ...temp })
     }
-  }, [xDirection, yDirection, screenWidth, bgImgHeight, bgImgWidth, offsetX, offsetY, responsive])
+  }, [xDirection, yDirection, screenWidth, bgImgHeight, bgImgWidth, offsetX, offsetY, isMobile])
 
   return (
     <div
-      className={`
-            md:block hidden absolute
+      className="md:block hidden absolute
             z-[11]
-            pointer-events-none
-          `}
+            pointer-events-none"
       style={{
-        display: screenWidth < responsive ? "none" : "block",
+        display: isMobile ? "none" : "block",
         ...style,
       }}
       ref={characterRef}
     >
       <FadeInImage
         url={characterUrl}
-        width={
-          screenWidth < responsive ? characterWidth : (characterWidth * screenWidth) / bgImgWidth
-        }
-        height={
-          screenWidth < responsive ? characterHeight : (characterHeight * screenWidth) / bgImgWidth
-        }
+        width={isMobile ? characterWidth : (characterWidth * screenWidth) / bgImgWidth}
+        height={isMobile ? characterHeight : (characterHeight * screenWidth) / bgImgWidth}
       />
     </div>
   )

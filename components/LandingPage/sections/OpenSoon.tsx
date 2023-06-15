@@ -53,12 +53,10 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
   return (
     <div className="grid grid-cols-1 gap-0 md:grid-cols-2 ">
       <div
-        className={`
-        md:hidden relative
-        md:col-span-2
-        flex justify-end flex-col items-center
-        pb-[20px]
-      `}
+        className="md:hidden relative
+          md:col-span-2
+          flex justify-end flex-col items-center
+          pb-[20px]"
         style={{
           height: `${characterHeight}px`,
         }}
@@ -66,14 +64,12 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
         <FadeInImage url="/assets/Landing/opensoon.svg" width={279} height={542.31} />
       </div>
       <div
-        className="
-          col-span-1
+        className="col-span-1
           md:col-span-2 
           flex flex-col justify-center items-center md:items-start 
-          dark:bg-[black] bg-white md:!bg-transparent
+          !bg-transparent dark:!bg-[black] md:dark:!bg-[transparent]
           shadow-none dark:shadow-[0_0_10px_10px_rgba(0,0,0)] md:!shadow-none
-          mt-[-1px] md:mt-0
-        "
+          mt-[-1px] md:mt-0"
         style={{
           height: `${contentHeight}px`,
         }}
@@ -89,16 +85,16 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
               <br />
               Cre8ors Collective Passport today.
               <br /> &nbsp;
-              <Link href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
-                For more info read the FAQ.
+              <Link href="/faq" target="_blank" className="underline cursor-pointer">
+                <span className="underline">For more info read the FAQ.</span>
               </Link>
             </>
           ) : (
             <>
               Allowlist opens in July. &nbsp;Skip the line and secure <br /> your spot by reserving
               a Cre8ors Collective <br /> Passport today.&nbsp;
-              <Link href="/faq" target="_blank" style={{ textDecoration: "underline" }}>
-                For more info read the FAQ.
+              <Link href="/faq" target="_blank">
+                <span className="underline cursor-pointer">For more info read the FAQ.</span>
               </Link>
             </>
           )}
@@ -106,7 +102,7 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
         <div ref={ref} className="appear lg:mx-12 flex justify-center md:justify-start">
           <Button
             id="welcome_reserve_btn"
-            className={`w-[242px] ${isMobile && "py-[8px]"}`}
+            className={`w-[242px] ${isMobile ? "py-[8px]" : ""}`}
             hasDoubleAnimation
           >
             <Link target="_blank" rel="noreferrer" href="http://reserve.cre8ors.com/">

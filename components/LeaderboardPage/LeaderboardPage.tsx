@@ -22,7 +22,7 @@ const LeaderboardPage = () => {
         ...item,
         twitterHandle: addressToTwitter[item.walletAddress.toString()],
       }))
-      setCollectors(tableData)
+      setCollectors(tableData.slice(0, 10))
     }
     fetchTopCollectors()
   }, [])
@@ -39,7 +39,7 @@ const LeaderboardPage = () => {
           </div>
         </div>
         <div className="md:px-4 w-full flex justify-center">
-          <div className="w-[370px] md:w-full border-[2px] border-[black] border-solid rounded-lg overflow-hidden overflow-x-scroll shadow-[4px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[4px_4px_4px_rgb(255,255,255,0.25)]">
+          <div className="w-[370px] md:w-full border-[2px] border-[black] border-solid rounded-lg overflow-hidden overflow-x-auto shadow-[4px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[4px_4px_4px_rgb(255,255,255,0.25)]">
             <table className="w-full font-quicksand bg-white">
               <thead className="border-b-[2px] border-black border-solid">
                 <tr>

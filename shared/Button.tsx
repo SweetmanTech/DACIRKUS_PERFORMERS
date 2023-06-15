@@ -1,7 +1,5 @@
-import { FC, ReactNode, useRef } from "react"
+import { FC, ReactNode, useState, useEffect } from "react"
 import { classNames } from "./Utils"
-
-import styles from '../styles/Button.module.css'
 
 interface ButtonProps {
   id: string
@@ -74,10 +72,21 @@ export const PageButton: FC<ButtonProps> = ({ children, className, ...rest }) =>
 )
 
 export const ToggleButton: FC<ToggleButtonProps> = ({onClick, value}) => {
+  const [isToggle, setIsToggle] = useState(false)
+
+  useEffect(() => {
+    setIsToggle(value)
+  }, [value])
+
   return (
     <div className="flex justify-center w-16 h-6 cursor-pointer">
-        <div className={`flex items-center ${!value ? 'bg-[black]' : 'bg-white'} rounded-full w-full h-6 pl-2`} onClick={onClick}>
-          <div className={`${value ? styles.toggle_dot : styles.untoggle_dot} w-5 h-5 rounded-full transition duration-[300ms] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]`}></div> 
+        <div className="flex items-center dark:bg-[white] bg-[black] rounded-full w-full h-6 pl-2" onClick={onClick}>
+          <div className={
+            `${isToggle ? 'translate-x-[calc(100%+11px)]' : 'translate-x-[-5px]'} 
+            dark:bg-[black]
+            bg-[white] w-5 h-5 rounded-full 
+            transition duration-[300ms] ease-[cubic-bezier(0.68,-0.55,0.265,1.55)]`
+          }/> 
         </div>
     </div>
   )

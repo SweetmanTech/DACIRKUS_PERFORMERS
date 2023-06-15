@@ -41,10 +41,8 @@ const BrandItem: FC<BrandItemProps> = ({ imageHeight, imageWidth, imageUrl, titl
 
   return (
     <div
-      className="
-                flex justify-center items-end md:flex-col md:items-center 
-                mb-0 md:mb-12 md:mb-0 gap-4 md:gap-0
-            "
+      className="flex justify-center items-end md:flex-col md:items-center 
+        mb-0 md:mb-12 md:mb-0 gap-4 md:gap-0"
     >
       <div ref={imageRef}>
         <FadeInImage url={imageUrl} width={imageWidth} height={imageHeight} />

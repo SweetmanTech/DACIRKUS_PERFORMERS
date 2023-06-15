@@ -129,7 +129,7 @@ const AdminPage = () => {
     user?.issuer && (
       <div className="flex flex-wrap h-screen bg-gray-100 text-white-900">
         <main className="min-w-full px-4 pt-4 mx-auto sm:px-6 lg:px-8">
-          <div className="">
+          <div>
             <h1 className="text-xl font-semibold">Current Allowlist Applicants</h1>
           </div>
           <div className="mt-4">
