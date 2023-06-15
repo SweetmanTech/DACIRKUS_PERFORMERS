@@ -21,7 +21,7 @@ const MenuList = ({ toggleMenu }) => {
   }, [themeMode])
 
   return (
-    <div className="fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-4 p-4 dark:bg-white bg-[black] to-90% rounded-lg text-lg">
+    <div className="fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-2 p-4 dark:bg-white bg-[black] to-90% rounded-lg text-lg">
       <div className="dark:bg-[black] bg-white absolute top-0 right-0 w-6 h-6 m-2 rounded-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
