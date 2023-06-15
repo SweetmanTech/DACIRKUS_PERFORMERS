@@ -43,8 +43,8 @@ const MenuList = ({ toggleMenu }) => {
       <Link href="/leaderboard" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Leaderboard</div>
       </Link>
-      <Link href="https://opensea.io/collection/cre8orscollective" target="_blank" rel="noreferrer">
-        <div className="ml-4 dark:text-[black] text-white">Collective</div>
+      <Link href="https://opensea.io/collection/cre8ors-passports" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Passports</div>
       </Link>
       <Link href="/teams" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Founders</div>

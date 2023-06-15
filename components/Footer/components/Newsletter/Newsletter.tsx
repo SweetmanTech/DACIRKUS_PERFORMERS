@@ -19,9 +19,9 @@ const Newsletter = () => {
       <div className="font-quicksand text-[8px] md:text-[16px] dark:text-[white] text-[black]">
         Join our newsletter
       </div>
-      <div className="relative p-0 md:pt-[0.5rem] w-[116px] md:w-[202px]">
+      <div className="relative p-0 md:pt-[0.5rem] w-[116px] md:w-[250px]">
         <input
-          className="text-[5px] md:text-[9px]  border-[1px] border-[black] rounded-[3rem] !w-[116px] md:!w-full font-quicksand px-[10px] md:px-3 py-1"
+          className="text-[5px] md:text-[12px] border-[1px] border-[black] rounded-[3rem] !w-[116px] md:!w-full font-quicksand px-[10px] md:px-3 py-1"
           placeholder="Email Address"
           onChange={onChange}
           value={email}
@@ -29,7 +29,7 @@ const Newsletter = () => {
         <div className="absolute top-[0.5px] right-[5px] md:top-[8px] md:right-[0px] md:right-[10px]">
           <button
             type="button"
-            className="bg-[black] px-1 py-[1px] md:px-2 md:py-[1px] rounded-[2rem] text-[white] text-[5px] md:text-[8px]"
+            className="bg-[black] px-1 py-[1px] md:px-2 md:py-[1px] rounded-[2rem] text-[white] text-[5px] md:text-[10px]"
             onClick={handleClick}
             disabled={!!(email.length === 0 || !email.includes("@"))}
           >
