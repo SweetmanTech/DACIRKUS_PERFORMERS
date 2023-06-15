@@ -41,7 +41,7 @@ const LeaderboardPage = () => {
             text-[1rem] md:text-[1.5rem] 
             font-[550]"
           >
-            Currently Tracking: Devine Ancestral Pendants Collect and burn 88 to redeem a Passport
+            Currently Tracking: Divine Ancestral Pendants Collect and burn 88 to redeem a Passport
           </div>
         </div>
         <div className="md:px-4 w-full flex justify-center">
