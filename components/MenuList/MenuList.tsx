@@ -47,7 +47,7 @@ const MenuList = ({ toggleMenu }) => {
         <div className="ml-4 dark:text-[black] text-white">Passports</div>
       </Link>
       <Link href="/teams" target="_blank" rel="noreferrer">
-        <div className="ml-4 dark:text-[black] text-white">Founders</div>
+        <div className="ml-4 dark:text-[black] text-white">Team</div>
       </Link>
       <Link href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Relics</div>

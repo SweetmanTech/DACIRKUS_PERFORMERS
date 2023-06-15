@@ -67,7 +67,7 @@ const DesktopMenu = () => {
               <div className="cursor-pointer text-white dark:text-[black]">Passports</div>
             </Link>
             <Link href="/teams" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer text-white dark:text-[black]">Founders</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Team</div>
             </Link>
             <Link
               href="https://opensea.io/collection/cre8ors-relics"
