@@ -41,7 +41,7 @@ const EnterPage = () => {
         type: "self",
       },
     ],
-    isScrollUp: false
+    isScrollUp: false,
   })
 
   useEffect(() => {
@@ -70,7 +70,8 @@ const EnterPage = () => {
             text-center uppercase font-quicksand"
           ref={contentRef}
         >
-          Someone that brings (something)<br/> NEW into existence.
+          Someone that brings (something)
+          <br /> NEW into existence.
         </div>
         <div className="appear pt-[40px]" ref={buttonRef}>
           <Button

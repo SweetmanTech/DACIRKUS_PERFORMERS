@@ -34,7 +34,8 @@ const LeaderboardPage = () => {
           Leaderboard
         </div>
         <div className="w-full flex justify-center pb-4">
-          <div className="font-quicksand 
+          <div
+            className="font-quicksand 
             dark:text-white text-center 
             max-w-[400px] md:max-w-[550px] 
             text-[1rem] md:text-[1.5rem] 
@@ -44,7 +45,8 @@ const LeaderboardPage = () => {
           </div>
         </div>
         <div className="md:px-4 w-full flex justify-center">
-          <div className="w-[370px] md:w-full 
+          <div
+            className="w-[370px] md:w-full 
             border-[2px] border-[black] border-solid
             h-[470px] rounded-lg 
             overflow-auto 
