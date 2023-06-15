@@ -22,7 +22,7 @@ const LeaderboardPage = () => {
         ...item,
         twitterHandle: addressToTwitter[item.walletAddress.toString()],
       }))
-      setCollectors(tableData.slice(0, 10))
+      setCollectors(tableData)
     }
     fetchTopCollectors()
   }, [])
@@ -34,12 +34,25 @@ const LeaderboardPage = () => {
           Leaderboard
         </div>
         <div className="w-full flex justify-center pb-4">
-          <div className="font-quicksand dark:text-white text-center max-w-[400px] md:max-w-[550px] text-[1rem] md:text-[1.5rem] font-[550]">
+          <div className="font-quicksand 
+            dark:text-white text-center 
+            max-w-[400px] md:max-w-[550px] 
+            text-[1rem] md:text-[1.5rem] 
+            font-[550]"
+          >
             Currently Tracking: Devine Ancestral Pendants Collect and burn 88 to redeem a Passport
           </div>
         </div>
         <div className="md:px-4 w-full flex justify-center">
-          <div className="w-[370px] md:w-full border-[2px] border-[black] border-solid rounded-lg overflow-hidden overflow-x-auto shadow-[4px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[4px_4px_4px_rgb(255,255,255,0.25)]">
+          <div className="w-[370px] md:w-full 
+            border-[2px] border-[black] border-solid
+            h-[470px] rounded-lg 
+            overflow-auto 
+            shadow-[4px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[4px_4px_4px_rgb(255,255,255,0.25)]
+            scrollbar scrollbar-thumb-[black] 
+            scrollbar-track-white 
+            scrollbar-thumb-rounded-full"
+          >
             <table className="w-full font-quicksand bg-white">
               <thead className="border-b-[2px] border-black border-solid">
                 <tr>
