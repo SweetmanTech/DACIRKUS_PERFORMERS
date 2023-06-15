@@ -140,7 +140,7 @@ const WelcomeToCre8ors: FC<Props> = ({
                 <Button
                   id="subscribe_btn"
                   className={`rounded-tl-[0px] rounded-bl-[0px] 
-                    px-[20px] 
+                    !px-[15px] 
                     capitalize text-[14px]
                     border-[none]
                     ${isSubscribed && "!text-[#5EE884]"}`}
@@ -153,7 +153,7 @@ const WelcomeToCre8ors: FC<Props> = ({
               value={value}
               onChange={onChange}
               placeholder="Your Email"
-              className="font-quicksand"
+              className="font-quicksand text-[8px] w-[150px] xs:text-[12px] xs:w-[200px] md:text-[16px] md:w-[250px]"
               containerClassName="hover:scale-[1.1] scale-[1] transition duration-[250ms]"
               hasDoubleAnimation
             />
