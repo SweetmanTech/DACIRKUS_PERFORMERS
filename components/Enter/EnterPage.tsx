@@ -2,7 +2,6 @@ import { useState, useEffect, useRef } from "react"
 
 import Image from "next/image"
 import { useRouter } from "next/router"
-import { useReadLocalStorage } from "usehooks-ts"
 import { Button } from "../../shared/Button"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
 import useFadeIntersection from "../../hooks/useFadeIntersection"
@@ -10,8 +9,6 @@ import useFadeIntersection from "../../hooks/useFadeIntersection"
 const EnterPage = () => {
   const [loaded, setLoaded] = useState(false)
   const router = useRouter()
-
-  const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
 
   const titleRef = useRef()
   const contentRef = useRef()
@@ -44,7 +41,7 @@ const EnterPage = () => {
         type: "self",
       },
     ],
-    isScrollUp,
+    isScrollUp: false
   })
 
   useEffect(() => {
@@ -61,16 +58,19 @@ const EnterPage = () => {
         }`}
       >
         <div
-          className="appear font-bold text-[16px] xs:text-[18px] md:text-[2rem] text-[black] uppercase font-quicksand"
+          className="appear font-bold text-[16px] xs:text-[18px] md:text-[26px] text-[black] uppercase font-quicksand"
           ref={titleRef}
         >
           Cre·8·or • krē-ˈā-tər \ noun
         </div>
         <div
-          className="appear text-[16px] xs:text-[18px] md:text-[1.5rem] max-w-[326px] xs:max-w-[363px] md:max-w-[450px] text-center uppercase font-quicksand"
+          className="appear 
+            text-[16px] xs:text-[18px] md:text-[26px] 
+            md:w-[611px] 
+            text-center uppercase font-quicksand"
           ref={contentRef}
         >
-          Someone that brings (something) NEW into existence.
+          Someone that brings (something)<br/> NEW into existence.
         </div>
         <div className="appear pt-[40px]" ref={buttonRef}>
           <Button
