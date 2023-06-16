@@ -197,7 +197,7 @@ const FaqPage = () => {
           Each Cre8ors Collective Passport costs 0.8
           <br /> ETH, 88 Pendants, or any variation of the two. For example: If you hold 17 Pendant
           NFTs, the final price
-          <br /> for the Passport would be 0.8 - (17*0.09) = 0.64 ETH.
+          <br /> for the Passport would be 0.8 - (17*0.009) = 0.64 ETH.
         </>
       ),
       mobile_content: (
@@ -206,7 +206,7 @@ const FaqPage = () => {
           <br /> ETH, 88 Pendants, or any variation of
           <br /> the two. For example: If you hold 17
           <br /> Pendant NFTs, the final price for
-          <br /> the Passport would be 0.8 - (17*0.09) =<br /> 0.64 ETH.
+          <br /> the Passport would be 0.8 - (17*0.009) =<br /> 0.64 ETH.
         </>
       ),
     },
