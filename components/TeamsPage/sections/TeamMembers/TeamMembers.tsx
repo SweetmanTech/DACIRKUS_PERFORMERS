@@ -21,7 +21,7 @@ const TeamMembers = ({ teamMemberData }) => (
       Our powerhouse team includes 14+ music, media, and web3 industry veterans from companies like
       Amazon, Apple, Universal, Stem, Mint Songs and more.
     </div>
-    <div className="md:mx-12 grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2 pt-[2rem]">
+    <div className="md:px-12 w-full grid grid-cols-1 gap-6 lg:grid-cols-3 md:grid-cols-2 pt-[2rem]">
       {teamMemberData.map(({ name, role, favQuote, imgSrc, twitterHandle }) => (
         <TeamMembersCard
           key={name}

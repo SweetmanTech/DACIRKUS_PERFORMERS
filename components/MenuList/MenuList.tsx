@@ -21,7 +21,7 @@ const MenuList = ({ toggleMenu }) => {
   }, [themeMode])
 
   return (
-    <div className="fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-4 p-4 dark:bg-white bg-[black] to-90% rounded-lg text-lg">
+    <div className="fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-2 p-4 dark:bg-white bg-[black] to-90% rounded-lg text-lg">
       <div className="dark:bg-[black] bg-white absolute top-0 right-0 w-6 h-6 m-2 rounded-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -43,11 +43,11 @@ const MenuList = ({ toggleMenu }) => {
       <Link href="/leaderboard" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Leaderboard</div>
       </Link>
-      <Link href="https://opensea.io/collection/cre8orscollective" target="_blank" rel="noreferrer">
-        <div className="ml-4 dark:text-[black] text-white">Collective</div>
+      <Link href="https://opensea.io/collection/cre8ors-passports" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Passports</div>
       </Link>
       <Link href="/teams" target="_blank" rel="noreferrer">
-        <div className="ml-4 dark:text-[black] text-white">Founders</div>
+        <div className="ml-4 dark:text-[black] text-white">Team</div>
       </Link>
       <Link href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Relics</div>

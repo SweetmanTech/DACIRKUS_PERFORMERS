@@ -1,7 +1,7 @@
-import Image from "next/image"
 import Link from "next/link"
 import { FC } from "react"
 import Icon from "../../../../../shared/Icon"
+import ImageFallback from "../../../../../shared/ImageFallback"
 
 interface FoundingMembersCardProps {
   profilePic?: string
@@ -21,9 +21,9 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
             bg-[black]
             w-[44px] h-[44px]"
         >
-          <Image
+          <ImageFallback
             src={profilePic || "/assets/Common/missing.png"}
-            alt="Profile picture"
+            fallbackSrc="/assets/Common/missing.png"
             width={44}
             height={44}
             className="w-[44px] h-[44px]"

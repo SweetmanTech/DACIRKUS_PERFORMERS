@@ -60,14 +60,14 @@ const DesktopMenu = () => {
               <div className="cursor-pointer text-white dark:text-[black]">Leaderboard</div>
             </Link>
             <Link
-              href="https://opensea.io/collection/cre8orscollective"
+              href="https://opensea.io/collection/cre8ors-passports"
               target="_blank"
               rel="noreferrer"
             >
-              <div className="cursor-pointer text-white dark:text-[black]">Collective</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Passports</div>
             </Link>
             <Link href="/teams" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer text-white dark:text-[black]">Founders</div>
+              <div className="cursor-pointer text-white dark:text-[black]">Team</div>
             </Link>
             <Link
               href="https://opensea.io/collection/cre8ors-relics"

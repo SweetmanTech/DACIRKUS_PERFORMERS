@@ -67,7 +67,7 @@ function Input({
             </div>
             <div
               className={`${endAdornment ? 'rounded-tr-[0px] rounded-tr-[0px]': ''}
-                w-[45%] xs:w-[70%]
+                w-[45%] xs:w-[100%]
               `}
             >
                 <input
