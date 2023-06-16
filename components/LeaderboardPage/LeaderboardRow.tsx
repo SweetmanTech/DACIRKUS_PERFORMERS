@@ -57,7 +57,7 @@ const LeaderboardRow = ({ address, numberOwned, rank, twitterHandle }) => {
         p-[5px] md:px-4 md:py-2"
       >
         <Link href={`https://twitter.com/${twitterHandle}`} target="_blank" rel="noreferrer">
-          {twitterHandle || "twitter_handle"}
+          {twitterHandle || "Not Connected"}
         </Link>
       </td>
     </tr>
