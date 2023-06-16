@@ -55,7 +55,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         },
         {
           node: "Privacy Policy",
-          link: "/policy",
+          link: "https://nftstorage.link/ipfs/bafkreigdbz5ql4kcpsopzrcrdffgxhns6uujrsg4x2evoogh6fzbhypg74",
         },
       ],
     },
