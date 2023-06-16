@@ -10,7 +10,7 @@ const LeaderboardRow = ({ address, numberOwned, rank, twitterHandle }) => {
 
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isIphone = useMediaQuery("(max-width: 320px)")
-  
+
   useEffect(() => {
     const init = async () => {
       const ensRecord = await retryGetEns(address)

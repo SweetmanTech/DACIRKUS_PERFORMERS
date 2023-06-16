@@ -18,6 +18,7 @@ function Layout({ children, type }: ILayoutFactory) {
 
   useEffect(() => {
     onChangeThemeConfig("light")
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
   const Container = layoutContainers[type]
