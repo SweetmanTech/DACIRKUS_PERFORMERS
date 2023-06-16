@@ -20,8 +20,8 @@ const ChatBox = () => {
   }
 
   return (
-    <div className="flex flex-col bg-white border-4 border-black rounded-lg shadow-md lg:md:w-[400px] w-72 lg:md:h-[600px] h-96">
-      <div className="flex items-center justify-between p-2 border-b-4 border-black">
+    <div className="flex flex-col bg-white rounded-[20px] overflow-hidden border shadow-[3px_4px_4px_rgba(0,0,0,0.25)] lg:md:w-[400px] w-72 lg:md:h-[600px] h-96">
+      <div className="flex items-center justify-between px-2 py-2 shadow-[3px_4px_4px_rgba(0,0,0,0.25)]">
         <UserInfo />
         <ChatBoxAction setOpenChat={setOpenChat} />
       </div>
@@ -29,21 +29,9 @@ const ChatBox = () => {
       <div className="flex-1 h-full px-4 py-4 overflow-y-auto">
         {messages.map((message) => {
           if (message.connectionId === ably.connection.id) {
-            return (
-              <MyMessage
-                message={JSON.parse(message.data)}
-                key={message}
-                connectionId={message.connectionId}
-              />
-            )
+            return <MyMessage message={JSON.parse(message.data)} key={message} />
           }
-          return (
-            <OtherMessage
-              message={JSON.parse(message.data)}
-              key={message}
-              connectionId={message.connectionId}
-            />
-          )
+          return <OtherMessage message={JSON.parse(message.data)} key={message} />
         })}
         <div
           ref={(element) => {
@@ -52,7 +40,7 @@ const ChatBox = () => {
         />
       </div>
 
-      <div className="flex items-center p-2 border-t-4 border-black">
+      <div className="flex items-center p-2 shadow-[3px_-4px_4px_rgba(0,0,0,0.25)]">
         <ChatBoxInput
           handleNewMessageChange={handleNewMessageChange}
           newMessage={newMessage}

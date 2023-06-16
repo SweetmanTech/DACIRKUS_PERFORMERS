@@ -80,6 +80,80 @@ a {
   }
 }
 
+/* Fade-in animation on scroll */
+.appear {
+  transition: all 0.3s;
+  opacity: 0;
+  transform: translateY(40px);
+}
+
+.appear.inview {
+  opacity: 1;
+  transform: none;
+}
+
+/* Fade-in background animation on scroll */
+@keyframes fade_in_bg {
+  0% {
+    opacity: 0.3;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fade_bg.show {
+  animation: fade_in_bg 0.3s ease-in-out;
+}
+
+.no_transition {
+  transition: none !important;
+}
+
+.core_input button {
+  transform: scale(1) !important;
+}
+
+.perfect_area .blur_area {
+  display: none !important;
+}
+
+.perfect_area .bg_area {
+  opacity: 1 !important;
+}
+
+.perfect_area * {
+  transition: none !important;
+}
+
+.perfect_area div {
+  color: white !important;
+}
+
+.perfect_area .footer {
+  display: none;
+}
+
+.perfect_area .light {
+  color: #6F6F6F !important;
+}
+
+.perfect_area .highlight {
+  color: #916FE2 !important;
+}
+
+.perfect_area .dark_logo {
+  display: none !important;
+}
+
+.perfect_area .light_logo {
+  display: block !important;
+}
+
+.no_typecursor .Typewriter__cursor {
+  display: none;
+}
+
 * {
   box-sizing: border-box;
 }

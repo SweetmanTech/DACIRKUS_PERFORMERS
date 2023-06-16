@@ -1,23 +1,39 @@
 import Image from "next/image"
-import { useMediaQuery } from "usehooks-ts"
+import Link from "next/link"
+import { useTheme } from "../../providers/ThemeProvider"
 
 const DiscordIcon = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)")
+  const { themeMode } = useTheme()
 
   return (
-    <a
-      href="https://discord.gg/ZpZBHCrqHQ"
-      target="_blank"
-      rel="noreferrer"
-      className="md:pt-2 md:pl-4 cursor-pointer"
-    >
-      <Image
-        src="/Icons/DISCORD.svg"
-        alt="discord"
-        width={isMobile ? 42 : 24}
-        height={isMobile ? 35 : 19}
-      />
-    </a>
+    <Link href="https://discord.gg/ZpZBHCrqHQ" target="_blank" rel="noreferrer">
+      <div>
+        <div className="pt-2 cursor-pointer md:hidden block">
+          <Image
+            src={`${
+              themeMode === "dark"
+                ? "/assets/Header/discord.png"
+                : "/assets/Header/white_discord.png"
+            }`}
+            width={24}
+            height={19}
+            alt="discord"
+          />
+        </div>
+        <div className="pt-2 cursor-pointer md:block hidden">
+          <Image
+            src={`${
+              themeMode === "dark"
+                ? "/assets/Header/white_discord.png"
+                : "/assets/Header/discord.png"
+            }`}
+            width={24}
+            height={19}
+            alt="discord"
+          />
+        </div>
+      </div>
+    </Link>
   )
 }
 

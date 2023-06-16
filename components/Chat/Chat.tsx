@@ -9,7 +9,7 @@ const Chat = () => {
   const { openChat, loggedIn } = useChatProvider()
 
   return (
-    <div className="fixed z-40 bottom-4 right-4">
+    <div className="fixed z-40 bottom-4 right-8">
       <div className="flex space-x-4">
         <ChatButton />
         {openChat && loggedIn && <ChatBox />}

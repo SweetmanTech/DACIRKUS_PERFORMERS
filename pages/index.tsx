@@ -1,8 +1,6 @@
-/* eslint-disable @next/next/no-img-element */
 import type { NextPage } from "next"
+import EnterPage from "../components/Enter"
 
-import LandingPage from "../components/LandingPage"
+const Enter: NextPage = () => <EnterPage />
 
-const Home: NextPage = () => <LandingPage />
-
-export default Home
+export default Enter
