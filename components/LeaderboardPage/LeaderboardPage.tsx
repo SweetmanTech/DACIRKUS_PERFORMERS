@@ -46,7 +46,7 @@ const LeaderboardPage = () => {
           <div
             className="font-quicksand 
             dark:text-white text-center 
-            w-[300px] xs:w-[350px] md:w-[500px] 
+            w-[300px] xs:w-[350px] md:w-[430px] 
             text-[13px] xs:text-[15px] md:text-[18px] 
             drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] 
             font-[500]"
