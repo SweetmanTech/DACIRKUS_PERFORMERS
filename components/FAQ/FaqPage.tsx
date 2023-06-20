@@ -204,8 +204,8 @@ const FaqPage = () => {
           Each Cre8ors Collective Passport costs 0.8
           <br /> ETH, 88 Pendants, or any variation of
           <br /> the two. For example: If you hold 17
-          <br /> Pendant NFTs, the final price for
-          <br /> the Passport would be 0.8 - (17*0.009) =<br /> 0.64 ETH.
+          <br /> Pendant NFTs, the final price for the
+          <br /> Passport would be 0.8 - (17*0.009) =<br /> 0.64 ETH.
         </>
       ),
     },
@@ -648,13 +648,13 @@ const FaqPage = () => {
             className="md:mx-12 md:pl-[90px]
             mx-4 pl-0"
           >
-            <div className="w-[290px] sumsungS8:w-[320px] xs:w-[350px] md:w-[917px]">
+            <div className="w-[290px] samsungS8:w-[320px] xs:w-[350px] md:w-[917px]">
               {sections.map((section: SectionType) => (
                 <div key={section.title} className="pb-[1.5rem] font-quicksand">
                   <div className="text-[16px] xs:text-[19px] font-bold dark:text-[white] leading-[137%]">
                     {section.title}
                   </div>
-                  <div className="text-[14.5px] sumsungS8:text-[16px] xs:text-[19px] font-medium dark:text-[white] leading-[137%]">
+                  <div className="text-[14.5px] samsungS8:text-[17px] xs:text-[19px] font-medium dark:text-[white] leading-[137%]">
                     {isMobile ? section.mobile_content : section.content}
                   </div>
                 </div>

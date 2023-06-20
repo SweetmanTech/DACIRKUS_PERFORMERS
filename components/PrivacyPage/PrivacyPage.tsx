@@ -31,10 +31,9 @@ const PrivacyPage = () => {
       mobile_content: (
         <>
           This Privacy Policy is designed to help you understand how Defi Entertainment, Inc.
-          (collectively with
-          <br /> any subsidiaries, called “Defient”, “we,” “us,” and “our”) collects, uses, and
-          shares your personal
-          <br /> information and to help you understand and exercise your privacy rights.
+          (collectively with any subsidiaries, called “Defient”, “we,” “us,” and “our”) collects,
+          uses, and shares your personal information and to help you understand and exercise your
+          privacy rights.
         </>
       ),
     },
@@ -101,16 +100,12 @@ const PrivacyPage = () => {
           1. SCOPE
           <br />
           This Privacy Policy applies to personal information processed by us, through our websites,
-          mobile
-          <br /> applications and any other services or interfaces owned or controlled by Defient
-          that post a link to
-          <br /> this Privacy Policy (each a “Service” and together, the “Services”). For the
-          avoidance of doubt, Defient
-          <br /> does not control the blockchain protocol (“Protocol”) on which fungible tokens and
-          various non-
-          <br />
-          fungible tokens (“NFTs”) are tradable or useable and cannot control activity and data on
-          the Protocol, the validation of transactions on the Protocol, or use of the Protocol.
+          mobile applications and any other services or interfaces owned or controlled by Defient
+          that post a link to this Privacy Policy (each a “Service” and together, the “Services”).
+          For the avoidance of doubt, Defient does not control the blockchain protocol (“Protocol”)
+          on which fungible tokens and various non- fungible tokens (“NFTs”) are tradable or useable
+          and cannot control activity and data on the Protocol, the validation of transactions on
+          the Protocol, or use of the Protocol.
         </>
       ),
     },
@@ -134,12 +129,9 @@ const PrivacyPage = () => {
           2. CHANGES TO OUR PRIVACY POLICY
           <br />
           We may revise this Privacy Policy from time to time at our sole discretion. If there are
-          any material
-          <br /> changes to this Privacy Policy, we will notify you as required by applicable law.
-          You understand and <br />
-          agree that you will be deemed to have accepted the updated Privacy Policy if you continue
-          to use our
-          <br /> Services after the new Privacy Policy takes effect.
+          any material changes to this Privacy Policy, we will notify you as required by applicable
+          law. You understand and agree that you will be deemed to have accepted the updated Privacy
+          Policy if you continue to use our Services after the new Privacy Policy takes effect.
         </>
       ),
     },
@@ -366,42 +358,29 @@ const PrivacyPage = () => {
           3. PERSONAL INFORMATION WE COLLECT
           <br />
           The categories of personal information we collect depend on how you interact with us, our
-          Services and the requirements of
+          Services and the requirements of applicable law. We collect information that you provide
+          to us, information we obtain automatically when you use our Services, and information from
+          other sources such as third-party services and organizations, as described below.
           <br />
-          applicable law. We collect information that you provide to us, information we obtain
-          automatically when you use our Services, and
-          <br />
-          information from other sources such as third-party services and organizations, as
-          described below.
           <div>A. Information You Provide to Us Directly</div>
           <div>
             We may collect the following personal information that you provide to us.
             <br />
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Account Creation. We may collect information when you create an account with us or
-                our service providers (e.g., Shopify), such
-                <br />
-                as name and email address. We may also require that you provide additional identity
-                and verification information.
+                our service providers (e.g., Shopify), such as name and email address. We may also
+                require that you provide additional identity and verification information.
               </li>
               <li className="list-disc">
                 Purchases, Wallet and Transaction Information. In order to engage in certain
-                transactions or purchases on the Services, you
-                <br />
-                may need to provide us or our third-party payment processors with your payment
-                information and allow us to connect to your
-                <br />
-                digital wallet by providing us with your public wallet address. We will never ask
-                you or collect your private keys. We do not
-                <br />
-                directly collect or store any payment card information entered through our Services
-                or access your digital wallet, but we may
-                <br />
-                receive from our third-party payment processing providers information associated
-                with your payment card information (e.g.,
-                <br />
-                your billing details).
+                transactions or purchases on the Services, you may need to provide us or our
+                third-party payment processors with your payment information and allow us to connect
+                to your digital wallet by providing us with your public wallet address. We will
+                never ask you or collect your private keys. We do not directly collect or store any
+                payment card information entered through our Services or access your digital wallet,
+                but we may receive from our third-party payment processing providers information
+                associated with your payment card information (e.g., your billing details).
               </li>
               <li className="list-disc">
                 Other Transactions. We may collect personal information and details associated with
@@ -409,51 +388,38 @@ const PrivacyPage = () => {
               </li>
               <li className="list-disc">
                 Your Communications with Us. We may collect personal information, such as email
-                address, phone number or mailing address
-                <br />
-                when you request information about our Services, register for our newsletter, apply
-                for a job or otherwise communicate with us.
+                address, phone number or mailing address when you request information about our
+                Services, register for our newsletter, apply for a job or otherwise communicate with
+                us.
               </li>
               <li className="list-disc">
                 Interactive Features. We and others who use our Services may collect personal
-                information that you submit or make available
-                <br />
-                through our interactive features (e.g., via the Defient communities on Discord,
-                messaging and chat features, and social media
-                <br />
-                pages). Any personal information you provide on the public sections of these
-                features will be considered “public,” (the “User
-                <br />
-                Content”) unless otherwise required by applicable law, and is not subject to the
-                privacy protections referenced herein. Please
-                <br />
-                exercise caution before revealing any information that may identify you in the real
-                world to other users.
+                information that you submit or make available through our interactive features
+                (e.g., via the Defient communities on Discord, messaging and chat features, and
+                social media pages). Any personal information you provide on the public sections of
+                these features will be considered “public,” (the “User Content”) unless otherwise
+                required by applicable law, and is not subject to the privacy protections referenced
+                herein. Please exercise caution before revealing any information that may identify
+                you in the real world to other users.
               </li>
               <li className="list-disc">
                 Surveys. We may contact you to participate in surveys. If you decide to participate,
-                you may be asked to provide certain
-                <br />
-                information which may include personal information.
+                you may be asked to provide certain information which may include personal
+                information.
               </li>
               <li className="list-disc">
                 Sweepstakes, Giveaways or Contests. We may collect personal information you provide
-                for any sweepstakes, giveaways or
-                <br />
-                contests that we offer. In some jurisdictions, we are required to publicly share
-                information of sweepstakes and contest winners.
+                for any sweepstakes, giveaways or contests that we offer. In some jurisdictions, we
+                are required to publicly share information of sweepstakes and contest winners.
               </li>
               <li className="list-disc">
                 Conferences, Trade Shows, and Other Events. We may collect personal information from
-                individuals when we attend or host
-                <br />
-                conferences, trade shows, and other events.
+                individuals when we attend or host conferences, trade shows, and other events.
               </li>
               <li className="list-disc">
                 Business Development and Strategic Partnerships. We may collect personal information
-                from individuals and third parties
-                <br />
-                to assess and pursue potential business opportunities.
+                from individuals and third parties to assess and pursue potential business
+                opportunities.
               </li>
             </ul>
           </div>
@@ -461,36 +427,24 @@ const PrivacyPage = () => {
           <div>
             We may collect personal information automatically when you use our Services such as:
             <br />
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Automatic Data Collection. We may collect certain information automatically when you
-                use our Services, such as your Internet
-                <br />
-                protocol (IP) address, user settings, MAC address, cookie identifiers, mobile
-                carrier and other unique identifiers, browser
-                <br />
-                or device information, location information (including approximate location derived
-                from IP address), Internet service provider,
-                <br />
-                and metadata about the content you provide. We may also automatically collect
-                information regarding your use of our
-                <br />
+                use our Services, such as your Internet protocol (IP) address, user settings, MAC
+                address, cookie identifiers, mobile carrier and other unique identifiers, browser or
+                device information, location information (including approximate location derived
+                from IP address), Internet service provider, and metadata about the content you
+                provide. We may also automatically collect information regarding your use of our
                 Services, such as pages that you visit before, during and after using our Services,
-                information about the links you click, the
-                <br />
-                types of content you interact with, the frequency and duration of your activities,
-                and other information about how you use our
-                <br />
-                Services.
+                information about the links you click, the types of content you interact with, the
+                frequency and duration of your activities, and other information about how you use
+                our Services.
               </li>
               <li className="list-disc">
                 Cookie Policy for Cookies and Other Technologies. We, as well as third parties that
-                provide content or other functionality
-                <br />
-                on our Services, may use cookies, local storage, and other technologies
-                (“Technologies”) to automatically collect information through
-                <br />
-                your use of our Services.
+                provide content or other functionality on our Services, may use cookies, local
+                storage, and other technologies (“Technologies”) to automatically collect
+                information through your use of our Services.
               </li>
               <li className="list-disc">
                 Cookies. Cookies are small text files placed in device browsers that store
@@ -499,94 +453,70 @@ const PrivacyPage = () => {
             </ul>
             Our uses of these Technologies fall into the following general categories:
             <br />
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Operationally Necessary. This includes Technologies that allow you access to our
-                Services, applications, and tools that are
-                <br />
-                required to identify irregular website behavior, prevent fraudulent activity,
-                improve security, or allow you to make use of our
-                <br />
-                functionality;
+                Services, applications, and tools that are required to identify irregular website
+                behavior, prevent fraudulent activity, improve security, or allow you to make use of
+                our functionality;
               </li>
               <li className="list-disc">
                 Performance-Related. We may use Technologies to assess the performance of our
-                Services, including as part of our analytic
-                <br />
-                practices to help us understand how individuals use our Services (see Analytics
-                below);
+                Services, including as part of our analytic practices to help us understand how
+                individuals use our Services (see Analytics below);
               </li>
               <li className="list-disc">
                 Functionality-Related. We may use Technologies that allow us to offer you enhanced
-                functionality when accessing or using our
-                <br />
-                Services. This may include identifying you when you sign into our Services or
-                keeping track of your specified preferences,
-                <br />
+                functionality when accessing or using our Services. This may include identifying you
+                when you sign into our Services or keeping track of your specified preferences,
                 interests, or past items viewed;
               </li>
             </ul>
             See “Your Privacy Choices and Rights” below to understand your choices regarding these
             Technologies.
             <br />
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Analytics. We may use our Technologies and other third-party tools to process
-                analytics information on our Services. These
-                <br />
-                technologies allow us to process usage data to better understand how our Services
-                are used, and to continually improve and
-                <br />
+                analytics information on our Services. These technologies allow us to process usage
+                data to better understand how our Services are used, and to continually improve and
                 personalize our Services. Some of our analytics partners include:
               </li>
               <li className="list-disc">
                 Plausible. We use Plausible to analyze usage of and traffic to our Services.
-                Plausible does not use cookies to track website
-                <br />
-                visitors. To learn more about Plausible and its use of your information, please
-                review the <span className="underline">Plausible Privacy Policy.</span>
+                Plausible does not use cookies to track website visitors. To learn more about
+                Plausible and its use of your information, please review the{" "}
+                <span className="underline">Plausible Privacy Policy.</span>
               </li>
               <li className="list-disc">
                 Social Media Platforms. Our Services may contain social media buttons, such as
-                Discord, Snapchat, Twitter, and Telegram, which
-                <br />
-                might include widgets such as the “share this” button or other interactive mini
-                programs). These features may collect your IP
-                <br />
-                address and which page you are visiting on our Services and may set a cookie to
-                enable the feature to function properly. Your
-                <br />
-                interactions with these platforms are governed by the privacy policy of the company
-                providing it.
+                Discord, Snapchat, Twitter, and Telegram, which might include widgets such as the
+                “share this” button or other interactive mini programs). These features may collect
+                your IP address and which page you are visiting on our Services and may set a cookie
+                to enable the feature to function properly. Your interactions with these platforms
+                are governed by the privacy policy of the company providing it.
               </li>
             </ul>
           </div>
           <div>C. Information Collected from Other Sources</div>
           <div>
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Third-Party Sources. We may obtain information about you from other sources,
-                including through third-party services and
-                <br />
-                organizations. For example, if you access our Services through a third-party
-                application, such as an app store, a third-party
-                <br />
+                including through third-party services and organizations. For example, if you access
+                our Services through a third-party application, such as an app store, a third-party
                 login service, or a social networking site, we may collect information about you
-                from that third-party application that you have <br />
-                made available via your privacy settings.
+                from that third-party application that you have made available via your privacy
+                settings.
               </li>
               <li className="list-disc">
                 Sharing Features. Our Services may offer various tools and functionalities that
-                allow you to provide information about your
-                <br />
-                friends; third parties may also use these services to upload information about you.
-                Our services may also allow you to forward
-                <br />
-                or share certain content with a friend or colleague, such as an email inviting your
-                friend to use our Services. Please only share
-                <br />
-                with us contact information of people with whom you have a relationship (e.g.,
-                relative, friend, neighbor, or co-worker).
+                allow you to provide information about your friends; third parties may also use
+                these services to upload information about you. Our services may also allow you to
+                forward or share certain content with a friend or colleague, such as an email
+                inviting your friend to use our Services. Please only share with us contact
+                information of people with whom you have a relationship (e.g., relative, friend,
+                neighbor, or co-worker).
               </li>
             </ul>
           </div>
@@ -707,17 +637,14 @@ const PrivacyPage = () => {
           4. HOW WE USE YOUR INFORMATION
           <br />
           We use your information for a variety of business purposes, including to provide our
-          Services, for administrative purposes, and to
-          <br />
-          market our products and services, as described below.
+          Services, for administrative purposes, and to market our products and services, as
+          described below.
           <div>A. Provide Our Services</div>
           <div>
             We use your information to fulfill our contract with you and provide you with our
-            Services and perform our contract with you,
+            Services and perform our contract with you, such as:
             <br />
-            such as:
-            <br />
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">Managing your information;</li>
               <li className="list-disc">
                 Providing access to certain areas, functionalities, and features of our Services;
@@ -738,18 +665,15 @@ const PrivacyPage = () => {
           <div>
             We use your information for our legitimate interest, such as:
             <br />
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Pursuing our legitimate interests such as direct marketing, research and development
-                (including marketing research), network
-                <br />
-                and information security, and fraud prevention;
+                (including marketing research), network and information security, and fraud
+                prevention;
               </li>
               <li className="list-disc">
                 Detecting security incidents, protecting against malicious, deceptive, fraudulent or
-                illegal activity, and prosecuting those
-                <br />
-                responsible for that activity;
+                illegal activity, and prosecuting those responsible for that activity;
               </li>
               <li className="list-disc">Measuring interest and engagement in our Services;</li>
 
@@ -775,36 +699,30 @@ const PrivacyPage = () => {
           <div>C. Marketing our Products and Services</div>
           <div>
             We may use personal information to tailor and provide you with content. We may provide
-            you with these materials as permitted by
-            <br />
-            applicable law. Some of the ways we may market to you include email campaigns.
+            you with these materials as permitted by applicable law. Some of the ways we may market
+            to you include email campaigns.
           </div>
           <div>
             If you have any questions about our marketing practices or if you would like to opt out
-            of the use of your personal information for <br />
-            marketing purposes, you may contact us at any time as set forth in “Contact Us” below.
+            of the use of your personal information for marketing purposes, you may contact us at
+            any time as set forth in “Contact Us” below.
           </div>
           <div>D. With Your Consent</div>
           <div>
             We may use personal information for other purposes that are clearly disclosed to you at
-            the time you provide personal
-            <br />
-            information or with your consent.
+            the time you provide personal information or with your consent.
           </div>
           <div>E. Other Purposes</div>
           <div>
             We also use your information for other purposes as requested by you or as permitted by
             applicable law.
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 De-identified and Aggregated Information. We may use personal information and other
-                information about you to create de-
-                <br />
-                identified and/or aggregated information, such as de-identified demographic
-                information, de-identified location information, <br />
+                information about you to create de- identified and/or aggregated information, such
+                as de-identified demographic information, de-identified location information,
                 information about the device from which you access our Services, or other analyses
                 we create.
-                <br />
               </li>
             </ul>
           </div>
@@ -932,62 +850,51 @@ const PrivacyPage = () => {
           5. HOW WE DISCLOSE YOUR INFORMATION
           <br />
           Your Privacy Choices. The privacy choices you may have about your personal information are
-          <br />
           determined by applicable law and are described below.
           <div>
             A. Disclosures to Provide our Services
             <br />
             The categories of third parties with whom we may share your information are described
             below.
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Notice Regarding Use of Blockchain. Transactions involving our NFTs will be
-                conducted on the relevant Protocol. Information <br />
-                about your transfers will be provided to the blockchain and may be accessible to
-                third parties due to the public nature of the <br />
-                blockchain. Because entries to the blockchain are, by their nature, public, and
-                because it may be possible for someone to <br />
-                identify you through your pseudonymous, public wallet address using external sources
-                of information, any transaction you <br />
-                enter onto the blockchain could possibly be used to identify you, or information
-                about you.
+                conducted on the relevant Protocol. Information about your transfers will be
+                provided to the blockchain and may be accessible to third parties due to the public
+                nature of the blockchain. Because entries to the blockchain are, by their nature,
+                public, and because it may be possible for someone to identify you through your
+                pseudonymous, public wallet address using external sources of information, any
+                transaction you enter onto the blockchain could possibly be used to identify you, or
+                information about you.
               </li>
               <li className="list-disc">
                 Other Users of the Services and Parties You Transact With. Some of your personal
-                information may be visible to other users of <br />
-                the Services (e.g., information featured on generally accessible parts of the
-                contracts or on a user profile). In addition, to <br />
-                complete transfers via the Services, we will need to share some of your personal
-                information with the party that you are <br />
-                transacting with. <br />
+                information may be visible to other users of the Services (e.g., information
+                featured on generally accessible parts of the contracts or on a user profile). In
+                addition, to complete transfers via the Services, we will need to share some of your
+                personal information with the party that you are transacting with.
               </li>
               <li className="list-disc">
                 Third Party Websites and Applications. You may choose to share personal information
-                or interact with third-party websites and/
-                <br />
-                or third-party applications, including, but not limited to, third-party electronic
-                wallet extensions. Once your personal information
-                <br />
-                has been shared with a third-party website or a third-party application, it will
-                also be subject to such third party’s privacy policy. <br />
-                We encourage you to closely read each third-party website or third-party application
-                privacy policy before sharing your <br />
-                third-party website’s or the third-party application’s processing of your personal
-                information. <br />
+                or interact with third-party websites and/ or third-party applications, including,
+                but not limited to, third-party electronic wallet extensions. Once your personal
+                information has been shared with a third-party website or a third-party application,
+                it will also be subject to such third party’s privacy policy. We encourage you to
+                closely read each third-party website or third-party application privacy policy
+                before sharing your third-party website’s or the third-party application’s
+                processing of your personal information.
               </li>
               <li className="list-disc">
                 Service Providers. We may share your personal information with our third-party
-                service providers who use that information to <br />
-                help us provide our Services. This includes service providers that provide us with
-                IT support, hosting, customer service, and <br />
-                related services. <br />
+                service providers who use that information to help us provide our Services. This
+                includes service providers that provide us with IT support, hosting, customer
+                service, and related services.
               </li>
               <li className="list-disc">
                 Business Partners. We may share your personal information with business partners to
-                provide you with a product or service you <br />
-                have requested. We may also share your personal information to business partners
-                with whom we jointly offer products or <br />
-                services. <br />
+                provide you with a product or service you have requested. We may also share your
+                personal information to business partners with whom we jointly offer products or
+                services.
               </li>
               <li className="list-disc">
                 Affiliates. We may share your personal information with members of our corporate
@@ -995,11 +902,9 @@ const PrivacyPage = () => {
               </li>
               <li className="list-disc">
                 APIs/SDKs. We may use third-party application program interfaces (“APIs”) and
-                software development kits (“SDKs”) as part of <br />
-                the functionality of our Services. For more information about our use of APIs and
-                SDKs, please contact us as set forth in <br />
+                software development kits (“SDKs”) as part of the functionality of our Services. For
+                more information about our use of APIs and SDKs, please contact us as set forth in
                 “Contact Us” below.
-                <br />
               </li>
             </ul>
           </div>
@@ -1007,25 +912,19 @@ const PrivacyPage = () => {
             B. Disclosures to Protect Us or Others
             <br />
             We may access, preserve, and disclose any information we store associated with you to
-            external parties if we, in good faith, <br />
-            believe doing so is required or appropriate to: comply with law enforcement or national
-            security requests and legal process, such <br />
-            as a court order or subpoena; protect your, our, or others’ rights, property, or safety;
-            enforce our policies or contracts; collect
-            <br />
-            amounts owed to us; or assist with an investigation or prosecution of suspected or
-            actual illegal activity.
-            <br />
+            external parties if we, in good faith, believe doing so is required or appropriate to:
+            comply with law enforcement or national security requests and legal process, such as a
+            court order or subpoena; protect your, our, or others’ rights, property, or safety;
+            enforce our policies or contracts; collect amounts owed to us; or assist with an
+            investigation or prosecution of suspected or actual illegal activity.
           </div>
           <div>
             C. Disclosure in the Event of Merger, Sale, or Other Asset Transfers
             <br />
             If we are involved in a merger, acquisition, financing due diligence, reorganization,
-            bankruptcy, receivership, purchase or sale of <br />
-            assets, or transition of service to another provider, your information may be sold or
-            transferred as part of such a transaction, as <br />
-            permitted by law and/or contract.
-            <br />
+            bankruptcy, receivership, purchase or sale of assets, or transition of service to
+            another provider, your information may be sold or transferred as part of such a
+            transaction, as permitted by law and/or contract.
           </div>
         </>
       ),
@@ -1126,73 +1025,54 @@ const PrivacyPage = () => {
           6. YOUR PRIVACY CHOICES AND RIGHTS
           <br />
           Your Privacy Choices. The privacy choices you may have about your personal information are
-          determined by applicable law and
-          <br />
-          are described below.
-          <ul>
+          determined by applicable law and are described below.
+          <ul className="pl-8">
             <li className="list-disc">
               Email Communications. If you receive an unwanted email from us, you can use the
-              unsubscribe link found at the bottom of the
-              <br />
-              email to opt out of receiving future emails. Note that you will continue to receive
-              transfer-related emails regarding services you
-              <br />
-              have requested. We may also send you certain non-promotional communications regarding
-              us and our Services, and you will
-              <br />
-              not be able to opt out of those communications (e.g., communications regarding our
-              Services or updates to our Terms of
-              <br />
-              Service or this Privacy Policy).
+              unsubscribe link found at the bottom of the email to opt out of receiving future
+              emails. Note that you will continue to receive transfer-related emails regarding
+              services you have requested. We may also send you certain non-promotional
+              communications regarding us and our Services, and you will not be able to opt out of
+              those communications (e.g., communications regarding our Services or updates to our
+              Terms of Service or this Privacy Policy).
             </li>
             <li className="list-disc">
               “Do Not Track.” Do Not Track (“DNT”) is a privacy preference that users can set in
-              certain web browsers. Please note that we do
-              <br />
-              not respond to or honor DNT signals or similar mechanisms transmitted by web browsers.
+              certain web browsers. Please note that we do not respond to or honor DNT signals or
+              similar mechanisms transmitted by web browsers.
             </li>
             <li className="list-disc">
               Cookies. You may stop or restrict the placement of Technologies on your device or
-              remove them by adjusting your preferences
-              <br />
-              as your browser or device permits. However, if you adjust your preferences, our
-              Services may not work properly. Please note
-              <br />
-              that cookie-based opt-outs are not effective on mobile applications.
+              remove them by adjusting your preferences as your browser or device permits. However,
+              if you adjust your preferences, our Services may not work properly. Please note that
+              cookie-based opt-outs are not effective on mobile applications.
             </li>
           </ul>
           <div>
             Your Privacy Rights. In accordance with applicable law, you may have the right to:
-            <ul>
+            <ul className="pl-8">
               <li className="list-disc">
                 Access Personal Information about you, including: (i) confirming whether we are
-                processing your personal information; (ii) <br />
-                obtaining access to or a copy of your personal information; or (iii) receiving an
-                electronic copy of personal information that you <br />
-                have provided to us, or asking us to send that information to another company (aka
-                the right of data portability);
-                <br />
+                processing your personal information; (ii) obtaining access to or a copy of your
+                personal information; or (iii) receiving an electronic copy of personal information
+                that you have provided to us, or asking us to send that information to another
+                company (aka the right of data portability);
               </li>
               <li className="list-disc">
                 Request Correction of your personal information where it is inaccurate or
-                incomplete. In some cases, we may provide self-
-                <br />
-                service tools that enable you to update your personal information;
+                incomplete. In some cases, we may provide self- service tools that enable you to
+                update your personal information;
               </li>
               <li className="list-disc">Request Deletion of your personal information;</li>
               <li className="list-disc">
                 Request Restriction of or Object to our processing of your personal information,
-                including where the processing of your
-                <br />
-                personal information is based on our legitimate interest or for direct marketing
-                purposes; and
+                including where the processing of your personal information is based on our
+                legitimate interest or for direct marketing purposes; and
               </li>
               <li className="list-disc">
                 Withdraw Your Consent to our processing of your personal information. Please note
-                that your withdrawal will only take effect
-                <br />
-                for future processing and will not affect the lawfulness of processing before the
-                withdrawal.
+                that your withdrawal will only take effect for future processing and will not affect
+                the lawfulness of processing before the withdrawal.
               </li>
             </ul>
           </div>
@@ -1237,20 +1117,16 @@ const PrivacyPage = () => {
           7. SECURITY OF YOUR INFORMATION
           <br />
           We take steps designed to ensure that your information is treated securely and in
-          accordance with this Privacy Policy.
-          <br />
-          Unfortunately, no system is 100% secure, and we cannot ensure or warrant the security of
-          any information you provide to us. To
-          <br />
-          the fullest extent permitted by applicable law, we do not accept liability for
-          unauthorized disclosure.
+          accordance with this Privacy Policy. Unfortunately, no system is 100% secure, and we
+          cannot ensure or warrant the security of any information you provide to us. To the fullest
+          extent permitted by applicable law, we do not accept liability for unauthorized
+          disclosure.
           <div>
             By using our Services or providing personal information to us, you agree that we may
-            communicate with you electronically <br />
-            regarding security, privacy, and administrative issues relating to your use of our
-            Services. If we learn of a security system’s breach, <br />
+            communicate with you electronically regarding security, privacy, and administrative
+            issues relating to your use of our Services. If we learn of a security system’s breach,
             we may attempt to notify you electronically by posting a notice on our Services, by mail
-            or by sending an email to you. <br />
+            or by sending an email to you.
           </div>
         </>
       ),
@@ -1275,13 +1151,9 @@ const PrivacyPage = () => {
           8. INTERNATIONAL DATA TRANSFERS
           <br />
           All information processed by us may be transferred, processed, and stored anywhere in the
-          world, including, but not limited to, the
-          <br />
-          United States or other countries, which may have data protection laws that are different
-          from the laws where you live. We
-          <br />
-          endeavor to safeguard your information consistent with the requirements of applicable
-          laws.
+          world, including, but not limited to, the United States or other countries, which may have
+          data protection laws that are different from the laws where you live. We endeavor to
+          safeguard your information consistent with the requirements of applicable laws.
         </>
       ),
     },
@@ -1308,13 +1180,10 @@ const PrivacyPage = () => {
           9. RETENTION OF PERSONAL INFORMATION
           <br />
           We store the personal information we collect as described in this Privacy Policy for as
-          long as you use our Services or as necessary
-          <br />
-          to fulfill the purpose(s) for which it was collected, provide our Services, resolve
-          disputes, establish legal defenses, conduct audits,
-          <br />
-          pursue legitimate business purposes, enforce our agreements, and comply with applicable
-          laws.
+          long as you use our Services or as necessary to fulfill the purpose(s) for which it was
+          collected, provide our Services, resolve disputes, establish legal defenses, conduct
+          audits, pursue legitimate business purposes, enforce our agreements, and comply with
+          applicable laws.
         </>
       ),
     },
@@ -1420,80 +1289,51 @@ const PrivacyPage = () => {
           10. SUPPLEMENTAL NOTICE FOR CALIFORNIA RESIDENTS
           <br />
           This Supplemental Notice for California Residents only applies to our processing of
-          personal information that is subject to the
-          <br />
-          California Consumer Privacy Act of 2018 (“CCPA”). The CCPA provides California residents
-          with the right to know what categories of
-          <br />
+          personal information that is subject to the California Consumer Privacy Act of 2018
+          (“CCPA”). The CCPA provides California residents with the right to know what categories of
           personal information Defient has collected about them and whether Defient disclosed that
-          personal information for a business
-          <br />
-          purpose (e.g., to a service provider) in the preceding twelve months. California residents
-          can find this information below.
-          <br />
-          The categories of sources from which we collect personal information and our business and
-          commercial purposes for using <br />
-          personal information are set forth in “Personal Information we Collect” and “How We Use
-          Your Information” above, respectively.
-          <br />
-          “Sales” of Personal Information under the CCPA. For purposes of the CCPA, Defient does not
-          “sell” personal information, nor do we
-          <br />
-          have actual knowledge of any “sale” of personal information of minors under 16 years of
-          age.
+          personal information for a business purpose (e.g., to a service provider) in the preceding
+          twelve months. California residents can find this information below. The categories of
+          sources from which we collect personal information and our business and commercial
+          purposes for using personal information are set forth in “Personal Information we Collect”
+          and “How We Use Your Information” above, respectively. “Sales” of Personal Information
+          under the CCPA. For purposes of the CCPA, Defient does not “sell” personal information,
+          nor do we have actual knowledge of any “sale” of personal information of minors under 16
+          years of age.
           <div>
-            Additional Privacy Rights for California Residents
-            <br />
-            Non-Discrimination. California residents have the right not to receive discriminatory
-            treatment by us for the exercise of their rights
-            <br />
-            conferred by the CCPA.
+            Additional Privacy Rights for California Residents Non-Discrimination. California
+            residents have the right not to receive discriminatory treatment by us for the exercise
+            of their rights conferred by the CCPA.
           </div>
           <div>
             Authorized Agent. Only you, or someone legally authorized to act on your behalf, may
-            make a verifiable consumer request related
-            <br />
-            to your personal information. To designate an authorized agent, please contact us as set
-            forth in “Contact Us” below.
-            <br />
-            Verification. When you make a request, we will ask you to provide sufficient information
-            that allows us to reasonably verify you are
-            <br />
-            the person about whom we collected personal information or an authorized representative,
-            which may include confirming the
-            <br />
-            email address associated with any personal information we have about you. If you are a
-            California resident and would like to
-            <br />
-            exercise any of your rights under the CCPA, please contact us as set forth in “Contact
-            Us” below. We will process such requests
-            <br />
-            in accordance with applicable laws.
+            make a verifiable consumer request related to your personal information. To designate an
+            authorized agent, please contact us as set forth in “Contact Us” below. Verification.
+            When you make a request, we will ask you to provide sufficient information that allows
+            us to reasonably verify you are the person about whom we collected personal information
+            or an authorized representative, which may include confirming the email address
+            associated with any personal information we have about you. If you are a California
+            resident and would like to exercise any of your rights under the CCPA, please contact us
+            as set forth in “Contact Us” below. We will process such requests in accordance with
+            applicable laws.
           </div>
           <div>
             If you are a California resident and would like to exercise any of your rights under the
-            CCPA, please contact us as set forth in
-            <br />
-            “Contact Us” below. We will process such requests in accordance with applicable laws.
+            CCPA, please contact us as set forth in “Contact Us” below. We will process such
+            requests in accordance with applicable laws.
           </div>
           <div>
             Accessibility. This Privacy Policy uses industry-standard technologies and was developed
-            in line with the World Wide Web
-            <br />
-            Consortium’s Web Content Accessibility Guidelines, version 2.1. If you wish to print
-            this policy, please do so from your web browser
-            <br />
-            or by saving the page as a PDF.
+            in line with the World Wide Web Consortium’s Web Content Accessibility Guidelines,
+            version 2.1. If you wish to print this policy, please do so from your web browser or by
+            saving the page as a PDF.
           </div>
           <div>
             California Shine the Light. The California “Shine the Light” law permits users who are
-            California residents to request and obtain from
-            <br />
-            us once a year, free of charge, a list of the third parties to whom we have disclosed
-            their personal information (if any) for their
-            <br />
-            direct marketing purposes in the prior calendar year, as well as the type of personal
-            information disclosed to those parties.
+            California residents to request and obtain from us once a year, free of charge, a list
+            of the third parties to whom we have disclosed their personal information (if any) for
+            their direct marketing purposes in the prior calendar year, as well as the type of
+            personal information disclosed to those parties.
           </div>
         </>
       ),
@@ -1527,18 +1367,12 @@ const PrivacyPage = () => {
           11. SUPPLEMENTAL NOTICE FOR NEVADA RESIDENTS
           <br />
           If you are a resident of Nevada, you have the right to opt-out of the sale of certain
-          personal information to third parties who
-          <br />
-          intend to license or sell that personal information. You can exercise this right by
-          contacting us as set forth in “Contact Us” below
-          <br />
-          with the subject line “Nevada Do Not Sell Request” and providing us with your name and the
-          email address associated with your
-          <br />
-          account. Please note that we do not currently sell your personal information as sales are
-          defined in Nevada Revised Statutes
-          <br />
-          Chapter 603A.
+          personal information to third parties who intend to license or sell that personal
+          information. You can exercise this right by contacting us as set forth in “Contact Us”
+          below with the subject line “Nevada Do Not Sell Request” and providing us with your name
+          and the email address associated with your account. Please note that we do not currently
+          sell your personal information as sales are defined in Nevada Revised Statutes Chapter
+          603A.
         </>
       ),
     },
@@ -1567,19 +1401,15 @@ const PrivacyPage = () => {
       ),
       mobile_content: (
         <>
-          12. CHILDREN’S INFORMATION The Services are not directed to children under 13 (or other
-          age as required by local law), and we do not knowingly collect personal
+          12. CHILDREN’S INFORMATION
           <br />
-          information from children. If you are a parent or guardian and believe your child has
-          provided us with personal information without
-          <br />
-          your consent, you may contact us as set forth in “Contact Us” below. If we learn that a
-          child has provided us with personal
-          <br />
-          information in violation of applicable law, we will promptly take steps to delete such
-          information, unless we have a legal obligation
-          <br />
-          to keep it.
+          The Services are not directed to children under 13 (or other age as required by local
+          law), and we do not knowingly collect personal information from children. If you are a
+          parent or guardian and believe your child has provided us with personal information
+          without your consent, you may contact us as set forth in “Contact Us” below. If we learn
+          that a child has provided us with personal information in violation of applicable law, we
+          will promptly take steps to delete such information, unless we have a legal obligation to
+          keep it.
         </>
       ),
     },
@@ -1611,18 +1441,12 @@ const PrivacyPage = () => {
           13. THIRD-PARTY WEBSITES/APPLICATIONS
           <br />
           The Services may contain links to other websites/applications and other
-          websites/applications may reference or link to our
-          <br />
-          Services. These third-party services are not controlled by us. We encourage our users to
-          read the privacy policies of each website
-          <br />
-          and application with which they interact. We do not endorse, screen or approve, and are
-          not responsible for, the privacy practices
-          <br />
-          or content of such other websites or applications. Providing personal information to
-          third-party websites or applications is at your
-          <br />
-          own risk.
+          websites/applications may reference or link to our Services. These third-party services
+          are not controlled by us. We encourage our users to read the privacy policies of each
+          website and application with which they interact. We do not endorse, screen or approve,
+          and are not responsible for, the privacy practices or content of such other websites or
+          applications. Providing personal information to third-party websites or applications is at
+          your own risk.
         </>
       ),
     },
@@ -1646,9 +1470,8 @@ const PrivacyPage = () => {
           14. SUPERVISORY AUTHORITY
           <br />
           If you are located in the European Economic Area, Switzerland, or the United Kingdom you
-          have the right to lodge a complaint with
-          <br />a supervisory authority if you believe our processing of your personal information
-          violates applicable law.
+          have the right to lodge a complaint with a supervisory authority if you believe our
+          processing of your personal information violates applicable law.
         </>
       ),
     },
@@ -1667,9 +1490,8 @@ const PrivacyPage = () => {
         <>
           15. CONTACT US <br />
           If you have any questions about our privacy practices or this Privacy Policy, or to
-          exercise your rights as detailed in this Privacy
-          <br />
-          Policy, please contact us at support@defient.co
+          exercise your rights as detailed in this Privacy Policy, please contact us at
+          support@defient.co
         </>
       ),
     },
@@ -1705,18 +1527,18 @@ const PrivacyPage = () => {
               text-[36px] md:text-[65px] 
               pt-[10rem] pb-[40px] 
               dark:text-[white] 
-              mx-4 md:mx-12"
+              mx-5 md:mx-12"
           >
             Privacy Policy
           </div>
           <div
             className="md:mx-12 md:pl-[90px]
-            mx-4 pl-0"
+            mx-5 pl-0"
           >
-            <div className="w-[290px] sumsungS8:w-[320px] xs:w-[350px] md:w-[917px]">
+            <div className="w-[270px] samsungS8:w-[320px] xs:w-[350px] md:w-[917px]">
               {sections.map((section: SectionType) => (
                 <div key={section.id} className="pb-[1.5rem] font-quicksand">
-                  <div className="text-[14.5px] sumsungS8:text-[16px] xs:text-[19px] font-medium dark:text-[white] leading-[137%]">
+                  <div className="text-[14.5px] samsungS8:text-[16px] xs:text-[19px] font-medium dark:text-[white] leading-[137%]">
                     {isMobile ? section.mobile_content : section.content}
                   </div>
                 </div>
