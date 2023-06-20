@@ -3,14 +3,12 @@ import axios from "axios"
 import { toast } from "react-toastify"
 import { useState, useRef } from "react"
 import { useMediaQuery, useWindowSize } from "usehooks-ts"
-import dynamic from "next/dynamic"
 import Brands from "./sections/Brands"
 import AutoPerfectArea from "./AutoPerfectArea"
 import LandingContent from "./LandingContent"
 import Layout from "../Layout"
 import Footer from "../Footer"
-
-const SectionContainer = dynamic(() => import("./SectionContainer"), { ssr: false })
+import SectionContainer from "./SectionContainer"
 
 const LandingPage = () => {
   const [email, setEmail] = useState("")

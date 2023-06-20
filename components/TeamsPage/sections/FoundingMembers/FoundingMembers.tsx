@@ -5,18 +5,18 @@ const FoundingMembers = ({ foundingMemberData }) => (
   <div className="flex flex-col mt-[3rem] mb-[3rem] px-6 md:px-0">
     <div
       className="md:px-12 
-        text-[30px] sumsungS8:text-[32px] xs:text-[36px] md:text-[65px] 
+        text-[30px] samsungS8:text-[36px] md:text-[65px] 
         font-bold 
         font-eigerdals 
         text-[black] dark:text-[white]
-        w-[290px] sumsungS8:w-[310px] xs:w-[350px] md:w-[750px]"
+        w-[290px] samsungS8:w-[310px] xs:w-[350px] md:w-[750px]"
     >
       Founding Members
     </div>
     <div
       className="md:mx-12 
         text-[14.8px] xs:text-[18.3px] md:text-[19px]
-        w-[285px] sumsungS8:w-[300px] xs:w-[350px] md:w-[720px]
+        w-[285px] samsungS8:w-[300px] xs:w-[350px] md:w-[720px]
         font-quicksand font-medium 
         dark:text-[white]"
     >

@@ -51,11 +51,11 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
       list: [
         {
           node: "Terms of Service",
-          link: "https://nftstorage.link/ipfs/bafkreiegxb437bnxfga2kd742olmxovl4xs5mkyhqgqwjrxmwmdeygygca",
+          link: "/terms",
         },
         {
           node: "Privacy Policy",
-          link: "https://nftstorage.link/ipfs/bafkreigdbz5ql4kcpsopzrcrdffgxhns6uujrsg4x2evoogh6fzbhypg74",
+          link: "/privacy",
         },
       ],
     },
@@ -103,7 +103,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
               <div className="flex flex-col cursor-[pointer] text-[8px] md:text-[16px]">
                 {item.list.map((row: LinkType) => (
                   <div key={row.link} className="pb-[10px]">
-                    <Link href={row.link}>{row.node}</Link>
+                    {row.link.search("https") >= 0 ? (
+                      <a href={row.link} target="_blank" rel="noreferrer">
+                        {row.node}
+                      </a>
+                    ) : (
+                      <Link href={row.link}>{row.node}</Link>
+                    )}
                   </div>
                 ))}
               </div>

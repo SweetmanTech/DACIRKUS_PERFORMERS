@@ -12,6 +12,7 @@ interface Props {
 let posX = 0;
 let posY = 0;
 let prevScrollPos = 0
+let isAnimating = false
 
 const useAutoPerfectCursor = ({
     containerRef,
@@ -24,6 +25,9 @@ const useAutoPerfectCursor = ({
     const [isScrollUp, setIsScrollUp] = useLocalStorage('isScrollUp', false)
 
     const animationEffect = (event?: MouseEvent) => {
+        if(isAnimating) return
+
+        isAnimating = true
         if(cursorRef.current && clipRef.current) {
             const x = (event?.clientX || posX)  - CURSOR_RADIUS
             const y = (event?.clientY || posY) + scrollY.get() - CURSOR_RADIUS
@@ -40,6 +44,10 @@ const useAutoPerfectCursor = ({
                 posY = event.clientY
             }
         }
+
+        setTimeout(() => {
+            isAnimating = false
+        }, 20)
     }
 
     const removeAllEventListener = () => {

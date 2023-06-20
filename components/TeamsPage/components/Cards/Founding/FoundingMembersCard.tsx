@@ -1,4 +1,3 @@
-import Link from "next/link"
 import { FC } from "react"
 import Icon from "../../../../../shared/Icon"
 import ImageFallback from "../../../../../shared/ImageFallback"
@@ -53,11 +52,11 @@ const FoundingMembersCard: FC<FoundingMembersCardProps> = ({ profilePic, twitter
           rounded-full
           shadow-[3px_3px_4px_rgba(0,0,0,0.25)]"
       >
-        <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
+        <a href={`https://twitter.com/${twitterHandle}`} target="_blank" rel="noreferrer">
           <div className="cursor-pointer">
             <Icon name="twitter" color="white" raw size={16} />
           </div>
-        </Link>
+        </a>
       </div>
     </div>
   </div>
