@@ -21,7 +21,10 @@ const MenuList = ({ toggleMenu }) => {
   }, [themeMode])
 
   return (
-    <div className="fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-2 p-4 dark:bg-white bg-[black] to-90% rounded-lg text-lg">
+    <div
+      className="fixed right-2 top-2 z-200 inline-flex flex-col items-left uppercase justify-between space-y-[9.5px] p-4 
+      dark:bg-white bg-[black] to-90% rounded-lg md:text-lg w-[200px]"
+    >
       <div className="dark:bg-[black] bg-white absolute top-0 right-0 w-6 h-6 m-2 rounded-full">
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -34,33 +37,40 @@ const MenuList = ({ toggleMenu }) => {
           <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
         </svg>
       </div>
-      <Link href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
-        <div className="font-bold dark:text-[black] text-white">Reserve List</div>
-      </Link>
+      <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
+        <div className="font-bold dark:text-[black] text-white pb-[15px]">Reserve List</div>
+      </a>
 
       <div className="font-bold dark:text-[black] text-white">Explore</div>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Allowlist</div>
+      <Link href="/manifesto" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Manifesto</div>
+      </Link>
       <Link href="/leaderboard" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Leaderboard</div>
       </Link>
-      <Link href="https://opensea.io/collection/cre8ors-passports" target="_blank" rel="noreferrer">
+      <a href="https://opensea.io/collection/cre8ors-passports" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Passports</div>
-      </Link>
+      </a>
+      <a href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Relics</div>
+      </a>
       <Link href="/teams" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Team</div>
       </Link>
-      <Link href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
-        <div className="ml-4 dark:text-[black] text-white">Relics</div>
-      </Link>
-      <Link href="https://cre8ors.beehiiv.com/" target="_blank" rel="noreferrer">
+      <a href="https://cre8ors.beehiiv.com/" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Blog</div>
+      </a>
+      <Link href="/faq" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">FAQ</div>
       </Link>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Warehouse</div>
+      <div className="ml-4 text-gray-400 cursor-not-allowed">Roadmap</div>
       <div className="ml-4 text-gray-400 cursor-not-allowed">Profiles</div>
+      <div className="ml-4 text-gray-400 cursor-not-allowed">Warehouse</div>
+      <div className="ml-4 text-gray-400 cursor-not-allowed">Allowlist</div>
       <CustomConnectWallet />
       <div className="flex flex-row justify-around items-center">
         <DiscordIcon />
-        <Link href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
+        <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
           <div className="pt-2 cursor-pointer ">
             <Image
               src={`${
@@ -73,7 +83,7 @@ const MenuList = ({ toggleMenu }) => {
               alt="discord"
             />
           </div>
-        </Link>
+        </a>
         <div className="flex items-center font-quicksand font-bold border-[1px] rounded-[20px] border-[gray]">
           <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
         </div>

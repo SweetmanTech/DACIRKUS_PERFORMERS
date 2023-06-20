@@ -1,12 +1,11 @@
 import Image from "next/image"
-import Link from "next/link"
 import { useTheme } from "../../providers/ThemeProvider"
 
 const DiscordIcon = () => {
   const { themeMode } = useTheme()
 
   return (
-    <Link href="https://discord.gg/ZpZBHCrqHQ" target="_blank" rel="noreferrer">
+    <a href="https://discord.gg/ZpZBHCrqHQ" target="_blank" rel="noreferrer">
       <div>
         <div className="pt-2 cursor-pointer md:hidden block">
           <Image
@@ -33,7 +32,7 @@ const DiscordIcon = () => {
           />
         </div>
       </div>
-    </Link>
+    </a>
   )
 }
 

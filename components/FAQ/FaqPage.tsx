@@ -1,7 +1,6 @@
 import { ReactNode, useRef } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import { useScroll } from "framer-motion"
-import Link from "next/link"
 import useScrollEnded from "../../hooks/useScrollEnded"
 import Layout from "../Layout"
 
@@ -578,9 +577,9 @@ const FaqPage = () => {
           <br /> two billion streams, five hundred million YouTube views, and is partnered with some
           of the largest
           <br /> creators and brands in the world. To learn more about Defient visit:{" "}
-          <Link href="https://defient.co" target="_blank">
+          <a href="https://defient.co" target="_blank" rel="noreferrer">
             <span className="underline cursor-pointer">https://defient.co</span>
-          </Link>
+          </a>
         </>
       ),
       mobile_content: (
@@ -599,13 +598,13 @@ const FaqPage = () => {
           <br /> some of the largest creators and
           <br /> brands in the world. To learn more
           <br /> about Defient visit:{" "}
-          <Link href="https://defient.co" target="_blank">
+          <a href="https://defient.co" target="_blank" rel="noreferrer">
             <span className="underline">
               https://
               <br />
               defient.co
             </span>
-          </Link>
+          </a>
         </>
       ),
     },
@@ -624,7 +623,7 @@ const FaqPage = () => {
 
   return (
     <Layout type="contained">
-      <div className="relative pb-[2rem] h-[100vh] w-[100vw] overflow-y-scroll" ref={containerRef}>
+      <div className="relative pb-[2rem] w-[100vw] overflow-y-scroll" ref={containerRef}>
         {!isScrollEnded && (
           <div
             className="fixed 

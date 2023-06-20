@@ -26,7 +26,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ text, className }) => {
         font-eigerdals dark:drop-shadow-[0_4px_2px_rgba(0,0,0,0.75)] 
         ${className || ""}`}
       style={{
-        fontSize: isResponsive ? "30px" : "",
+        fontSize: isResponsive ? "30px" : "64px",
       }}
     >
       {text}

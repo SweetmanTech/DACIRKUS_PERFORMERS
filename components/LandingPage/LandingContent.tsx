@@ -1,5 +1,4 @@
 import { useMediaQuery, useWindowSize } from "usehooks-ts"
-import dynamic from "next/dynamic"
 import WelcomeToCre8ors from "./sections/WelcomeToCre8ors"
 import InviteForCreator from "./sections/InviteForCreator"
 import Networking from "./sections/Networking"
@@ -7,8 +6,7 @@ import Cre8orsWay from "./sections/Cre8orsWay"
 import Brands from "./sections/Brands"
 import OpenSoon from "./sections/OpenSoon"
 import { useTheme } from "../../providers/ThemeProvider"
-
-const SectionContainer = dynamic(() => import("./SectionContainer"), { ssr: false })
+import SectionContainer from "./SectionContainer"
 
 interface LandingContentProps {
   onChangeEmail: (e: any) => void

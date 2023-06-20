@@ -18,15 +18,17 @@ const Header: FC<HeaderProps> = () => {
       <div className="flex flex-row items-center justify-between w-[1280px] md:px-12 p-3">
         <span className="relative items-center flex-shrink-0 w-20 mr-6 cursor-auto lg:md:mt-6 lg:mt-0 lg:md:w-36 lg:flex">
           <Link href="/">
-            <Image
-              src={`${
-                themeMode === "light" ? "/CRE8ORS_LOGO.svg" : "/assets/Header/white_logo.svg"
-              }`}
-              alt="cre8ors logo"
-              width={87}
-              height={16}
-              className="cursor-pointer"
-            />
+            <div>
+              <Image
+                src={`${
+                  themeMode === "light" ? "/CRE8ORS_LOGO.svg" : "/assets/Header/white_logo.svg"
+                }`}
+                alt="cre8ors logo"
+                width={87}
+                height={16}
+                className="cursor-pointer"
+              />
+            </div>
           </Link>
         </span>
 

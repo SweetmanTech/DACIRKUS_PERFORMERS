@@ -1,6 +1,5 @@
 import Image from "next/image"
 import { FC } from "react"
-import Link from "next/link"
 import { useMediaQuery } from "usehooks-ts"
 import Icon from "../../../../../shared/Icon"
 
@@ -58,11 +57,11 @@ const TeamMembersCard: FC<TeamMembersCardProps> = ({
             rounded-full
             shadow-[3px_3px_4px_rgba(0,0,0,0.25)]"
         >
-          <Link href={`https://twitter.com/${twitterHandle}`} target="_blank">
+          <a href={`https://twitter.com/${twitterHandle}`} target="_blank" rel="noreferrer">
             <div className="cursor-pointer">
               <Icon name="twitter" color="white" raw />
             </div>
-          </Link>
+          </a>
         </div>
       </div>
       <div className="hidden md:block pt-[20px]">
