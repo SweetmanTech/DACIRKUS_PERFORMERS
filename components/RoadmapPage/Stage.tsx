@@ -119,11 +119,9 @@ const Stage: FC<StageProps> = ({
             {
               // eslint-disable-next-line no-nested-ternary
               stageData.date
-                ? isLocked
-                  ? `${new Date(stageData.date).toLocaleDateString("en-US", { month: "long" })} ${
+                ? `${new Date(stageData.date).toLocaleDateString("en-US", { month: "long" })} ${
                       stageData.certain ? new Date(stageData.date).getDate() : ""
                     }`
-                  : `${new Date(stageData.date).toLocaleString("en-US", { month: "long" })}`
                 : "???????????"
             }
           </div>

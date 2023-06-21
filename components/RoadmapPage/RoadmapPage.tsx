@@ -37,12 +37,13 @@ const RoadmapPage = () => {
     {
       backImg: "/assets/Roadmap/claim.svg",
       label: "Claim tickets",
-      date: "2023-06-01",
+      date: "2023-06-05",
     },
     {
       backImg: "/assets/Roadmap/redeem.svg",
       label: "Redeem passports",
       date: "2023-06-30 UTC-4",
+      certain: true,
     },
     {
       backImg: "/assets/Roadmap/allowlist.svg",
