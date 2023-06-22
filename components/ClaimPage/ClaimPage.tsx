@@ -1,46 +1,26 @@
-import { useEffect, useState } from "react"
-import { useSigner } from "wagmi"
-import { BigNumber } from "ethers"
-import abi from "../../lib/abi-cre8ors.json"
-import NavBar from "../NavBar"
-import balanceOf from "../../lib/balanceOf"
-import ClaimButton from "../ClaimButton"
-import MintButton from "../MintButton"
+import Layout from "../Layout"
+import { useMeasure } from 'react-use'
 
-function ClaimPage() {
-  const { data: signer } = useSigner()
-  const [balance, setBalance] = useState("0")
-  const contractAddress = String(process.env.NEXT_PUBLIC_CRE8ORS_ADDRESS)
-
-  useEffect(() => {
-    const init = async () => {
-      const response = await balanceOf(signer)
-      if (response.error) return
-      setBalance(response.toString())
-    }
-
-    if (!signer) return
-    init()
-  })
-
+const ClaimPage = () => {
+  const [ containerRef, { width, height } ] = useMeasure()
   return (
-    <div className="flex flex-col mt-3">
-      <NavBar />
-      <div className="flex flex-col items-center justify-around text-4xl pt-10 h-[75vh]">
-        <div>Claim Page</div>
-        {BigNumber.from(balance).gt(0) ? (
-          <div className="flex flex-col items-center gap-5">
-            <div> access granted</div>
-            <ClaimButton contractAddress={contractAddress} abi={abi} />
-          </div>
-        ) : (
-          <div className="flex flex-col items-center gap-5">
-            <div> please mint a CRE8OR before claiming trait</div>
-            <MintButton contractAddress={contractAddress} abi={abi} />
-          </div>
-        )}
-      </div>
-    </div>
+    <Layout type="base">
+        <div
+            className="relative h-[100vh] overflow-y-scroll overflow-x-hidden z-[1] w-[100vw]"
+            ref={containerRef}
+        >
+            <div className="relative z-[6] border-[1px] border-[red]"
+                style={{
+                    width: `${width}px`,
+                    height: `${height}px`,
+                    backgroundImage: `url('/assets/Claim/background.svg')`,
+                    backgroundSize: `${height / 1048 * 1579}px ${height}px`,
+                }}
+            >
+
+            </div>
+        </div>
+    </Layout>
   )
 }
 
