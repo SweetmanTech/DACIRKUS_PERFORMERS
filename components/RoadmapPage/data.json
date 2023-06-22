@@ -1,0 +1,127 @@
+[
+  {
+    "backImg": "/assets/Roadmap/mission.svg",
+    "label": "Mission & Vision",
+    "date": "2023-01-31",
+    "link": "https://www.cre8ors.com/manifesto",
+    "text": "We envision a world where AI-tools and blockchain technology 100x the number of creators in the\nworld, from 50M to 500M, ushering in a “golden-age” of accessible creativity for all. Our mission is\nto unleash humanities creative potential and unlock individual financial freedom by providing the\nnetwork, resources and tools that drive mass adoption around the co-creation, co-licensing, and\nco-ownership of digital assets."
+  },
+  {
+    "backImg": "/assets/Roadmap/curate.svg",
+    "label": "Curate collective",
+    "date": "2023-02-28",
+    "link": "https://www.twitter.com/cre8orsnft",
+    "text": "From high-level influencers to up-and-coming content creators, we spent months and months\nhand-selecting only the best creators and collectors to provide a safe space for discussions,\ndebates, and collaborations around all things AI and web3. Cre8ors is centered around eight\ncore values: inclusivity, mindfulness, transparency, accountability, advocation, fearlessness,\nempathy, and creativity."
+  },
+  {
+    "backImg": "/assets/Roadmap/pendants.svg",
+    "label": "Airdrop pendants",
+    "date": "2023-03-31",
+    "link": "https://opensea.io/collection/cre8ors-relics",
+    "text": "Something that lies beneath the floorboards. Something that is going to change everything...\nDivine Ancestral Pendants are ERC-1155 tokens on Polygon from our Cre8ors Relics collection. Pendants\nreward potential collective members and keep track of important on-chain metrics that help us curate\nthe best creator community on the internet. Collect 88 pendants by participating in community activities\nand exchange them for a Cre8ors Passport."
+  },
+  {
+    "backImg": "/assets/Roadmap/build.svg",
+    "label": "Build in public",
+    "date": "2023-04-30",
+    "link": "https://discord.gg/cre8orsnft",
+    "text": "Cre8ors is not your typical NFT project. It didn’t start with a product, alpha group, DAO, or PFP... yet.\nIt started with a simple mission and group of creators with shared values. We asked questions like “What\nare the biggest problems creators face?” and learned a ton about co-creativity, community-bonding, and\nall the different ways the Cre8ors brand can be built to help creators from all walks of life. Our products,\nart, lore, and tech have been a labor of love created on daily Twitter Spaces together with the community."
+  },
+  {
+    "backImg": "/assets/Roadmap/leaderboard.svg",
+    "label": "Leaderboard",
+    "date": "2023-05-31",
+    "link": "https://www.cre8ors.com/leaderboard",
+    "text": "The leaderboard is our way of transparently showcasing the status of all relic collectors. It’s\na celebration of our most active contributors holding the most pendants. The first 88 community\nmembers to collect 88 pedants earn their place as founding members of the Cre8ors collective.\nThe 88 founders represent Cre8ors core community, those who built the brand from the ground up."
+  },
+  {
+    "backImg": "/assets/Roadmap/claim.svg",
+    "label": "Claim tickets",
+    "date": "2023-06-05",
+    "link": "https://reserve.cre8ors.com/",
+    "text": "Claim Tickets are 721-A NFTs on the Ethereum blockchain. Each Claim Ticket grants holders the\nright to mint one of eight hundred and eighty eight Cre8ors Passports on June 30th 2023 via our\npublic launch party (in partnership with Magic Eden). Claim a Ticket and reserve a Passport for 88\npendants, 0.8 eth, or any variation of the two through our intuitive Polygon to Ethereum burning\nbridge discount mechanism."
+  },
+  {
+    "backImg": "/assets/Roadmap/redeem.svg",
+    "label": "Redeem passports",
+    "date": "2023-06-30 UTC-4",
+    "certain": true,
+    "link": "/",
+    "text": "Burn a Cre8ors Claim Ticket to redeem a Cre8ors Passport on June 30th 2023 via\nour public launch party in partnership with Magic Eden."
+  },
+  {
+    "backImg": "/assets/Roadmap/allowlist.svg",
+    "label": "Allowlist quiz",
+    "date": "2023-07-01 UTC-4",
+    "certain": true,
+    "link": "/",
+    "text": "To get on the allowlist without a passport, take the Everything Corp Personality Quiz\nAssessment. Once your application is submitted, retweet your results to move up the\nreview process. Follow @cre8orsNFT to be notified once your application is accepted."
+  },
+  {
+    "backImg": "/assets/Roadmap/drop.svg",
+    "label": "drop trailer",
+    "date": "2023-07-07 UTC-4",
+    "certain": true,
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/everything.svg",
+    "label": "everything crop hack",
+    "date": "2023-07-14 UTC-4",
+    "certain": true,
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/dna.svg",
+    "label": "dna distribution",
+    "date": "2023-07-21 UTC-4",
+    "certain": true,
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/mint.svg",
+    "label": "Cre8ors mint",
+    "date": "2023-07-27 UTC-4",
+    "certain": true,
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/art.svg",
+    "label": "art reveal",
+    "date": "2023-08-31 UTC-4",
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/creating.svg",
+    "label": "creating",
+    "date": "2023-09-30 UTC-4",
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/collaborating.svg",
+    "label": "collaborating",
+    "date": "2023-10-31 UTC-4",
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/connecting.svg",
+    "label": "connecting",
+    "date": "2023-11-30 UTC-4",
+    "link": "/",
+    "text": ""
+  },
+  {
+    "backImg": "/assets/Roadmap/redacted.svg",
+    "label": null,
+    "date": null,
+    "link": "/",
+    "text": "[REDACTED]"
+  }
+]
