@@ -41,11 +41,8 @@
     "react-img-mapper": "^1.5.0",
     "react-table": "^7.8.0",
     "react-toastify": "^9.1.1",
-<<<<<<< Updated upstream
-=======
     "react-use": "^17.4.0",
     "swiper": "^9.4.1",
->>>>>>> Stashed changes
     "tslog": "^4.8.2",
     "twitter-api-v2": "^1.14.2",
     "typewriter-effect": "^2.20.1",
