@@ -1,110 +1,42 @@
 import Swiper, { EffectCreative, Mousewheel } from "swiper"
 import { useMediaQuery } from "usehooks-ts"
+import { useEffect, useState } from "react"
 import Slider from "../../shared/Slider"
 import Stage from "./Stage"
 import Layout from "../Layout"
 import { StageData } from "./types"
+import data from "./data.json"
 
 Swiper.use([Mousewheel])
 
 const RoadmapPage = () => {
-  const stages: StageData[] = [
-    {
-      backImg: "/assets/Roadmap/mission.svg",
-      label: "Mission & Vision",
-      date: "2023-01-31",
-    },
-    {
-      backImg: "/assets/Roadmap/curate.svg",
-      label: "Curate collective",
-      date: "2023-02-28",
-    },
-    {
-      backImg: "/assets/Roadmap/pendants.svg",
-      label: "Airdrop pendants",
-      date: "2023-03-31",
-    },
-    {
-      backImg: "/assets/Roadmap/build.svg",
-      label: "Build in public",
-      date: "2023-04-30",
-    },
-    {
-      backImg: "/assets/Roadmap/leaderboard.svg",
-      label: "Leaderboard",
-      date: "2023-05-31",
-    },
-    {
-      backImg: "/assets/Roadmap/claim.svg",
-      label: "Claim tickets",
-      date: "2023-06-05",
-    },
-    {
-      backImg: "/assets/Roadmap/redeem.svg",
-      label: "Redeem passports",
-      date: "2023-06-30 UTC-4",
-      certain: true,
-    },
-    {
-      backImg: "/assets/Roadmap/allowlist.svg",
-      label: "Allowlist quiz",
-      date: "2023-07-01 UTC-4",
-      certain: true,
-    },
-    {
-      backImg: "/assets/Roadmap/drop.svg",
-      label: "drop trailer",
-      date: "2023-07-07 UTC-4",
-      certain: true,
-    },
-    {
-      backImg: "/assets/Roadmap/everything.svg",
-      label: "everything crop hack",
-      date: "2023-07-14 UTC-4",
-      certain: true,
-    },
-    {
-      backImg: "/assets/Roadmap/dna.svg",
-      label: "dna distribution",
-      date: "2023-07-21 UTC-4",
-      certain: true,
-    },
-    {
-      backImg: "/assets/Roadmap/mint.svg",
-      label: "Cre8ors mint",
-      date: "2023-07-27 UTC-4",
-      certain: true,
-    },
-    {
-      backImg: "/assets/Roadmap/art.svg",
-      label: "art reveal",
-      date: "2023-08-31 UTC-4",
-    },
-    {
-      backImg: "/assets/Roadmap/creating.svg",
-      label: "creating",
-      date: "2023-09-30 UTC-4",
-    },
-    {
-      backImg: "/assets/Roadmap/collaborating.svg",
-      label: "collaborating",
-      date: "2023-10-31 UTC-4",
-    },
-    {
-      backImg: "/assets/Roadmap/connecting.svg",
-      label: "connecting",
-      date: "2023-11-30 UTC-4",
-    },
-    {
-      backImg: "/assets/Roadmap/redacted.svg",
-      label: null,
-      date: null,
-    },
-  ]
+  let offset
+  const stages: StageData[] = data as StageData[]
+
+  const [currentIndex, setCurrentIndex] = useState(0)
+  const [swiperCtrl, setSwiper] = useState<any>()
 
   const isResponsive = useMediaQuery("(max-width: 1150px)")
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isIphone = useMediaQuery("(max-width: 390px)")
+
+  useEffect(() => {
+    stages.map((stage: StageData, index: number) => {
+      // eslint-disable-next-line react-hooks/exhaustive-deps
+      if (index === 0) offset = Math.abs(new Date(stage.date).getTime() - new Date().getTime())
+
+      const currentOffset = Math.abs(new Date(stage.date).getTime() - new Date().getTime())
+
+      if (offset > currentOffset) setCurrentIndex(index)
+      offset = Math.abs(new Date(stage.date).getTime() - new Date().getTime())
+
+      return true
+    })
+  }, [stages])
+
+  useEffect(() => {
+    if (swiperCtrl) swiperCtrl.slideTo(currentIndex)
+  }, [currentIndex, swiperCtrl])
 
   return (
     <Layout type="contained">
@@ -176,6 +108,9 @@ const RoadmapPage = () => {
             effect: "creative",
             loop: true,
             speed: 400,
+            onSwiper(swiper) {
+              setSwiper(swiper)
+            },
             mousewheel: {
               sensitivity: 3,
             },

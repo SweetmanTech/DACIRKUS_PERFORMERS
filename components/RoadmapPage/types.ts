@@ -3,4 +3,6 @@ export interface StageData {
   label: string | null
   date: string | null
   certain?: boolean
+  link: string
+  text: string
 }
