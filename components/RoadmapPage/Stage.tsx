@@ -29,6 +29,20 @@ const Stage: FC<StageProps> = ({
   const isReponsive = useMediaQuery("(max-width: 1150px)")
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isXs = useMediaQuery("(max-width: 393px)")
+  const months = [
+    "JANUARY",
+    "FEBRUARY",
+    "MARCH",
+    "APRIL",
+    "MAY",
+    "JUNE",
+    "JULY",
+    "AUGUST",
+    "SEPTEMBER",
+    "OCTOBER",
+    "NOVEMBER",
+    "DECEMBER",
+  ]
 
   useShakeEffect({
     ref: shakeRef,
@@ -180,8 +194,23 @@ const Stage: FC<StageProps> = ({
               {
                 // eslint-disable-next-line no-nested-ternary
                 stageData.date
-                  ? `${new Date(stageData.date).toLocaleDateString("en-US", { month: "long" })} ${
-                      stageData.certain ? new Date(stageData.date).getDate() : ""
+                  ? `${
+                      months[
+                        parseInt(
+                          stageData.date.slice(
+                            stageData.date.length - 5,
+                            stageData.date.length - 2,
+                          ),
+                          10,
+                        ) - 1
+                      ]
+                    } ${
+                      stageData.certain
+                        ? parseInt(
+                            stageData.date.slice(stageData.date.length - 2, stageData.date.length),
+                            10,
+                          )
+                        : ""
                     }`
                   : "???????????"
               }

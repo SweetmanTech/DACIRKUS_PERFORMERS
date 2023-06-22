@@ -44,7 +44,7 @@
   {
     "backImg": "/assets/Roadmap/redeem.svg",
     "label": "Redeem passports",
-    "date": "2023-06-30 UTC-4",
+    "date": "2023-06-30",
     "certain": true,
     "link": "/",
     "text": "Burn a Cre8ors Claim Ticket to redeem a Cre8ors Passport on June 30th 2023 via\nour public launch party in partnership with Magic Eden."
@@ -52,7 +52,7 @@
   {
     "backImg": "/assets/Roadmap/allowlist.svg",
     "label": "Allowlist quiz",
-    "date": "2023-07-01 UTC-4",
+    "date": "2023-07-01",
     "certain": true,
     "link": "/",
     "text": "To get on the allowlist without a passport, take the Everything Corp Personality Quiz\nAssessment. Once your application is submitted, retweet your results to move up the\nreview process. Follow @cre8orsNFT to be notified once your application is accepted."
@@ -60,62 +60,62 @@
   {
     "backImg": "/assets/Roadmap/drop.svg",
     "label": "drop trailer",
-    "date": "2023-07-07 UTC-4",
+    "date": "2023-07-07",
     "certain": true,
     "link": "/",
-    "text": ""
+    "text": "Our trailer and explainer was made by web3 content creation visionary @__Talley__\nto help showcase what “The next generation of creativity” truly means for Cre8ors as\na web3 brand, community, and technology."
   },
   {
     "backImg": "/assets/Roadmap/everything.svg",
     "label": "everything crop hack",
-    "date": "2023-07-14 UTC-4",
+    "date": "2023-07-14",
     "certain": true,
     "link": "/",
-    "text": ""
+    "text": "Get immersed in a digital experience to hack evil Everything Corp and restore color back to\nthe Black & White City. Learn more about our community created lore, and prove that you\nhave what it takes to become a Cre8or."
   },
   {
     "backImg": "/assets/Roadmap/dna.svg",
     "label": "dna distribution",
-    "date": "2023-07-21 UTC-4",
+    "date": "2023-07-21",
     "certain": true,
     "link": "/",
-    "text": ""
+    "text": "If your application is accepted, you’ll be notified via @Cre8orsNFT Twitter to claim\nyour personalized Cre8ive DNA Mint Card. Use your Cre8ive DNA Mint Card to mint\nyour Cre8or AiPEP ."
   },
   {
     "backImg": "/assets/Roadmap/mint.svg",
     "label": "Cre8ors mint",
-    "date": "2023-07-27 UTC-4",
+    "date": "2023-07-27",
     "certain": true,
     "link": "/",
-    "text": ""
+    "text": "More info coming soon."
   },
   {
     "backImg": "/assets/Roadmap/art.svg",
     "label": "art reveal",
-    "date": "2023-08-31 UTC-4",
+    "date": "2023-08-31",
     "link": "/",
-    "text": ""
+    "text": "More info coming soon."
   },
   {
     "backImg": "/assets/Roadmap/creating.svg",
     "label": "creating",
-    "date": "2023-09-30 UTC-4",
+    "date": "2023-09-30",
     "link": "/",
-    "text": ""
+    "text": "More info coming soon."
   },
   {
     "backImg": "/assets/Roadmap/collaborating.svg",
     "label": "collaborating",
-    "date": "2023-10-31 UTC-4",
+    "date": "2023-10-31",
     "link": "/",
-    "text": ""
+    "text": "More info coming soon."
   },
   {
     "backImg": "/assets/Roadmap/connecting.svg",
     "label": "connecting",
-    "date": "2023-11-30 UTC-4",
+    "date": "2023-11-30",
     "link": "/",
-    "text": ""
+    "text": "More info coming soon."
   },
   {
     "backImg": "/assets/Roadmap/redacted.svg",
