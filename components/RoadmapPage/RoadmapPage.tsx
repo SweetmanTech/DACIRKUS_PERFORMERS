@@ -36,7 +36,8 @@ const RoadmapPage = () => {
 
   useEffect(() => {
     if (swiperCtrl) swiperCtrl.slideTo(currentIndex)
-  }, [currentIndex, swiperCtrl])
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentIndex])
 
   return (
     <Layout type="contained">
