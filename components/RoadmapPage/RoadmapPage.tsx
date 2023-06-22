@@ -14,6 +14,7 @@ const RoadmapPage = () => {
   const stages: StageData[] = data as StageData[]
 
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [selectedIndex, setSelectedIndex] = useState(0)
   const [swiperCtrl, setSwiper] = useState<any>()
 
   const isResponsive = useMediaQuery("(max-width: 1150px)")
@@ -55,13 +56,9 @@ const RoadmapPage = () => {
                 creativeEffect: {
                   next: {
                     translate: [0, "99px", 0],
-                    scale: 0.8,
-                    opacity: 0.7,
                   },
                   prev: {
                     translate: [0, `-99px`, 0],
-                    scale: 0.8,
-                    opacity: 0.7,
                   },
                   limitProgress: 3,
                 },
@@ -72,13 +69,9 @@ const RoadmapPage = () => {
                 creativeEffect: {
                   next: {
                     translate: [0, `202px`, 0],
-                    scale: 0.8,
-                    opacity: 0.7,
                   },
                   prev: {
                     translate: [0, `-202px`, 0],
-                    scale: 0.8,
-                    opacity: 0.7,
                   },
                   limitProgress: 2,
                 },
@@ -89,13 +82,9 @@ const RoadmapPage = () => {
                 creativeEffect: {
                   next: {
                     translate: [0, "280px", 0],
-                    scale: 0.8,
-                    opacity: 0.7,
                   },
                   prev: {
                     translate: [0, `-280px`, 0],
-                    scale: 0.8,
-                    opacity: 0.7,
                   },
                   limitProgress: 2,
                 },
@@ -112,6 +101,7 @@ const RoadmapPage = () => {
             onSwiper(swiper) {
               setSwiper(swiper)
             },
+            onSlideChange: (swiper) => setSelectedIndex(swiper.realIndex),
             mousewheel: {
               sensitivity: 3,
             },
@@ -134,8 +124,9 @@ const RoadmapPage = () => {
           {stages.map((stage: StageData, index: number) => (
             <Stage
               key={stage.backImg}
+              selectedIndex={selectedIndex}
               stageData={stage}
-              stageNumber={index + 1}
+              stageNumber={index}
               // eslint-disable-next-line no-nested-ternary
               slideWidth={isResponsive ? (isMobile ? (isIphone ? 328 : 407) : 829.3) : 1150}
               // eslint-disable-next-line no-nested-ternary

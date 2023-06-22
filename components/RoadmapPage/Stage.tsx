@@ -11,6 +11,7 @@ interface StageProps {
   slideHeight: number
   imgWidth: number
   imgHeight: number
+  selectedIndex: number
 }
 
 const Stage: FC<StageProps> = ({
@@ -20,11 +21,14 @@ const Stage: FC<StageProps> = ({
   slideWidth,
   imgWidth,
   imgHeight,
+  selectedIndex,
 }) => {
   const [isLocked, setIsLocked] = useState(false)
   const shakeRef = useRef()
 
   const isReponsive = useMediaQuery("(max-width: 1150px)")
+  const isMobile = useMediaQuery("(max-width: 768px)")
+  const isXs = useMediaQuery("(max-width: 393px)")
 
   useShakeEffect({
     ref: shakeRef,
@@ -36,6 +40,48 @@ const Stage: FC<StageProps> = ({
       setIsLocked(true)
   }, [stageData])
 
+  const getBottomTranslateY = () => {
+    if (isXs) return -30
+    if (isMobile) return -35
+
+    return 0
+  }
+
+  const getTopTranslateY = () => {
+    if (isXs) return 25
+    if (isMobile) return 30
+
+    return 0
+  }
+
+  const getTransform = () => {
+    if (selectedIndex === 15 && stageNumber === 0) {
+      return getBottomTranslateY()
+    }
+
+    if (selectedIndex === 16 && stageNumber === 1) {
+      return getBottomTranslateY()
+    }
+
+    if (selectedIndex === 0 && stageNumber === 15) {
+      return getTopTranslateY()
+    }
+
+    if (selectedIndex === 1 && stageNumber === 16) {
+      return getTopTranslateY()
+    }
+
+    if (stageNumber === selectedIndex - 2) {
+      return getTopTranslateY()
+    }
+
+    if (stageNumber === selectedIndex + 2) {
+      return getBottomTranslateY()
+    }
+
+    return 0
+  }
+
   return (
     <div
       className="relative
@@ -43,12 +89,16 @@ const Stage: FC<StageProps> = ({
       style={{
         width: `${slideWidth}px`,
         height: `${slideHeight}px`,
+        transform: `translateY(${getTransform()}px)`,
       }}
     >
       <a
-        href={isLocked ? "/#" : stageData.link}
+        href={isLocked ? "/roadmap" : stageData.link}
         target={isLocked ? "_self" : "_blank"}
         rel="noreferrer"
+        onClick={(e) => {
+          if (isLocked) e.preventDefault()
+        }}
       >
         <div
           className="relative z-[1] rounded-[10px] md:!rounded-[20px]
@@ -83,7 +133,7 @@ const Stage: FC<StageProps> = ({
                 lineHeight: isReponsive ? `${(261 / 257) * imgHeight}px` : "261px",
               }}
             >
-              {stageData.date ? stageNumber : "XX"}
+              {stageData.date ? stageNumber + 1 : "XX"}
             </div>
           </div>
 
