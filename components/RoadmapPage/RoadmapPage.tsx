@@ -42,7 +42,7 @@ const RoadmapPage = () => {
 
   return (
     <Layout type="contained">
-      <div className="flex justify-center mt-[100px] md:mt-[150px]">
+      <div className="flex justify-center mt-[100px] md:mt-[90px]">
         <Slider
           className="[&>.swiper-wrapper]:xl:!mt-[280px]
             [&>.swiper-wrapper]:md:!mt-[202px]
