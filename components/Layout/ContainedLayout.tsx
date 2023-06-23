@@ -6,9 +6,7 @@ import Footer from "../Footer/Footer"
 
 function ContainedLayout({ children }: ILayout) {
   return (
-    <div
-      className="min-h-[100vh] w-screen text-black bg-transparent dark:bg-[black] relative overflow-hidden"
-    >
+    <div className="min-h-[100vh] w-screen text-black bg-transparent dark:bg-[black] relative overflow-hidden">
       <div
         className="dark:hidden absolute left-0 top-[0px] z-[1]
           w-full h-[calc(100%+500px)]
