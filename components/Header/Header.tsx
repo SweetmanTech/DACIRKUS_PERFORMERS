@@ -14,7 +14,7 @@ const Header: FC<HeaderProps> = () => {
   const { themeMode } = useTheme()
 
   return (
-    <nav className="fixed top-0 z-50 w-screen p-2 text-black bg-transparent flex justify-center">
+    <nav className="fixed top-0 z-50 w-screen p-2 text-black bg-transparent flex justify-center" id='header_nav_bar'>
       <div className="flex flex-row items-center justify-between w-[1280px] md:px-12 p-3">
         <span className="relative items-center flex-shrink-0 w-20 mr-6 cursor-auto lg:md:mt-6 lg:mt-0 lg:md:w-36 lg:flex">
           <Link href="/">

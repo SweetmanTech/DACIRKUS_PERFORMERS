@@ -13,7 +13,6 @@ import useGradualFadeEffect from "../../hooks/useGradualFade"
 import Popover from "../../shared/Popover"
 import ConnectWallet from "./ConnetWallet"
 import Redeem from "./Redeem"
-import Header from "../Header"
 
 const ClaimPage = () => {
   const [containerRef, { width }] = useMeasure()
@@ -48,7 +47,7 @@ const ClaimPage = () => {
   })
 
   return (
-    <Layout type="noheader">
+    <Layout type="base">
       <div
         className="relative overflow-y-auto min-h-[100vh] overflow-x-hidden z-[1] w-[100vw]"
         ref={containerRef}
@@ -75,7 +74,6 @@ const ClaimPage = () => {
                 : `bottom 0px right -${themeMode === "light" ? 0 : width * 0.04}px`,
             }}
           >
-            <Header />
             <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center pb-[50px] md:pb-0 relative z-[100]">
               <div className="flex justify-center md:hidden">
                 {width && (

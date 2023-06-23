@@ -53,8 +53,8 @@ const Redeem = ({ handleClose }: RedeemProps) => (
             y2="7.2551"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.40625" stop-color="white" />
-            <stop offset="0.578125" stop-color="#8D8DDA" />
+            <stop offset="0.40625" stopColor="white" />
+            <stop offset="0.578125" stopColor="#8D8DDA" />
           </linearGradient>
           <linearGradient
             id="paint1_linear_1383_155"
@@ -64,8 +64,8 @@ const Redeem = ({ handleClose }: RedeemProps) => (
             y2="7.25506"
             gradientUnits="userSpaceOnUse"
           >
-            <stop offset="0.40625" stop-color="white" />
-            <stop offset="0.578125" stop-color="#8D8DDA" />
+            <stop offset="0.40625" stopColor="white" />
+            <stop offset="0.578125" stopColor="#8D8DDA" />
           </linearGradient>
         </defs>
       </svg>
