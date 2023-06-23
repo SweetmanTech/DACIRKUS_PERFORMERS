@@ -43,7 +43,11 @@ export const Button: FC<ButtonProps> = ({ id, children, className, onClick, hasD
     <button
       id={id}
       type="button"
-      className={`${id}_all hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)] ${className || ''}`}
+      className={`${id}_all hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand 
+        uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] 
+        shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)]
+        flex items-center justify-center gap-[10px]
+        ${className || ''}`}
       onClick={onClick}
       onMouseOver={ hoverEvent }
       onMouseOut={ leaveEvent }

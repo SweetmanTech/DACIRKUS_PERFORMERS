@@ -18,23 +18,37 @@ export default function Popover({
 }: PopoverProps) {
   const [openModal, setOpenModal] = useState(false)
 
+  const toggleHeaderEvents = (ev: 'all' | 'none') => {
+    const headerRef = document.getElementById('header_nav_bar')
+    headerRef.style.pointerEvents = ev
+  }
+
   const toggleModal = () => {
-    if (openModal) return setOpenModal(false)
+    if (openModal) {
+      setOpenModal(false)
+      toggleHeaderEvents('all')
+
+      return
+    }
     setOpenModal(prev => !prev)
+    toggleHeaderEvents('none')
   }
 
   const { ref: modalRef } = useClickOutside({
     id,
     shouldRegister: openModal,
-    onOutsideClick: () => setOpenModal(false)
+    onOutsideClick: () => {
+      setOpenModal(false)
+      toggleHeaderEvents('all')
+    }
   })
 
   return (
-    <div className='relative z-[10]' ref={modalRef}>
+    <div className='relative z-[52]' ref={modalRef}>
       <div onClick={toggleModal}>{children && children[0]}</div>
       {openModal && (
         <div
-          className={`${className || ''} fixed w-[100vw] h-[100vh] top-0 left-0 flex justify-center items-center`}
+          className={`${className || ''} fixed w-screen h-[100vh] top-0 left-0 flex justify-center items-center z-[51]`}
           id={id}
         >
           {children &&
