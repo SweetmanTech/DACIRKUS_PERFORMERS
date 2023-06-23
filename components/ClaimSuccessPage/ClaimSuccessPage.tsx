@@ -1,6 +1,6 @@
 import { useMeasure } from "react-use"
 import { useRef } from "react"
-import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
+import { useMediaQuery } from "usehooks-ts"
 import Image from "next/image"
 import Layout from "../Layout"
 import SectionTitle from "../LandingPage/SectionTitle"
@@ -9,13 +9,11 @@ import { Button } from "../../shared/Button"
 import Media from "../../shared/Media"
 import Footer from "../Footer"
 import { useTheme } from "../../providers/ThemeProvider"
-import useGradualFadeEffect from "../../hooks/useGradualFade"
 
 const ClaimSuccessPage = () => {
   const [containerRef, { width }] = useMeasure()
 
   const isResponsive = useMediaQuery("(max-width: 1429px)")
-  const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
   const isMobile = useMediaQuery("(max-width: 768px)")
 
   const { themeMode } = useTheme()
@@ -23,24 +21,6 @@ const ClaimSuccessPage = () => {
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
-
-  useGradualFadeEffect({
-    elements: [
-      {
-        domObject: contentRef.current,
-        type: "child",
-      },
-      {
-        domObject: titleRef.current,
-        type: "child",
-      },
-      {
-        domObject: buttonRef.current,
-        type: "child",
-      },
-    ],
-    isScrollUp,
-  })
 
   return (
     <Layout type="base">
@@ -87,15 +67,15 @@ const ClaimSuccessPage = () => {
                       text="Congratulations! Passport Minted"
                       className="!mx-[0px] !mt-6 !mb-4 xs:!mx-0 sm:!m-6 w-[290px] samsungS8:w-[375px] 
                         !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left 
-                        md:leading-[105.3%]"
+                        md:leading-[106.3%]"
                     />
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
                     <SectionContent
                       className="w-[290px] samsungS8:w-[375px] 
-                      md:w-[550px] !m-[8px] !mt-[30px] sm:!mt-[20px] md:!mt-[30px] md:text-left"
+                      md:w-[550px] !m-[8px] !mt-[30px] sm:!mt-[20px] md:!mt-[0px] md:text-left"
                     >
-                      <div className="px-0 sm:pl-4 font-medium">
+                      <div className="px-0 font-medium">
                         {isMobile ? (
                           <>
                             Welcome to Cre8ors, a next-gen media
@@ -120,14 +100,15 @@ const ClaimSuccessPage = () => {
                       </div>
                     </SectionContent>
                   </div>
-                  <div className="!px-0 sm:!pl-12 flex justify-center md:justify-start md:mt-[15px]">
+                  <div className="!px-0 sm:!pl-6 flex justify-center md:justify-start md:mt-[15px]">
                     <div
                       ref={buttonRef}
                       className="flex flex-col md:flex-row items-center md:gap-[15px]"
                     >
                       <Button
                         id="follow_for_btn"
-                        className="mt-[20px] md:mt-[40px] md:mt-0 py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
+                        className="mt-[20px] md:mt-[40px] py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
+                        onClick={() => window.open('https://twitter.com/Cre8orsNFT', "_blank")}
                       >
                         <Image
                           src={
@@ -143,7 +124,8 @@ const ClaimSuccessPage = () => {
                       </Button>
                       <Button
                         id="view_passport_btn"
-                        className="mt-[20px] md:mt-[40px] md:mt-0 py-0 h-[49px] w-[291px] md:w-[284px] !px-0"
+                        className="mt-[20px] md:mt-[40px] py-0 h-[49px] w-[291px] md:w-[284px] !px-0"
+                        onClick={() => window.open('https://opensea.io/collection/cre8ors-passports', "_blank")}
                       >
                         <Image
                           src={
@@ -176,7 +158,7 @@ const ClaimSuccessPage = () => {
                     </div>
                   </div>
                 </div>
-                <div className="justify-center md:flex hidden md:translate-y-[-5px]">
+                <div className="justify-center md:flex hidden md:translate-y-[-30px]">
                   {width && (
                     <Media
                       type="image"
