@@ -1,7 +1,7 @@
 import { useMeasure } from "react-use"
 import { useRef } from "react"
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
-import { useSigner } from "wagmi"
+import Image from "next/image"
 import Layout from "../Layout"
 import SectionTitle from "../LandingPage/SectionTitle"
 import SectionContent from "../LandingPage/SectionContent"
@@ -10,13 +10,9 @@ import Media from "../../shared/Media"
 import Footer from "../Footer"
 import { useTheme } from "../../providers/ThemeProvider"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
-import Popover from "../../shared/Popover"
-// import ConnectWallet from "./ConnetWallet"
-// import Redeem from "./Redeem"
 
 const ClaimSuccessPage = () => {
   const [containerRef, { width }] = useMeasure()
-  const { data: signer } = useSigner()
 
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
@@ -74,17 +70,13 @@ const ClaimSuccessPage = () => {
                 : `bottom 0px right -${themeMode === "light" ? 0 : width * 0.04}px`,
             }}
           >
-            <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center pb-[50px] md:pb-0">
-              <div className="flex justify-center md:hidden">
+            <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center pb-[10px] md:pb-[50px] md:pb-0">
+              <div className="flex justify-center md:hidden mb-[10px]">
                 {width && (
                   <Media
                     type="image"
-                    link="/assets/Claim/ticket.svg"
-                    containerClasses="rounded-[10px] overflow-hidden z-[1]"
-                    containerStyle={{
-                      width: isResponsive ? `${(width / 430) * 264}px` : "458px",
-                      height: isResponsive ? `${(width / 430) * 300}px` : "521px",
-                    }}
+                    link="/assets/Claim/Success/pass.svg"
+                    containerClasses="rounded-[10px] overflow-hidden z-[1] w-[273px] h-[273px]"
                   />
                 )}
               </div>
@@ -92,55 +84,107 @@ const ClaimSuccessPage = () => {
                 <div className="flex flex-col justify-center">
                   <div ref={titleRef}>
                     <SectionTitle
-                      text="Exchange Ticket, Redeem Passport"
-                      className="mx-[8px] xs:m-6 w-[290px] samsungS8:w-[330px] 
-                        !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left mb-4
-                        md:leading-[102.3%]"
+                      text="Congratulations! Passport Minted"
+                      className="!mx-[0px] !mt-6 !mb-4 xs:!mx-0 sm:!m-6 w-[290px] samsungS8:w-[375px] 
+                        !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left 
+                        md:leading-[105.3%]"
                     />
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
-                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[45px] md:text-left">
-                      <div className="pl-0 xs:pl-4">
-                        1. Connect wallet
-                        <br />
-                        2. Exchange ticket
-                        <br />
-                        3. Get Passport
-                        <br />
+                    <SectionContent
+                      className="w-[290px] samsungS8:w-[375px] 
+                      md:w-[550px] !m-[8px] !mt-[30px] sm:!mt-[20px] md:!mt-[30px] md:text-left"
+                    >
+                      <div className="px-0 sm:pl-4 font-medium">
+                        {isMobile ? (
+                          <>
+                            Welcome to Cre8ors, a next-gen media
+                            <br />
+                            brand powered by our curated collective
+                            <br />
+                            of web3 creators, IP co-creation protocols
+                            <br />
+                            and AI-enabled NFTs. You&apos;re one of 888
+                            <br />
+                            passport holders.
+                          </>
+                        ) : (
+                          <>
+                            Welcome to Cre8ors, a next-gen media brand powered by our
+                            <br />
+                            curated collective of web3 creators, IP co-creation protocols
+                            <br />
+                            and AI-enabled NFTs. You&apos;re one of 888 passport holders.
+                          </>
+                        )}
                       </div>
                     </SectionContent>
                   </div>
-                  <div className="px-12 flex justify-center md:justify-start md:mt-[15px]">
-                    <Popover className="w-full" id="connect_popver_claim">
-                      <div ref={buttonRef}>
-                        <Button
-                          id="redeem_passport_btn"
-                          className="mt-[20px] md:mt-[40px] md:mt-0 lg:px-[70px]"
-                        >
-                          Redeem Passport
-                        </Button>
-                      </div>
-                      {({ toggleModal }) => (
-                        <div>
-                          {/* {signer ? (
-                            <Redeem handleClose={toggleModal} />
-                          ) : (
-                            <ConnectWallet handleClose={toggleModal} />
-                          )} */}
-                        </div>
-                      )}
-                    </Popover>
+                  <div className="!px-0 sm:!pl-12 flex justify-center md:justify-start md:mt-[15px]">
+                    <div
+                      ref={buttonRef}
+                      className="flex flex-col md:flex-row items-center md:gap-[15px]"
+                    >
+                      <Button
+                        id="follow_for_btn"
+                        className="mt-[20px] md:mt-[40px] md:mt-0 py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
+                      >
+                        <Image
+                          src={
+                            themeMode === "light"
+                              ? "/assets/Claim/Success/twitter.svg"
+                              : "/assets/Claim/Success/dark_twitter.svg"
+                          }
+                          width={21}
+                          height={17}
+                          alt="not found image"
+                        />
+                        Follow For Updates
+                      </Button>
+                      <Button
+                        id="view_passport_btn"
+                        className="mt-[20px] md:mt-[40px] md:mt-0 py-0 h-[49px] w-[291px] md:w-[284px] !px-0"
+                      >
+                        <Image
+                          src={
+                            themeMode === "light"
+                              ? "/assets/Claim/Success/opensea.svg"
+                              : "/assets/Claim/Success/dark_opensea.svg"
+                          }
+                          width={themeMode === "light" ? 33 : 34}
+                          height={themeMode === "light" ? 33 : 34}
+                          alt="not found  image"
+                        />
+                        View Passport
+                      </Button>
+                      <Button
+                        id="follow_for_btn"
+                        className="mt-[20px] md:mt-[40px] md:mt-0 py-0 h-[49px] w-[291px] !px-0 md:hidden"
+                      >
+                        <Image
+                          src={
+                            themeMode === "light"
+                              ? "/assets/Claim/Success/twitter.svg"
+                              : "/assets/Claim/Success/dark_twitter.svg"
+                          }
+                          width={21}
+                          height={17}
+                          alt="not found image"
+                        />
+                        Follow For Updates
+                      </Button>
+                    </div>
                   </div>
                 </div>
-                <div className="justify-center md:flex hidden md:translate-y-[30px]">
+                <div className="justify-center md:flex hidden md:translate-y-[-5px]">
                   {width && (
                     <Media
                       type="image"
-                      link="/assets/Claim/ticket.svg"
+                      link="/assets/Claim/Success/pass.svg"
                       containerClasses="rounded-[10px] overflow-hidden z-[1]"
                       containerStyle={{
-                        width: isResponsive ? `${(width / 1440) * 458}px` : "458px",
-                        height: isResponsive ? `${(width / 1440) * 521}px` : "521px",
+                        width: isResponsive ? `${(width / 1440) * 465}px` : "465px",
+                        height: isResponsive ? `${(width / 1440) * 464}px` : "464px",
                       }}
                     />
                   )}
