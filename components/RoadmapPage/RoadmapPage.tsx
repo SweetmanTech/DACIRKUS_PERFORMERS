@@ -42,7 +42,13 @@ const RoadmapPage = () => {
 
   return (
     <Layout type="contained">
-      <div className="flex justify-center mt-[100px] md:mt-[90px]">
+      <div
+        className="flex justify-center"
+        style={{
+          // eslint-disable-next-line no-nested-ternary
+          marginTop: isResponsive ? (isIphone ? "40px" : "30px") : "30px",
+        }}
+      >
         <Slider
           className="[&>.swiper-wrapper]:xl:!mt-[280px]
             [&>.swiper-wrapper]:md:!mt-[202px]
