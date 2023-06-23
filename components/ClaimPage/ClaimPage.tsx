@@ -99,8 +99,8 @@ const ClaimPage = () => {
                     />
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
-                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[45px] md:text-left">
-                      <div className="pl-0 xs:pl-4">
+                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[55px] md:text-left">
+                      <div className="pl-0 xs:pl-4 font-medium">
                         1. Connect wallet
                         <br />
                         2. Exchange ticket
@@ -132,7 +132,7 @@ const ClaimPage = () => {
                     </Popover>
                   </div>
                 </div>
-                <div className="justify-center md:flex hidden md:translate-y-[30px]">
+                <div className="justify-center md:flex hidden md:translate-y-[35px]">
                   {width && (
                     <Media
                       type="image"
