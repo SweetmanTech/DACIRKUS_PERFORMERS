@@ -94,12 +94,12 @@ const ClaimPage = () => {
                     <SectionTitle
                       text="Exchange Ticket, Redeem Passport"
                       className="mx-[8px] xs:m-6 w-[290px] samsungS8:w-[330px] 
-                        !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left mb-4
-                        md:leading-[102.3%]"
+                      !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left mb-4
+                      md:leading-[102.3%]"
                     />
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
-                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[55px] md:text-left">
+                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[45px] md:text-left">
                       <div className="pl-0 xs:pl-4 font-medium">
                         1. Connect wallet
                         <br />
@@ -132,7 +132,7 @@ const ClaimPage = () => {
                     </Popover>
                   </div>
                 </div>
-                <div className="justify-center md:flex hidden md:translate-y-[35px]">
+                <div className="justify-center md:flex hidden md:translate-y-[30px]">
                   {width && (
                     <Media
                       type="image"
