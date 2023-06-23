@@ -1,5 +1,5 @@
-import { Button } from "../../shared/Button"
 import Media from "../../shared/Media"
+import { Button } from "../../shared/Button"
 
 interface RedeemProps {
   handleClose: () => void
