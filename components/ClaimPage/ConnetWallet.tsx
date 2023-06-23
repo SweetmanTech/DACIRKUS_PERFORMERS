@@ -35,7 +35,7 @@ const ConnectWallet = ({ handleClose }: ConnectWalletProps) => (
       id="cross_mint_btn_in_redeem"
       className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
     >
-      Cross Mint
+      Crossmint
     </Button>
   </div>
 )
