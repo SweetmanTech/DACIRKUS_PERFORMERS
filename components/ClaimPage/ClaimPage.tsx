@@ -20,6 +20,7 @@ const ClaimPage = () => {
 
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
+  const isMobile = useMediaQuery("(max-width: 768px)")
 
   const { themeMode } = useTheme()
 
@@ -56,10 +57,14 @@ const ClaimPage = () => {
             className="relative z-[6] flex flex-col items-center pt-[80px]"
             style={{
               width: `${width}px`,
-              height: isResponsive ? `100vh` : `${(1048 / 1579) * width}px`,
+              height: isResponsive ? `auto` : `${(1048 / 1579) * width}px`,
+              minHeight: isResponsive ? "100vh" : "",
               backgroundImage:
+                // eslint-disable-next-line no-nested-ternary
                 themeMode === "light"
                   ? "url('/assets/Claim/white_background.svg')"
+                  : isMobile
+                  ? "url('/assets/Claim/mobile_dark_background.svg')"
                   : "url('/assets/Claim/background.svg')",
               backgroundSize: isResponsive
                 ? `cover`
@@ -69,7 +74,7 @@ const ClaimPage = () => {
                 : `bottom 0px right -${themeMode === "light" ? 0 : width * 0.04}px`,
             }}
           >
-            <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center">
+            <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center pb-[50px] md:pb-0">
               <div className="flex justify-center md:hidden">
                 {width && (
                   <Media
@@ -92,7 +97,7 @@ const ClaimPage = () => {
                     />
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
-                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[40px] md:mt-12 md:text-left">
+                    <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-12 md:text-left">
                       <div className="pl-0 xs:pl-4">
                         1. Connect wallet
                         <br />
@@ -106,7 +111,10 @@ const ClaimPage = () => {
                   <div className="px-12 flex justify-center md:justify-start">
                     <Popover className="w-full" id="connect_popver_claim">
                       <div ref={buttonRef}>
-                        <Button id="redeem_passport_btn" className="mt-[40px] md:mt-0 lg:px-[70px]">
+                        <Button
+                          id="redeem_passport_btn"
+                          className="mt-[20px] md:mt-[40px] md:mt-0 lg:px-[70px]"
+                        >
                           Redeem Passport
                         </Button>
                       </div>
@@ -137,7 +145,7 @@ const ClaimPage = () => {
                 </div>
               </div>
             </div>
-            <Footer className="mt-0 pt-6 !bg-transparent" />
+            <Footer className="!pt-0 !bg-transparent" />
           </div>
         )}
       </div>
