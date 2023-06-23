@@ -8,7 +8,7 @@ import NoHeaderLayout from "./NoHeaderLayout"
 const layoutContainers = {
   base: BaseLayout,
   contained: ContainedLayout,
-  noheader: NoHeaderLayout
+  noheader: NoHeaderLayout,
 }
 
 interface ILayoutFactory extends ILayout {
