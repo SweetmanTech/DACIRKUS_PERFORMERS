@@ -108,7 +108,7 @@ const ClaimSuccessPage = () => {
                       <Button
                         id="follow_for_btn"
                         className="mt-[20px] md:mt-[40px] py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
-                        onClick={() => window.open('https://twitter.com/Cre8orsNFT', "_blank")}
+                        onClick={() => window.open("https://twitter.com/Cre8orsNFT", "_blank")}
                       >
                         <Image
                           src={
@@ -125,7 +125,9 @@ const ClaimSuccessPage = () => {
                       <Button
                         id="view_passport_btn"
                         className="mt-[20px] md:mt-[40px] py-0 h-[49px] w-[291px] md:w-[284px] !px-0"
-                        onClick={() => window.open('https://opensea.io/collection/cre8ors-passports', "_blank")}
+                        onClick={() =>
+                          window.open("https://opensea.io/collection/cre8ors-passports", "_blank")
+                        }
                       >
                         <Image
                           src={
