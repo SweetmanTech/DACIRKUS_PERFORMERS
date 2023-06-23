@@ -14,9 +14,11 @@ const Redeem = ({ handleClose }: RedeemProps) => (
             shadow-[0px_5px_9px_rgba(0,0,0,0.25)]
             rounded-[20px] flex flex-col justify-center items-center gap-[20px] relative"
   >
-    <div className="bg-[black] absolute top-[10px] right-[10px] w-6 h-6 m-2 rounded-full cursor-pointer
-      flex justify-center items-center">
-    <svg
+    <div
+      className="bg-[black] absolute top-[10px] right-[10px] w-6 h-6 m-2 rounded-full cursor-pointer
+      flex justify-center items-center"
+    >
+      <svg
         width="13"
         height="12"
         viewBox="0 0 13 12"
