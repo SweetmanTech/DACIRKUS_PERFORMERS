@@ -7,7 +7,10 @@ interface ConnectWalletProps {
 
 const ConnectWallet = ({ handleClose }: ConnectWalletProps) => (
   <div
-    className="bg-[url('/assets/Common/popup.svg')] w-full m-6 md:w-[400px] h-[400px] samsungS8:h-[500px] md:h-[600px] bg-center shadow-[0px_5px_9px_rgba(0,0,0,0.25)]
+    className="bg-[url('/assets/Common/popup.svg')] w-full 
+            p-4 m-0 w-[290px] samsungS8:m-6 samsungS8:w-[340px] md:w-[400px] 
+            h-[400px] samsungS8:h-[500px] md:h-[600px] 
+            bg-center shadow-[0px_5px_9px_rgba(0,0,0,0.25)]
             rounded-[20px] flex flex-col justify-center items-center gap-[35px] relative"
   >
     <div

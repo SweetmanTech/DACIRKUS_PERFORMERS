@@ -34,7 +34,7 @@ export default function Popover({
       <div onClick={toggleModal}>{children && children[0]}</div>
       {openModal && (
         <div
-          className={`${className || ''} fixed w-[100vw] h-[100vh] top-0 left-0 flex justify-center items-center`}
+          className={`${className || ''} fixed w-[100vw] h-[100vh] top-0 left-0 flex justify-center items-center z-[9999]`}
           id={id}
         >
           {children &&
