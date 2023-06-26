@@ -50,7 +50,7 @@ const ClaimSuccessPage = () => {
                 : `bottom 0px right -${themeMode === "light" ? 0 : width * 0.04}px`,
             }}
           >
-            <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center pb-[10px] md:pb-[50px] md:pb-0">
+            <div className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center pb-[10px] md:pb-[50px]">
               <div className="flex justify-center md:hidden mb-[10px]">
                 {width && (
                   <Media
@@ -60,7 +60,7 @@ const ClaimSuccessPage = () => {
                   />
                 )}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                 <div className="flex flex-col justify-center">
                   <div ref={titleRef}>
                     <SectionTitle
@@ -143,7 +143,7 @@ const ClaimSuccessPage = () => {
                       </Button>
                       <Button
                         id="follow_for_btn"
-                        className="mt-[20px] md:mt-[40px] md:mt-0 py-0 h-[49px] w-[291px] !px-0 md:hidden"
+                        className="mt-[20px] md:mt-[40px] py-0 h-[49px] w-[291px] !px-0 md:hidden"
                       >
                         <Image
                           src={

@@ -1,5 +1,5 @@
 import { useMeasure } from "react-use"
-import { useRef } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
 import { useSigner, useAccount } from "wagmi"
 import Layout from "../Layout"
@@ -13,13 +13,13 @@ import useGradualFadeEffect from "../../hooks/useGradualFade"
 import Popover from "../../shared/Popover"
 import ConnectWallet from "./ConnetWallet"
 import Redeem from "./Redeem"
+import { getLatestClaimTicket } from "../../lib/alchemy/getClaimTickets"
+import NoTicket from "./NoTicket"
 
 const ClaimPage = () => {
   const { address } = useAccount()
-  console.log(address)
   const [containerRef, { width }] = useMeasure()
-  const { data: signer } = useSigner()
-
+  const [latestClaimTicketId, setLatestClaimTicketId] = useState<number | string>(null)
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
   const isMobile = useMediaQuery("(max-width: 768px)")
@@ -29,6 +29,25 @@ const ClaimPage = () => {
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
+
+  const canBurnClaimTicket = useMemo(
+    () => address && latestClaimTicketId !== null,
+    [latestClaimTicketId, address],
+  )
+
+  const hasNoClaimTicket = useMemo(
+    () => address && latestClaimTicketId === null,
+    [latestClaimTicketId, address],
+  )
+  const getLatestClaimTicketId = useCallback(async () => {
+    if (!address) return
+    const lastestClaimTicketData = await getLatestClaimTicket(address)
+    setLatestClaimTicketId(lastestClaimTicketData?.tokenId || null)
+  }, [address])
+
+  useEffect(() => {
+    getLatestClaimTicketId()
+  }, [getLatestClaimTicketId])
 
   useGradualFadeEffect({
     elements: [
@@ -124,11 +143,9 @@ const ClaimPage = () => {
                       </div>
                       {({ toggleModal }) => (
                         <div>
-                          {signer ? (
-                            <Redeem handleClose={toggleModal} />
-                          ) : (
-                            <ConnectWallet handleClose={toggleModal} />
-                          )}
+                          {canBurnClaimTicket && <Redeem handleClose={toggleModal} />}
+                          {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}
+                          {!address && <ConnectWallet handleClose={toggleModal} />}
                         </div>
                       )}
                     </Popover>
