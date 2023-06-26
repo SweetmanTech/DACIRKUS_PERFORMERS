@@ -1,7 +1,7 @@
 import { useMeasure } from "react-use"
 import { useRef } from "react"
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
-import { useSigner } from "wagmi"
+import { useSigner, useAccount } from "wagmi"
 import Layout from "../Layout"
 import SectionTitle from "../LandingPage/SectionTitle"
 import SectionContent from "../LandingPage/SectionContent"
@@ -15,6 +15,8 @@ import ConnectWallet from "./ConnetWallet"
 import Redeem from "./Redeem"
 
 const ClaimPage = () => {
+  const { address } = useAccount()
+  console.log(address)
   const [containerRef, { width }] = useMeasure()
   const { data: signer } = useSigner()
 
@@ -88,7 +90,7 @@ const ClaimPage = () => {
                   />
                 )}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                 <div className="flex flex-col justify-center">
                   <div ref={titleRef}>
                     <SectionTitle
@@ -100,7 +102,7 @@ const ClaimPage = () => {
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
                     <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[55px] md:text-left">
-                      <div className="pl-0 xs:pl-4 font-medium">
+                      <div className="pl-0 font-medium xs:pl-4">
                         1. Connect wallet
                         <br />
                         2. Exchange ticket
@@ -115,7 +117,7 @@ const ClaimPage = () => {
                       <div ref={buttonRef}>
                         <Button
                           id="redeem_passport_btn"
-                          className="mt-[20px] md:mt-[40px] md:mt-0 lg:px-[70px]"
+                          className="mt-[20px] md:mt-[40px] lg:px-[70px]"
                         >
                           Redeem Passport
                         </Button>
