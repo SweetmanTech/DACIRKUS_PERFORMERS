@@ -15,21 +15,44 @@ import ConnectWallet from "./ConnetWallet"
 import Redeem from "./Redeem"
 import { getLatestClaimTicket } from "../../lib/alchemy/getClaimTickets"
 import NoTicket from "./NoTicket"
+import claimTicketAbi from "../../lib/abi-cre8ors.json"
+import claimExchangeAbi from "../../lib/abi-passport-adapter.json"
+import { approveClaimTicket, exchangeClaimTicket } from "../../lib/exchange"
 
 const ClaimPage = () => {
   const { address } = useAccount()
+  const { data: signer } = useSigner()
   const [containerRef, { width }] = useMeasure()
   const [latestClaimTicketId, setLatestClaimTicketId] = useState<number | string>(null)
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
   const isMobile = useMediaQuery("(max-width: 768px)")
-
+  const [loading, setLoading] = useState(false)
   const { themeMode } = useTheme()
 
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
 
+  const handleApprove = async () => {
+    setLoading(true)
+    try {
+      await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+    } catch (error) {
+      console.log(error)
+    }
+    setLoading(false)
+  }
+
+  const handleRedeem = async () => {
+    setLoading(true)
+    try {
+      await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
+    } catch (error) {
+      console.log(error)
+    }
+    setLoading(false)
+  }
   const canBurnClaimTicket = useMemo(
     () => address && latestClaimTicketId !== null,
     [latestClaimTicketId, address],
@@ -143,7 +166,14 @@ const ClaimPage = () => {
                       </div>
                       {({ toggleModal }) => (
                         <div>
-                          {canBurnClaimTicket && <Redeem handleClose={toggleModal} />}
+                          {canBurnClaimTicket && (
+                            <Redeem
+                              handleClose={toggleModal}
+                              handleApprove={handleApprove}
+                              handleRedeem={handleRedeem}
+                              loading={loading}
+                            />
+                          )}
                           {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}
                           {!address && <ConnectWallet handleClose={toggleModal} />}
                         </div>

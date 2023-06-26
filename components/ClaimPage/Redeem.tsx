@@ -3,9 +3,12 @@ import { Button } from "../../shared/Button"
 
 interface RedeemProps {
   handleClose: () => void
+  handleApprove?: () => void
+  handleRedeem?: () => void
+  loading?: boolean
 }
 
-const Redeem = ({ handleClose }: RedeemProps) => (
+const Redeem = ({ handleClose, handleApprove, handleRedeem, loading }: RedeemProps) => (
   <div
     className="bg-[url('/assets/Common/popup.svg')] 
             p-4 m-0 w-[290px] samsungS8:m-6 samsungS8:w-[340px] md:w-[400px] 
@@ -83,6 +86,7 @@ const Redeem = ({ handleClose }: RedeemProps) => (
     <Button
       id="go_btn_in_redeem"
       className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
+      onClick={() => handleApprove()}
     >
       Go
     </Button>
