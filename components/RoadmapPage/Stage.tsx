@@ -50,8 +50,12 @@ const Stage: FC<StageProps> = ({
   })
 
   useEffect(() => {
-    if (new Date(stageData.date).getTime() - new Date().getTime() > 0 || !stageData.date)
+    if (new Date(stageData.date).getTime() - new Date().getTime() >= 0 || !stageData.date) {
       setIsLocked(true)
+      return
+    }
+
+    setIsLocked(false)
   }, [stageData])
 
   const getBottomTranslateY = () => {

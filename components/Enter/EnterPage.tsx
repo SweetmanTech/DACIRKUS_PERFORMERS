@@ -5,6 +5,8 @@ import { useRouter } from "next/router"
 import { Button } from "../../shared/Button"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
 import useFadeIntersection from "../../hooks/useFadeIntersection"
+import Redeem from "../ClaimPage/Redeem"
+import Popover from "../../shared/Popover"
 
 const EnterPage = () => {
   const [loaded, setLoaded] = useState(false)
@@ -13,6 +15,13 @@ const EnterPage = () => {
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
+
+  const currentTime = new Date().getTime()
+  const shipDay = "30 Jun 2023 09:00:00 UTC"
+  const alertEndDay = "2 Jul 2023 09:00:00 UTC"
+
+  const shouldOpenModal =
+    currentTime >= new Date(shipDay).getTime() && new Date(alertEndDay).getTime() >= currentTime
 
   useFadeIntersection({
     ref: titleRef,
@@ -88,6 +97,10 @@ const EnterPage = () => {
       >
         <Image src="/assets/Common/loading.svg" width={64} height={64} alt="not found image" />
       </div>
+      <Popover className="w-full" id="connect_popver_claim" open={shouldOpenModal}>
+        <div />
+        {({ toggleModal }) => <Redeem handleClose={toggleModal} />}
+      </Popover>
     </div>
   )
 }

@@ -83,6 +83,7 @@ const Redeem = ({ handleClose }: RedeemProps) => (
     <Button
       id="go_btn_in_redeem"
       className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
+      onClick={() => window.open("/claim", "_self")}
     >
       Go
     </Button>
