@@ -4,25 +4,14 @@ import { Button } from "../../shared/Button"
 
 interface RedeemProps {
   handleClose: () => void
-  handleApprove?: () => void
-  handleRedeem?: () => void
+  handleMinting?: () => void
   loading?: boolean
-  approved?: boolean
-  redeemed?: boolean
+  minted?: boolean
 }
 
-const Redeem: FC<RedeemProps> = ({
-  handleClose,
-  handleApprove,
-  handleRedeem,
-  loading,
-  approved,
-  redeemed,
-}) => {
+const Redeem: FC<RedeemProps> = ({ handleClose, handleMinting, loading, minted }) => {
   const displayText = () => {
-    if (approved && !redeemed) return "Redeem"
-    if (loading && !approved && !redeemed) return "Approving..."
-    if (loading && approved && !redeemed) return "Redeeming..."
+    if (loading && !minted) return "Redeeming..."
     return "Go"
   }
 
@@ -104,10 +93,7 @@ const Redeem: FC<RedeemProps> = ({
       <Button
         id="go_btn_in_redeem"
         className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
-        onClick={() => {
-          if (approved && !redeemed) return handleRedeem()
-          return handleApprove()
-        }}
+        onClick={handleMinting}
         disabled={loading}
       >
         {displayText()}

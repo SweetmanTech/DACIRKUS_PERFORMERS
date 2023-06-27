@@ -33,35 +33,25 @@ const ClaimPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const [loading, setLoading] = useState(false)
   const { themeMode } = useTheme()
-  const [approved, setApproved] = useState(false)
-  const [redeemed, setRedeemed] = useState(false)
+  const [minted, setMinted] = useState(false)
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
 
-  const handleApprove = async () => {
+  const handleBurnAndMint = async () => {
     if (!signer) return
     setLoading(true)
     try {
       await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
-      setApproved(true)
-    } catch (error) {
-      log.error(error)
-    }
-    setLoading(false)
-  }
-
-  const handleRedeem = async () => {
-    setLoading(true)
-    try {
       await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
-      setRedeemed(true)
+      setMinted(true)
       router.push("/claim/success")
     } catch (error) {
       log.error(error)
     }
     setLoading(false)
   }
+
   const canBurnClaimTicket = useMemo(
     () => address && latestClaimTicketId !== null,
     [latestClaimTicketId, address],
@@ -178,11 +168,9 @@ const ClaimPage = () => {
                           {canBurnClaimTicket && (
                             <Redeem
                               handleClose={toggleModal}
-                              handleApprove={handleApprove}
-                              handleRedeem={handleRedeem}
+                              handleMinting={handleBurnAndMint}
                               loading={loading}
-                              redeemed={redeemed}
-                              approved={approved}
+                              minted={minted}
                             />
                           )}
                           {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}
