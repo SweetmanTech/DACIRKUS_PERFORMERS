@@ -7,10 +7,8 @@ export const approveClaimTicket = async (
   abi: ContractInterface,
   claimTicketId: number | string,
 ) => {
-  log.debug("approveClaimTicketFX", claimTicketId)
   const contract = new Contract(process.env.NEXT_PUBLIC_CRE8ORS_CLAIM_TICKET_ADDRESS, abi, signer)
   try {
-    log.debug("starting transaction")
     const tx = await contract.approve(
       process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS,
       claimTicketId,

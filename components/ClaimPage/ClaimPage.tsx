@@ -43,7 +43,6 @@ const ClaimPage = () => {
     if (!signer) return
     setLoading(true)
     try {
-      log.debug("Approving claim ticket")
       await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
       setApproved(true)
     } catch (error) {
