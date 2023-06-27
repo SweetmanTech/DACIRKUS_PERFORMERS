@@ -2,6 +2,7 @@ import { useMeasure } from "react-use"
 import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
 import { useSigner, useAccount } from "wagmi"
+import { ILogObj, Logger } from "tslog"
 import Layout from "../Layout"
 import SectionTitle from "../LandingPage/SectionTitle"
 import SectionContent from "../LandingPage/SectionContent"
@@ -19,6 +20,7 @@ import claimTicketAbi from "../../lib/abi-cre8ors.json"
 import claimExchangeAbi from "../../lib/abi-passport-adapter.json"
 import { approveClaimTicket, exchangeClaimTicket } from "../../lib/exchange"
 
+const log: Logger<ILogObj> = new Logger({ hideLogPositionForProduction: true })
 const ClaimPage = () => {
   const { address } = useAccount()
   const { data: signer } = useSigner()
@@ -29,17 +31,21 @@ const ClaimPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const [loading, setLoading] = useState(false)
   const { themeMode } = useTheme()
-
+  const [approved, setApproved] = useState(false)
+  const [redeemed, setRedeemed] = useState(false)
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
 
   const handleApprove = async () => {
+    if (!signer) return
     setLoading(true)
     try {
+      log.debug("Approving claim ticket")
       await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+      setApproved(true)
     } catch (error) {
-      console.log(error)
+      log.error(error)
     }
     setLoading(false)
   }
@@ -48,8 +54,10 @@ const ClaimPage = () => {
     setLoading(true)
     try {
       await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
+      setRedeemed(true)
+      setLatestClaimTicketId(null)
     } catch (error) {
-      console.log(error)
+      log.error(error)
     }
     setLoading(false)
   }
@@ -65,7 +73,7 @@ const ClaimPage = () => {
   const getLatestClaimTicketId = useCallback(async () => {
     if (!address) return
     const lastestClaimTicketData = await getLatestClaimTicket(address)
-    setLatestClaimTicketId(lastestClaimTicketData?.tokenId || null)
+    setLatestClaimTicketId(lastestClaimTicketData?.id?.tokenId || null)
   }, [address])
 
   useEffect(() => {
@@ -172,6 +180,8 @@ const ClaimPage = () => {
                               handleApprove={handleApprove}
                               handleRedeem={handleRedeem}
                               loading={loading}
+                              redeemed={redeemed}
+                              approved={approved}
                             />
                           )}
                           {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}
