@@ -58,11 +58,11 @@ const DesktopMenu = () => {
             <a href="https://everythingcorp.cre8ors.com/" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Allowlist</div>
             </a>
-            <Link href="/roadmap" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer text-white dark:text-[black]">Roadmap</div>
-            </Link>
             <Link href="/manifesto" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Manifesto</div>
+            </Link>
+            <Link href="/roadmap" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Roadmap</div>
             </Link>
             <Link href="/leaderboard" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Leaderboard</div>
@@ -80,12 +80,12 @@ const DesktopMenu = () => {
             <Link href="/claim" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Claim</div>
             </Link>
-            <Link href="/teams" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer text-white dark:text-[black]">Team</div>
-            </Link>
             <a href="https://cre8ors.beehiiv.com/" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Blog</div>
             </a>
+            <Link href="/teams" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Team</div>
+            </Link>
             <Link href="/faq" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">FAQ</div>
             </Link>
