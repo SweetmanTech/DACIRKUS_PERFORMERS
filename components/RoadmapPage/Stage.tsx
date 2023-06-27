@@ -1,4 +1,4 @@
-import { FC, useEffect, useState, useRef } from "react"
+import { FC, useRef } from "react"
 import Image from "next/image"
 import { useMediaQuery } from "usehooks-ts"
 import useShakeEffect from "../../hooks/useShakeEffect"
@@ -23,7 +23,6 @@ const Stage: FC<StageProps> = ({
   imgHeight,
   selectedIndex,
 }) => {
-  const [isLocked, setIsLocked] = useState(false)
   const shakeRef = useRef()
 
   const isReponsive = useMediaQuery("(max-width: 1150px)")
@@ -44,17 +43,13 @@ const Stage: FC<StageProps> = ({
     "DECEMBER",
   ]
 
-  useShakeEffect({
-    ref: shakeRef,
-    isEnabled: isLocked || !stageData.date,
-  })
-
   const shouldBeLocked =
     new Date(stageData.date).getTime() - new Date().getTime() >= 0 || !stageData.date
 
-  useEffect(() => {
-    setIsLocked(shouldBeLocked)
-  }, [shouldBeLocked])
+  useShakeEffect({
+    ref: shakeRef,
+    isEnabled: shouldBeLocked || !stageData.date,
+  })
 
   const getBottomTranslateY = () => {
     if (isXs) return -30
@@ -109,11 +104,11 @@ const Stage: FC<StageProps> = ({
       }}
     >
       <a
-        href={isLocked ? "/roadmap" : stageData.link}
-        target={isLocked ? "_self" : "_blank"}
+        href={shouldBeLocked ? "/roadmap" : stageData.link}
+        target={shouldBeLocked ? "_self" : "_blank"}
         rel="noreferrer"
         onClick={(e) => {
-          if (isLocked) e.preventDefault()
+          if (shouldBeLocked) e.preventDefault()
         }}
       >
         <div
@@ -122,14 +117,14 @@ const Stage: FC<StageProps> = ({
                   hover:scale-[1.02] transition duration-[500ms] shake"
           style={{
             backgroundImage: `url('${stageData.backImg}')`,
-            boxShadow: isLocked || !stageData.date ? "0px 0px 8px 4px rgb(0, 0, 0)" : "",
+            boxShadow: shouldBeLocked || !stageData.date ? "0px 0px 8px 4px rgb(0, 0, 0)" : "",
             backgroundSize: `${imgWidth}px ${imgHeight}px`,
             width: `${imgWidth}px`,
             height: `${imgHeight}px`,
           }}
           ref={shakeRef}
         >
-          {isLocked && (
+          {shouldBeLocked && (
             <div className="absolute w-[100%] h-[100%] backdrop-blur-[10px] top-0 left-0 z-[2]  pointer-events-none" />
           )}
           <div
@@ -157,7 +152,7 @@ const Stage: FC<StageProps> = ({
             className="absolute w-[100%] h-[100%] flex items-end
                       left-0 top-0 z-[7] pointer-events-none"
             style={{
-              boxShadow: isLocked || !stageData.date ? "inset 0px 0px 18px 5px" : "",
+              boxShadow: shouldBeLocked || !stageData.date ? "inset 0px 0px 18px 5px" : "",
             }}
           >
             <div
@@ -175,15 +170,19 @@ const Stage: FC<StageProps> = ({
           >
             <Image
               src={
-                isLocked || !stageData.date
+                shouldBeLocked || !stageData.date
                   ? "/assets/Roadmap/lock.svg"
                   : "/assets/Roadmap/unlock.svg"
               }
               width={
-                isLocked || !stageData.date ? (36 / 1065) * slideWidth : (47.44 / 1065) * slideWidth
+                shouldBeLocked || !stageData.date
+                  ? (36 / 1065) * slideWidth
+                  : (47.44 / 1065) * slideWidth
               }
               height={
-                isLocked || !stageData.date ? (47.25 / 1065) * slideWidth : (46 / 1065) * slideWidth
+                shouldBeLocked || !stageData.date
+                  ? (47.25 / 1065) * slideWidth
+                  : (46 / 1065) * slideWidth
               }
               alt="not found image"
             />
