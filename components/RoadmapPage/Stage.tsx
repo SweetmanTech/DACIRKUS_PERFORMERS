@@ -49,14 +49,12 @@ const Stage: FC<StageProps> = ({
     isEnabled: isLocked || !stageData.date,
   })
 
-  useEffect(() => {
-    if (new Date(stageData.date).getTime() - new Date().getTime() >= 0 || !stageData.date) {
-      setIsLocked(true)
-      return
-    }
+  const shouldBeLocked =
+    new Date(stageData.date).getTime() - new Date().getTime() >= 0 || !stageData.date
 
-    setIsLocked(false)
-  }, [stageData])
+  useEffect(() => {
+    setIsLocked(shouldBeLocked)
+  }, [shouldBeLocked])
 
   const getBottomTranslateY = () => {
     if (isXs) return -30
