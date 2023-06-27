@@ -28,6 +28,7 @@ const ClaimPage = () => {
   const { data: signer } = useSigner()
   const [containerRef, { width }] = useMeasure()
   const [latestClaimTicketId, setLatestClaimTicketId] = useState<number | string>(null)
+  const [ticketCount, setTicketCount] = useState(0)
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
   const isMobile = useMediaQuery("(max-width: 768px)")
@@ -58,18 +59,19 @@ const ClaimPage = () => {
   )
 
   const hasNoClaimTicket = useMemo(
-    () => address && latestClaimTicketId === null,
-    [latestClaimTicketId, address],
+    () => address && (latestClaimTicketId === null || ticketCount === 0),
+    [latestClaimTicketId, address, ticketCount],
   )
-  const getLatestClaimTicketId = useCallback(async () => {
+  const getTicketInformation = useCallback(async () => {
     if (!address) return
-    const lastestClaimTicketData = await getLatestClaimTicket(address)
-    setLatestClaimTicketId(lastestClaimTicketData?.id?.tokenId || null)
+    const { ticket: ticketToBurn, noOfTickets } = await getLatestClaimTicket(address)
+    setLatestClaimTicketId(ticketToBurn?.id?.tokenId || null)
+    setTicketCount(noOfTickets)
   }, [address])
 
   useEffect(() => {
-    getLatestClaimTicketId()
-  }, [getLatestClaimTicketId])
+    getTicketInformation()
+  }, [getTicketInformation])
 
   useGradualFadeEffect({
     elements: [
