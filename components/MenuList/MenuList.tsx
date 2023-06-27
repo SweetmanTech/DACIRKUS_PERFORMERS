@@ -42,7 +42,9 @@ const MenuList = ({ toggleMenu }) => {
       </a>
 
       <div className="font-bold dark:text-[black] text-white">Explore</div>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Allowlist</div>
+      <a href="https://everythingcorp.cre8ors.com/" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Allowlist</div>
+      </a>
       <Link href="/roadmap" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Roadmap</div>
       </Link>
