@@ -57,7 +57,7 @@ const ClaimPage = () => {
     try {
       await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
       setRedeemed(true)
-      router.push("/success")
+      router.push("/claim/success")
     } catch (error) {
       log.error(error)
     }

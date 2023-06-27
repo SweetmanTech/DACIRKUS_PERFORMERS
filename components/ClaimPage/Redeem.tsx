@@ -103,7 +103,7 @@ const Redeem: FC<RedeemProps> = ({
       />
       <Button
         id="go_btn_in_redeem"
-        className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
+        className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
         onClick={() => {
           if (approved && !redeemed) return handleRedeem()
           return handleApprove()
