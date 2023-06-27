@@ -3,6 +3,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
 import { useSigner, useAccount } from "wagmi"
 import { ILogObj, Logger } from "tslog"
+import { useRouter } from "next/router"
 import Layout from "../Layout"
 import SectionTitle from "../LandingPage/SectionTitle"
 import SectionContent from "../LandingPage/SectionContent"
@@ -22,6 +23,7 @@ import { approveClaimTicket, exchangeClaimTicket } from "../../lib/exchange"
 
 const log: Logger<ILogObj> = new Logger({ hideLogPositionForProduction: true })
 const ClaimPage = () => {
+  const router = useRouter()
   const { address } = useAccount()
   const { data: signer } = useSigner()
   const [containerRef, { width }] = useMeasure()
@@ -55,7 +57,7 @@ const ClaimPage = () => {
     try {
       await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
       setRedeemed(true)
-      setLatestClaimTicketId(null)
+      router.push("/success")
     } catch (error) {
       log.error(error)
     }
