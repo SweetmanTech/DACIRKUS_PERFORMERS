@@ -6,21 +6,25 @@ interface IPopoverFucChild {
 }
 
 interface PopoverProps {
-id: string
+  id: string
   children?: [ReactNode, (props: IPopoverFucChild) => any]
   className?: string
+  open?: boolean
 }
 
 export default function Popover({
-    id,
+  id,
+  open,
   children,
   className
 }: PopoverProps) {
-  const [openModal, setOpenModal] = useState(false)
+  const [openModal, setOpenModal] = useState(open || false)
 
   const toggleHeaderEvents = (ev: 'all' | 'none') => {
     const headerRef = document.getElementById('header_nav_bar')
-    headerRef.style.pointerEvents = ev
+    if(headerRef?.style) {
+      headerRef.style.pointerEvents = ev
+    }
   }
 
   const toggleModal = () => {

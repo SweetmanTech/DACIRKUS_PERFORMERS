@@ -55,8 +55,14 @@ const DesktopMenu = () => {
         </button>
         {isMenuOpen && (
           <div className="absolute right-0 top-[45px] z-200 inline-flex flex-col items-start uppercase justify-between space-y-4 p-4 bg-[black] dark:bg-white shadow-md rounded-lg  font-quicksand text-sm">
+            <a href="https://everythingcorp.cre8ors.com/" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Allowlist</div>
+            </a>
             <Link href="/manifesto" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Manifesto</div>
+            </Link>
+            <Link href="/roadmap" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Roadmap</div>
             </Link>
             <Link href="/leaderboard" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Leaderboard</div>
@@ -71,19 +77,20 @@ const DesktopMenu = () => {
             <a href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Relics</div>
             </a>
-            <Link href="/teams" target="_blank" rel="noreferrer">
-              <div className="cursor-pointer text-white dark:text-[black]">Team</div>
+            <Link href="/claim" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Claim</div>
             </Link>
             <a href="https://cre8ors.beehiiv.com/" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Blog</div>
             </a>
+            <Link href="/teams" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Team</div>
+            </Link>
             <Link href="/faq" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">FAQ</div>
             </Link>
-            <div className="text-gray-400 cursor-not-allowed">Roadmap</div>
             <div className="text-gray-400 cursor-not-allowed">Profiles</div>
             <div className="text-gray-400 cursor-not-allowed">Warehouse</div>
-            <div className="text-gray-400 cursor-not-allowed ">Allowlist</div>
           </div>
         )}
       </div>

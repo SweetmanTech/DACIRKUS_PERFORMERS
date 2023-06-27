@@ -42,6 +42,12 @@ const MenuList = ({ toggleMenu }) => {
       </a>
 
       <div className="font-bold dark:text-[black] text-white">Explore</div>
+      <a href="https://everythingcorp.cre8ors.com/" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Allowlist</div>
+      </a>
+      <Link href="/roadmap" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Roadmap</div>
+      </Link>
       <Link href="/manifesto" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Manifesto</div>
       </Link>
@@ -54,6 +60,9 @@ const MenuList = ({ toggleMenu }) => {
       <a href="https://opensea.io/collection/cre8ors-relics" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Relics</div>
       </a>
+      <Link href="/claim" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Claim</div>
+      </Link>
       <Link href="/teams" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Team</div>
       </Link>
@@ -63,10 +72,8 @@ const MenuList = ({ toggleMenu }) => {
       <Link href="/faq" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">FAQ</div>
       </Link>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Roadmap</div>
       <div className="ml-4 text-gray-400 cursor-not-allowed">Profiles</div>
       <div className="ml-4 text-gray-400 cursor-not-allowed">Warehouse</div>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Allowlist</div>
       <CustomConnectWallet />
       <div className="flex flex-row justify-around items-center">
         <DiscordIcon />
