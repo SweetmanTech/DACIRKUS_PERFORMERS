@@ -1,4 +1,5 @@
-import { allChains, useAccount, useNetwork, useSigner } from "wagmi"
+import { useAccount, useNetwork, useSigner } from "wagmi"
+import { mainnet, polygon, goerli, polygonMumbai } from "@wagmi/core/chains"
 import { Contract, ethers } from "ethers"
 import { useCallback, useEffect, useState } from "react"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
@@ -11,6 +12,7 @@ const Staking = () => {
   const { chain: activeChain } = useNetwork()
   const { data: signer } = useSigner()
   const chainId = process.env.NEXT_PUBLIC_CHAIN_ID
+  const allChains = [mainnet, goerli, polygon, polygonMumbai]
   const chain = allChains.find((c) => c.id === Number(chainId))
   const [nftContract, setNftContract] = useState<Contract>(null)
   const [tokens, setTokens] = useState([])
