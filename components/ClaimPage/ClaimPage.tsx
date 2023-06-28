@@ -19,10 +19,11 @@ import { getLatestClaimTicket } from "../../lib/alchemy/getClaimTickets"
 import NoTicket from "./NoTicket"
 import claimTicketAbi from "../../lib/abi-cre8ors.json"
 import claimExchangeAbi from "../../lib/abi-passport-adapter.json"
-import { approveClaimTicket, exchangeClaimTicket } from "../../lib/exchange"
+import { approveClaimTicket, exchangeClaimTicket, getIsApproved } from "../../lib/exchange"
 
 const log: Logger<ILogObj> = new Logger({ hideLogPositionForProduction: true })
 const ClaimPage = () => {
+  const [displayText, setDisplayText] = useState("Go")
   const router = useRouter()
   const { address } = useAccount()
   const { data: signer } = useSigner()
@@ -34,7 +35,6 @@ const ClaimPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const [loading, setLoading] = useState(false)
   const { themeMode } = useTheme()
-  const [minted, setMinted] = useState(false)
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
@@ -43,19 +43,32 @@ const ClaimPage = () => {
     if (!signer) return
     setLoading(true)
     try {
-      await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+      const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
+      if (!isApproved) {
+        setDisplayText("Approving....")
+        await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+      }
+      setDisplayText("Redeeming....")
       await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
-      setMinted(true)
       router.push("/claim/success")
     } catch (error) {
+      setDisplayText(displayText)
       log.error(error)
+      if (displayText === "Approving....") {
+        setDisplayText("Go")
+        return
+      }
+      if (displayText === "Redeeming....") {
+        setDisplayText("Redeem")
+        return
+      }
     }
     setLoading(false)
   }
 
   const canBurnClaimTicket = useMemo(
-    () => address && latestClaimTicketId !== null,
-    [latestClaimTicketId, address],
+    () => address && latestClaimTicketId !== null && ticketCount > 0,
+    [latestClaimTicketId, address, ticketCount],
   )
 
   const hasNoClaimTicket = useMemo(
@@ -172,7 +185,7 @@ const ClaimPage = () => {
                               handleClose={toggleModal}
                               handleMinting={handleBurnAndMint}
                               loading={loading}
-                              minted={minted}
+                              displayText={displayText}
                             />
                           )}
                           {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}

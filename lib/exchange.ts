@@ -1,38 +1,34 @@
 import { Contract, ContractInterface, Signer } from "ethers"
-import { ILogObj, Logger } from "tslog"
+import getDefaultProvider from "./getDefaultProvider"
 
-const log: Logger<ILogObj> = new Logger({ hideLogPositionForProduction: true })
 export const approveClaimTicket = async (
   signer: Signer,
   abi: ContractInterface,
   claimTicketId: number | string,
 ) => {
   const contract = new Contract(process.env.NEXT_PUBLIC_CRE8ORS_CLAIM_TICKET_ADDRESS, abi, signer)
-  try {
-    const tx = await contract.approve(
-      process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS,
-      claimTicketId,
-    )
-    const res = await tx.wait()
-    return res
-  } catch (e) {
-    log.error(e)
-    return e
-  }
-}
 
+  const tx = await contract.approve(process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS, claimTicketId)
+  const res = await tx.wait()
+  return res
+}
+export const getIsApproved = async (abi: ContractInterface, claimTicketId: number | string) => {
+  const contract = new Contract(
+    process.env.NEXT_PUBLIC_CRE8ORS_CLAIM_TICKET_ADDRESS,
+    abi,
+    getDefaultProvider(process.env.NEXT_PUBLIC_TESTNET ? 5 : 1),
+  )
+  const approved = await contract.getApproved(claimTicketId)
+  console.log(approved)
+  return approved.toLowerCase() === process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS.toLowerCase()
+}
 export const exchangeClaimTicket = async (
   signer: Signer,
   abi: ContractInterface,
   claimTicketId: number | string,
 ) => {
-  try {
-    const contract = new Contract(process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS, abi, signer)
-    const tx = await contract.claimPassport(claimTicketId)
-    await tx.wait()
-    return tx
-  } catch (e) {
-    log.error(e)
-    return e
-  }
+  const contract = new Contract(process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS, abi, signer)
+  const tx = await contract.claimPassport(claimTicketId)
+  await tx.wait()
+  return tx
 }
