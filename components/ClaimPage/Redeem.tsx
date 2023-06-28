@@ -11,16 +11,16 @@ interface RedeemProps {
 
 const Redeem: FC<RedeemProps> = ({ handleClose, handleMinting, loading, displayText }) => (
   <div
-    className="bg-[url('/assets/Common/popup.svg')] 
+    className="bg-[white]
             p-4 m-0 w-[290px] samsungS8:m-6 samsungS8:w-[340px] md:w-[400px] 
             h-[400px] samsungS8:h-[500px] md:h-[600px] 
-            bg-center 
             shadow-[0px_5px_9px_rgba(0,0,0,0.25)]
             rounded-[20px] flex flex-col justify-center items-center gap-[20px] relative"
   >
+    <div className="absolute bg-[url('/assets/Common/popup.svg')] bg-center w-[100%] h-[100%] z-[1]" />
     <div
       className="bg-[black] absolute top-[10px] right-[10px] w-6 h-6 m-2 rounded-full cursor-pointer
-      flex justify-center items-center"
+      flex justify-center items-center z-[2]"
     >
       <svg
         width="13"
@@ -74,7 +74,7 @@ const Redeem: FC<RedeemProps> = ({ handleClose, handleMinting, loading, displayT
         </defs>
       </svg>
     </div>
-    <div className="font-eigerdals text-[30px] md:text-[36px] text-center leading-[99.3%]">
+    <div className="relative font-eigerdals text-[30px] md:text-[36px] text-center leading-[99.3%] z-[3]">
       Redeem Your
       <br />
       Passport!
@@ -82,7 +82,7 @@ const Redeem: FC<RedeemProps> = ({ handleClose, handleMinting, loading, displayT
     <Media
       link="/assets/Claim/redeem.svg"
       type="image"
-      containerClasses="w-[300px] h-[150px] md:w-[280px] md:h-[300px]"
+      containerClasses="w-[300px] h-[150px] md:w-[280px] md:h-[300px] z-[3]"
     />
     <Button
       id="go_btn_in_redeem"
