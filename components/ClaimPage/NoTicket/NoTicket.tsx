@@ -81,7 +81,7 @@ const NoTicket = ({ handleClose }: ReserveProps) => (
     <Button
       type="button"
       id="go_btn_in_redeem"
-      className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)]"
+      className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)] z-[3] disabled:opacity-50 disabled:cursor-not-allowed"
     >
       <a href="https://reserve.cre8ors.com" target="_blank" rel="noreferrer">
         Reserve Now

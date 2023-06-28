@@ -19,7 +19,6 @@ export const getIsApproved = async (abi: ContractInterface, claimTicketId: numbe
     getDefaultProvider(process.env.NEXT_PUBLIC_TESTNET ? 5 : 1),
   )
   const approved = await contract.getApproved(claimTicketId)
-  console.log(approved)
   return approved.toLowerCase() === process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS.toLowerCase()
 }
 export const exchangeClaimTicket = async (

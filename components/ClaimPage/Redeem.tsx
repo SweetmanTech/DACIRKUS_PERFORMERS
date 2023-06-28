@@ -86,11 +86,17 @@ const Redeem: FC<RedeemProps> = ({ handleClose, handleMinting, loading, displayT
     />
     <Button
       id="go_btn_in_redeem"
-      className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)] disabled:opacity-50 disabled:cursor-not-allowed"
-      onClick={handleMinting}
+      className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)] z-[3] disabled:opacity-50 disabled:cursor-not-allowed"
+      onClick={() => {
+        if (window.location.pathname !== "/claim") {
+          window.open("/claim", "_self")
+        } else {
+          handleMinting()
+        }
+      }}
       disabled={loading}
     >
-      {displayText}
+      {displayText || "Go"}
     </Button>
   </div>
 )
