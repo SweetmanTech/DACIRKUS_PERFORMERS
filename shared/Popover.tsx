@@ -1,5 +1,5 @@
-import useClickOutside from '../hooks/useClickOutside'
-import { useState, ReactNode } from 'react'
+import { useState, ReactNode, useEffect } from 'react'
+import { useMediaQuery } from 'usehooks-ts'
 
 interface IPopoverFucChild {
   toggleModal: () => void
@@ -20,39 +20,21 @@ export default function Popover({
 }: PopoverProps) {
   const [openModal, setOpenModal] = useState(open || false)
 
-  const toggleHeaderEvents = (ev: 'all' | 'none') => {
-    const headerRef = document.getElementById('header_nav_bar')
-    if(headerRef?.style) {
-      headerRef.style.pointerEvents = ev
-    }
-  }
-
   const toggleModal = () => {
     if (openModal) {
       setOpenModal(false)
-      toggleHeaderEvents('all')
 
       return
     }
     setOpenModal(prev => !prev)
-    toggleHeaderEvents('none')
   }
 
-  const { ref: modalRef } = useClickOutside({
-    id,
-    shouldRegister: openModal,
-    onOutsideClick: () => {
-      setOpenModal(false)
-      toggleHeaderEvents('all')
-    }
-  })
-
   return (
-    <div className='relative z-[52]' ref={modalRef}>
+    <div className='relative z-[52]'>
       <div onClick={toggleModal}>{children && children[0]}</div>
       {openModal && (
         <div
-          className={`${className || ''} fixed w-screen h-[100vh] top-0 left-0 flex justify-center items-center z-[51]`}
+          className={`${className || ''} fixed w-screen h-screen bottom-0 left-0 flex justify-center items-center z-[51]`}
           id={id}
         >
           {children &&

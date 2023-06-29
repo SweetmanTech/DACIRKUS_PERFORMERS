@@ -20,10 +20,10 @@ import NoTicket from "./NoTicket"
 import claimTicketAbi from "../../lib/abi-cre8ors.json"
 import claimExchangeAbi from "../../lib/abi-passport-adapter.json"
 import { approveClaimTicket, exchangeClaimTicket, getIsApproved } from "../../lib/exchange"
+import { ModalStatus } from "./contants"
 
 const log: Logger<ILogObj> = new Logger({ hideLogPositionForProduction: true })
 const ClaimPage = () => {
-  const [displayText, setDisplayText] = useState("Go")
   const router = useRouter()
   const { address } = useAccount()
   const { data: signer } = useSigner()
@@ -33,43 +33,44 @@ const ClaimPage = () => {
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
   const isMobile = useMediaQuery("(max-width: 768px)")
-  const [loading, setLoading] = useState(false)
   const { themeMode } = useTheme()
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
 
-  const handleBurnAndMint = async () => {
-    if (!signer) return
-    setLoading(true)
-    try {
-      const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
-      if (!isApproved) {
-        setDisplayText("Approving....")
-        await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
-      }
-      setDisplayText("Redeeming....")
-      await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
-      router.push("/claim/success")
-    } catch (error) {
-      setDisplayText(displayText)
-      log.error(error)
-      if (displayText === "Approving....") {
-        setDisplayText("Go")
-        return
-      }
-      if (displayText === "Redeeming....") {
-        setDisplayText("Redeem")
-        return
-      }
-    }
-    setLoading(false)
-  }
-
   const canBurnClaimTicket = useMemo(
     () => address && latestClaimTicketId !== null && ticketCount > 0,
     [latestClaimTicketId, address, ticketCount],
   )
+
+  const [modalStatus, setModalStatus] = useState(canBurnClaimTicket ? ModalStatus.CANBURN : "")
+
+  const handleBurn = async () => {
+    if (!signer) return
+    try {
+      const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
+      if (!isApproved) {
+        setModalStatus(ModalStatus.APPROVING)
+        await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+      }
+      setModalStatus(ModalStatus.APPROVED)
+    } catch (error) {
+      log.error(error)
+      setModalStatus(ModalStatus.CANBURN)
+    }
+  }
+
+  const handleMint = async () => {
+    if (!signer) return
+    try {
+      setModalStatus(ModalStatus.MINTING)
+      await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
+      router.push("/claim/success")
+    } catch (error) {
+      log.error(error)
+      setModalStatus(ModalStatus.APPROVED)
+    }
+  }
 
   const hasNoClaimTicket = useMemo(
     () => address && (latestClaimTicketId === null || ticketCount === 0),
@@ -183,9 +184,9 @@ const ClaimPage = () => {
                           {canBurnClaimTicket && (
                             <Mint
                               handleClose={toggleModal}
-                              handleMinting={handleBurnAndMint}
-                              loading={loading}
-                              displayText={displayText}
+                              handleBurn={handleBurn}
+                              handleMint={handleMint}
+                              modalStatus={modalStatus}
                             />
                           )}
                           {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}
