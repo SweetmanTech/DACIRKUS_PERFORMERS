@@ -13,7 +13,7 @@ interface StageProps {
   imgHeight: number
   activeIndex: number
   hoveredIndex: number
-  changeHoverIndex: (hoverIndex: number) => void
+  changeHoverIndex: (newIndex: number) => void
 }
 
 const Stage: FC<StageProps> = ({

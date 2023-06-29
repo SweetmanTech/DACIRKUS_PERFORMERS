@@ -22,7 +22,7 @@ const RoadmapPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isIphone = useMediaQuery("(max-width: 390px)")
 
-  const changeHoverIndex = (hoverdIndex: number) => setHoveredIndex(hoverdIndex)
+  const changeHoverIndex = (newIndex: number) => setHoveredIndex(newIndex)
 
   useEffect(() => {
     stages.map((stage: StageData, index: number) => {
@@ -119,12 +119,12 @@ const RoadmapPage = () => {
                 if (activeIndex === 16 && swiper.realIndex === 0) scrollOffset = 1
                 if (activeIndex === 0 && swiper.realIndex === 16) scrollOffset = -1
 
-                let hoverIndex = targetNumber + scrollOffset
+                let scrolledIndex = targetNumber + scrollOffset
 
-                if (hoverIndex === 18) hoverIndex = 1
-                if (hoverIndex === 0) hoverIndex = 17
+                if (scrolledIndex === 18) scrolledIndex = 1
+                if (scrolledIndex === 0) scrolledIndex = 17
 
-                setHoveredIndex(hoverIndex)
+                setHoveredIndex(scrolledIndex)
 
                 return
               }
