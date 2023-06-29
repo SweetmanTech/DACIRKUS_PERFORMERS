@@ -24,9 +24,9 @@ const ClaimSuccessPage = () => {
 
   const text =
     encodeURIComponent(`I just claimed my Cre8ors passport with @Cre8orsNFT & @iamchillpill
-  
-  claim yours now:
-  https://magiceden.io/launchpad/eth/cre8ors_passports?preview`)
+    
+    claim yours now:
+    https://magiceden.io/launchpad/eth/cre8ors_passports`)
 
   return (
     <Layout type="base">
