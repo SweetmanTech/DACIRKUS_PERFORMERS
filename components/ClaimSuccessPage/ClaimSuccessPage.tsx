@@ -144,6 +144,7 @@ const ClaimSuccessPage = () => {
                       <Button
                         id="follow_for_btn"
                         className="mt-[20px] md:mt-[40px] py-0 h-[49px] w-[291px] !px-0 md:hidden"
+                        onClick={() => window.open("https://twitter.com/Cre8orsNFT", "_blank")}
                       >
                         <Image
                           src={
