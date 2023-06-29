@@ -9,7 +9,7 @@ import LandingContent from "./LandingContent"
 import Layout from "../Layout"
 import Footer from "../Footer"
 import SectionContainer from "./SectionContainer"
-import Redeem from "../ClaimPage/Redeem"
+import Mint from "../ClaimPage/Mint"
 import Popover from "../../shared/Popover"
 
 const LandingPage = () => {
@@ -146,7 +146,7 @@ const LandingPage = () => {
       </Layout>
       <Popover className="w-full fade_modal" id="connect_popver_claim" open={shouldOpenModal}>
         <div />
-        {({ toggleModal }) => <Redeem handleClose={toggleModal} />}
+        {({ toggleModal }) => <Mint handleClose={toggleModal} />}
       </Popover>
     </>
   )

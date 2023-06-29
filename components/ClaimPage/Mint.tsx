@@ -1,11 +1,11 @@
 import Media from "../../shared/Media"
 import { Button } from "../../shared/Button"
 
-interface RedeemProps {
+interface MintProps {
   handleClose: () => void
 }
 
-const Redeem = ({ handleClose }: RedeemProps) => (
+const Mint = ({ handleClose }: MintProps) => (
   <div
     className="bg-[white]
             p-4 m-0 w-[290px] samsungS8:m-6 samsungS8:w-[340px] md:w-[400px] 
@@ -71,7 +71,7 @@ const Redeem = ({ handleClose }: RedeemProps) => (
       </svg>
     </div>
     <div className="relative font-eigerdals text-[30px] md:text-[36px] text-center leading-[99.3%] z-[3]">
-      Redeem Your
+      Mint Your
       <br />
       Passport!
     </div>
@@ -90,4 +90,4 @@ const Redeem = ({ handleClose }: RedeemProps) => (
   </div>
 )
 
-export default Redeem
+export default Mint

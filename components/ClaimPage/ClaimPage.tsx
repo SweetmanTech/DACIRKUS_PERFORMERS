@@ -12,7 +12,7 @@ import { useTheme } from "../../providers/ThemeProvider"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
 import Popover from "../../shared/Popover"
 import ConnectWallet from "./ConnetWallet"
-import Redeem from "./Redeem"
+import Redeem from "./Mint"
 
 const ClaimPage = () => {
   const [containerRef, { width }] = useMeasure()
@@ -92,7 +92,7 @@ const ClaimPage = () => {
                 <div className="flex flex-col justify-center">
                   <div ref={titleRef}>
                     <SectionTitle
-                      text="Exchange Ticket, Redeem Passport"
+                      text="Burn Ticket, Mint Passport"
                       className="mx-[8px] xs:m-6 w-[290px] samsungS8:w-[330px] 
                       !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left mb-4
                       md:leading-[102.3%]"
@@ -103,9 +103,9 @@ const ClaimPage = () => {
                       <div className="pl-0 xs:pl-4 font-medium">
                         1. Connect wallet
                         <br />
-                        2. Exchange ticket
+                        2. Burn ticket
                         <br />
-                        3. Get Passport
+                        3. Mint Passport
                         <br />
                       </div>
                     </SectionContent>
@@ -117,7 +117,7 @@ const ClaimPage = () => {
                           id="redeem_passport_btn"
                           className="mt-[20px] md:mt-[40px] md:mt-0 lg:px-[70px]"
                         >
-                          Redeem Passport
+                          Mint Passport
                         </Button>
                       </div>
                       {({ toggleModal }) => (
