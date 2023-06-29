@@ -25,7 +25,7 @@ const ClaimSuccessPage = () => {
   const text =
     encodeURIComponent(`Welcome to the future of creativity. Just secured a @cre8orsnft passport...
     
-    Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passports`)
+Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passports`)
 
   return (
     <Layout type="base">
