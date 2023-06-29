@@ -1,7 +1,8 @@
 import Image from "next/image"
 import { useState } from "react"
 import { toast } from "react-toastify"
-import { allChains, useNetwork, useSigner, useSwitchNetwork } from "wagmi"
+import { useNetwork, useSigner, useSwitchNetwork } from "wagmi"
+import { mainnet, polygon, goerli, polygonMumbai } from "@wagmi/core/chains"
 import getIpfsLink from "../../lib/getIpfsLink"
 import { processStaking } from "../../lib/staking"
 import customLoader from "../../lib/customLoader"
@@ -23,6 +24,7 @@ const StakingCard = ({ token, stakedTokens, onSuccess, nftContract }) => {
     }
     if (chain.id !== Number(process.env.NEXT_PUBLIC_CHAIN_ID)) {
       await switchNetwork(Number(process.env.NEXT_PUBLIC_CHAIN_ID))
+      const allChains = [mainnet, goerli, polygon, polygonMumbai]
       const myChain = allChains.find(
         (blockchain) => blockchain.id === parseInt(process.env.NEXT_PUBLIC_CHAIN_ID, 10),
       )
