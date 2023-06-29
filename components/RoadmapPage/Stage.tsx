@@ -11,7 +11,9 @@ interface StageProps {
   slideHeight: number
   imgWidth: number
   imgHeight: number
-  selectedIndex: number
+  activeIndex: number
+  hoveredIndex: number
+  changeHoverIndex: (hoverIndex: number) => void
 }
 
 const Stage: FC<StageProps> = ({
@@ -21,7 +23,9 @@ const Stage: FC<StageProps> = ({
   slideWidth,
   imgWidth,
   imgHeight,
-  selectedIndex,
+  activeIndex,
+  hoveredIndex,
+  changeHoverIndex,
 }) => {
   const shakeRef = useRef()
 
@@ -66,27 +70,27 @@ const Stage: FC<StageProps> = ({
   }
 
   const getTransform = () => {
-    if (selectedIndex === 15 && stageNumber === 0) {
+    if (activeIndex === 15 && stageNumber === 0) {
       return getBottomTranslateY()
     }
 
-    if (selectedIndex === 16 && stageNumber === 1) {
+    if (activeIndex === 16 && stageNumber === 1) {
       return getBottomTranslateY()
     }
 
-    if (selectedIndex === 0 && stageNumber === 15) {
+    if (activeIndex === 0 && stageNumber === 15) {
       return getTopTranslateY()
     }
 
-    if (selectedIndex === 1 && stageNumber === 16) {
+    if (activeIndex === 1 && stageNumber === 16) {
       return getTopTranslateY()
     }
 
-    if (stageNumber === selectedIndex - 2) {
+    if (stageNumber === activeIndex - 2) {
       return getTopTranslateY()
     }
 
-    if (stageNumber === selectedIndex + 2) {
+    if (stageNumber === activeIndex + 2) {
       return getBottomTranslateY()
     }
 
@@ -112,9 +116,10 @@ const Stage: FC<StageProps> = ({
         }}
       >
         <div
-          className="relative z-[1] rounded-[10px] md:!rounded-[20px]
+          className={`relative z-[1] rounded-[10px] md:!rounded-[20px]
                   [&>div]:rounded-[10px] [&>div]:md:!rounded-[20px]
-                  hover:scale-[1.02] transition duration-[500ms] shake"
+                  ${hoveredIndex === stageNumber + 1 ? "scale-[1.02]" : "scale-[1]"}
+                  transition duration-[500ms] shake`}
           style={{
             backgroundImage: `url('${stageData.backImg}')`,
             boxShadow: shouldBeLocked || !stageData.date ? "0px 0px 8px 4px rgb(0, 0, 0)" : "",
@@ -218,20 +223,28 @@ const Stage: FC<StageProps> = ({
             </div>
           </div>
           <pre
-            className="z-[4] w-[100%] h-[100%] absolute left-0 top-0 
+            className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
             xl:pl-8 xl:pr-20 xl:py-8
             md:px-6 md:pt-6
             xs:px-3 xs:pt-3
             px-3 pt-3
             font-quicksand 
             text-[5px] xs:text-[6.5px] md:text-[13.5px] xl:text-[19px] 
-            text-white hover:opacity-[1] opacity-0 
+            text-white
             rounded-[10px] md:rounded-[20px]
-            hover:bg-gradient-to-r hover:from-[#000000cf] hover:via-[#00000080] hover:to-[#000000cf]
-            bg-transparent
-            transition duration-[200ms]"
+            ${
+              hoveredIndex === stageNumber + 1
+                ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
+                : "bg-transparent opacity-0"
+            }
+            transition duration-[200ms]`}
+            onMouseOver={() => changeHoverIndex(stageNumber + 1)}
+            onFocus={() => changeHoverIndex(stageNumber + 1)}
+            id={`roadmap_slide_${stageNumber + 1}`}
           >
-            <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)]">{stageData.text}</div>
+            <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
+              {stageData.text}
+            </div>
           </pre>
         </div>
       </a>

@@ -20,6 +20,7 @@ function Slider({
   style,
   sliderStyle
 }: ISlider) {
+
   return (
     <Swiper {...sliderProps} className={className}
       style={style || {}}
