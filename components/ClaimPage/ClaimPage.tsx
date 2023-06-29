@@ -147,12 +147,12 @@ const ClaimPage = () => {
                 )}
               </div>
               <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
-                <div className="flex flex-col justify-center">
+                <div className="flex flex-col justify-center items-center md:items-start">
                   <div ref={titleRef}>
                     <SectionTitle
                       text="Burn Ticket, Mint Passport"
-                      className="mx-[8px] xs:m-6 w-[290px] samsungS8:w-[330px] 
-                      !text-[30px] samsungS8:!text-[33px] lg:!text-[64px] lg:w-[550px] md:text-left mb-4
+                      className="mx-[8px] xs:m-6 w-[240px] samsungS8:w-[270px] lg:w-[450px]
+                      !text-[30px] samsungS8:!text-[33px] lg:!text-[64px]  md:text-left mb-4
                       md:leading-[102.3%]"
                     />
                   </div>
