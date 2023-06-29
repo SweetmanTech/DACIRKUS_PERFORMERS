@@ -144,7 +144,7 @@ const LandingPage = () => {
           </div>
         </AutoPerfectArea>
       </Layout>
-      <Popover className="w-full" id="connect_popver_claim" open={shouldOpenModal}>
+      <Popover className="w-full fade_modal" id="connect_popver_claim" open={shouldOpenModal}>
         <div />
         {({ toggleModal }) => <Redeem handleClose={toggleModal} />}
       </Popover>

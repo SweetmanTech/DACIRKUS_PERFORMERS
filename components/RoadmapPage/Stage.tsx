@@ -240,6 +240,8 @@ const Stage: FC<StageProps> = ({
             transition duration-[200ms]`}
             onMouseOver={() => changeHoverIndex(stageNumber + 1)}
             onFocus={() => changeHoverIndex(stageNumber + 1)}
+            onMouseOut={() => changeHoverIndex(100)}
+            onBlur={() => changeHoverIndex(100)}
             id={`roadmap_slide_${stageNumber + 1}`}
           >
             <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
