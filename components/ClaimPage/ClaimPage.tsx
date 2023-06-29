@@ -71,7 +71,6 @@ const ClaimPage = () => {
       setModalStatus(ModalStatus.APPROVED)
     }
   }
-
   const hasNoClaimTicket = useMemo(
     () => address && (latestClaimTicketId === null || ticketCount === 0),
     [latestClaimTicketId, address, ticketCount],
