@@ -1,26 +1,22 @@
-import { FC } from "react"
-import Media from "../../shared/Media"
-import { Button } from "../../shared/Button"
+import Media from "../../../shared/Media"
+import { Button } from "../../../shared/Button"
 
-interface MintProps {
+interface ReserveProps {
   handleClose: () => void
-  handleMinting?: () => void
-  loading?: boolean
-  displayText?: string
 }
 
-const Mint: FC<MintProps> = ({ handleClose, handleMinting, loading, displayText }) => (
+const NoTicket = ({ handleClose }: ReserveProps) => (
   <div
-    className="bg-[white]
+    className="bg-[url('/assets/Common/popup.svg')] 
             p-4 m-0 w-[290px] samsungS8:m-6 samsungS8:w-[340px] md:w-[400px] 
             h-[400px] samsungS8:h-[500px] md:h-[600px] 
+            bg-center 
             shadow-[0px_5px_9px_rgba(0,0,0,0.25)]
             rounded-[20px] flex flex-col justify-center items-center gap-[20px] relative"
   >
-    <div className="absolute bg-[url('/assets/Common/popup.svg')] bg-center w-[100%] h-[100%] z-[1]" />
     <div
       className="bg-[black] absolute top-[10px] right-[10px] w-6 h-6 m-2 rounded-full cursor-pointer
-      flex justify-center items-center z-[2]"
+      flex justify-center items-center"
     >
       <svg
         width="13"
@@ -74,31 +70,24 @@ const Mint: FC<MintProps> = ({ handleClose, handleMinting, loading, displayText 
         </defs>
       </svg>
     </div>
-    <div className="relative font-eigerdals text-[30px] md:text-[36px] text-center leading-[99.3%] z-[3]">
-      Mint Your
-      <br />
-      Passport!
+    <div className="font-eigerdals text-[30px] md:text-[36px] text-center leading-[99.3%]">
+      No Claim Tickets Found!
     </div>
     <Media
-      link="/assets/Claim/redeem.svg"
+      link="/assets/Claim/ticket.svg"
       type="image"
-      containerClasses="w-[300px] h-[150px] md:w-[280px] md:h-[300px] z-[3]"
+      containerClasses="w-[300px] h-[150px] md:w-[280px] md:h-[300px]"
     />
     <Button
+      type="button"
       id="go_btn_in_redeem"
       className="!uppercase w-[200px] !bg-[black] !text-white !shadow-[0px_4px_4px_rgb(0,0,0,0.25)] z-[3] disabled:opacity-50 disabled:cursor-not-allowed"
-      onClick={() => {
-        if (window.location.pathname !== "/claim") {
-          window.open("/claim", "_self")
-        } else {
-          handleMinting()
-        }
-      }}
-      disabled={loading}
     >
-      {displayText || "Go"}
+      <a href="https://reserve.cre8ors.com" target="_blank" rel="noreferrer">
+        Reserve Now
+      </a>
     </Button>
   </div>
 )
 
-export default Mint
+export default NoTicket

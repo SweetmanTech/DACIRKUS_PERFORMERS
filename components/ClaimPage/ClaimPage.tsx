@@ -1,7 +1,9 @@
 import { useMeasure } from "react-use"
-import { useRef } from "react"
+import { useCallback, useEffect, useMemo, useRef, useState } from "react"
 import { useMediaQuery, useReadLocalStorage } from "usehooks-ts"
-import { useSigner } from "wagmi"
+import { useSigner, useAccount } from "wagmi"
+import { ILogObj, Logger } from "tslog"
+import { useRouter } from "next/router"
 import Layout from "../Layout"
 import SectionTitle from "../LandingPage/SectionTitle"
 import SectionContent from "../LandingPage/SectionContent"
@@ -12,21 +14,77 @@ import { useTheme } from "../../providers/ThemeProvider"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
 import Popover from "../../shared/Popover"
 import ConnectWallet from "./ConnetWallet"
-import Redeem from "./Mint"
+import Redeem from "./Redeem"
+import { getLatestClaimTicket } from "../../lib/alchemy/getClaimTickets"
+import NoTicket from "./NoTicket"
+import claimTicketAbi from "../../lib/abi-cre8ors.json"
+import claimExchangeAbi from "../../lib/abi-passport-adapter.json"
+import { approveClaimTicket, exchangeClaimTicket, getIsApproved } from "../../lib/exchange"
 
+const log: Logger<ILogObj> = new Logger({ hideLogPositionForProduction: true })
 const ClaimPage = () => {
-  const [containerRef, { width }] = useMeasure()
+  const [displayText, setDisplayText] = useState("Go")
+  const router = useRouter()
+  const { address } = useAccount()
   const { data: signer } = useSigner()
-
+  const [containerRef, { width }] = useMeasure()
+  const [latestClaimTicketId, setLatestClaimTicketId] = useState<number | string>(null)
+  const [ticketCount, setTicketCount] = useState(0)
   const isResponsive = useMediaQuery("(max-width: 1429px)")
   const isScrollUp = useReadLocalStorage<boolean>("isScrollUp")
   const isMobile = useMediaQuery("(max-width: 768px)")
-
+  const [loading, setLoading] = useState(false)
   const { themeMode } = useTheme()
-
   const titleRef = useRef()
   const contentRef = useRef()
   const buttonRef = useRef()
+
+  const handleBurnAndMint = async () => {
+    if (!signer) return
+    setLoading(true)
+    try {
+      const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
+      if (!isApproved) {
+        setDisplayText("Approving....")
+        await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+      }
+      setDisplayText("Redeeming....")
+      await exchangeClaimTicket(signer, claimExchangeAbi, latestClaimTicketId)
+      router.push("/claim/success")
+    } catch (error) {
+      setDisplayText(displayText)
+      log.error(error)
+      if (displayText === "Approving....") {
+        setDisplayText("Go")
+        return
+      }
+      if (displayText === "Redeeming....") {
+        setDisplayText("Redeem")
+        return
+      }
+    }
+    setLoading(false)
+  }
+
+  const canBurnClaimTicket = useMemo(
+    () => address && latestClaimTicketId !== null && ticketCount > 0,
+    [latestClaimTicketId, address, ticketCount],
+  )
+
+  const hasNoClaimTicket = useMemo(
+    () => address && (latestClaimTicketId === null || ticketCount === 0),
+    [latestClaimTicketId, address, ticketCount],
+  )
+  const getTicketInformation = useCallback(async () => {
+    if (!address) return
+    const { ticket: ticketToBurn, noOfTickets } = await getLatestClaimTicket(address)
+    setLatestClaimTicketId(ticketToBurn?.id?.tokenId || null)
+    setTicketCount(noOfTickets)
+  }, [address])
+
+  useEffect(() => {
+    getTicketInformation()
+  }, [getTicketInformation])
 
   useGradualFadeEffect({
     elements: [
@@ -88,7 +146,7 @@ const ClaimPage = () => {
                   />
                 )}
               </div>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+              <div className="grid grid-cols-1 gap-2 md:grid-cols-2">
                 <div className="flex flex-col justify-center">
                   <div ref={titleRef}>
                     <SectionTitle
@@ -100,7 +158,7 @@ const ClaimPage = () => {
                   </div>
                   <div className="flex justify-center" ref={contentRef}>
                     <SectionContent className="w-[290px] samsungS8:w-[300px] md:w-[550px] m-[8px] mt-[30px] xs:mt-[20px] md:mt-[55px] md:text-left">
-                      <div className="pl-0 xs:pl-4 font-medium">
+                      <div className="pl-0 font-medium xs:pl-4">
                         1. Connect wallet
                         <br />
                         2. Burn ticket
@@ -115,18 +173,23 @@ const ClaimPage = () => {
                       <div ref={buttonRef}>
                         <Button
                           id="redeem_passport_btn"
-                          className="mt-[20px] md:mt-[40px] md:mt-0 lg:px-[70px]"
+                          className="mt-[20px] md:mt-[40px] lg:px-[70px]"
                         >
                           Mint Passport
                         </Button>
                       </div>
                       {({ toggleModal }) => (
                         <div>
-                          {signer ? (
-                            <Redeem handleClose={toggleModal} />
-                          ) : (
-                            <ConnectWallet handleClose={toggleModal} />
+                          {canBurnClaimTicket && (
+                            <Redeem
+                              handleClose={toggleModal}
+                              handleMinting={handleBurnAndMint}
+                              loading={loading}
+                              displayText={displayText}
+                            />
                           )}
+                          {hasNoClaimTicket && <NoTicket handleClose={toggleModal} />}
+                          {!address && <ConnectWallet handleClose={toggleModal} />}
                         </div>
                       )}
                     </Popover>
