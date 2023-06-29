@@ -86,6 +86,10 @@ const ClaimPage = () => {
     getTicketInformation()
   }, [getTicketInformation])
 
+  useEffect(() => {
+    setModalStatus(ModalStatus.CANBURN)
+  }, [canBurnClaimTicket])
+
   useGradualFadeEffect({
     elements: [
       {
