@@ -22,6 +22,12 @@ const ClaimSuccessPage = () => {
   const contentRef = useRef()
   const buttonRef = useRef()
 
+  const text =
+    encodeURIComponent(`I just claimed my Cre8ors passport with @Cre8orsNFT & @iamchillpill
+  
+  claim yours now:
+  https://magiceden.io/launchpad/eth/cre8ors_passports?preview`)
+
   return (
     <Layout type="base">
       <div
@@ -101,25 +107,31 @@ const ClaimSuccessPage = () => {
                       </div>
                     </SectionContent>
                   </div>
-                  <div
-                    className="dark:text-white text-black
-                    mt-[12.5px] !px-0 sm:!pl-6
-                    font-quicksand font-bold 
-                    text-[14px] xs:text-[16px] text-[19px]
-                    leading-[103.3%] md:leading-[108.8%]
-                    md:text-left text-center dark:drop-shadow-[0_4px_2px_rgba(0,0,0,0.75)]
-                  "
+                  <a
+                    href={`https://twitter.com/intent/tweet?text=${text}`}
+                    target="_blank"
+                    rel="noreferrer"
                   >
-                    {isMobile ? (
-                      <>
-                        Drop a tweet about your Passport
-                        <br />
-                        so Cre8ors can raid it!
-                      </>
-                    ) : (
-                      <>Drop a tweet about your Passport so Cre8ors can raid it!</>
-                    )}
-                  </div>
+                    <div
+                      className="dark:text-white text-black
+                      mt-[12.5px] !px-0 sm:!pl-6
+                      font-quicksand font-bold 
+                      text-[14px] xs:text-[16px] text-[19px]
+                      leading-[103.3%] md:leading-[108.8%]
+                      md:text-left text-center dark:drop-shadow-[0_4px_2px_rgba(0,0,0,0.75)]
+                    "
+                    >
+                      {isMobile ? (
+                        <>
+                          Drop a tweet about your Passport
+                          <br />
+                          so Cre8ors can raid it!
+                        </>
+                      ) : (
+                        <>Drop a tweet about your Passport so Cre8ors can raid it!</>
+                      )}
+                    </div>
+                  </a>
                   <div className="!px-0 sm:!pl-6 flex justify-center md:justify-start mt-[20px] md:mt-[20px]">
                     <div
                       ref={buttonRef}
