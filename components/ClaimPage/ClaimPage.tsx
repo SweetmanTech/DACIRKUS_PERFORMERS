@@ -14,7 +14,7 @@ import { useTheme } from "../../providers/ThemeProvider"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
 import Popover from "../../shared/Popover"
 import ConnectWallet from "./ConnetWallet"
-import Redeem from "./Redeem"
+import Mint from "./Mint"
 import { getLatestClaimTicket } from "../../lib/alchemy/getClaimTickets"
 import NoTicket from "./NoTicket"
 import claimTicketAbi from "../../lib/abi-cre8ors.json"
@@ -181,7 +181,7 @@ const ClaimPage = () => {
                       {({ toggleModal }) => (
                         <div>
                           {canBurnClaimTicket && (
-                            <Redeem
+                            <Mint
                               handleClose={toggleModal}
                               handleMinting={handleBurnAndMint}
                               loading={loading}

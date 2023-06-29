@@ -71,7 +71,7 @@ const NoTicket = ({ handleClose }: ReserveProps) => (
       </svg>
     </div>
     <div className="font-eigerdals text-[30px] md:text-[36px] text-center leading-[99.3%]">
-      No Claim Tickets Found!
+      No Claim Tickets!
     </div>
     <Media
       link="/assets/Claim/ticket.svg"
