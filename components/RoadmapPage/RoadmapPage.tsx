@@ -14,12 +14,15 @@ const RoadmapPage = () => {
   const stages: StageData[] = data as StageData[]
 
   const [currentIndex, setCurrentIndex] = useState(0)
-  const [selectedIndex, setSelectedIndex] = useState(0)
+  const [activeIndex, setActiveIndex] = useState(0)
+  const [hoveredIndex, setHoveredIndex] = useState(0)
   const [swiperCtrl, setSwiper] = useState<any>()
 
   const isResponsive = useMediaQuery("(max-width: 1150px)")
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isIphone = useMediaQuery("(max-width: 390px)")
+
+  const changeHoverIndex = (newIndex: number) => setHoveredIndex(newIndex)
 
   useEffect(() => {
     stages.map((stage: StageData, index: number) => {
@@ -107,9 +110,30 @@ const RoadmapPage = () => {
             onSwiper(swiper) {
               setSwiper(swiper)
             },
-            onSlideChange: (swiper) => setSelectedIndex(swiper.realIndex),
+            onScroll(swiper, event: any) {
+              if (event.target.id) {
+                const targetNumber = parseInt(event.target.id.replace("roadmap_slide_", ""), 10)
+
+                let scrollOffset = activeIndex < swiper.realIndex ? 1 : -1
+
+                if (activeIndex === 16 && swiper.realIndex === 0) scrollOffset = 1
+                if (activeIndex === 0 && swiper.realIndex === 16) scrollOffset = -1
+
+                let scrolledIndex = targetNumber + scrollOffset
+
+                if (scrolledIndex === 18) scrolledIndex = 1
+                if (scrolledIndex === 0) scrolledIndex = 17
+
+                setHoveredIndex(scrolledIndex)
+
+                return
+              }
+
+              setHoveredIndex(100)
+            },
+            onSlideChange: (swiper) => setActiveIndex(swiper.realIndex),
             mousewheel: {
-              sensitivity: 3,
+              sensitivity: 1,
             },
             modules: [EffectCreative],
             creativeEffect: {
@@ -130,7 +154,9 @@ const RoadmapPage = () => {
           {stages.map((stage: StageData, index: number) => (
             <Stage
               key={stage.backImg}
-              selectedIndex={selectedIndex}
+              activeIndex={activeIndex}
+              hoveredIndex={hoveredIndex}
+              changeHoverIndex={changeHoverIndex}
               stageData={stage}
               stageNumber={index}
               // eslint-disable-next-line no-nested-ternary

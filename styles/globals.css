@@ -102,8 +102,24 @@ a {
   }
 }
 
+@keyframes fade_in_modal {
+  0% {
+    opacity: 0;
+    transform: translateY(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+
 .fade_bg.show {
   animation: fade_in_bg 0.3s ease-in-out;
+}
+
+.fade_modal {
+  animation: fade_in_modal 1.5s ease-in-out;
 }
 
 .no_transition {
