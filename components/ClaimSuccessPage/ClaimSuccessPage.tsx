@@ -70,10 +70,11 @@ const ClaimSuccessPage = () => {
                         md:leading-[106.3%]"
                     />
                   </div>
-                  <div className="flex justify-center" ref={contentRef}>
+                  <div className="!px-0 sm:!pl-6" ref={contentRef}>
                     <SectionContent
                       className="w-[290px] samsungS8:w-[375px] 
-                      md:w-[550px] !m-[8px] !mt-[30px] sm:!mt-[20px] md:!mt-[0px] md:text-left"
+                      md:w-[550px] !m-[8px] !mt-[30px] sm:!mt-[20px] md:!mt-[0px] md:text-left
+                      !mx-0"
                     >
                       <div className="px-0 font-medium">
                         {isMobile ? (
@@ -100,14 +101,33 @@ const ClaimSuccessPage = () => {
                       </div>
                     </SectionContent>
                   </div>
-                  <div className="!px-0 sm:!pl-6 flex justify-center md:justify-start md:mt-[15px]">
+                  <div
+                    className="dark:text-white text-black
+                    mt-[12.5px] !px-0 sm:!pl-6
+                    font-quicksand font-bold 
+                    text-[14px] xs:text-[16px] text-[19px]
+                    leading-[103.3%] md:leading-[108.8%]
+                    md:text-left text-center dark:drop-shadow-[0_4px_2px_rgba(0,0,0,0.75)]
+                  "
+                  >
+                    {isMobile ? (
+                      <>
+                        Drop a tweet about your Passport
+                        <br />
+                        so Cre8ors can raid it!
+                      </>
+                    ) : (
+                      <>Drop a tweet about your Passport so Cre8ors can raid it!</>
+                    )}
+                  </div>
+                  <div className="!px-0 sm:!pl-6 flex justify-center md:justify-start mt-[20px] md:mt-[20px]">
                     <div
                       ref={buttonRef}
                       className="flex flex-col md:flex-row items-center md:gap-[15px]"
                     >
                       <Button
                         id="follow_for_btn"
-                        className="mt-[20px] md:mt-[40px] py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
+                        className="py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
                         onClick={() => window.open("https://twitter.com/Cre8orsNFT", "_blank")}
                       >
                         <Image
@@ -124,7 +144,7 @@ const ClaimSuccessPage = () => {
                       </Button>
                       <Button
                         id="view_passport_btn"
-                        className="mt-[20px] md:mt-[40px] py-0 h-[49px] w-[291px] md:w-[284px] !px-0"
+                        className="py-0 h-[49px] w-[291px] md:w-[284px] !px-0"
                         onClick={() =>
                           window.open("https://opensea.io/collection/cre8ors-passports", "_blank")
                         }

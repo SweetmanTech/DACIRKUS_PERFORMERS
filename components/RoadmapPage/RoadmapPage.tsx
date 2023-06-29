@@ -124,7 +124,7 @@ const RoadmapPage = () => {
                 if (scrolledIndex === 18) scrolledIndex = 1
                 if (scrolledIndex === 0) scrolledIndex = 17
 
-                setHoveredIndex(scrolledIndex)
+                setHoveredIndex(scrolledIndex === swiper.realIndex + 1 ? scrolledIndex : 100)
 
                 return
               }

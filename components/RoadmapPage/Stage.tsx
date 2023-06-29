@@ -238,8 +238,10 @@ const Stage: FC<StageProps> = ({
                 : "bg-transparent opacity-0"
             }
             transition duration-[200ms]`}
-            onMouseOver={() => changeHoverIndex(stageNumber + 1)}
-            onFocus={() => changeHoverIndex(stageNumber + 1)}
+            onMouseOver={() =>
+              changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
+            }
+            onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
             onMouseOut={() => changeHoverIndex(100)}
             onBlur={() => changeHoverIndex(100)}
             id={`roadmap_slide_${stageNumber + 1}`}
