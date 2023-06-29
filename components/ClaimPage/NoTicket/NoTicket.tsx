@@ -11,7 +11,7 @@ const NoTicket = ({ handleClose }: ReserveProps) => {
 
   return (
     <div
-      className="dark:bg-[url('/assets/Common/popup.svg')] bg-[url('/assets/Common/dark_popup.png')] 
+      className="dark:bg-[url('/assets/Common/popup.png')] bg-[url('/assets/Common/dark_popup.png')] 
               dark:bg-center bg-cover
               p-4 m-0 w-[290px] samsungS8:m-6 samsungS8:w-[340px] md:w-[400px] 
               h-[400px] md:h-[600px] 

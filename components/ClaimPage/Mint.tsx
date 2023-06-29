@@ -27,7 +27,7 @@ const Mint: FC<MintProps> = ({ handleClose, handleBurn, handleMint, modalStatus 
     >
       <div
         className="absolute
-        dark:bg-[url('/assets/Common/popup.svg')] bg-[url('/assets/Common/dark_popup.png')] 
+        dark:bg-[url('/assets/Common/popup.png')] bg-[url('/assets/Common/dark_popup.png')] 
         dark:bg-center bg-cover
         w-[100%] h-[100%] z-[1]"
       />
