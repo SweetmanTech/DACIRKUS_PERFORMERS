@@ -23,6 +23,22 @@ const RoadmapPage = () => {
 
   const changeHoverIndex = (newIndex: number) => setHoveredIndex(newIndex)
 
+  const desktopHover = (swiper: any, event: any) => {
+    const targetNumber = parseInt(event.target.id.replace("roadmap_slide_", ""), 10)
+
+    let scrollOffset = activeIndex < swiper.realIndex ? 1 : -1
+
+    if (activeIndex === 16 && swiper.realIndex === 0) scrollOffset = 1
+    if (activeIndex === 0 && swiper.realIndex === 16) scrollOffset = -1
+
+    let scrolledIndex = targetNumber + scrollOffset
+
+    if (scrolledIndex === 18) scrolledIndex = 1
+    if (scrolledIndex === 0) scrolledIndex = 17
+
+    setHoveredIndex(scrolledIndex === swiper.realIndex + 1 ? scrolledIndex : 100)
+  }
+
   useEffect(() => {
     let closestIndex = 0
     let closestTimeDiff = Math.abs(new Date(stages[0].date).getTime() - new Date().getTime())
@@ -108,23 +124,10 @@ const RoadmapPage = () => {
             onScroll(swiper, event: any) {
               if (!isMobile) {
                 if (event.target.id) {
-                  const targetNumber = parseInt(event.target.id.replace("roadmap_slide_", ""), 10)
-
-                  let scrollOffset = activeIndex < swiper.realIndex ? 1 : -1
-
-                  if (activeIndex === 16 && swiper.realIndex === 0) scrollOffset = 1
-                  if (activeIndex === 0 && swiper.realIndex === 16) scrollOffset = -1
-
-                  let scrolledIndex = targetNumber + scrollOffset
-
-                  if (scrolledIndex === 18) scrolledIndex = 1
-                  if (scrolledIndex === 0) scrolledIndex = 17
-
-                  setHoveredIndex(scrolledIndex === swiper.realIndex + 1 ? scrolledIndex : 100)
+                  desktopHover(swiper, event)
 
                   return
                 }
-
                 setHoveredIndex(100)
               }
             },
