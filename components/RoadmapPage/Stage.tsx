@@ -238,13 +238,16 @@ const Stage: FC<StageProps> = ({
               ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
               : "bg-transparent opacity-0"
           }
+          ${
+            activeIndex === stageNumber
+              ? "hover:bg-gradient-to-r hover:from-[#000000cf] hover:via-[#00000080] hover:to-[#000000cf] hover:opacity-[1]"
+              : ""
+          }
           transition duration-[200ms]`}
-            onMouseOver={() =>
-              changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
-            }
-            onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
-            onMouseOut={() => changeHoverIndex(100)}
-            onBlur={() => changeHoverIndex(100)}
+            onMouseOut={() => {
+              if (activeIndex === stageNumber) changeHoverIndex(100)
+            }}
+            onBlur={() => {}}
             id={`roadmap_slide_${stageNumber + 1}`}
             style={{
               fontSize: isResponsive
