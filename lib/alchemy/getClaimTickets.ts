@@ -11,8 +11,6 @@ export const getClaimTickets = async (address: string) => {
 export const getLatestClaimTicket = async (address: string) => {
   const response = await getClaimTickets(address)
   const count = response?.length
-
   const latestClaimTicket = response?.pop() || null
-
   return { ticket: latestClaimTicket, noOfTickets: count }
 }
