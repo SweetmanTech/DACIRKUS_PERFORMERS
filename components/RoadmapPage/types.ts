@@ -1,6 +1,7 @@
 export interface StageData {
   backImg: string
   mobileBackImg: string
+  mobileLockBackImg: string
   label: string | null
   date: string | null
   certain?: boolean

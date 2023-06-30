@@ -121,7 +121,13 @@ const Stage: FC<StageProps> = ({
                   ${hoveredIndex === stageNumber + 1 ? "scale-[1.02]" : "scale-[1]"}
                   transition duration-[500ms] shake`}
           style={{
-            backgroundImage: `url('${isResponsive ? stageData.mobileBackImg : stageData.backImg}')`,
+            backgroundImage: `url('${
+              isResponsive
+                ? shouldBeLocked
+                  ? stageData.mobileLockBackImg
+                  : stageData.mobileBackImg
+                : stageData.backImg
+            }')`,
             boxShadow: shouldBeLocked || !stageData.date ? "0px 0px 8px 4px rgb(0, 0, 0)" : "",
             backgroundSize: `${imgWidth}px ${imgHeight}px`,
             width: `${imgWidth}px`,
@@ -129,9 +135,6 @@ const Stage: FC<StageProps> = ({
           }}
           ref={shakeRef}
         >
-          {shouldBeLocked && (
-            <div className="absolute w-[100%] h-[100%] backdrop-blur-[10px] top-0 left-0 z-[2]  pointer-events-none" />
-          )}
           <div
             className="absolute w-[100%] h-[100%] z-[1] top-0 left-0
                       bg-gradient-to-r from-[#000000ed] via-[transparent] to-[#000000ed]"

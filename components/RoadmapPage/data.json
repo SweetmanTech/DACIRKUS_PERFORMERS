@@ -2,6 +2,7 @@
   {
     "backImg": "/assets/Roadmap/mission.png",
     "mobileBackImg": "/assets/Roadmap/mobile_mission.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_mission.png",
     "label": "Mission & Vision",
     "date": "2023-01-31",
     "link": "https://www.cre8ors.com/manifesto",
@@ -12,6 +13,7 @@
   {
     "backImg": "/assets/Roadmap/curate.png",
     "mobileBackImg": "/assets/Roadmap/mobile_curate.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_curate.png",
     "label": "Curate collective",
     "date": "2023-02-28",
     "link": "https://www.twitter.com/cre8orsnft",
@@ -22,6 +24,7 @@
   {
     "backImg": "/assets/Roadmap/pendants.png",
     "mobileBackImg": "/assets/Roadmap/mobile_pendants.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_pendants.png",
     "label": "Airdrop pendants",
     "date": "2023-03-31",
     "link": "https://opensea.io/collection/cre8ors-relics",
@@ -32,6 +35,7 @@
   {
     "backImg": "/assets/Roadmap/build.png",
     "mobileBackImg": "/assets/Roadmap/mobile_build.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_build.png",
     "label": "Build in public",
     "date": "2023-04-30",
     "link": "https://discord.gg/cre8orsnft",
@@ -42,6 +46,7 @@
   {
     "backImg": "/assets/Roadmap/leaderboard.png",
     "mobileBackImg": "/assets/Roadmap/mobile_leaderboard.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_leaderboard.png",
     "label": "Leaderboard",
     "date": "2023-05-31",
     "link": "https://www.cre8ors.com/leaderboard",
@@ -52,6 +57,7 @@
   {
     "backImg": "/assets/Roadmap/claim.png",
     "mobileBackImg": "/assets/Roadmap/mobile_claim.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_claim.png",
     "label": "Claim tickets",
     "date": "2023-06-05",
     "link": "https://reserve.cre8ors.com/",
@@ -62,6 +68,7 @@
   {
     "backImg": "/assets/Roadmap/redeem.png",
     "mobileBackImg": "/assets/Roadmap/mobile_redeem.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_redeem.png",
     "label": "Redeem passports",
     "date": "2023-06-30",
     "certain": true,
@@ -73,6 +80,7 @@
   {
     "backImg": "/assets/Roadmap/allowlist.png",
     "mobileBackImg": "/assets/Roadmap/mobile_allowlist.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_allowlist.png",
     "label": "Allowlist quiz",
     "date": "2023-07-03",
     "certain": true,
@@ -84,6 +92,7 @@
   {
     "backImg": "/assets/Roadmap/drop.png",
     "mobileBackImg": "/assets/Roadmap/mobile_drop.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_drop.png",
     "label": "drop trailer",
     "date": "2023-07-14",
     "certain": true,
@@ -95,6 +104,7 @@
   {
     "backImg": "/assets/Roadmap/everything.png",
     "mobileBackImg": "/assets/Roadmap/mobile_everything.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_everything.png",
     "label": "everything corp hack",
     "date": "2023-07-21",
     "certain": true,
@@ -106,6 +116,7 @@
   {
     "backImg": "/assets/Roadmap/dna.png",
     "mobileBackImg": "/assets/Roadmap/mobile_dna.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_dna.png",
     "label": "final dna distributions",
     "date": "2023-07-26",
     "certain": true,
@@ -117,6 +128,7 @@
   {
     "backImg": "/assets/Roadmap/mint.png",
     "mobileBackImg": "/assets/Roadmap/mobile_mint.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_mint.png",
     "label": "Cre8ors mint",
     "date": "2023-07-27",
     "certain": true,
@@ -128,6 +140,7 @@
   {
     "backImg": "/assets/Roadmap/art.png",
     "mobileBackImg": "/assets/Roadmap/mobile_art.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_art.png",
     "label": "art reveal",
     "date": "2023-08-01",
     "link": "/",
@@ -138,6 +151,7 @@
   {
     "backImg": "/assets/Roadmap/creating.png",
     "mobileBackImg": "/assets/Roadmap/mobile_creating.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_creating.png",
     "label": "cre8ing",
     "date": "2023-09-01",
     "link": "/",
@@ -148,6 +162,7 @@
   {
     "backImg": "/assets/Roadmap/collaborating.png",
     "mobileBackImg": "/assets/Roadmap/mobile_collaborating.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_collaborating.png",
     "label": "collaborating",
     "date": "2023-10-01",
     "link": "/",
@@ -158,6 +173,7 @@
   {
     "backImg": "/assets/Roadmap/connecting.png",
     "mobileBackImg": "/assets/Roadmap/mobile_connecting.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_connecting.png",
     "label": "connecting",
     "date": "2023-11-01",
     "link": "/",
@@ -168,6 +184,7 @@
   {
     "backImg": "/assets/Roadmap/redacted.png",
     "mobileBackImg": "/assets/Roadmap/mobile_redacted.png",
+    "mobileLockBackImg": "/assets/Roadmap/lock_redacted.png",
     "label": null,
     "date": null,
     "link": "/",
