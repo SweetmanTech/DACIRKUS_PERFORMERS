@@ -122,13 +122,13 @@ const Stage: FC<StageProps> = ({
                   transition duration-[500ms] shake`}
           style={{
             backgroundImage: `url('${
+              // eslint-disable-next-line no-nested-ternary
               isResponsive
                 ? shouldBeLocked
                   ? stageData.mobileLockBackImg
                   : stageData.mobileBackImg
                 : stageData.backImg
             }')`,
-            boxShadow: shouldBeLocked || !stageData.date ? "0px 0px 8px 4px rgb(0, 0, 0)" : "",
             backgroundSize: `${imgWidth}px ${imgHeight}px`,
             width: `${imgWidth}px`,
             height: `${imgHeight}px`,
