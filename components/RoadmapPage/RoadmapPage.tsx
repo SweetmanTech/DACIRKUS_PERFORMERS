@@ -106,25 +106,27 @@ const RoadmapPage = () => {
               setSwiper(swiper)
             },
             onScroll(swiper, event: any) {
-              if (event.target.id) {
-                const targetNumber = parseInt(event.target.id.replace("roadmap_slide_", ""), 10)
+              if (!isMobile) {
+                if (event.target.id) {
+                  const targetNumber = parseInt(event.target.id.replace("roadmap_slide_", ""), 10)
 
-                let scrollOffset = activeIndex < swiper.realIndex ? 1 : -1
+                  let scrollOffset = activeIndex < swiper.realIndex ? 1 : -1
 
-                if (activeIndex === 16 && swiper.realIndex === 0) scrollOffset = 1
-                if (activeIndex === 0 && swiper.realIndex === 16) scrollOffset = -1
+                  if (activeIndex === 16 && swiper.realIndex === 0) scrollOffset = 1
+                  if (activeIndex === 0 && swiper.realIndex === 16) scrollOffset = -1
 
-                let scrolledIndex = targetNumber + scrollOffset
+                  let scrolledIndex = targetNumber + scrollOffset
 
-                if (scrolledIndex === 18) scrolledIndex = 1
-                if (scrolledIndex === 0) scrolledIndex = 17
+                  if (scrolledIndex === 18) scrolledIndex = 1
+                  if (scrolledIndex === 0) scrolledIndex = 17
 
-                setHoveredIndex(scrolledIndex === swiper.realIndex + 1 ? scrolledIndex : 100)
+                  setHoveredIndex(scrolledIndex === swiper.realIndex + 1 ? scrolledIndex : 100)
 
-                return
+                  return
+                }
+
+                setHoveredIndex(100)
               }
-
-              setHoveredIndex(100)
             },
             onSlideChange: (swiper) => {
               setActiveIndex(swiper.realIndex)
