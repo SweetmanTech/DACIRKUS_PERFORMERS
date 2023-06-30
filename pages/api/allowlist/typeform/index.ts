@@ -10,33 +10,34 @@ const getResponse = async (responseId) => {
 }
 
 const idToKey = {
-  "7Q1OU08DnwDd":"walletAddress",
-  "ht0M1DEcNdDa":"reason",
-  "4OB9BFA7WtRq":"twitterHandler",
-  "gRvt5M4h61ag":"outcomeChoice"
+  "7Q1OU08DnwDd": "walletAddress",
+  ht0M1DEcNdDa: "reason",
+  "4OB9BFA7WtRq": "twitterHandler",
+  gRvt5M4h61ag: "outcomeChoice",
 }
 
-const fieldsOfInterest = Object.keys(idToKey);
+const fieldsOfInterest = Object.keys(idToKey)
 
-const parseCre8orType = (outcome:{id:string,ref:string,title:string}) => {
-  return outcome.title.split("\n").pop()
-}
+const parseCre8orType = (outcome: { id: string; ref: string; title: string }) =>
+  outcome.title.split("\n").pop()
 class TypeformResponseHandler {
   @Get()
   async getResponse(@Query("responseId") responseId: string) {
     const response = await getResponse(responseId)
     const data = await response.json()
-    const responsesOfInterest = data?.items[0].answers.filter(item => fieldsOfInterest.includes(item.field.id))
+    const responsesOfInterest = data?.items[0].answers.filter((item) =>
+      fieldsOfInterest.includes(item.field.id),
+    )
     const responseData = {}
-    responseData["responseId"] = responseId;
-    for (let i = 0; i<responsesOfInterest.length; i+=1) {
-      const field = responsesOfInterest[i];
+    responseData.responseId = responseId
+    for (let i = 0; i < responsesOfInterest.length; i += 1) {
+      const field = responsesOfInterest[i]
       responseData[idToKey[field.field.id]] = field?.choice?.label || field.text
     }
     const cre8or = parseCre8orType(data?.items[0]?.outcome)
-    responseData["cre8or"] = cre8or;
+    responseData.cre8or = cre8or
 
-    return responseData;
+    return responseData
   }
 }
 
