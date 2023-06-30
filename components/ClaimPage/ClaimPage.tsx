@@ -187,8 +187,7 @@ const ClaimPage = () => {
                       </div>
                       {({ toggleModal }) => (
                         <div>
-                          {(modalStatus === ModalStatus.APPROVED ||
-                            modalStatus === ModalStatus.CANBURN) && (
+                          {canBurnClaimTicket&& (
                             <Mint
                               handleClose={toggleModal}
                               handleBurn={handleBurn}
