@@ -38,7 +38,27 @@ const ClaimPage = () => {
   const contentRef = useRef()
   const buttonRef = useRef()
 
-  const [modalStatus, setModalStatus] = useState(ModalStatus.INITIAL)
+  const canBurnClaimTicket = useMemo(
+    () => address && latestClaimTicketId !== null && ticketCount > 0,
+    [latestClaimTicketId, address, ticketCount],
+  )
+
+  const [modalStatus, setModalStatus] = useState(canBurnClaimTicket ? ModalStatus.CANBURN : "")
+
+  const handleBurn = async () => {
+    if (!signer) return
+    try {
+      setModalStatus(ModalStatus.APPROVING)
+      const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
+      if (!isApproved) {
+        await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
+      }
+      setModalStatus(ModalStatus.APPROVED)
+    } catch (error) {
+      log.error(error)
+      setModalStatus(ModalStatus.CANBURN)
+    }
+  }
 
   const handleMint = async () => {
     if (!signer) return
@@ -51,30 +71,6 @@ const ClaimPage = () => {
       setModalStatus(ModalStatus.APPROVED)
     }
   }
-
-  const handleBurn = async () => {
-    if (!signer) return
-    try {
-      if (modalStatus === ModalStatus.CANBURN) {
-        setModalStatus(ModalStatus.APPROVING)
-        await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
-      }
-
-      handleMint()
-    } catch (error) {
-      log.error(error)
-      setModalStatus(ModalStatus.CANBURN)
-    }
-  }
-
-  const checkAlreadyApproved = useCallback(async () => {
-    if (address && latestClaimTicketId !== null && ticketCount > 0) {
-      const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
-
-      setModalStatus(isApproved ? ModalStatus.APPROVED : ModalStatus.CANBURN)
-    }
-  }, [latestClaimTicketId, address, ticketCount])
-
   const hasNoClaimTicket = useMemo(
     () => address && (latestClaimTicketId === null || ticketCount === 0),
     [latestClaimTicketId, address, ticketCount],
@@ -91,8 +87,8 @@ const ClaimPage = () => {
   }, [getTicketInformation])
 
   useEffect(() => {
-    checkAlreadyApproved()
-  }, [checkAlreadyApproved])
+    if (canBurnClaimTicket) setModalStatus(ModalStatus.CANBURN)
+  }, [canBurnClaimTicket])
 
   useGradualFadeEffect({
     elements: [
@@ -191,7 +187,8 @@ const ClaimPage = () => {
                       </div>
                       {({ toggleModal }) => (
                         <div>
-                          {modalStatus !== ModalStatus.INITIAL && (
+                          {(modalStatus === ModalStatus.APPROVED ||
+                            modalStatus === ModalStatus.CANBURN) && (
                             <Mint
                               handleClose={toggleModal}
                               handleBurn={handleBurn}
