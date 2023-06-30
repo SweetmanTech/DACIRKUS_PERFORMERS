@@ -145,8 +145,8 @@ const Stage: FC<StageProps> = ({
                 pl-2 
               "
               style={{
-                fontSize: isReponsive ? `${(250 / 257) * imgHeight}px` : "250px",
-                lineHeight: isReponsive ? `${(261 / 257) * imgHeight}px` : "261px",
+                fontSize: isReponsive ? `${(161 / 328) * imgHeight}px` : "250px",
+                lineHeight: isReponsive ? `${(161 / 328) * imgHeight}px` : "261px",
               }}
             >
               {stageData.date ? stageNumber + 1 : "XX"}
@@ -155,15 +155,16 @@ const Stage: FC<StageProps> = ({
 
           <div
             className="absolute w-[100%] h-[100%] flex items-end
+                      p-3 md:p-6 
                       left-0 top-0 z-[7] pointer-events-none"
             style={{
               boxShadow: shouldBeLocked || !stageData.date ? "inset 0px 0px 18px 5px" : "",
             }}
           >
             <div
-              className="text-white uppercase px-3 pb-2 md:p-6 font-[quicksand] font-[650]"
+              className="text-white uppercase font-[quicksand] font-[650]"
               style={{
-                fontSize: `${(28 / 1065) * imgWidth}px`,
+                fontSize: `${(!isReponsive ? 28 / 1065 : 34 / 678) * imgWidth}px`,
               }}
             >
               {stageData.date ? stageData.label : "[REDACTED]"}
@@ -194,7 +195,7 @@ const Stage: FC<StageProps> = ({
             <div
               className="font-[quicksand] text-white font-[700] uppercase"
               style={{
-                fontSize: `${(28 / 1065) * imgWidth}px`,
+                fontSize: `${(!isReponsive ? 28 / 1065 : 34 / 678) * imgWidth}px`,
               }}
             >
               {
@@ -222,34 +223,60 @@ const Stage: FC<StageProps> = ({
               }
             </div>
           </div>
-          <pre
-            className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
-            xl:pl-8 xl:pr-20 xl:py-8
-            md:px-6 md:pt-6
-            xs:px-3 xs:pt-3
-            px-3 pt-3
+          {!isReponsive ? (
+            <pre
+              className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
+            pl-6 pt-6 pr-20
             font-quicksand 
-            text-[5px] xs:text-[6.5px] md:text-[13.5px] xl:text-[19px] 
+            text-[19px]
             text-white
-            rounded-[10px] md:rounded-[20px]
+            rounded-[20px]
             ${
               hoveredIndex === stageNumber + 1
                 ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
                 : "bg-transparent opacity-0"
             }
             transition duration-[200ms]`}
-            onMouseOver={() =>
-              changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
+              onMouseOver={() =>
+                changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
+              }
+              onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
+              onMouseOut={() => changeHoverIndex(100)}
+              onBlur={() => changeHoverIndex(100)}
+              id={`roadmap_slide_${stageNumber + 1}`}
+            >
+              <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
+                {stageData.text}
+              </div>
+            </pre>
+          ) : (
+            <div
+              className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
+              xs:px-3 xs:pt-3 xs:pr-[45px]
+              px-3 pt-3 pr-[35px]
+              font-quicksand 
+              text-[7.5px] xs:text-[10px] md:text-[18.5px]
+              text-white
+              rounded-[10px] md:rounded-[20px]
+            ${
+              hoveredIndex === stageNumber + 1
+                ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
+                : "bg-transparent opacity-0"
             }
-            onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
-            onMouseOut={() => changeHoverIndex(100)}
-            onBlur={() => changeHoverIndex(100)}
-            id={`roadmap_slide_${stageNumber + 1}`}
-          >
-            <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
-              {stageData.text}
+            transition duration-[200ms]`}
+              onMouseOver={() =>
+                changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
+              }
+              onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
+              onMouseOut={() => changeHoverIndex(100)}
+              onBlur={() => changeHoverIndex(100)}
+              id={`roadmap_slide_${stageNumber + 1}`}
+            >
+              <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
+                {stageData.text.replace("\n", "")}
+              </div>
             </div>
-          </pre>
+          )}
         </div>
       </a>
     </div>

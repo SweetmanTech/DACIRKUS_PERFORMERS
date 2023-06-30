@@ -23,9 +23,9 @@ const ClaimSuccessPage = () => {
   const buttonRef = useRef()
 
   const text =
-    encodeURIComponent(`Welcome to the future of creativity. Just secured a @cre8orsnft passport...
+    encodeURIComponent(`Welcome to the future of creativity. Just secured my @cre8orsnft passport...
     
-Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passports`)
+Check to see if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passports`)
 
   return (
     <Layout type="base">
@@ -106,32 +106,7 @@ Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passpo
                       </div>
                     </SectionContent>
                   </div>
-                  <a
-                    href={`https://twitter.com/intent/tweet?text=${text}`}
-                    target="_blank"
-                    rel="noreferrer"
-                  >
-                    <div
-                      className="dark:text-white text-black
-                      mt-[12.5px] !px-0 sm:!pl-6
-                      font-quicksand font-bold 
-                      text-[14px] xs:text-[16px] text-[19px]
-                      leading-[103.3%] md:leading-[108.8%]
-                      md:text-left text-center dark:drop-shadow-[0_4px_2px_rgba(0,0,0,0.75)]
-                    "
-                    >
-                      {isMobile ? (
-                        <>
-                          Drop a tweet about your Passport
-                          <br />
-                          so Cre8ors can raid it!
-                        </>
-                      ) : (
-                        <>Drop a tweet about your Passport so Cre8ors can raid it!</>
-                      )}
-                    </div>
-                  </a>
-                  <div className="!px-0 sm:!pl-6 flex justify-center md:justify-start mt-[20px] md:mt-[20px]">
+                  <div className="!px-0 sm:!pl-6 flex justify-center md:justify-start mt-[30px] md:mt-[40px]">
                     <div
                       ref={buttonRef}
                       className="flex flex-col md:flex-row items-center md:gap-[15px]"
@@ -139,7 +114,9 @@ Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passpo
                       <Button
                         id="follow_for_btn"
                         className="py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
-                        onClick={() => window.open("https://twitter.com/Cre8orsNFT", "_blank")}
+                        onClick={() =>
+                          window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank")
+                        }
                       >
                         <Image
                           src={
@@ -151,7 +128,7 @@ Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passpo
                           height={17}
                           alt="not found image"
                         />
-                        Follow For Updates
+                        Flex Passport
                       </Button>
                       <Button
                         id="view_passport_btn"
@@ -175,7 +152,9 @@ Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passpo
                       <Button
                         id="follow_for_btn"
                         className="mt-[20px] md:mt-[40px] py-0 h-[49px] w-[291px] !px-0 md:hidden"
-                        onClick={() => window.open("https://twitter.com/Cre8orsNFT", "_blank")}
+                        onClick={() =>
+                          window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank")
+                        }
                       >
                         <Image
                           src={
@@ -187,7 +166,7 @@ Check if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passpo
                           height={17}
                           alt="not found image"
                         />
-                        Follow For Updates
+                        Flex Passport
                       </Button>
                     </div>
                   </div>
