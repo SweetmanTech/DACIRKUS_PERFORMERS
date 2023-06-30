@@ -24,19 +24,19 @@ const RoadmapPage = () => {
   const changeHoverIndex = (newIndex: number) => setHoveredIndex(newIndex)
 
   useEffect(() => {
-    let offset
+    let closestIndex = 0
+    let closestTimeDiff = Math.abs(new Date(stages[0].date).getTime() - new Date().getTime())
 
-    stages.map((stage: StageData, index: number) => {
-      // eslint-disable-next-line react-hooks/exhaustive-deps
-      if (index === 0) offset = Math.abs(new Date(stage.date).getTime() - new Date().getTime())
-
+    stages.forEach((stage: StageData, index: number) => {
       const currentOffset = Math.abs(new Date(stage.date).getTime() - new Date().getTime())
 
-      if (offset > currentOffset) setCurrentIndex(index)
-      offset = currentOffset
-
-      return true
+      if (currentOffset < closestTimeDiff) {
+        closestTimeDiff = currentOffset
+        closestIndex = index
+      }
     })
+
+    setCurrentIndex(closestIndex)
   }, [stages])
 
   useEffect(() => {
