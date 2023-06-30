@@ -178,9 +178,6 @@ const ClaimPage = () => {
                         <Button
                           id="redeem_passport_btn"
                           className="mt-[20px] md:mt-[40px] lg:px-[70px]"
-                          onClick={() => {
-                            if (modalStatus === ModalStatus.APPROVED) handleMint()
-                          }}
                         >
                           Mint Passport
                         </Button>
