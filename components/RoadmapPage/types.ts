@@ -6,4 +6,6 @@ export interface StageData {
   certain?: boolean
   link: string
   text: string
+  mobile_text: string
+  mobile_font_size: number
 }

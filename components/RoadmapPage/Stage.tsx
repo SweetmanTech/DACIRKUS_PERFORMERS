@@ -29,7 +29,7 @@ const Stage: FC<StageProps> = ({
 }) => {
   const shakeRef = useRef()
 
-  const isReponsive = useMediaQuery("(max-width: 1150px)")
+  const isResponsive = useMediaQuery("(max-width: 1150px)")
   const isMobile = useMediaQuery("(max-width: 768px)")
   const isXs = useMediaQuery("(max-width: 393px)")
   const months = [
@@ -121,7 +121,7 @@ const Stage: FC<StageProps> = ({
                   ${hoveredIndex === stageNumber + 1 ? "scale-[1.02]" : "scale-[1]"}
                   transition duration-[500ms] shake`}
           style={{
-            backgroundImage: `url('${stageData.backImg}')`,
+            backgroundImage: `url('${isResponsive ? stageData.mobileBackImg : stageData.backImg}')`,
             boxShadow: shouldBeLocked || !stageData.date ? "0px 0px 8px 4px rgb(0, 0, 0)" : "",
             backgroundSize: `${imgWidth}px ${imgHeight}px`,
             width: `${imgWidth}px`,
@@ -145,8 +145,8 @@ const Stage: FC<StageProps> = ({
                 pl-2 
               "
               style={{
-                fontSize: isReponsive ? `${(161 / 328) * imgHeight}px` : "250px",
-                lineHeight: isReponsive ? `${(161 / 328) * imgHeight}px` : "261px",
+                fontSize: isResponsive ? `${(161 / 328) * imgHeight}px` : "250px",
+                lineHeight: isResponsive ? `${(161 / 328) * imgHeight}px` : "261px",
               }}
             >
               {stageData.date ? stageNumber + 1 : "XX"}
@@ -155,47 +155,49 @@ const Stage: FC<StageProps> = ({
 
           <div
             className="absolute w-[100%] h-[100%] flex items-end
-                      p-3 md:p-6 
+                      p-[10px] md:p-[20px] xl:p-6 
                       left-0 top-0 z-[7] pointer-events-none"
             style={{
               boxShadow: shouldBeLocked || !stageData.date ? "inset 0px 0px 18px 5px" : "",
             }}
           >
             <div
-              className="text-white uppercase font-[quicksand] font-[650]"
+              className="text-white uppercase font-[quicksand] font-[650] leading-[100%]"
               style={{
-                fontSize: `${(!isReponsive ? 28 / 1065 : 34 / 678) * imgWidth}px`,
+                fontSize: `${(!isResponsive ? 28 / 1065 : 34 / 678) * imgWidth}px`,
               }}
             >
               {stageData.date ? stageData.label : "[REDACTED]"}
             </div>
           </div>
           <div
-            className="absolute w-[100%] h-[100%] flex flex-col items-end justify-between
-                      left-0 top-0 z-[5] p-3 md:p-6 pointer-events-none"
+            className={`absolute w-[100%] h-[100%] flex flex-row justify-end items-end xl:flex-col xl:justify-between 
+                      left-0 top-0 z-[5] p-[10px] md:p-[20px] xl:p-6 pointer-events-none`}
           >
-            <Image
-              src={
-                shouldBeLocked || !stageData.date
-                  ? "/assets/Roadmap/lock.svg"
-                  : "/assets/Roadmap/unlock.svg"
-              }
-              width={
-                shouldBeLocked || !stageData.date
-                  ? (36 / 1065) * slideWidth
-                  : (47.44 / 1065) * slideWidth
-              }
-              height={
-                shouldBeLocked || !stageData.date
-                  ? (47.25 / 1065) * slideWidth
-                  : (46 / 1065) * slideWidth
-              }
-              alt="not found image"
-            />
+            {!isResponsive && (
+              <Image
+                src={
+                  shouldBeLocked || !stageData.date
+                    ? "/assets/Roadmap/lock.svg"
+                    : "/assets/Roadmap/unlock.svg"
+                }
+                width={
+                  shouldBeLocked || !stageData.date
+                    ? (36 / 1065) * slideWidth
+                    : (47.44 / 1065) * slideWidth
+                }
+                height={
+                  shouldBeLocked || !stageData.date
+                    ? (47.25 / 1065) * slideWidth
+                    : (46 / 1065) * slideWidth
+                }
+                alt="not found image"
+              />
+            )}
             <div
-              className="font-[quicksand] text-white font-[700] uppercase"
+              className="font-[quicksand] text-white font-[700] uppercase leading-[70%] xl:leading-[100%]"
               style={{
-                fontSize: `${(!isReponsive ? 28 / 1065 : 34 / 678) * imgWidth}px`,
+                fontSize: `${(!isResponsive ? 28 / 1065 : 34 / 678) * imgWidth}px`,
               }}
             >
               {
@@ -223,60 +225,43 @@ const Stage: FC<StageProps> = ({
               }
             </div>
           </div>
-          {!isReponsive ? (
-            <pre
-              className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
-            pl-6 pt-6 pr-20
+          <pre
+            className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
+            xl:pl-6 xl:pt-6 xl:pr-20
+            p-[10px] md:p-[20px]
             font-quicksand 
-            text-[19px]
+            leading-[130%]
             text-white
-            rounded-[20px]
-            ${
-              hoveredIndex === stageNumber + 1
-                ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
-                : "bg-transparent opacity-0"
+            rounded-[10px] md:rounded-[20px]
+          ${
+            hoveredIndex === stageNumber + 1
+              ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
+              : "bg-transparent opacity-0"
+          }
+          transition duration-[200ms]`}
+            onMouseOver={() =>
+              changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
             }
-            transition duration-[200ms]`}
-              onMouseOver={() =>
-                changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
-              }
-              onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
-              onMouseOut={() => changeHoverIndex(100)}
-              onBlur={() => changeHoverIndex(100)}
-              id={`roadmap_slide_${stageNumber + 1}`}
-            >
-              <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
-                {stageData.text}
-              </div>
-            </pre>
-          ) : (
+            onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
+            onMouseOut={() => changeHoverIndex(100)}
+            onBlur={() => changeHoverIndex(100)}
+            id={`roadmap_slide_${stageNumber + 1}`}
+            style={{
+              fontSize: isResponsive
+                ? `${(stageData.mobile_font_size / 678) * imgWidth}px`
+                : "19px",
+            }}
+          >
             <div
-              className={`z-[4] w-[100%] h-[100%] absolute left-0 top-0 
-              xs:px-3 xs:pt-3 xs:pr-[45px]
-              px-3 pt-3 pr-[35px]
-              font-quicksand 
-              text-[7.5px] xs:text-[10px] md:text-[18.5px]
-              text-white
-              rounded-[10px] md:rounded-[20px]
-            ${
-              hoveredIndex === stageNumber + 1
-                ? "bg-gradient-to-r from-[#000000cf] via-[#00000080] to-[#000000cf] opacity-[1] "
-                : "bg-transparent opacity-0"
-            }
-            transition duration-[200ms]`}
-              onMouseOver={() =>
-                changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)
-              }
-              onFocus={() => changeHoverIndex(stageNumber === activeIndex ? stageNumber + 1 : 100)}
-              onMouseOut={() => changeHoverIndex(100)}
-              onBlur={() => changeHoverIndex(100)}
-              id={`roadmap_slide_${stageNumber + 1}`}
+              className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none items-center justify-center"
+              style={{
+                display: stageNumber > 10 && isResponsive ? "flex" : "block",
+                height: stageNumber > 10 && isResponsive ? "100%" : "",
+              }}
             >
-              <div className="drop-shadow-[0_1.2px_1.2px_rgba(0,0,0,0.8)] pointer-events-none">
-                {stageData.text.replace("\n", "")}
-              </div>
+              {isResponsive ? stageData.mobile_text : stageData.text}
             </div>
-          )}
+          </pre>
         </div>
       </a>
     </div>
