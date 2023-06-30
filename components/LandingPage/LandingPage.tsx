@@ -149,14 +149,14 @@ const LandingPage = () => {
           </div>
         </div>
       </AutoPerfectArea>
-      <Popover className="w-full fade_modal" id="connect_popver_claim" open={!shouldOpenMintModal}>
+      <Popover className="w-full fade_modal" id="connect_popver_claim" open={shouldOpenMintModal}>
         <div />
         {({ toggleModal }) => <Mint handleClose={toggleModal} />}
       </Popover>
       <Popover
         className="w-full fade_modal"
         id="to_popver_allowlist"
-        open={!shouldOpenAllowListModal}
+        open={shouldOpenAllowListModal}
       >
         <div />
         {({ toggleModal }) => <AllowListModal handleClose={toggleModal} />}
