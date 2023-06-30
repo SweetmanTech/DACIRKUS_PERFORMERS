@@ -187,7 +187,7 @@ const ClaimPage = () => {
                       </div>
                       {({ toggleModal }) => (
                         <div>
-                          {canBurnClaimTicket&& (
+                          {canBurnClaimTicket && (
                             <Mint
                               handleClose={toggleModal}
                               handleBurn={handleBurn}
