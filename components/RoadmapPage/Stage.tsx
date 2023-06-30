@@ -135,6 +135,9 @@ const Stage: FC<StageProps> = ({
           }}
           ref={shakeRef}
         >
+          {shouldBeLocked && !isResponsive && (
+            <div className="absolute w-[100%] h-[100%] backdrop-blur-[10px] top-0 left-0 z-[2]  pointer-events-none" />
+          )}
           <div
             className="absolute w-[100%] h-[100%] z-[1] top-0 left-0
                       bg-gradient-to-r from-[#000000ed] via-[transparent] to-[#000000ed]"
