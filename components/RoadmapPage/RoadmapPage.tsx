@@ -130,7 +130,7 @@ const RoadmapPage = () => {
             },
             onSlideChange: (swiper) => {
               setActiveIndex(swiper.realIndex)
-              if (isMobile) setHoveredIndex(swiper.activeIndex + 1)
+              if (isMobile) setHoveredIndex(swiper.realIndex + 1)
             },
             mousewheel: {
               sensitivity: 1,
