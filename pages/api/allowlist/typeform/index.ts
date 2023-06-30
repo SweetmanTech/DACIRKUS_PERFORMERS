@@ -34,7 +34,7 @@ class TypeformResponseHandler {
       reason?:string,
       twitterHandle?:string,
       outcomeChoice?:string,
-      cre8ors?:string
+      cre8or?:string
     } = {}
     responseData.responseId = responseId
     for (let i = 0; i < responsesOfInterest.length; i += 1) {
