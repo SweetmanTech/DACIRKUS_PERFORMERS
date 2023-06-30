@@ -28,13 +28,13 @@ class TypeformResponseHandler {
     const responsesOfInterest = data?.items[0].answers.filter((item) =>
       fieldsOfInterest.includes(item.field.id),
     )
-    const responseData:{
-      responseId?:string,
-      walletAddress?:string,
-      reason?:string,
-      twitterHandle?:string,
-      outcomeChoice?:string,
-      cre8or?:string
+    const responseData: {
+      responseId?: string
+      walletAddress?: string
+      reason?: string
+      twitterHandle?: string
+      outcomeChoice?: string
+      cre8or?: string
     } = {}
     responseData.responseId = responseId
     for (let i = 0; i < responsesOfInterest.length; i += 1) {
