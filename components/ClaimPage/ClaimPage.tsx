@@ -77,11 +77,7 @@ const ClaimPage = () => {
   )
   const getTicketInformation = useCallback(async () => {
     if (!address) return
-    console.log("SWEETS getTicketInformation", address)
     const { ticket: ticketToBurn, noOfTickets } = await getLatestClaimTicket(address)
-    console.log("SWEETS ticketToBurn", ticketToBurn)
-    console.log("SWEETS noOfTickets", noOfTickets)
-
     setLatestClaimTicketId(ticketToBurn?.id?.tokenId || null)
     setTicketCount(noOfTickets)
   }, [address])
