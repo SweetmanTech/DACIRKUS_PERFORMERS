@@ -48,9 +48,9 @@ const ClaimPage = () => {
   const handleBurn = async () => {
     if (!signer) return
     try {
+      setModalStatus(ModalStatus.APPROVING)
       const isApproved = await getIsApproved(claimTicketAbi, latestClaimTicketId)
       if (!isApproved) {
-        setModalStatus(ModalStatus.APPROVING)
         await approveClaimTicket(signer, claimTicketAbi, latestClaimTicketId)
       }
       setModalStatus(ModalStatus.APPROVED)
