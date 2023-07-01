@@ -61,7 +61,7 @@ function Input({
         onMouseOver={ hoverEvent }
         onMouseOut={ leaveEvent }
       >
-        <div className="w-full flex rounded-[10px] overflow-hidden items-center justify-between">
+        <div className="w-full flex overflow-hidden items-center justify-between">
             {
               startAdornment && <div className="px-[15px]">
                 {startAdornment}

@@ -9,15 +9,14 @@ const AllowListStatusPage = () => {
       <div
         className="relative w-[100%] min-h-[100vh]
                   pt-[150px] md:pt-[250px]
-                  flex flex-col items-center gap-y-[20px] md:gap-y-[20px]
-              "
+                  flex flex-col items-center gap-y-[20px] md:gap-y-[20px]"
       >
         <pre
           className="!m-0
                       font-eigerdals font-bold
                       w-[100%]
                       !text-[30px] samsungS8:!text-[35px] xs:!text-[40px] md:!text-[50px] lg:!text-[65px] mb-4
-                      text-center
+                      text-center text-black dark:text-white
                       leading-[94.3%] md:leading-[102.3%]"
         >
           {isMobile ? "Allowlist\nApplications Status" : "Allowlist Applications Status"}
