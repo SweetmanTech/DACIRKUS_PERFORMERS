@@ -11,8 +11,8 @@ const AllowListStatusPage = () => (
     >
       <SectionTitle
         text="Allowlist Applications Status"
-        className="mx-[8px] xs:m-6 
-                    w-[100%] xs:w-[500px] md:w-[650px]
+        className="!m-0
+                    w-[100%] xs:w-[500px] md:w-[920px]
                     text-[25px] samsungS8:!text-[36px] xs:!text-[40px] md:!text-[65px] mb-4
                     text-center
                     md:leading-[102.3%]"
