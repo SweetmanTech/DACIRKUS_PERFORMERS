@@ -1,5 +1,4 @@
 import { useMediaQuery } from "usehooks-ts"
-import SectionTitle from "../LandingPage/SectionTitle"
 import Layout from "../Layout"
 
 const AllowListStatusPage = () => {
