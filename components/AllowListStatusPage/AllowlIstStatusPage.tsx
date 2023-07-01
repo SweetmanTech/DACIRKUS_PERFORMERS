@@ -1,5 +1,6 @@
 import { useMediaQuery } from "usehooks-ts"
 import Layout from "../Layout"
+import Status from "./Status"
 
 const AllowListStatusPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
@@ -40,18 +41,7 @@ const AllowListStatusPage = () => {
             "Make sure the same wallet you applied with is connected."
           )}
         </div>
-        <div
-          className="!m-0
-                      pt-[100px]
-                      font-quicksand font-bold
-                      w-[100%] xs:w-[500px] md:w-[920px]
-                      !text-[19px] mb-4
-                      text-center 
-                      text-black dark:text-white
-                      leading-[99.3%]"
-        >
-          [APPLICATION UNDER REVIEW]
-        </div>
+        <Status />
       </div>
     </Layout>
   )
