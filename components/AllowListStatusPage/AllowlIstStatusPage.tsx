@@ -13,14 +13,16 @@ const AllowListStatusPage = () => {
                   flex flex-col items-center gap-y-[20px] md:gap-y-[20px]
               "
       >
-        <SectionTitle
-          text={isMobile ? "Allowlist\nApplications Status" : "Allowlist Applications Status"}
+        <pre
           className="!m-0
+                      font-eigerdals font-bold
                       w-[100%]
                       !text-[30px] samsungS8:!text-[35px] xs:!text-[40px] md:!text-[50px] lg:!text-[65px] mb-4
                       text-center
-                      md:leading-[102.3%]"
-        />
+                      leading-[94.3%] md:leading-[102.3%]"
+        >
+          {isMobile ? "Allowlist\nApplications Status" : "Allowlist Applications Status"}
+        </pre>
         <div
           className="!m-0
                       font-quicksand font-medium

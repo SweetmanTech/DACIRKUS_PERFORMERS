@@ -17,7 +17,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ text, className }) => {
   })
 
   return (
-    <pre
+    <div
       ref={ref}
       className={`appear 
         m-6 md:mx-12 md:mt-12 md:mb-4 
@@ -30,7 +30,7 @@ const SectionTitle: React.FC<SectionTitleProps> = ({ text, className }) => {
       }}
     >
       {text}
-    </pre>
+    </div>
   )
 }
 
