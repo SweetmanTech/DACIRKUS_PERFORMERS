@@ -5,8 +5,6 @@ import { Button } from "../../shared/Button"
 import SectionTitle from "../LandingPage/SectionTitle"
 import Layout from "../Layout"
 import Input from "../../shared/Input"
-import createTweet from "../../lib/createTweet"
-import VerifyButton from "./VerifyButton"
 
 const AllowListVerifyPage = () => {
   const { themeMode } = useTheme()
@@ -14,12 +12,6 @@ const AllowListVerifyPage = () => {
 
   const onChangeTwitterUrl = (e: any) => {
     setTwitterUrl(e.target.value)
-  }
-
-  const handleTweetClick = () => {
-    createTweet(`I just took the Everything Corp Personality Quiz.
-Click the link to be assigned your livelihood for the next decade.
-https://everythingcorp.cre8ors.com/quiz`)
   }
 
   return (
@@ -50,7 +42,6 @@ https://everythingcorp.cre8ors.com/quiz`)
           <div className="flex justify-center md:justify-start">
             <Button
               id="send_tweet_btn"
-              onClick={handleTweetClick}
               className="!uppercase
                             md:w-[291px] md:h-[46px]
                             w-[280px] h-[40px]"
@@ -99,7 +90,27 @@ https://everythingcorp.cre8ors.com/quiz`)
             />
           </div>
         </div>
-        <VerifyButton tweet={twitterUrl} />
+        <div className="grid gird-cols-1 md:grid-cols-2 gap-y-[20px] md:gap-x-[120px]">
+          <div
+            className="flex items-center
+                    text-[15px] samsungS8:text-[19px]
+                    justify-center md:justify-start
+                    text-black dark:text-white
+                    font-medium font-quicksand"
+          >
+            Step 3: Click Verify To Check Status
+          </div>
+          <div className="flex justify-center md:justify-start">
+            <Button
+              id="verify_btn"
+              className="!uppercase 
+                            md:w-[291px] md:h-[46px]
+                            w-[280px] h-[40px]"
+            >
+              Verify
+            </Button>
+          </div>
+        </div>
       </div>
     </Layout>
   )
