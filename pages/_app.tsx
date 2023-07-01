@@ -11,6 +11,7 @@ import { publicProvider } from "wagmi/providers/public"
 import { ToastContainer } from "react-toastify"
 import { SessionProvider } from "next-auth/react"
 import * as React from "react"
+import { Analytics } from "@vercel/analytics/react"
 import { UserProvider } from "../providers/UserProvider"
 import { ChatProvider } from "../providers/ChatProvider"
 import { ThemeProvider } from "../providers/ThemeProvider"
@@ -45,6 +46,7 @@ function MyApp({ Component, pageProps }: AppProps) {
               <ChatProvider>
                 <Component {...pageProps} />
                 <ToastContainer />
+                <Analytics />
               </ChatProvider>
             </UserProvider>
           </SessionProvider>
