@@ -5,6 +5,7 @@ import { Button } from "../../shared/Button"
 import SectionTitle from "../LandingPage/SectionTitle"
 import Layout from "../Layout"
 import Input from "../../shared/Input"
+import createTweet from "../../lib/createTweet"
 
 const AllowListVerifyPage = () => {
   const { themeMode } = useTheme()
@@ -12,6 +13,12 @@ const AllowListVerifyPage = () => {
 
   const onChangeTwitterUrl = (e: any) => {
     setTwitterUrl(e.target.value)
+  }
+
+  const handleTweetClick = () => {
+    createTweet(`I just took the Everything Corp Personality Quiz.
+Click the link to be assigned your livelihood for the next decade.
+https://everythingcorp.cre8ors.com/quiz`)
   }
 
   return (
@@ -42,6 +49,7 @@ const AllowListVerifyPage = () => {
           <div className="flex justify-center md:justify-start">
             <Button
               id="send_tweet_btn"
+              onClick={handleTweetClick}
               className="!uppercase
                             md:w-[291px] md:h-[46px]
                             w-[280px] h-[40px]"
