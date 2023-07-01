@@ -1,13 +1,13 @@
 /* eslint-disable class-methods-use-this */
-import { createHandler, Post, Body } from "next-api-decorators"
-import { AllowListAuthGuard } from "../../../../middleware/auth.middleware"
+import { createHandler, Post, Body, ValidationPipe } from "next-api-decorators"
+import { AdminAuthGuard } from "../../../../middleware/auth.middleware"
 import { updateStatus } from "../../../../helpers/db"
 import { UpdateStatusDTO } from "../../../../DTO/updateStatus.dto"
 
 class UpdateStatus {
   @Post()
-  @AllowListAuthGuard()
-  async updateStatus(@Body() body: UpdateStatusDTO) {
+  @AdminAuthGuard()
+  async updateStatus(@Body(ValidationPipe) body: UpdateStatusDTO) {
     const { applicants, status } = body
     return updateStatus(applicants, status)
   }
