@@ -1,9 +1,29 @@
 import { useMediaQuery } from "usehooks-ts"
+import { useEffect, useState } from "react"
+import { useAccount } from "wagmi"
+import { useRouter } from "next/router"
 import Layout from "../Layout"
 import Status from "./Status"
+import getApplicant from "../../lib/getApplicant"
+import CustomConnectWallet from "../CustomConnectWallet"
+import AllowlistStatusButton from "./AllowlistStatusButton"
 
 const AllowListStatusPage = () => {
+  const { address } = useAccount()
+  const router = useRouter()
   const isMobile = useMediaQuery("(max-width: 768px)")
+  const [applicant, setApplicant] = useState({} as any)
+  const status = applicant?.status
+
+  useEffect(() => {
+    const init = async () => {
+      const response = await getApplicant(address)
+      setApplicant(response)
+    }
+    if (!address) return
+    init()
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [address])
 
   return (
     <Layout type="contained">
@@ -41,7 +61,19 @@ const AllowListStatusPage = () => {
             "Make sure the same wallet you applied with is connected."
           )}
         </div>
-        <Status />
+        {!address && <CustomConnectWallet />}
+        {address && status && <Status status={status} />}
+        {address && !status && (
+          <AllowlistStatusButton
+            onClick={() => router.push("https://everythingcorp.cre8ors.com/quiz")}
+          />
+        )}
+        {address && status && !applicant?.isVerified && (
+          <AllowlistStatusButton
+            text="Verify your Twitter"
+            onClick={() => router.push("/status/verify")}
+          />
+        )}
       </div>
     </Layout>
   )

@@ -1,12 +1,6 @@
-import { useAccount } from "wagmi"
-import CustomConnectWallet from "../CustomConnectWallet"
-
-const Status = () => {
-  const { address } = useAccount()
-
-  return (
-    <div
-      className="!m-0
+const Status = ({ status }) => (
+  <div
+    className="!m-0
         flex
         justify-center
         pt-[100px]
@@ -16,10 +10,9 @@ const Status = () => {
         text-center 
         text-black dark:text-white
         leading-[99.3%]"
-    >
-      {address ? "[APPLICATION UNDER REVIEW]" : <CustomConnectWallet />}
-    </div>
-  )
-}
+  >
+    [APPLICATION {status?.toUpperCase?.()}]
+  </div>
+)
 
 export default Status
