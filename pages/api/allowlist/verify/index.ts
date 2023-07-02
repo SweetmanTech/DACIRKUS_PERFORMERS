@@ -29,7 +29,6 @@ class Verify {
         tweetBody.includes("Everything Corp Personality Quiz") || tweetBody.includes("cre8ors")
       if (!isVerifiable) return { success: false, tweetUrl, err: { title: "tweet incorrect" } }
       let applicant = (await getAllowListApplicantByTwitterHandle(handle)) as any
-      console.log("SWEETS APPLICANT", applicant)
       if (!applicant) {
         return {
           success: false,
