@@ -34,7 +34,6 @@ const useTwitterVerification = () => {
   }
 
   const verify = async (tweet: string) => {
-    // TODO: lookup if twitter 1. exists 2. already verified 3. twitter link
     const handle = tweet.split("/")[3]
     const isVerified = await alreadyVerified(handle)
     if (isVerified) {
