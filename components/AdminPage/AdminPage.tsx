@@ -16,6 +16,28 @@ type ITableDatum = {
 }
 type ITableData = Array<ITableDatum>
 const AdminPage = () => {
+  const mapEvilToGood = (evil: string) => {
+    switch (evil) {
+      case "The Delegator":
+        return "musician"
+      case "The Pragmatic":
+        return "engineer"
+      case "The Kinesthetic":
+        return "dancer"
+      case "The Deviser":
+        return "director"
+      case "The Communicator":
+        return "writer"
+      case "The Catalyst":
+        return "thespian"
+      case "The Idealist":
+        return "photographer"
+      case "The Generator":
+        return "designer"
+      default:
+        return null
+    }
+  }
   const { bearerToken, user } = useAdminProvider()
   const [data, setData] = useState([])
   const [pickedApplicants, setPickedApplicants] = useState([])
@@ -36,6 +58,18 @@ const AdminPage = () => {
     [data],
   )
 
+  const tweetAcceptanceStatus = async () => {
+    const body = pickedApplicants.map((applicant) => ({
+      username: applicant.twitterHandle,
+      cre8orType: mapEvilToGood(applicant.cre8orType),
+    }))
+    await axios.post(`${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`, body, {
+      headers: {
+        Authorization: `Bearer ${bearerToken}`,
+      },
+    })
+  }
+
   const handleClick = async (status) => {
     setLoading(true)
     const applicants = pickedApplicants.map((applicant) => applicant.walletAddress)
@@ -51,6 +85,7 @@ const AdminPage = () => {
         },
       },
     )
+
     setLoading(false)
   }
   const handleReject = async (e) => {
@@ -61,7 +96,9 @@ const AdminPage = () => {
   const handleAccept = async (e) => {
     e.preventDefault()
     handleClick("Accepted")
+    await tweetAcceptanceStatus()
   }
+
   const columns = useMemo(
     () => [
       {

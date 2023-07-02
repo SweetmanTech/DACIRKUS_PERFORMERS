@@ -103,6 +103,8 @@ const Table: FC<TableProps> = ({ columns, data, setPickedApplicants }) => {
   useEffect(() => {
     const acceptedApplicants = selectedFlatRows.map((row) => ({
       walletAddress: row.original.walletAddress,
+      cre8orType: row.original.creatorType,
+      twitterHandle: row.original.twitterHandle,
     }))
     setPickedApplicants(acceptedApplicants)
   }, [selectedFlatRows, setPickedApplicants])
