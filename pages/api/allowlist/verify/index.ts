@@ -1,5 +1,5 @@
 import { createHandler, Post, Body, ValidationPipe } from "next-api-decorators"
-import { TwitterApi } from "twitter-api-v2";
+import { TwitterApi } from "twitter-api-v2"
 import { VerifyDTO } from "../../../../DTO/verify"
 import {
   getAllowListApplicantByTwitterHandle,
