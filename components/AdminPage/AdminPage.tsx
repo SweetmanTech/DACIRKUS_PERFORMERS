@@ -60,7 +60,7 @@ const AdminPage = () => {
 
   const tweetAcceptanceStatus = async () => {
     const body = pickedApplicants.map((applicant) => ({
-      twitterHandle: applicant.twitterHandle,
+      username: applicant.twitterHandle,
       cre8orType: mapEvilToGood(applicant.creatorType),
     }))
 
