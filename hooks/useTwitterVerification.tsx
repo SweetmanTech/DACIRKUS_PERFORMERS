@@ -43,7 +43,6 @@ const useTwitterVerification = () => {
     }
 
     const response = await verifyTweetUrl(tweet)
-    console.log("SWEETS RESPONSE VERIFY API", response)
     handleVerification(response)
   }
 
