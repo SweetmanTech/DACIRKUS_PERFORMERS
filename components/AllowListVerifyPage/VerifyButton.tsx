@@ -1,42 +1,16 @@
 import { useState } from "react"
 import Image from "next/image"
-import { toast } from "react-toastify"
-import { useRouter } from "next/router"
-import verify from "../../lib/verify"
 import { Button } from "../../shared/Button"
-import handleTwitterVerificationError from "../../lib/handleTwitterVerificationError"
+import useTwitterVerification from "../../hooks/useTwitterVerification"
 
 const VerifyButton = ({ tweet }: any) => {
   const [loading, setLoading] = useState(false)
-  const router = useRouter()
-
-  const handleVerificationError = (error: any) => {
-    handleTwitterVerificationError(error)
-  }
-
-  const handleVerification = (response: any) => {
-    if (response?.sucess) {
-      toast.success("verified")
-      router.push("/status")
-      return
-    }
-    if (response?.err) {
-      handleVerificationError(response?.err)
-      return
-    }
-
-    toast.error("verification failed")
-  }
+  const { verify } = useTwitterVerification()
 
   const handleClick = async () => {
     if (loading) return
-
-    console.log("SWEETS CALL VERIFY API")
-    // TODO: lookup if twitter 1. exists 2. already verified 3. twitter link
     setLoading(true)
-    const response = await verify(tweet)
-    console.log("SWEETS RESPONSE VERIFY API", response)
-    handleVerification(response)
+    await verify(tweet)
     setLoading(false)
   }
 
