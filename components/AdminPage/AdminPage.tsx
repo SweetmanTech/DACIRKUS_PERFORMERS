@@ -76,6 +76,7 @@ const AdminPage = () => {
       },
     )
   }
+
   const handleClick = async (status) => {
     setLoading(true)
     const applicants = pickedApplicants.map((applicant) => applicant.walletAddress)
