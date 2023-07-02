@@ -147,10 +147,10 @@ export const addTokenIdToAllowListApplicant = async (address: string, tokenId: s
   }
 }
 
-export const verifyAllowListApplicant = async (address: string, verified: boolean) => {
+export const verifyAllowListApplicant = async (address: string, isVerified: boolean) => {
   try {
     await dbConnect()
-    const result = await AllowList.findOneAndUpdate({ walletAddress: address }, { tokenId })
+    const result = await AllowList.findOneAndUpdate({ walletAddress: address }, { isVerified })
     return { sucess: true, result }
   } catch (e) {
     throw new Error(e)

@@ -1,8 +1,12 @@
 import { createHandler, Post, Body, ValidationPipe } from "next-api-decorators"
 import { TwitterApi } from "twitter-api-v2";
 import { VerifyDTO } from "../../../../DTO/verify"
+import {
+  getAllowListApplicantByTwitterHandle,
+  verifyAllowListApplicant,
+} from "../../../../helpers/db"
 
-const client = new TwitterApi("AAAAAAAAAAAAAAAAAAAAADsdoQEAAAAArwFdQoPJWJM3R%2FExixXNvE3Dhuc%3D7gPdZobbOJnUnm1UeptYbNTHLlK77Vodvp2U2hrjn55wTrVp8P")
+const client = new TwitterApi(process.env.TWITTER_BEARER)
 
 class Verify {
   @Post()
@@ -17,22 +21,16 @@ class Verify {
 
     try {
       const readOnlyClient = client.readOnly
-      console.log("READ ONLY", readOnlyClient)
       const data = await readOnlyClient.v2.singleTweet(tweetId)
-      console.log("TWEET BODY", data)
       const tweetBody = data?.data?.text?.toLowerCase?.()
-      console.log("SWEETS tweetBody", tweetBody)
-      const isVerifiable = tweetBody.includes("Everything Corp Personality Quiz") || tweetBody.includes("cre8ors")
-      console.log("SWEETS VERIFY", isVerifiable)
-      console.log("SENDER", handle)
-      // TODO: UPDATE TWEET SENDER IN DB WITH TWEET VERIFICATION: TRUE
-      console.log("UPDATED IN DB", false)
-      return { tweetUrl }
+      const isVerifiable =
+        tweetBody.includes("Everything Corp Personality Quiz") || tweetBody.includes("cre8ors")
+      if (!isVerifiable) return { success: false, tweetUrl }
+      let applicant = (await getAllowListApplicantByTwitterHandle(handle)) as any
+      applicant = await verifyAllowListApplicant(applicant.walletAddress, true)
+      return { ...applicant, tweetUrl }
     } catch (err) {
-      console.log("SWEETS ERROR")
-      console.log(err)
-      console.log("SWEETS ERROR")
-      return { tweetUrl: false }
+      return { success: false, tweetUrl }
     }
   }
 }
