@@ -18,19 +18,23 @@ class Verify {
     const handle = urlParts[urlIndex + 1]
     let tweetId = urlParts[idIndex + 1]
     tweetId = tweetId.substring(0, tweetId.indexOf("?"))
-
+    if (!tweetId) {
+      return { success: false, tweetUrl, err: { title: "please use a valid tweet" } }
+    }
     try {
       const readOnlyClient = client.readOnly
       const data = await readOnlyClient.v2.singleTweet(tweetId)
       const tweetBody = data?.data?.text?.toLowerCase?.()
       const isVerifiable =
         tweetBody.includes("Everything Corp Personality Quiz") || tweetBody.includes("cre8ors")
-      if (!isVerifiable) return { success: false, tweetUrl }
+      if (!isVerifiable) return { success: false, tweetUrl, err: { title: "tweet incorrect" } }
       let applicant = (await getAllowListApplicantByTwitterHandle(handle)) as any
       applicant = await verifyAllowListApplicant(applicant.walletAddress, true)
       return { ...applicant, tweetUrl }
     } catch (err) {
-      return { success: false, tweetUrl }
+      // eslint-disable-next-line no-console
+      console.error(err)
+      return { success: false, tweetUrl, err }
     }
   }
 }
