@@ -3,7 +3,7 @@ import { getAllowListApplicantByTwitterHandle } from "../../../../helpers/db"
 
 class GetAllowlistApplicantByTwitterHandle {
   @Get()
-  async getAllowlistApplicantByTwitterHandle(@Query("twitterHandle") twitterHandle: string,) {
+  async getAllowlistApplicantByTwitterHandle(@Query("twitterHandle") twitterHandle: string) {
     try {
       const applicant = await getAllowListApplicantByTwitterHandle(twitterHandle)
       return { ...applicant, twitterHandle }
