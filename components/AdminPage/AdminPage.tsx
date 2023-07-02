@@ -61,20 +61,13 @@ const AdminPage = () => {
   const tweetAcceptanceStatus = async () => {
     const body = pickedApplicants.map((applicant) => ({
       username: applicant.twitterHandle,
-      cre8orType: mapEvilToGood(applicant.creatorType),
+      cre8orType: mapEvilToGood(applicant.cre8orType),
     }))
-
-    await axios.post(
-      `${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`,
-      {
-        body,
+    await axios.post(`${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`, body, {
+      headers: {
+        Authorization: `Bearer ${bearerToken}`,
       },
-      {
-        headers: {
-          Authorization: `Bearer ${bearerToken}`,
-        },
-      },
-    )
+    })
   }
 
   const handleClick = async (status) => {
