@@ -11,6 +11,7 @@ import Footer from "../Footer"
 import SectionContainer from "./SectionContainer"
 import Mint from "../ClaimPage/Mint"
 import Popover from "../../shared/Popover"
+import AllowListModal from "../AllowListModal"
 
 const LandingPage = () => {
   const [email, setEmail] = useState("")
@@ -24,9 +25,15 @@ const LandingPage = () => {
   const isIphone = useMediaQuery("(max-width: 390px)")
 
   const currentTime = new Date().getTime()
-  const alertEndDay = "2 Jul 2023 09:00:00 UTC"
+  const alertMintEndDay = "2 Jul 2023 09:00:00 UTC"
 
-  const shouldOpenModal = new Date(alertEndDay).getTime() >= currentTime
+  const alertAllowListStartDay = "2 Jul 2023 09:00:00 UTC"
+  const alertAllowListEndDay = "3 Jul 2023 09:00:00 UTC"
+
+  const shouldOpenMintModal = new Date(alertMintEndDay).getTime() >= currentTime
+  const shouldOpenAllowListModal =
+    new Date(alertAllowListEndDay).getTime() >= currentTime &&
+    new Date(alertAllowListStartDay).getTime() < currentTime
 
   const { width } = useWindowSize()
 
@@ -142,9 +149,17 @@ const LandingPage = () => {
           </div>
         </div>
       </AutoPerfectArea>
-      <Popover className="w-full fade_modal" id="connect_popver_claim" open={shouldOpenModal}>
+      <Popover className="w-full fade_modal" id="connect_popver_claim" open={shouldOpenMintModal}>
         <div />
         {({ toggleModal }) => <Mint handleClose={toggleModal} />}
+      </Popover>
+      <Popover
+        className="w-full fade_modal"
+        id="to_popver_allowlist"
+        open={shouldOpenAllowListModal}
+      >
+        <div />
+        {({ toggleModal }) => <AllowListModal handleClose={toggleModal} />}
       </Popover>
     </Layout>
   )

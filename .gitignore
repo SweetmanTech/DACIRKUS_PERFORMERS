@@ -40,6 +40,8 @@ utils/db/serviceAccountKey.json
 
 # ENV
 .env
+.env.local
+.env.production
 
 # Testing
 pages/api/temp.ts
