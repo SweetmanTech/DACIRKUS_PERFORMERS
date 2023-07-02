@@ -1,15 +1,20 @@
 import { useRouter } from "next/router"
 import { toast } from "react-toastify"
+import axios from "axios"
 import handleTwitterVerificationError from "../lib/handleTwitterVerificationError"
 import verifyTweetUrl from "../lib/verifyTweetUrl"
 
 const useTwitterVerification = () => {
   const router = useRouter()
 
+  const handleVerified = () => {
+    toast.success("verified")
+    router.push("/status")
+  }
+
   const handleVerification = (response: any) => {
     if (response?.sucess) {
-      toast.success("verified")
-      router.push("/status")
+      handleVerified()
       return
     }
     if (response?.err) {
@@ -20,8 +25,23 @@ const useTwitterVerification = () => {
     toast.error("verification failed")
   }
 
+  const alreadyVerified = async (handle: string) => {
+    const response = await axios.get(
+      `/api/allowlist/getAllowlistApplicantByTwitterHandle?twitterHandle=${handle}`,
+    )
+    const { data } = response
+    return data?.isVerified
+  }
+
   const verify = async (tweet: string) => {
     // TODO: lookup if twitter 1. exists 2. already verified 3. twitter link
+    const handle = tweet.split("/")[3]
+    const isVerified = await alreadyVerified(handle)
+    if (isVerified) {
+      handleVerified()
+      return
+    }
+
     const response = await verifyTweetUrl(tweet)
     console.log("SWEETS RESPONSE VERIFY API", response)
     handleVerification(response)
