@@ -53,7 +53,9 @@ export const getAllowListApplicantByWalletAddress = async (walletAddress: string
 export const getAllowListApplicantByTwitterHandle = async (twitterHandle: string) => {
   try {
     await dbConnect()
-    const result = await AllowList.findOne({ twitterHandle }).lean()
+    const result = await AllowList.findOne({ 
+      twitterHandle: { $regex: twitterHandle, $options: "i" },
+    }).lean()
     return result
   } catch (e) {
     error(e)
