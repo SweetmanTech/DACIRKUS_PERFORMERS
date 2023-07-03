@@ -34,10 +34,13 @@ class Verify {
       if (!isVerifiable) return { success: false, tweetUrl, err: { title: "tweet incorrect" } }
       let applicant = (await getAllowListApplicantByTwitterHandle(handle)) as any
       if (!applicant) {
-        return {
-          success: false,
-          tweetUrl,
-          err: { title: `twitter handle "${handle}" has not taken the quiz yet` },
+        applicant = (await getAllowListApplicantByTwitterHandle(`@${handle}`)) as any
+        if (!applicant) {
+          return {
+            success: false,
+            tweetUrl,
+            err: { title: `twitter handle "${handle}" has not taken the quiz yet` },
+          }
         }
       }
       applicant = await verifyAllowListApplicant(applicant.walletAddress, true)
