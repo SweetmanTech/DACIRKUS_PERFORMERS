@@ -55,7 +55,7 @@ const DesktopMenu = () => {
         </button>
         {isMenuOpen && (
           <div className="absolute right-0 top-[45px] z-200 inline-flex flex-col items-start uppercase justify-between space-y-4 p-4 bg-[black] dark:bg-white shadow-md rounded-lg  font-quicksand text-sm">
-            <a href="https://everythingcorp.cre8ors.com/quiz" target="_blank" rel="noreferrer">
+            <a href="https://everythingcorp.cre8ors.com" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Allowlist</div>
             </a>
             <Link href="/status" target="_blank" rel="noreferrer">

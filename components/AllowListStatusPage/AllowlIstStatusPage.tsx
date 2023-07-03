@@ -65,7 +65,7 @@ const AllowListStatusPage = () => {
         {address && status && <Status status={status} />}
         {address && !status && (
           <AllowlistStatusButton
-            onClick={() => router.push("https://everythingcorp.cre8ors.com/quiz")}
+            onClick={() => router.push("https://everythingcorp.cre8ors.com")}
           />
         )}
         {address && status && !applicant?.isVerified && (
