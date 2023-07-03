@@ -29,6 +29,10 @@ export default function Popover({
     setOpenModal(prev => !prev)
   }
 
+  useEffect(() => {
+    setOpenModal(open)
+  }, [open])
+  
   return (
     <div className='relative z-[52]'>
       <div onClick={toggleModal}>{children && children[0]}</div>
