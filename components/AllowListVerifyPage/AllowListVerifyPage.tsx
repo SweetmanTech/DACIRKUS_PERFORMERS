@@ -18,7 +18,7 @@ const AllowListVerifyPage = () => {
 
   const handleTweetClick = () => {
     createTweet(
-      `I just applied for the @cre8orsNFT allowlist by taking a personality test. Check it out https://everythingcorp.cre8ors.com/quiz`,
+      `I just applied for the @cre8orsNFT allowlist by taking a personality test. Check it out https://everythingcorp.cre8ors.com`,
     )
   }
 
