@@ -45,6 +45,9 @@ const MenuList = ({ toggleMenu }) => {
       <a href="https://everythingcorp.cre8ors.com/quiz" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Allowlist</div>
       </a>
+      <Link href="/status" target="_blank" rel="noreferrer">
+        <div className="cursor-pointer text-white dark:text-[black]">Status</div>
+      </Link>
       <Link href="/roadmap" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Roadmap</div>
       </Link>

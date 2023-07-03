@@ -20,8 +20,8 @@ const DesktopMenu = () => {
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
       <div className="flex items-center pr-4">
-        <a href="https://reserve.cre8ors.com/" target="_blank" rel="noreferrer">
-          <div className="font-bold cursor-pointer dark:text-white text-black">Reserve List</div>
+        <a href="https://everythingcorp.cre8ors.com/" target="_blank" rel="noreferrer">
+          <div className="font-bold cursor-pointer dark:text-white text-black">Allow List</div>
         </a>
       </div>
       <div className="flex items-center font-quicksand font-bold">
@@ -58,6 +58,9 @@ const DesktopMenu = () => {
             <a href="https://everythingcorp.cre8ors.com/quiz" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Allowlist</div>
             </a>
+            <Link href="/status" target="_blank" rel="noreferrer">
+              <div className="cursor-pointer text-white dark:text-[black]">Status</div>
+            </Link>
             <Link href="/manifesto" target="_blank" rel="noreferrer">
               <div className="cursor-pointer text-white dark:text-[black]">Manifesto</div>
             </Link>
