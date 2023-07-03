@@ -70,9 +70,12 @@ const AllowListStatusPage = () => {
         )}
         {address && status && !applicant?.isVerified && (
           <AllowlistStatusButton
-            text="Verify your Twitter"
+            text="share on twitter"
             onClick={() => router.push("/status/verify")}
           />
+        )}
+        {address && status && !applicant?.isVerified && (
+          <div>Move your application up by sharing it on Twitter</div>
         )}
       </div>
     </Layout>
