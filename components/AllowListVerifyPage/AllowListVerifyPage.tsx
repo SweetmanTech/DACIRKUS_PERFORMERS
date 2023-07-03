@@ -17,9 +17,9 @@ const AllowListVerifyPage = () => {
   }
 
   const handleTweetClick = () => {
-    createTweet(`I just took the Everything Corp Personality Quiz.
-Click the link to be assigned your livelihood for the next decade.
-https://everythingcorp.cre8ors.com/quiz`)
+    createTweet(
+      `I just applied for the @cre8orsNFT allowlist by taking a personality test. Check it out https://everythingcorp.cre8ors.com/quiz`,
+    )
   }
 
   return (
@@ -31,7 +31,7 @@ https://everythingcorp.cre8ors.com/quiz`)
             "
       >
         <SectionTitle
-          text="Check Allowlist Application Status"
+          text="Move up your application"
           className="mx-[8px] xs:m-6 
                     w-[100%] xs:w-[500px] md:w-[650px]
                     text-[25px] samsungS8:!text-[36px] xs:!text-[40px] md:!text-[65px] mb-4
@@ -45,7 +45,7 @@ https://everythingcorp.cre8ors.com/quiz`)
                     text-black dark:text-white
                     text-[15px] samsungS8:text-[19px] font-medium font-quicksand"
           >
-            Step 1: Send Verification Tweet
+            Step 1: Share your application
           </div>
           <div className="flex justify-center md:justify-start">
             <Button
