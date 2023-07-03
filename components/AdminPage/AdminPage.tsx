@@ -1,41 +1,54 @@
 import axios from "axios"
 import { useCallback, useEffect, useMemo, useState } from "react"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
-import { useSigner } from "wagmi"
-import Confetti from "react-confetti"
-import { useUserProvider } from "../../providers/UserProvider"
 import Table from "./components/Table"
 import StatusPill from "./components/StatusPill"
 import SelectColumnFilter from "./components/SelectColumFilter"
-import useWindowSize from "../../lib/useWindowSize"
-import acceptApplicants from "../../lib/acceptApplicants"
-import abi from "../../lib/abi-metadata-renderer.json"
 import PopupModal from "./components/PopupModal"
+import { useAdminProvider } from "../../providers/AdminProvider"
 
 type ITableDatum = {
   walletAddress: string
-  tokenId: string
   twitterHandle: string
   reason: string
   creatorType: string
-  status: "Review" | "Accepted" | "Rejected"
+  isVerified: boolean
+  status: "Pending" | "Accepted" | "Rejected"
 }
 type ITableData = Array<ITableDatum>
 const AdminPage = () => {
-  const { data: signer } = useSigner({ chainId: 80001 })
-  const { user } = useUserProvider()
+  const mapEvilToGood = (evil: string) => {
+    switch (evil) {
+      case "The Delegator":
+        return "musician"
+      case "The Pragmatic":
+        return "engineer"
+      case "The Kinesthetic":
+        return "dancer"
+      case "The Deviser":
+        return "director"
+      case "The Communicator":
+        return "writer"
+      case "The Catalyst":
+        return "thespian"
+      case "The Idealist":
+        return "photographer"
+      case "The Generator":
+        return "designer"
+      default:
+        return null
+    }
+  }
+  const { bearerToken, user } = useAdminProvider()
   const [data, setData] = useState([])
-  const [acceptedApplicants, setAcceptedApplicants] = useState([])
+  const [pickedApplicants, setPickedApplicants] = useState([])
   const [loading, setLoading] = useState(false)
-  const [startConfetti, setStartConfetti] = useState(false)
-  const { width, height } = useWindowSize()
   const tableData: ITableData = useMemo(
     () =>
       data.map((datum) => {
-        const { walletAddress, tokenId, twitterHandle, reason, status, creatorType } = datum
+        const { walletAddress, isVerified, twitterHandle, reason, status, creatorType } = datum
         return {
           walletAddress,
-          tokenId,
+          isVerified,
           twitterHandle,
           reason,
           status,
@@ -44,41 +57,48 @@ const AdminPage = () => {
       }),
     [data],
   )
-  const handleClick = async () => {
-    if (!signer) return
-    setLoading(true)
-    const acceptedTokenIDs = acceptedApplicants.map((applicant) => applicant.tokenId)
-    const acceptedImageUris = acceptedApplicants.map((applicant) => applicant.imageUri)
-    const [receipt] = await Promise.all([
-      acceptApplicants(
-        process.env.NEXT_PUBLIC_ALLOWLIST_METADATA_CONTRACT_ADDRESS,
-        signer,
-        abi,
-        acceptedTokenIDs,
-        acceptedImageUris,
-      ),
-      axios.post(
-        "/api/allowlist/updateStatus",
-        {
-          applicants: acceptedTokenIDs,
-          status: "Accepted",
-        },
-        {
-          headers: {
-            Authorization: `Bearer ${process.env.NEXT_PUBLIC_ALLOWLIST_API_KEY}`,
-          },
-        },
-      ),
-    ])
 
-    if (!receipt.error) {
-      setStartConfetti(true)
-      setTimeout(() => {
-        setStartConfetti(false)
-      }, 5000)
-    }
+  const tweetAcceptanceStatus = async () => {
+    const body = pickedApplicants.map((applicant) => ({
+      username: applicant.twitterHandle,
+      cre8orType: mapEvilToGood(applicant.cre8orType),
+    }))
+    await axios.post(`${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`, body, {
+      headers: {
+        Authorization: `Bearer ${bearerToken}`,
+      },
+    })
+  }
+
+  const handleClick = async (status) => {
+    setLoading(true)
+    const applicants = pickedApplicants.map((applicant) => applicant.walletAddress)
+    await axios.post(
+      "/api/allowlist/updateStatus",
+      {
+        applicants,
+        status,
+      },
+      {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+        },
+      },
+    )
+
     setLoading(false)
   }
+  const handleReject = async (e) => {
+    e.preventDefault()
+    handleClick("Rejected")
+  }
+
+  const handleAccept = async (e) => {
+    e.preventDefault()
+    handleClick("Accepted")
+    await tweetAcceptanceStatus()
+  }
+
   const columns = useMemo(
     () => [
       {
@@ -91,14 +111,12 @@ const AdminPage = () => {
       {
         Header: "Wallet Address",
         accessor: "walletAddress",
-      },
-      {
-        Header: "Token ID",
-        accessor: "tokenId",
+        filter: "includes",
       },
       {
         Header: "Twitter Handle",
         accessor: "twitterHandle",
+        filter: "includes",
       },
       {
         Header: "Reason",
@@ -107,6 +125,13 @@ const AdminPage = () => {
       {
         Header: "Quiz Result",
         accessor: "creatorType",
+        filter: "includes",
+      },
+      {
+        Header: "Tweet Verified",
+        accessor: (d) => d.isVerified.toString(),
+        Filter: SelectColumnFilter,
+        filter: "includes",
       },
     ],
     [],
@@ -123,7 +148,7 @@ const AdminPage = () => {
 
   useEffect(() => {
     getData()
-  }, [getData, startConfetti])
+  }, [getData, loading])
 
   return (
     user?.issuer && (
@@ -133,73 +158,27 @@ const AdminPage = () => {
             <h1 className="text-xl font-semibold">Current Allowlist Applicants</h1>
           </div>
           <div className="mt-4">
-            <Table
-              columns={columns}
-              data={tableData}
-              setAcceptedApplicants={setAcceptedApplicants}
-            />
+            <Table columns={columns} data={tableData} setPickedApplicants={setPickedApplicants} />
           </div>
-          {acceptedApplicants.length > 0 && signer && (
-            <div className="justify-end m-2 text-right">
-              <ConnectButton.Custom>
-                {({ account, chain, openChainModal, openConnectModal, mounted }) => {
-                  const ready = mounted
-                  const connected = ready && account && chain
-
-                  return (
-                    <div
-                      {...(!ready && {
-                        "aria-hidden": true,
-                        style: {
-                          opacity: 0,
-                          pointerEvents: "none",
-                          userSelect: "none",
-                        },
-                      })}
-                    >
-                      {(() => {
-                        if (!connected) {
-                          return (
-                            <button
-                              onClick={openConnectModal}
-                              type="button"
-                              className="px-4 py-2 font-bold text-white bg-blue-500 rounded"
-                            >
-                              Connect Wallet
-                            </button>
-                          )
-                        }
-
-                        if (chain.id !== Number(process.env.NEXT_PUBLIC_ALLOW_LIST_CHAIN_ID)) {
-                          return (
-                            <button
-                              onClick={openChainModal}
-                              type="button"
-                              className="px-4 py-2 font-bold text-white bg-blue-500 rounded"
-                            >
-                              Wrong network
-                            </button>
-                          )
-                        }
-
-                        return (
-                          <button
-                            type="button"
-                            onClick={() => handleClick()}
-                            className="px-4 py-2 m-2 font-bold text-white rounded bg-emerald-500"
-                          >
-                            Accept
-                          </button>
-                        )
-                      })()}
-                    </div>
-                  )
-                }}
-              </ConnectButton.Custom>
+          {pickedApplicants.length > 0 && (
+            <div className="flex flex-row justify-end mt-4 gap-x-4">
+              <button
+                type="button"
+                className="px-4 py-2 mt-4 text-white bg-green-500 border rounded-full"
+                onClick={handleAccept}
+              >
+                Accept
+              </button>
+              <button
+                type="button"
+                className="px-4 py-2 mt-4 text-white bg-red-500 border rounded-full"
+                onClick={handleReject}
+              >
+                Reject
+              </button>
             </div>
           )}
         </main>
-        {startConfetti && <Confetti width={width} height={height} />}
         {loading && <PopupModal open={loading} />}
       </div>
     )

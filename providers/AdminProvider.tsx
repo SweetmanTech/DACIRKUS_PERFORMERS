@@ -1,24 +1,26 @@
 import { useCallback, useContext, useEffect, useMemo, useState } from "react"
+import { useInterval } from "usehooks-ts"
 import { magic } from "../lib/magic"
-import { UserContext } from "./UserContext"
+import { AdminContext } from "./AdminContext"
 
-export const useUserProvider = () => useContext(UserContext)
+export const useAdminProvider = () => useContext(AdminContext)
 
-export const UserProvider = ({ children }) => {
+export const AdminProvider = ({ children }) => {
   const [user, setUser] = useState(null)
   const [userIsLoggedIn, setUserIsLoggedIn] = useState(false)
   const [loading, setLoading] = useState(true)
   const [email, setEmail] = useState("")
-  const [url, setUrl] = useState("/")
+  const [bearerToken, setBearerToken] = useState("")
+  const autoRefreshTime: number = 1000 * 60 * 10 // 10 minutes
+
   const handleLogin = useCallback(
     async (e) => {
       e.preventDefault()
 
       const didToken = await magic.auth.loginWithMagicLink({
         email,
-        redirectURI: new URL(url, window.location.origin).href,
       })
-
+      setBearerToken(didToken)
       // Send this token to our validation endpoint
       const res = await fetch("/api/login", {
         method: "POST",
@@ -35,7 +37,7 @@ export const UserProvider = ({ children }) => {
         setUserIsLoggedIn(true)
       }
     },
-    [email, url],
+    [email],
   )
 
   const logout = useCallback(() => {
@@ -51,9 +53,11 @@ export const UserProvider = ({ children }) => {
     setUser({ loading: true })
     setLoading(true)
     // Check if the user is authenticated already
-    magic.user.isLoggedIn().then((isLoggedIn) => {
+    magic.user.isLoggedIn().then(async (isLoggedIn) => {
       if (isLoggedIn) {
         // Pull their metadata, update our state, and route to dashboard
+        const idToken = await magic.user.getIdToken()
+        setBearerToken(idToken)
         magic.user.getMetadata().then((userData) => setUser(userData))
         setUserIsLoggedIn(true)
       } else {
@@ -72,6 +76,14 @@ export const UserProvider = ({ children }) => {
     }
   }, [user])
 
+  useInterval(
+    async () => {
+      const idToken = await magic.user.getIdToken()
+      setBearerToken(idToken)
+    },
+    userIsLoggedIn ? autoRefreshTime : null,
+  )
+
   const value = useMemo(
     () => ({
       user,
@@ -84,7 +96,7 @@ export const UserProvider = ({ children }) => {
       logout,
       loading,
       setLoading,
-      setUrl,
+      bearerToken,
     }),
     [
       user,
@@ -97,8 +109,8 @@ export const UserProvider = ({ children }) => {
       logout,
       loading,
       setLoading,
-      setUrl,
+      bearerToken,
     ],
   )
-  return <UserContext.Provider value={value}>{children}</UserContext.Provider>
+  return <AdminContext.Provider value={value}>{children}</AdminContext.Provider>
 }

@@ -9,6 +9,7 @@ import { Button } from "../../shared/Button"
 import Media from "../../shared/Media"
 import Footer from "../Footer"
 import { useTheme } from "../../providers/ThemeProvider"
+import createTweet from "../../lib/createTweet"
 
 const ClaimSuccessPage = () => {
   const [containerRef, { width }] = useMeasure()
@@ -22,10 +23,9 @@ const ClaimSuccessPage = () => {
   const contentRef = useRef()
   const buttonRef = useRef()
 
-  const text =
-    encodeURIComponent(`Welcome to the future of creativity. Just secured my @cre8orsnft passport...
+  const text = `Welcome to the future of creativity. Just secured my @cre8orsnft passport...
     
-Check to see if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passports`)
+Check to see if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors_passports`
 
   return (
     <Layout type="base">
@@ -114,9 +114,7 @@ Check to see if you're eligible here: https://magiceden.io/launchpad/eth/cre8ors
                       <Button
                         id="follow_for_btn"
                         className="py-0 h-[49px] md:w-[291px] !px-0 hidden md:flex"
-                        onClick={() =>
-                          window.open(`https://twitter.com/intent/tweet?text=${text}`, "_blank")
-                        }
+                        onClick={() => createTweet(text)}
                       >
                         <Image
                           src={
