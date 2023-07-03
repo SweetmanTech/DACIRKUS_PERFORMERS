@@ -25,8 +25,7 @@ class Verify {
       const readOnlyClient = client.readOnly
       const data = await readOnlyClient.v2.singleTweet(tweetId)
       const tweetBody = data?.data?.text?.toLowerCase?.()
-      const isVerifiable =
-        tweetBody.includes("Everything Corp Personality Quiz") || tweetBody.includes("cre8ors")
+      const isVerifiable = tweetBody.includes("https://everythingcorp.cre8ors.com/quiz")
       if (!isVerifiable) return { success: false, tweetUrl, err: { title: "tweet incorrect" } }
       let applicant = (await getAllowListApplicantByTwitterHandle(handle)) as any
       if (!applicant) {
