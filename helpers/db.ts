@@ -26,7 +26,15 @@ export const addAllowListApplicant = async (body: ApplicantDTO) => {
     throw new Error(error)
   }
 }
-
+export const typeformResponseExists = async (responseId: string) => {
+  try {
+    await dbConnect()
+    const result = await AllowList.countDocuments({ responseId })
+    return result > 0
+  } catch (e) {
+    throw new Error(e)
+  }
+}
 export const addMessage = async (body: ContactFormDTO) => {
   try {
     await dbConnect()
