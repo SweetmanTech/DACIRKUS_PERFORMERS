@@ -1,13 +1,10 @@
-import { useEffect } from "react"
-import { useUserProvider } from "../../providers/UserProvider"
 import LoadingPage from "../LoadingPage"
 import LoginPage from "../LoginPage"
+import { useAdminProvider } from "../../providers/AdminProvider"
 
-const Auth = ({ children, url }) => {
-  const { userIsLoggedIn, user, setUrl } = useUserProvider()
-  useEffect(() => {
-    setUrl(url)
-  }, [url, setUrl])
+const Auth = ({ children }) => {
+  const { userIsLoggedIn, user } = useAdminProvider()
+
   return (
     <>
       {user?.loading && <LoadingPage />}

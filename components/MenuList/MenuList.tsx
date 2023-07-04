@@ -42,7 +42,16 @@ const MenuList = ({ toggleMenu }) => {
       </a>
 
       <div className="font-bold dark:text-[black] text-white">Explore</div>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Allowlist</div>
+      <a
+        href="https://cre8ors-git-test-defient-team.vercel.app/quiz"
+        target="_blank"
+        rel="noreferrer"
+      >
+        <div className="ml-4 dark:text-[black] text-white">Allowlist</div>
+      </a>
+      <Link href="/status" target="_blank" rel="noreferrer">
+        <div className="ml-4 cursor-pointer text-white dark:text-[black]">Status</div>
+      </Link>
       <Link href="/roadmap" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Roadmap</div>
       </Link>

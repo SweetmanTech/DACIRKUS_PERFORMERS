@@ -31,7 +31,6 @@ const SectionContainer: React.FC<LayoutProps> = ({
         absolute
         w-full
         h-full
-        z-[10] 
         top-0
         left-0
         opacity-0

@@ -9,8 +9,8 @@ import LandingContent from "./LandingContent"
 import Layout from "../Layout"
 import Footer from "../Footer"
 import SectionContainer from "./SectionContainer"
-import Mint from "../ClaimPage/Mint"
 import Popover from "../../shared/Popover"
+import AllowListModal from "../AllowListModal"
 
 const LandingPage = () => {
   const [email, setEmail] = useState("")
@@ -24,7 +24,7 @@ const LandingPage = () => {
   const isIphone = useMediaQuery("(max-width: 390px)")
 
   const currentTime = new Date().getTime()
-  const alertEndDay = "2 Jul 2023 09:00:00 UTC"
+  const alertEndDay = "27 Jul 2023 09:00:00 UTC"
 
   const shouldOpenModal = new Date(alertEndDay).getTime() >= currentTime
 
@@ -144,7 +144,7 @@ const LandingPage = () => {
       </AutoPerfectArea>
       <Popover className="w-full fade_modal" id="connect_popver_claim" open={shouldOpenModal}>
         <div />
-        {({ toggleModal }) => <Mint handleClose={toggleModal} />}
+        {({ toggleModal }) => <AllowListModal handleClose={toggleModal} />}
       </Popover>
     </Layout>
   )

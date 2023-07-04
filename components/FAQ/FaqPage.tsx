@@ -322,7 +322,7 @@ const FaqPage = () => {
       title: "Will any Cre8ors Passports be withheld?",
       content: (
         <>
-          44 Cre8ors Passports (5% of the supply) will be withheld. Each member of the team will
+          88 Cre8ors Passports (10% of the supply) will be withheld. Each member of the team will
           receive
           <br /> one Cre8ors Passport and the remainder are reserved for marketing, promotions, and
           partnerships.
@@ -330,7 +330,7 @@ const FaqPage = () => {
       ),
       mobile_content: (
         <>
-          44 Cre8ors Passports (5% of the
+          88 Cre8ors Passports (10% of the
           <br /> supply) will be withheld. Each
           <br /> member of the team will receive one
           <br /> Cre8ors Passport and the remainder

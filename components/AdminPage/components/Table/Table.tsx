@@ -8,7 +8,6 @@ import {
   usePagination,
   useRowSelect,
 } from "react-table"
-import { ACCEPTED_IMAGE_URIS } from "../../../../helpers/constants"
 import GlobalFilter from "../GlobalFilter"
 import Pagination from "../Pagination"
 import TableBody from "../TableBody"
@@ -17,17 +16,17 @@ import TableHeader from "../TableHeader"
 interface TableProps {
   columns: Array<{
     Header: string
-    accessor: string
+    accessor: string | ((row: any) => string)
   }>
   data: Array<{
     walletAddress: string
-    tokenId: string
+    isVerified: boolean
     twitterHandle: string
     reason: string
     creatorType: string
-    status: "Review" | "Accepted" | "Rejected"
+    status: "Pending" | "Accepted" | "Rejected"
   }>
-  setAcceptedApplicants?: (acceptedApplicants: Array<string>) => void
+  setPickedApplicants?: (pickedApplicants: Array<string>) => void
 }
 const IndeterminateCheckbox = forwardRef<any, any>(({ indeterminate, ...rest }, ref) => {
   const defaultRef = useRef()
@@ -41,7 +40,7 @@ const IndeterminateCheckbox = forwardRef<any, any>(({ indeterminate, ...rest }, 
 })
 
 IndeterminateCheckbox.displayName = "IndeterminateCheckbox"
-const Table: FC<TableProps> = ({ columns, data, setAcceptedApplicants }) => {
+const Table: FC<TableProps> = ({ columns, data, setPickedApplicants }) => {
   const {
     getTableProps,
     getTableBodyProps,
@@ -102,13 +101,13 @@ const Table: FC<TableProps> = ({ columns, data, setAcceptedApplicants }) => {
     },
   )
   useEffect(() => {
-    const filteredApplicants = selectedFlatRows.filter((row) => row.original.status === "Review")
-    const acceptedApplicants = filteredApplicants.map((row) => ({
-      tokenId: row.original.tokenId,
-      imageUri: ACCEPTED_IMAGE_URIS[row.original.creatorType.toLowerCase()],
+    const acceptedApplicants = selectedFlatRows.map((row) => ({
+      walletAddress: row.original.walletAddress,
+      cre8orType: row.original.creatorType,
+      twitterHandle: row.original.twitterHandle,
     }))
-    setAcceptedApplicants(acceptedApplicants)
-  }, [selectedFlatRows, setAcceptedApplicants])
+    setPickedApplicants(acceptedApplicants)
+  }, [selectedFlatRows, setPickedApplicants])
 
   return (
     <>
