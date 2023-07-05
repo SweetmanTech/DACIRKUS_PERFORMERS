@@ -28,6 +28,16 @@ export const addAllowListApplicant = async (body: ApplicantDTO) => {
     throw new Error(e)
   }
 }
+export const typeformResponseExists = async (responseId: string) => {
+  try {
+    await dbConnect()
+    const result = await AllowList.countDocuments({ responseId })
+    return result > 0
+  } catch (e) {
+    error(e)
+    throw new Error(e)
+  }
+}
 
 export const getAllowListApplicantByResponseId = async (responseId: string) => {
   try {
@@ -53,7 +63,7 @@ export const getAllowListApplicantByWalletAddress = async (walletAddress: string
 export const getAllowListApplicantByTwitterHandle = async (twitterHandle: string) => {
   try {
     await dbConnect()
-    const result = await AllowList.findOne({ 
+    const result = await AllowList.findOne({
       twitterHandle: { $regex: twitterHandle, $options: "i" },
     }).lean()
     return result
