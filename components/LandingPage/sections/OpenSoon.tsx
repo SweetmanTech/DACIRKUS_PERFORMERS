@@ -105,8 +105,8 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
             className={`w-[242px] ${isMobile ? "py-[8px]" : ""}`}
             hasDoubleAnimation
           >
-            <a target="_blank" rel="noreferrer" href="http://reserve.cre8ors.com/">
-              Reserve List
+            <a target="_blank" rel="noreferrer" href="https://everythingcorp.cre8ors.com/quiz">
+              Apply now
             </a>
           </Button>
         </div>
