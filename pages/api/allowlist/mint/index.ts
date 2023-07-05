@@ -2,11 +2,7 @@
 import axios from "axios"
 import { createHandler, Post, Body, ValidationPipe } from "next-api-decorators"
 import { ethers } from "ethers"
-import {
-  getAllowListApplicant,
-  addAllowListApplicant,
-  updateAllowListApplicantResponseIds,
-} from "../../../../helpers/db"
+import { getAllowListApplicant, updateAllowListApplicantResponseIds } from "../../../../helpers/db"
 import { ApplicantDTO } from "../../../../DTO/applicant.dto"
 import abi from "../../../../lib/abi-allow-list.json"
 import { AllowListAuthGuard } from "../../../../middleware/auth.middleware"
@@ -23,19 +19,12 @@ class Mint {
   async mint(@Body(ValidationPipe) body: ApplicantDTO) {
     try {
       const contractAddress = process.env.NEXT_PUBLIC_ALLOWLIST_CONTRACT_ADDRESS
-      const document = {
-        ...body,
-        typeformResponses: [{ id: body.currentResponseId, timestamp: body.timestamp }],
-      }
       const result = await getAllowListApplicant(body.walletAddress)
       if (result) {
         await updateAllowListApplicantResponseIds(body.walletAddress, {
           creatorType: body.creatorType,
-          responseId: body.currentResponseId,
-          timestamp: body.timestamp,
+          responseId: body.responseId,
         })
-      } else {
-        await addAllowListApplicant(document)
       }
       const { walletAddress, reason } = body
       const response = await axios.post(process.env.DEFENDER_AUTOTASK_WEBHOOK, {

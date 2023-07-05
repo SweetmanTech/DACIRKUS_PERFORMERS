@@ -2,6 +2,7 @@ import { useMediaQuery } from "usehooks-ts"
 import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
 import { useRouter } from "next/router"
+import axios from "axios"
 import Layout from "../Layout"
 import Status from "./Status"
 import getApplicant from "../../lib/getApplicant"
@@ -14,6 +15,15 @@ const AllowListStatusPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
   const [applicant, setApplicant] = useState({} as any)
   const status = applicant?.status
+  const { responseId } = router.query
+
+  useEffect(() => {
+    if (!responseId) return
+    const checkStatus = async () => {
+      await axios.post("/api/allowlist/typeform", { responseId })
+    }
+    checkStatus()
+  }, [responseId])
 
   useEffect(() => {
     const init = async () => {
@@ -70,9 +80,12 @@ const AllowListStatusPage = () => {
         )}
         {address && status && !applicant?.isVerified && (
           <AllowlistStatusButton
-            text="Verify your Twitter"
+            text="share on twitter"
             onClick={() => router.push("/status/verify")}
           />
+        )}
+        {address && status && !applicant?.isVerified && (
+          <div>Move your application up by sharing it on Twitter</div>
         )}
       </div>
     </Layout>

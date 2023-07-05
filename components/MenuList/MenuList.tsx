@@ -42,7 +42,12 @@ const MenuList = ({ toggleMenu }) => {
       </a>
 
       <div className="font-bold dark:text-[black] text-white">Explore</div>
-      <div className="ml-4 text-gray-400 cursor-not-allowed">Allowlist</div>
+      <a href="https://everythingcorp.cre8ors.com/quiz" target="_blank" rel="noreferrer">
+        <div className="ml-4 dark:text-[black] text-white">Allowlist</div>
+      </a>
+      <Link href="/status" target="_blank" rel="noreferrer">
+        <div className="ml-4 cursor-pointer text-white dark:text-[black]">Status</div>
+      </Link>
       <Link href="/roadmap" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Roadmap</div>
       </Link>
@@ -73,7 +78,7 @@ const MenuList = ({ toggleMenu }) => {
       <div className="ml-4 text-gray-400 cursor-not-allowed">Profiles</div>
       <div className="ml-4 text-gray-400 cursor-not-allowed">Warehouse</div>
       <CustomConnectWallet />
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-row items-center justify-around">
         <DiscordIcon />
         <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
           <div className="pt-2 cursor-pointer ">

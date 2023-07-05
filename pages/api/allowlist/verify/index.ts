@@ -17,7 +17,10 @@ class Verify {
     const idIndex = urlParts.indexOf("status")
     const handle = urlParts[urlIndex + 1]
     let tweetId = urlParts[idIndex + 1]
-    tweetId = tweetId.substring(0, tweetId.indexOf("?"))
+    const questionIndex = tweetId.indexOf("?")
+    if (questionIndex >= 0) {
+      tweetId = tweetId.substring(0, questionIndex)
+    }
     if (!tweetId) {
       return { success: false, tweetUrl, err: { title: "please use a valid tweet" } }
     }
@@ -26,14 +29,18 @@ class Verify {
       const data = await readOnlyClient.v2.singleTweet(tweetId)
       const tweetBody = data?.data?.text?.toLowerCase?.()
       const isVerifiable =
-        tweetBody.includes("Everything Corp Personality Quiz") || tweetBody.includes("cre8ors")
+        tweetBody.includes("everythingcorp.cre8ors.com") ||
+        tweetBody.includes("@cre8orsnft allowlist")
       if (!isVerifiable) return { success: false, tweetUrl, err: { title: "tweet incorrect" } }
       let applicant = (await getAllowListApplicantByTwitterHandle(handle)) as any
       if (!applicant) {
-        return {
-          success: false,
-          tweetUrl,
-          err: { title: `twitter handle "${handle}" has not taken the quiz yet` },
+        applicant = (await getAllowListApplicantByTwitterHandle(`@${handle}`)) as any
+        if (!applicant) {
+          return {
+            success: false,
+            tweetUrl,
+            err: { title: `twitter handle "${handle}" has not taken the quiz yet` },
+          }
         }
       }
       applicant = await verifyAllowListApplicant(applicant.walletAddress, true)
