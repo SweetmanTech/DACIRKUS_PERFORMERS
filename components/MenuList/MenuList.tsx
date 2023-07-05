@@ -42,11 +42,7 @@ const MenuList = ({ toggleMenu }) => {
       </a>
 
       <div className="font-bold dark:text-[black] text-white">Explore</div>
-      <a
-        href="https://cre8ors-git-test-defient-team.vercel.app/quiz"
-        target="_blank"
-        rel="noreferrer"
-      >
+      <a href="https://everythingcorp.cre8ors.com/quiz" target="_blank" rel="noreferrer">
         <div className="ml-4 dark:text-[black] text-white">Allowlist</div>
       </a>
       <Link href="/status" target="_blank" rel="noreferrer">
@@ -82,7 +78,7 @@ const MenuList = ({ toggleMenu }) => {
       <div className="ml-4 text-gray-400 cursor-not-allowed">Profiles</div>
       <div className="ml-4 text-gray-400 cursor-not-allowed">Warehouse</div>
       <CustomConnectWallet />
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-row items-center justify-around">
         <DiscordIcon />
         <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
           <div className="pt-2 cursor-pointer ">
