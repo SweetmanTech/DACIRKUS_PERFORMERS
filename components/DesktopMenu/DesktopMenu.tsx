@@ -26,7 +26,7 @@ const DesktopMenu = () => {
           </div>
         </Link>
       </div>
-      <div className="flex items-center font-quicksand font-bold">
+      <div className="flex items-center font-bold font-quicksand">
         <button
           type="button"
           className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"

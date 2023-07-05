@@ -78,7 +78,7 @@ const MenuList = ({ toggleMenu }) => {
       <div className="ml-4 text-gray-400 cursor-not-allowed">Profiles</div>
       <div className="ml-4 text-gray-400 cursor-not-allowed">Warehouse</div>
       <CustomConnectWallet />
-      <div className="flex flex-row justify-around items-center">
+      <div className="flex flex-row items-center justify-around">
         <DiscordIcon />
         <a href="https://twitter.com/Cre8orsNFT" target="_blank" rel="noreferrer">
           <div className="pt-2 cursor-pointer ">
