@@ -109,11 +109,11 @@ const WelcomeToCre8ors: FC<Props> = ({
         <div ref={titleRef}>
           <SectionTitle
             text="Welcome to the Next Generation of Creativity"
-            className="w-[300px] md:w-[550px] md:text-left md:!mt-0"
+            className="w-[260px] md:w-[550px] md:text-left md:!mt-0"
           />
         </div>
         <div ref={contentRef}>
-          <SectionContent className="!mt-2 md:m-0">
+          <SectionContent className="!text-[12.5px] samsungS8:!text-[14px] xs:!text-[16px] md:!text-[18px] !mt-2 md:m-0">
             {isMobile ? (
               <>
                 Cre8ors is a next-gen brand made for the <br /> metaverse; powered by our curated

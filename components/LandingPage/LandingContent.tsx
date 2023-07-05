@@ -97,7 +97,7 @@ const LandingContent = ({
           }}
         >
           <Networking
-            contentHeight={!isMobile ? Number((width / 1439) * 973) : 340}
+            contentHeight={!isMobile ? Number((width / 1439) * 973) : 380}
             characterHeight={625}
             desktopImageRef={networkingImageRef}
           />
@@ -115,11 +115,11 @@ const LandingContent = ({
               ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px`
               : "985px",
             height: !isMobile ? `${Number((width / 1439) * 973)}px` : "665px",
-            marginTop: isMobile ? `338px` : `0px`,
+            marginTop: isMobile ? `380px` : `0px`,
           }}
         >
           <Cre8orsWay
-            contentHeight={!isMobile ? Number((width / 1439) * 973) : 180}
+            contentHeight={!isMobile ? Number((width / 1439) * 973) : 160}
             characterHeight={665}
             desktopImageRef={profileImageRef}
           />
@@ -154,7 +154,7 @@ const LandingContent = ({
           }}
         >
           <OpenSoon
-            contentHeight={!isMobile ? Number((width / 1440) * 1079) : 200}
+            contentHeight={!isMobile ? Number((width / 1440) * 1079) : 120}
             characterHeight={625}
             desktopImageRef={openSoonImageRef}
           />

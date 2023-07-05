@@ -76,7 +76,7 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
       >
         <SectionTitle
           text="Allowlist Open Now"
-          className="w-[220px] md:w-[350px] leading-[105%] mb-0 md:text-left md:leading-[100%]"
+          className="w-[210px] md:w-[350px] leading-[105%] mb-0 md:text-left md:leading-[100%]"
         />
         <SectionContent className="!mt-[10px]">
           {isMobile ? (

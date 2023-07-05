@@ -72,7 +72,7 @@ const Cre8orsWay: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef
         <div ref={titleRef}>
           <SectionTitle
             text="Cre8ors are Way More than Just Profile Pictures"
-            className="md:text-right md:!leading-[63px] w-[336px] md:w-[550px]"
+            className="md:text-right md:!leading-[63px] w-[325px] md:w-[550px]"
           />
         </div>
         <div ref={contentRef}>
