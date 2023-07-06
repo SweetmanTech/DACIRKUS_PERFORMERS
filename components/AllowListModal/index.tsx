@@ -110,7 +110,7 @@ const AllowListModal = ({ handleClose }: BurnModalProps) => {
           id="to_allowlist_btn"
           className="!bg-[white] !text-black dark:!bg-[black] dark:!text-[white]"
           onClick={() => {
-            window.open("https://everythingcorp.cre8ors.com/")
+            window.open("https://everythingcorp.cre8ors.com/quiz")
             handleClose()
           }}
         >
