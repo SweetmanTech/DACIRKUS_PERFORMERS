@@ -5,7 +5,7 @@ const TableBody = ({ getTableBodyProps, page, prepareRow }) => (
       return (
         <tr key={row} {...row.getRowProps()}>
           {row.cells.map((cell) => (
-            <td key={cell} className="px-6 py-4 whitespace-nowrap" {...cell.getCellProps()}>
+            <td key={cell} className="px-6 py-4" {...cell.getCellProps()}>
               {cell.render("Cell")}
             </td>
           ))}
