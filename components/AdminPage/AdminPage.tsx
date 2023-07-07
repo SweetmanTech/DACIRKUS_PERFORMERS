@@ -121,6 +121,10 @@ const AdminPage = () => {
       {
         Header: "Reason",
         accessor: "reason",
+        maxWidth: 90,
+        minWidth: 50,
+        width: 60,
+        style: { "white-space": "unset" },
       },
       {
         Header: "Quiz Result",
@@ -152,7 +156,7 @@ const AdminPage = () => {
 
   return (
     user?.issuer && (
-      <div className="flex flex-wrap h-screen bg-gray-100 text-white-900">
+      <div className="flex flex-wrap min-h-screen m-auto bg-gray-100 text-white-900">
         <main className="min-w-full px-4 pt-4 mx-auto sm:px-6 lg:px-8">
           <div>
             <h1 className="text-xl font-semibold">Current Allowlist Applicants</h1>
