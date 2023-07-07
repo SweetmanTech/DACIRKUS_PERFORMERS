@@ -102,7 +102,7 @@ const LandingPage = () => {
                       ? `${width}px ${Number((width / 1439) * 973).toFixed(2)}px`
                       : "985px",
                     height: !isMobile ? `${Number((width / 1439) * 973)}px` : "665px",
-                    marginTop: isMobile ? `338px` : `0px`,
+                    marginTop: isMobile ? `380px` : `0px`,
                   }}
                 />
                 <SectionContainer className="md:dark:bg-[url('/assets/Landing/backgrounds/path.png')] mt-[-1px]">

@@ -3,6 +3,7 @@ import { useEffect, useState } from "react"
 import { useAccount } from "wagmi"
 import { useRouter } from "next/router"
 import axios from "axios"
+import { TwitterTweetEmbed } from "react-twitter-embed"
 import Layout from "../Layout"
 import Status from "./Status"
 import getApplicant from "../../lib/getApplicant"
@@ -72,7 +73,11 @@ const AllowListStatusPage = () => {
           )}
         </div>
         {!address && <CustomConnectWallet />}
+        {address && status && applicant?.tweetId && (
+          <TwitterTweetEmbed tweetId={applicant?.tweetId} />
+        )}
         {address && status && <Status status={status} />}
+
         {address && !status && (
           <AllowlistStatusButton
             onClick={() => router.push("https://everythingcorp.cre8ors.com/quiz")}

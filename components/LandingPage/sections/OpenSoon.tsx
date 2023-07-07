@@ -75,28 +75,18 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
         }}
       >
         <SectionTitle
-          text="Applications Open Soon"
-          className="w-[220px] md:w-[350px] leading-[105%] mb-0 md:text-left md:leading-[100%]"
+          text="Allowlist Open Now"
+          className="w-[210px] md:w-[350px] leading-[105%] mb-0 md:text-left md:leading-[100%]"
         />
         <SectionContent className="!mt-[10px]">
           {isMobile ? (
-            <>
-              Allowlist opens in July. Skip the line <br /> and secure your spot by reserving a{" "}
-              <br />
-              Cre8ors Collective Passport today.
-              <br /> &nbsp;
-              <Link href="/faq" target="_blank" className="underline cursor-pointer">
-                <span className="underline">For more info read the FAQ.</span>
-              </Link>
-            </>
+            <Link href="/faq" target="_blank" className="underline cursor-pointer">
+              <span className="underline">For more info read the FAQ.</span>
+            </Link>
           ) : (
-            <>
-              Allowlist opens in July. &nbsp;Skip the line and secure <br /> your spot by reserving
-              a Cre8ors Collective <br /> Passport today.&nbsp;
-              <Link href="/faq" target="_blank">
-                <span className="underline cursor-pointer">For more info read the FAQ.</span>
-              </Link>
-            </>
+            <Link href="/faq" target="_blank">
+              <span className="underline cursor-pointer">For more info read the FAQ.</span>
+            </Link>
           )}
         </SectionContent>
         <div ref={ref} className="appear lg:mx-12 flex justify-center md:justify-start">
@@ -105,8 +95,8 @@ const OpenSoon: FC<Props> = ({ contentHeight, characterHeight, desktopImageRef }
             className={`w-[242px] ${isMobile ? "py-[8px]" : ""}`}
             hasDoubleAnimation
           >
-            <a target="_blank" rel="noreferrer" href="http://reserve.cre8ors.com/">
-              Reserve List
+            <a target="_blank" rel="noreferrer" href="https://everythingcorp.cre8ors.com/quiz">
+              Apply now
             </a>
           </Button>
         </div>

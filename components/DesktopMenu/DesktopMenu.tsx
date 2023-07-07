@@ -20,9 +20,11 @@ const DesktopMenu = () => {
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
       <div className="flex items-center pr-4">
-        <a href="https://everythingcorp.cre8ors.com/" target="_blank" rel="noreferrer">
-          <div className="font-bold text-black cursor-pointer dark:text-white">Allow List</div>
-        </a>
+        <Link href="/status" target="_blank" rel="noreferrer">
+          <div className="font-bold cursor-pointer dark:text-white text-black">
+            Allowlist Status
+          </div>
+        </Link>
       </div>
       <div className="flex items-center font-bold font-quicksand">
         <button
