@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { useAsyncDebounce } from "../../../../hooks/useAsyncDebounce"
 
-const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) => {
+const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter, rows }) => {
   const count = preGlobalFilteredRows.length
   const [value, setValue] = useState(globalFilter)
   const onChange = useAsyncDebounce((v: string) => {
@@ -9,7 +9,7 @@ const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
   }, 200)
 
   return (
-    <label className="flex items-baseline gap-x-2">
+    <label className="flex items-baseline w-1/2 gap-x-2">
       <span className="text-gray-700">Search: </span>
       <input
         type="text"
@@ -19,7 +19,7 @@ const GlobalFilter = ({ preGlobalFilteredRows, globalFilter, setGlobalFilter }) 
           setValue(e.target.value)
           onChange(e.target.value)
         }}
-        placeholder={`${count} records...`}
+        placeholder={`${rows.length || count} records...`}
       />
     </label>
   )

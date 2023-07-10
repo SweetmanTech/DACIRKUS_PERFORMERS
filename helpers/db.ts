@@ -28,6 +28,17 @@ export const addAllowListApplicant = async (body: ApplicantDTO) => {
     throw new Error(e)
   }
 }
+
+export const deleteAllowListApplicant = async (id: string) => {
+  try {
+    await dbConnect()
+    const result = await AllowList.remove({ _id: id })
+    return { sucess: true, result }
+  } catch (e) {
+    error(e)
+    throw new Error(e)
+  }
+}
 export const typeformResponseExists = async (responseId: string) => {
   try {
     await dbConnect()
