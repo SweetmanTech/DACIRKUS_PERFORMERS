@@ -369,7 +369,7 @@ const FaqPage = () => {
           Yes, to get on the Cre8ors AiPEP Allowlist without a passport: <br />
           1) Apply by taking the Everything Corp. Personality Quiz.
           <br />
-          2) View your quiz results via @Cre8orsBot Twitter. <br />
+          2) View your quiz results via @Cre8orList Twitter. <br />
           3) Retweet your quiz results to expedite your application review. <br />
           4) If accepted, you will be notified via Twitter with your creative DNA archetype.
         </>
@@ -381,7 +381,7 @@ const FaqPage = () => {
           1) Apply by taking the Everything
           <br /> Corp. Personality Quiz. <br />
           2) View your quiz results via
-          <br /> @Cre8orsBot Twitter. <br />
+          <br /> @Cre8orList Twitter. <br />
           3) Retweet your quiz results to
           <br /> expedite your application review. <br />
           4) If accepted, you will be notified via
