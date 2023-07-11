@@ -371,9 +371,7 @@ const FaqPage = () => {
           <br />
           2) View your quiz results via @Cre8orsBot Twitter. <br />
           3) Retweet your quiz results to expedite your application review. <br />
-          4) Receive a free “Application Submitted NFT” airdrop. <br />
-          5) If accepted, the “Application Submitted NFT” will turn into your personal Cre8ors DNA
-          Mint Card.
+          4) If accepted, you will be notified via Twitter with your creative DNA archetype.
         </>
       ),
       mobile_content: (
@@ -386,24 +384,19 @@ const FaqPage = () => {
           <br /> @Cre8orsBot Twitter. <br />
           3) Retweet your quiz results to
           <br /> expedite your application review. <br />
-          4) Receive a free “Application
-          <br /> Submitted NFT” airdrop. <br />
-          5) If accepted, the “Application
-          <br /> Submitted NFT” will turn into your
-          <br /> personal Cre8ors DNA Mint Card.
+          4) If accepted, you will be notified via
+          <br /> Twitter with your creative DNA
+          <br /> archetype.
         </>
       ),
     },
     {
       title: "When will the Cre8ors AiPEP collection be released?",
-      content: (
-        <>The Cre8ors AiPEP collection drops on July 27th 2023 in partnership with OpenSea.</>
-      ),
+      content: <>The Cre8ors AiPEP collection drops on July 27th 2023.</>,
       mobile_content: (
         <>
           The Cre8ors AiPEP collection drops
-          <br /> on July 27th 2023 in partnership with
-          <br /> OpenSea.
+          <br /> on July 27th 2023.
         </>
       ),
     },
