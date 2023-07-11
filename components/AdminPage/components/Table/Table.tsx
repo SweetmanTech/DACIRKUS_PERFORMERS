@@ -16,9 +16,11 @@ import TableHeader from "../TableHeader"
 interface TableProps {
   columns: Array<{
     Header: string
-    accessor: string | ((row: any) => string)
+    accessor?: string | ((row: any) => string)
   }>
   data: Array<{
+    _id: string
+    isPassportHolder: boolean
     walletAddress: string
     isVerified: boolean
     twitterHandle: string
@@ -59,6 +61,7 @@ const Table: FC<TableProps> = ({ columns, data, setPickedApplicants }) => {
     nextPage,
     previousPage,
     setPageSize,
+    rows,
   } = useTable(
     {
       columns,
@@ -111,16 +114,24 @@ const Table: FC<TableProps> = ({ columns, data, setPickedApplicants }) => {
 
   return (
     <>
-      <GlobalFilter
-        preGlobalFilteredRows={preGlobalFilteredRows}
-        globalFilter={state.globalFilter}
-        setGlobalFilter={setGlobalFilter}
-      />
-      {headerGroups.map((headerGroup) =>
-        headerGroup.headers.map((column) =>
-          column.Filter ? <div key={column.id}>{column.render("Filter")}</div> : null,
-        ),
-      )}
+      <div className="flex flex-col items-center justify-between w-full text-center lg:md:flex-row">
+        <GlobalFilter
+          preGlobalFilteredRows={preGlobalFilteredRows}
+          globalFilter={state.globalFilter}
+          setGlobalFilter={setGlobalFilter}
+          rows={rows}
+        />
+        {headerGroups.map((headerGroup) => (
+          <div
+            key={headerGroup}
+            className="flex flex-col items-baseline justify-end w-1/2 space-x-4 text-center align-middle lg:md:flex-row"
+          >
+            {headerGroup.headers.map((column) =>
+              column.Filter ? <div key={column.id}>{column.render("Filter")}</div> : null,
+            )}
+          </div>
+        ))}
+      </div>
       <div className="flex flex-col mt-2">
         <div className="-mx-4 -my-2 overflow-x-auto sm:-mx-6 lg:-mx-8">
           <div className="inline-block min-w-full py-2 align-middle sm:px-6 lg:px-8">
