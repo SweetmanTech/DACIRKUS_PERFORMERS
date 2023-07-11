@@ -16,9 +16,9 @@ const SelectColumnFilter = ({
   // Render a multi-select box
   return (
     <label className="flex items-baseline gap-x-2">
-      <span className="text-gray-700">{render("Header")}: </span>
+      <span className="w-full text-gray-700">{render("Header")}: </span>
       <select
-        className="block w-1/2 mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        className="block w-full mt-1 border-gray-300 rounded-md shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
         name={id}
         id={id}
         value={filterValue}
