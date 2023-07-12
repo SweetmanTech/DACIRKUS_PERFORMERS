@@ -12,7 +12,11 @@ function ContainedLayout({ children }: ILayout) {
           w-full h-[calc(100%+500px)]
           bg-[url('/assets/Layout/whitepaper.svg')] bg-cover bg-[center_center]"
       />
-      <SeoHead title="Cre8ors" description="Cre8ors" image="/CRE8ORSLOGO_ICON.svg" />
+      <SeoHead
+        title="Cre8ors"
+        description="Welcome to the next generation of creativity."
+        image="/SEO_LOGO_ICON.png"
+      />
       <Header />
       <div className="flex justify-center relative z-[2]">
         <div className="md:w-[1280px] relative">{children}</div>

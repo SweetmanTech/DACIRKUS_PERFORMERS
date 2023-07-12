@@ -5,6 +5,7 @@ import { useRouter } from "next/router"
 import { Button } from "../../shared/Button"
 import useGradualFadeEffect from "../../hooks/useGradualFade"
 import useFadeIntersection from "../../hooks/useFadeIntersection"
+import SeoHead from "../SeoHead"
 
 const EnterPage = () => {
   const [loaded, setLoaded] = useState(false)
@@ -52,6 +53,11 @@ const EnterPage = () => {
 
   return (
     <div className="w-screen min-h-screen bg-white">
+      <SeoHead
+        title="Cre8ors"
+        description="Welcome to the next generation of creativity."
+        image="/SEO_LOGO_ICON.png"
+      />
       <div
         className={`min-h-screen w-screen items-center justify-center flex-col bg-white ${
           loaded ? "flex" : "hidden"
