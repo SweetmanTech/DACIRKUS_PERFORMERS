@@ -47,14 +47,14 @@ const MintPage = () => {
             className="relative z-[6] flex flex-col items-center pt-[80px]"
             style={{
               width: `${width}px`,
-              height: isResponsive ? `900px` : `${(1020 / 1440) * width}px`,
+              height: isResponsive ? `${(980 / 430) * width}px` : `${(1020 / 1440) * width}px`,
               minHeight: isResponsive ? "100vh" : "",
               backgroundImage:
                 // eslint-disable-next-line no-nested-ternary
                 themeMode === "light"
                   ? "url('/assets/Claim/white_background.svg')"
                   : isMobile
-                  ? "url('/assets/Mint/mobile_background.svg')"
+                  ? "url('/assets/Mint/mobile_background.png')"
                   : "url('/assets/Mint/background.png')",
               backgroundSize: isResponsive ? "cover" : "cover",
               // eslint-disable-next-line no-nested-ternary
@@ -67,35 +67,39 @@ const MintPage = () => {
           >
             <div
               className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center 
-            pb-[250px] samsungS8:pb-[270px] xs:pb-[290px] md:pb-0 relative z-[100]"
+            pb-[180px] samsungS8:pb-[220px] xs:pb-[260px] md:pb-0 relative z-[100]"
             >
               <div
                 className="dark:bg-[#00000069] rounded-[20px] 
-              pt-[40px] pb-[20px] px-[40px] 
+              md:pt-[40px] md:pb-[20px] md:px-[40px]
+              px-[20px] py-[30px]
               dark:border-[1px] dark:border-[black]
-              flex flex-col items-center gap-[30px]
+              flex flex-col items-center 
+              gap-[20px] md:gap-[30px]
              "
               >
-                <Title text="Mint Your Cre8ors" />
+                <Title text="Mint Your Cre8ors" className="!text-[28px] xs:!text-[35px]" />
                 <div ref={passportRef}>
-                  <Button id="passports_btn_mint" className="w-[592px]">
+                  <Button id="passports_btn_mint" className="w-[250px] xs:w-[280px] md:w-[592px]">
                     Passports
                   </Button>
                 </div>
                 <div ref={allowlistRef}>
-                  <Button id="allowlist_btn_mint" className="w-[592px]">
+                  <Button id="allowlist_btn_mint" className="w-[250px] xs:w-[280px] md:w-[592px]">
                     Allowlist
                   </Button>
                 </div>
                 <div ref={publicRef}>
-                  <Button id="public_btn_mint" className="w-[592px]">
+                  <Button id="public_btn_mint" className="w-[250px] xs:w-[280px] md:w-[592px]">
                     Public
                   </Button>
                 </div>
-                <Content
-                  content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
-                  className="!text-[13px]"
-                />
+                <div className="hidden md:block">
+                  <Content
+                    content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
+                    className="!text-[13px]"
+                  />
+                </div>
               </div>
             </div>
             <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
