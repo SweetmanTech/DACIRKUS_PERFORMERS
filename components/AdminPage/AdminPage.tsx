@@ -68,6 +68,7 @@ const AdminPage = () => {
 
   const tweetAcceptanceStatus = async () => {
     const body = pickedApplicants.map((applicant) => ({
+      docId: applicant._id,
       username: applicant.twitterHandle,
       cre8orType: mapEvilToGood(applicant.cre8orType),
     }))
@@ -80,7 +81,7 @@ const AdminPage = () => {
 
   const handleClick = async (status) => {
     setLoading(true)
-    const applicants = pickedApplicants.map((applicant) => applicant.walletAddress)
+    const applicants = pickedApplicants.map((applicant) => applicant._id)
     await axios.post(
       "/api/allowlist/updateStatus",
       {

@@ -151,7 +151,7 @@ export const updateStatus = async (applicants: string[], status: string) => {
     await dbConnect()
     const [result] = await Promise.all(
       applicants.map(async (applicant) => {
-        await AllowList.findOneAndUpdate({ walletAddress: applicant }, { status })
+        await AllowList.findOneAndUpdate({ _id: applicant }, { status })
       }),
     )
     return { sucess: true, result }
