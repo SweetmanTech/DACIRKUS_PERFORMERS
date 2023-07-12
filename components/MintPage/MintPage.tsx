@@ -1,17 +1,40 @@
 import { useMeasure } from "react-use"
 import { useMediaQuery } from "usehooks-ts"
+import { useRef } from "react"
+import { useAccount } from "wagmi"
 import Layout from "../Layout"
 import Footer from "../Footer"
 import { useTheme } from "../../providers/ThemeProvider"
 import Title from "../Common/Title"
 import { Button } from "../../shared/Button"
 import Content from "../Common/Content"
+import useShakeEffect from "../../hooks/useShakeEffect"
 
 const MintPage = () => {
   const [containerRef, { width }] = useMeasure()
   const isResponsive = useMediaQuery("(max-width: 1440px)")
   const isMobile = useMediaQuery("(max-width: 768px)")
   const { themeMode } = useTheme()
+
+  const { address: account } = useAccount()
+  const passportRef = useRef()
+  const allowlistRef = useRef()
+  const publicRef = useRef()
+
+  useShakeEffect({
+    ref: passportRef,
+    isEnabled: !account,
+  })
+
+  useShakeEffect({
+    ref: allowlistRef,
+    isEnabled: !account,
+  })
+
+  useShakeEffect({
+    ref: publicRef,
+    isEnabled: !account,
+  })
 
   return (
     <Layout type="base">
@@ -54,15 +77,21 @@ const MintPage = () => {
              "
               >
                 <Title text="Mint Your Cre8ors" />
-                <Button id="passports_btn_mint" className="w-[592px]">
-                  Passports
-                </Button>
-                <Button id="allowlist_btn_mint" className="w-[592px]">
-                  Allowlist
-                </Button>
-                <Button id="public_btn_mint" className="w-[592px]">
-                  Public
-                </Button>
+                <div ref={passportRef}>
+                  <Button id="passports_btn_mint" className="w-[592px]">
+                    Passports
+                  </Button>
+                </div>
+                <div ref={allowlistRef}>
+                  <Button id="allowlist_btn_mint" className="w-[592px]">
+                    Allowlist
+                  </Button>
+                </div>
+                <div ref={publicRef}>
+                  <Button id="public_btn_mint" className="w-[592px]">
+                    Public
+                  </Button>
+                </div>
                 <Content
                   content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
                   className="!text-[13px]"

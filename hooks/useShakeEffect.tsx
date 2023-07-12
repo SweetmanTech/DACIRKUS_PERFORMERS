@@ -19,7 +19,7 @@ const useShakeEffect = ({
                 }, 300)
             })
         }
-    }, [isEnabled])
+    }, [isEnabled, ref.current])
 }
 
 export default useShakeEffect
