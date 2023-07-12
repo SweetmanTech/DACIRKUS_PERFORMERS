@@ -46,37 +46,28 @@ const MintPage = () => {
               className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center 
             pb-[250px] samsungS8:pb-[270px] xs:pb-[290px] md:pb-0 relative z-[100]"
             >
-             <div className="dark:bg-[#00000069] rounded-[20px] 
+              <div
+                className="dark:bg-[#00000069] rounded-[20px] 
               pt-[40px] pb-[20px] px-[40px] 
               dark:border-[1px] dark:border-[black]
               flex flex-col items-center gap-[30px]
-             ">
-                <Title
-                    text="Mint Your Cre8ors"
-                />
-                <Button
-                id='passports_btn_mint'
-                className="w-[592px]"
-                >
-                    Passports
+             "
+              >
+                <Title text="Mint Your Cre8ors" />
+                <Button id="passports_btn_mint" className="w-[592px]">
+                  Passports
                 </Button>
-                <Button
-                    id='allowlist_btn_mint'
-                    className="w-[592px]"
-                >
-                        Allowlist
-                    </Button>
-                <Button
-                    id="public_btn_mint"
-                    className="w-[592px]"
-                >
-                    Public
+                <Button id="allowlist_btn_mint" className="w-[592px]">
+                  Allowlist
+                </Button>
+                <Button id="public_btn_mint" className="w-[592px]">
+                  Public
                 </Button>
                 <Content
-                  content='Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST'
+                  content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
                   className="!text-[13px]"
                 />
-             </div>
+              </div>
             </div>
             <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
           </div>
