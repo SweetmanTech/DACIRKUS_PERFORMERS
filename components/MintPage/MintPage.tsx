@@ -9,6 +9,7 @@ import Title from "../Common/Title"
 import { Button } from "../../shared/Button"
 import Content from "../Common/Content"
 import useShakeEffect from "../../hooks/useShakeEffect"
+import Media from "../../shared/Media"
 
 const MintPage = () => {
   const [containerRef, { width }] = useMeasure()
@@ -105,6 +106,13 @@ const MintPage = () => {
             <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
           </div>
         )}
+      </div>
+      <div className="bottom-[100px] right-[20px] md:right-[30px] md:bottom-[30px] absolute z-[2]">
+        <Media
+          type="image"
+          link="/assets/Mint/help.png"
+          containerClasses="w-[30px] h-[30px] md:w-[50px] md:h-[50px]"
+        />
       </div>
     </Layout>
   )
