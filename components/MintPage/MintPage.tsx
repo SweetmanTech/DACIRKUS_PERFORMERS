@@ -42,9 +42,7 @@ const MintPage = () => {
             <div
               className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center 
             pb-[250px] samsungS8:pb-[270px] xs:pb-[290px] md:pb-0 relative z-[100]"
-            >
-             
-            </div>
+            />
             <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
           </div>
         )}
