@@ -61,7 +61,7 @@ const MintPage = () => {
                 : `bottom left`,
             }}
           >
-            <div className="fixed left-0 bottom-0 z-[3] md:block hidden">
+            <div className="fixed left-0 bottom-0 z-[3] hidden dark:md:block">
               <Media
                 link="/assets/Mint/character.svg"
                 type="image"
