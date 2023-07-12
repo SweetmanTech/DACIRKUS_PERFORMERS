@@ -45,9 +45,6 @@ const MintPage = () => {
               className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center 
             pb-[250px] samsungS8:pb-[270px] xs:pb-[290px] md:pb-0 relative z-[100]"
             >
-<<<<<<< Updated upstream
-              <div className="dark:bg-[#00000069] rounded-[20px] py-[40px]" />
-=======
              <div className="dark:bg-[#00000069] rounded-[20px] pt-[40px] px-[40px] dark:border-[1px] dark:border-[black]
                 flex flex-col items-center gap-[30px]
              ">
@@ -76,7 +73,6 @@ const MintPage = () => {
                     Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST
                 </Content> 
              </div>
->>>>>>> Stashed changes
             </div>
             <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
           </div>
