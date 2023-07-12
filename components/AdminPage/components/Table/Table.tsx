@@ -105,6 +105,8 @@ const Table: FC<TableProps> = ({ columns, data, setPickedApplicants }) => {
   )
   useEffect(() => {
     const acceptedApplicants = selectedFlatRows.map((row) => ({
+      // eslint-disable-next-line no-underscore-dangle
+      _id: row.original._id,
       walletAddress: row.original.walletAddress,
       cre8orType: row.original.creatorType,
       twitterHandle: row.original.twitterHandle,
