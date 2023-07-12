@@ -12,7 +12,7 @@ import useShakeEffect from "../../hooks/useShakeEffect"
 import Media from "../../shared/Media"
 
 const MintPage = () => {
-  const [containerRef, { height }] = useMeasure()
+  const [containerRef, { height, width }] = useMeasure()
   const isResponsive = useMediaQuery("(max-width: 1020px)")
   const isMobile = useMediaQuery("(max-width: 768px)")
   const { themeMode } = useTheme()
@@ -47,13 +47,13 @@ const MintPage = () => {
           <div
             className="relative z-[6] flex flex-col items-center pt-[80px]"
             style={{
-              height: "100vh",
+              height: isMobile ? `${(width / 432) * 980}px` : "100vh",
               backgroundImage:
                 // eslint-disable-next-line no-nested-ternary
                 themeMode === "light"
                   ? "url('/assets/Claim/white_background.svg')"
                   : isMobile
-                  ? "url('/assets/Mint/mobile_background.png')"
+                  ? "url('/assets/Mint/mobile_background.svg')"
                   : "url('/assets/Mint/background.png')",
               backgroundSize: isResponsive ? "cover" : "cover",
               // eslint-disable-next-line no-nested-ternary
@@ -66,17 +66,17 @@ const MintPage = () => {
           >
             <div className="absolute left-0 bottom-0 z-[3] md:block hidden">
               <Media
-                link="/assets/Mint/character.png"
+                link="/assets/Mint/character.svg"
                 type="image"
                 containerStyle={{
-                  height: `${(height / 1020) * 760}px`,
-                  width: `${(height / 1020) * 380}px`,
+                  height: `${(height / 1020) * 754}px`,
+                  width: `${(height / 1020) * 396}px`,
                 }}
               />
             </div>
             <div
               className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center 
-            pb-[180px] samsungS8:pb-[220px] xs:pb-[260px] md:pb-0 relative z-[100]"
+            pb-[200px] samsungS8:pb-[270px] xs:pb-[320px] md:pb-0 relative z-[100]"
             >
               <div
                 className="dark:bg-[#00000069] rounded-[20px] 
