@@ -39,13 +39,10 @@ const MintPage = () => {
 
   return (
     <Layout type="base">
-      <div
-        className="relative overflow-y-auto min-h-[100vh] overflow-x-hidden z-[1] w-[100vw]"
-        ref={containerRef}
-      >
+      <div className="relative overflow-x-hidden z-[1] w-[100vw]" ref={containerRef}>
         {height && (
           <div
-            className="relative z-[6] flex flex-col items-center pt-[80px]"
+            className="relative z-[6] flex flex-col items-center pt-[80px] overflow-y-auto h-[100vh]  overflow-x-hidden"
             style={{
               height: isMobile ? `${(width / 432) * 980}px` : "100vh",
               backgroundImage:
@@ -64,7 +61,7 @@ const MintPage = () => {
                 : `bottom left`,
             }}
           >
-            <div className="absolute left-0 bottom-0 z-[3] md:block hidden">
+            <div className="fixed left-0 bottom-0 z-[3] md:block hidden">
               <Media
                 link="/assets/Mint/character.svg"
                 type="image"
@@ -75,55 +72,64 @@ const MintPage = () => {
               />
             </div>
             <div
-              className="max-w-[1280px] flex-grow flex flex-col justify-end md:flex-row items-center 
-            pb-[200px] samsungS8:pb-[270px] xs:pb-[320px] md:pb-0 relative z-[100]"
+              className="max-w-[1280px]
+              relative z-[100]
+              flex flex-col items-center justify-end
+              md:block
+              h-full
+              "
             >
               <div
-                className="dark:bg-[#00000069] rounded-[20px] 
-              xl:pt-[40px] xl:pb-[20px] xl:px-[40px]
-              px-[20px] py-[30px]
-              dark:border-[1px] dark:border-[black]
-              flex flex-col items-center 
-              gap-[20px] md:gap-[30px]
-             "
+                className="md:h-[calc(100vh-80px)] flex items-center justify-center
+                pb-[200px] samsungS8:pb-[270px] xs:pb-[320px] md:pb-0 
+                "
               >
-                <Title
-                  text="Mint Your Cre8ors"
-                  className="!text-[28px] xs:!text-[35px] md:!text-[50px] xl:!text-[65px]"
-                />
-                <div ref={passportRef}>
-                  <Button
-                    id="passports_btn_mint"
-                    className="w-[250px] xs:w-[280px] md:w-[470px] xl:w-[592px]"
-                  >
-                    Passports
-                  </Button>
-                </div>
-                <div ref={allowlistRef}>
-                  <Button
-                    id="allowlist_btn_mint"
-                    className="w-[250px] xs:w-[280px] md:w-[470px] xl:w-[592px]"
-                  >
-                    Allowlist
-                  </Button>
-                </div>
-                <div ref={publicRef}>
-                  <Button
-                    id="public_btn_mint"
-                    className="w-[250px] xs:w-[280px] md:w-[470px] xl:w-[592px]"
-                  >
-                    Public
-                  </Button>
-                </div>
-                <div className="hidden md:block">
-                  <Content
-                    content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
-                    className="!text-[13px]"
+                <div
+                  className="dark:bg-[#00000069] rounded-[20px] 
+                  xl:pt-[40px] xl:pb-[20px] xl:px-[40px]
+                  px-[20px] py-[30px]
+                  dark:border-[1px] dark:border-[black]
+                  flex flex-col items-center
+                  gap-[20px] md:gap-[30px]"
+                >
+                  <Title
+                    text="Mint Your Cre8ors"
+                    className="!text-[28px] xs:!text-[35px] md:!text-[50px] xl:!text-[65px]"
                   />
+                  <div ref={passportRef}>
+                    <Button
+                      id="passports_btn_mint"
+                      className="w-[250px] xs:w-[280px] md:w-[470px] xl:w-[592px]"
+                    >
+                      Passports
+                    </Button>
+                  </div>
+                  <div ref={allowlistRef}>
+                    <Button
+                      id="allowlist_btn_mint"
+                      className="w-[250px] xs:w-[280px] md:w-[470px] xl:w-[592px]"
+                    >
+                      Allowlist
+                    </Button>
+                  </div>
+                  <div ref={publicRef}>
+                    <Button
+                      id="public_btn_mint"
+                      className="w-[250px] xs:w-[280px] md:w-[470px] xl:w-[592px]"
+                    >
+                      Public
+                    </Button>
+                  </div>
+                  <div className="hidden md:block">
+                    <Content
+                      content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
+                      className="!text-[13px]"
+                    />
+                  </div>
                 </div>
               </div>
+              <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
             </div>
-            <Footer className="!pt-0 !pb-0 !bg-transparent relative z-[10]" />
           </div>
         )}
       </div>
