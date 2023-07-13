@@ -5,11 +5,11 @@ import Media from "../../shared/Media"
 
 const InHouse = () => (
   <SectionContainer>
-    <div className="relative w-full h-[100vh] flex justify-center items-center">
+    <div className="relative w-full h-[960px] flex justify-center items-center">
       <div className="grid grid-cols-2 gap-x-[150px]">
         <div>
           <Media
-            link="/assets/Mint/InHouse/character.svg"
+            link="/assets/Mint/InHouse/character.png"
             type="image"
             containerClasses="w-[519px] h-[766px]"
           />

@@ -5,7 +5,7 @@ import Media from "../../shared/Media"
 
 const Collaborate = () => (
   <SectionContainer>
-    <div className="relative w-full h-[100vh] flex justify-center items-center">
+    <div className="relative w-full h-[960px] flex justify-center items-center">
       <div className="grid grid-cols-2">
         <div className="flex flex-col justify-center">
           <Title text={`Create, Remix,\nCollaborate,\nand Get Paid`} className="leading-[103.3%]" />
@@ -16,7 +16,7 @@ const Collaborate = () => (
         </div>
         <div>
           <Media
-            link="/assets/Mint/Collaborate/graphic.svg"
+            link="/assets/Mint/Collaborate/graphic.png"
             type="image"
             containerClasses="w-[685px] h-[653px]"
           />

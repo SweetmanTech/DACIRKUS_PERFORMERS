@@ -3,6 +3,7 @@ import Title from "../Common/Title"
 import Content from "../Common/Content"
 import Character from "./Character"
 import Media from "../../shared/Media"
+import Link from "next/link"
 
 const MintNow = () => (
   <SectionContainer>
@@ -23,12 +24,16 @@ const MintNow = () => (
         className="!absolute bottom-0 left-0"
         screenWidth={1440}
       />
-      <Media
-        link="/assets/Mint/help.png"
-        type="image"
-        containerClasses="!absolute right-[70px] bottom-[30px] z-[10]
-        w-[25px] h-[25px] xl:w-[51px] xl:h-[51px]"
-      />
+      <Link href='/faq' target="_self">
+        <div className="cursor-pointer">
+          <Media
+            link="/assets/Mint/help.png"
+            type="image"
+            containerClasses="!absolute right-[70px] bottom-[30px] z-[10]
+            w-[25px] h-[25px] xl:w-[51px] xl:h-[51px]"
+          />
+        </div>
+      </Link>
     </div>
   </SectionContainer>
 )

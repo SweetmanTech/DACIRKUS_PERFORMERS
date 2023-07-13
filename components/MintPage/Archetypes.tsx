@@ -7,41 +7,41 @@ const Archetypes = () => {
   const pfpList = [
     {
       id: "pfp1",
-      link: "/assets/Mint/PFP/musician.svg",
+      link: "/assets/Mint/PFP/musician.png",
     },
     {
       id: "pfp2",
-      link: "/assets/Mint/PFP/writer.svg",
+      link: "/assets/Mint/PFP/writer.png",
     },
     {
       id: "pfp3",
-      link: "/assets/Mint/PFP/photographer.svg",
+      link: "/assets/Mint/PFP/photographer.png",
     },
     {
       id: "pfp4",
-      link: "/assets/Mint/PFP/designer.svg",
+      link: "/assets/Mint/PFP/designer.png",
     },
     {
       id: "pfp5",
-      link: "/assets/Mint/PFP/engineer.svg",
+      link: "/assets/Mint/PFP/engineer.png",
     },
     {
       id: "pfp6",
-      link: "/assets/Mint/PFP/dancer.svg",
+      link: "/assets/Mint/PFP/dancer.png",
     },
     {
       id: "pfp7",
-      link: "/assets/Mint/PFP/director.svg",
+      link: "/assets/Mint/PFP/director.png",
     },
     {
       id: "pfp8",
-      link: "/assets/Mint/PFP/thespain.svg",
+      link: "/assets/Mint/PFP/thespain.png",
     },
   ]
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[100vh]">
+      <div className="relative w-full h-[900px]">
         <div>
           <Title text="The Eight Creative Archetypes" className="leading-[103.3%] text-center" />
           <Content

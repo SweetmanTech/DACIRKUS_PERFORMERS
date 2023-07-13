@@ -1,14 +1,18 @@
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Link from "next/link"
 import CustomConnectWallet from "../CustomConnectWallet"
 import DiscordIcon from "../DiscordIcon"
 import { ToggleButton } from "../../shared/Button"
 import { useTheme } from "../../providers/ThemeProvider"
+import { useRouter } from "next/router"
 
 const DesktopMenu = () => {
   const { onChangeThemeConfig, themeMode } = useTheme()
+  const [isHidden, setIsHidden] = useState(false)
+
+  const router = useRouter()
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -17,16 +21,25 @@ const DesktopMenu = () => {
     onChangeThemeConfig()
   }
 
+  useEffect(() => {
+    if (router.pathname.includes('/mint')) {
+      setIsHidden(true)
+      return
+    }
+
+    setIsHidden(false)
+  }, [router.pathname])
+
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
-      <div className="flex items-center pr-4">
+      {!isHidden && <div className="flex items-center pr-4">
         <Link href="/status" target="_blank" rel="noreferrer">
           <div className="font-bold cursor-pointer dark:text-white text-black">
             Allowlist Status
           </div>
         </Link>
-      </div>
-      <div className="flex items-center font-bold font-quicksand">
+      </div>}
+      {!isHidden && <div className="flex items-center font-bold font-quicksand">
         <button
           type="button"
           className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
@@ -42,7 +55,7 @@ const DesktopMenu = () => {
         >
           dark
         </button>
-      </div>
+      </div>}
       <div className="relative">
         <button
           type="button"

@@ -9,7 +9,7 @@ const PFPs = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[100vh] flex justify-center items-center">
+      <div className="relative w-full h-[824px] flex justify-center items-center">
         <div
           className="grid
                 grid-cols-1 xl:grid-cols-2 
@@ -37,7 +37,7 @@ const PFPs = () => {
               }
               className="leading-[103.3%]
                             pt-[10px] xl:pt-[27px]
-                            text-center xl:text-right
+                            text-center xl:text-left
                             !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
             />
           </div>
