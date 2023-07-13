@@ -29,6 +29,7 @@ interface TableProps {
     status: "Pending" | "Accepted" | "Rejected"
   }>
   setPickedApplicants?: (pickedApplicants: Array<string>) => void
+  initialState?: any
 }
 const IndeterminateCheckbox = forwardRef<any, any>(({ indeterminate, ...rest }, ref) => {
   const defaultRef = useRef()
@@ -66,6 +67,14 @@ const Table: FC<TableProps> = ({ columns, data, setPickedApplicants }) => {
     {
       columns,
       data,
+      initialState: {
+        filters: [
+          {
+            id: "status",
+            value: "Pending",
+          },
+        ],
+      },
     },
     useGlobalFilter,
     useFilters,
