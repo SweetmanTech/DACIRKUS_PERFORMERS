@@ -41,7 +41,7 @@ const Archetypes = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[900px]">
+      <div className="relative w-full h-[900px] flex-col flex justify-center">
         <div>
           <Title text="The Eight Creative Archetypes" className="leading-[103.3%] text-center" />
           <Content
