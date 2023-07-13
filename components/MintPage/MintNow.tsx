@@ -1,9 +1,9 @@
+import Link from "next/link"
 import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
 import Character from "./Character"
 import Media from "../../shared/Media"
-import Link from "next/link"
 
 const MintNow = () => (
   <SectionContainer>
@@ -24,7 +24,7 @@ const MintNow = () => (
         className="!absolute bottom-0 left-0"
         screenWidth={1440}
       />
-      <Link href='/faq' target="_self">
+      <Link href="/faq" target="_self">
         <div className="cursor-pointer">
           <Media
             link="/assets/Mint/help.png"
