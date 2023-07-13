@@ -1,4 +1,5 @@
 import Link from "next/link"
+import { useMediaQuery } from "usehooks-ts"
 import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
@@ -10,36 +11,62 @@ import { Button } from "../../shared/Button"
 
 const MintNow = () => {
   const canMintNow = new Date().getTime() >= new Date("27 Jul 2023 09:00:00 UTC").getTime()
+  const isXl = useMediaQuery("(max-width: 1150px")
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[100vh] flex justify-center items-center">
-        {canMintNow ? (
-          <div>
-            <Title text="Holy Shit, A Fair Mint" className="leading-[103.3%] text-center" />
+      <div className="relative w-full min-h-[655px] xl:h-[100vh] flex justify-center items-start xl:items-center z-[1]">
+        {!canMintNow ? (
+          <div
+            className="pt-[90px] pb-[90px]
+          flex flex-col items-center
+          w-[100vw]
+          bg-[url('/assets/Mint/MintNow/mobile_background.png')]
+          bg-cover bg-[bottom_center]
+          xl:bg-none"
+          >
+            <Title
+              text="Holy Shit, A Fair Mint"
+              className="leading-[103.3%] text-center
+             !text-[22px] xs:!text-[27px] xl:!text-[65px]"
+            />
             <Content
               content={`You choose how much you pay, depending on how long you plan on holding.\nIf you change your mind, unlock later by paying the difference.\nCre8orsList (Allowlist) can mint up to 4 NFTs per wallet.`}
-              className="leading-[103.3%] text-center pt-[27px]"
+              className="leading-[103.3%] text-center
+              pt-[10px] xl:pt-[27px]
+              !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
             />
-            <div className="grid grid-cols-3 pt-[40px] gap-x-[40px]">
+            <div
+              className="grid grid-cols-1 xl:grid-cols-3 pt-[40px] 
+            gap-y-[20px] xl:w-[1078px]"
+            >
               <MintCard
                 label="Tier I"
                 mintPrice={99}
                 desc="8 Month Lockup"
-                clasName="bg-[#E93F45]"
+                className="bg-[#E93F45]"
               />
               <MintCard
-                label="Tier I"
+                label="Tier II"
                 mintPrice={199}
                 desc="8 Week Lockup"
-                clasName="bg-[#F4EE05]"
+                className="bg-[#F4EE05]"
               />
-              <MintCard label="Tier I" mintPrice={299} desc="No Lockup" clasName="bg-[#08E1E6]" />
+              <MintCard
+                label="Tier III"
+                mintPrice={299}
+                desc="No Lockup"
+                className="bg-[#08E1E6]"
+              />
             </div>
             <div className="flex justify-center">
               <Button
                 id="mint_btn"
-                className="mt-[40px] w-[308px] h-[88px] text-[30px] rounded-[15px]"
+                className="mt-[40px] 
+                xl:w-[308px] xl:h-[88px] 
+                w-[133px] h-[38px]
+                text-[14px] xl:text-[30px] 
+                rounded-[5px] xl:rounded-[15px]"
               >
                 Mint now
               </Button>
@@ -54,44 +81,61 @@ const MintNow = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col justify-between items-center h-[470px]">
-            <Title text="Mint Your Cre8ors" />
+          <div className="flex flex-col justify-between items-center mt-[90px] xl:mt-0 h-[170px] xl:h-[470px]">
+            <div className="flex items-center gap-x-[10px]">
+              <Title
+                text="Mint Your Cre8ors"
+                className="!text-[22px] xs:!text-[27px] xl:!text-[65px]"
+              />
+              {!isXl && (
+                <Link href="/faq" target="_self">
+                  <div className="cursor-pointer">
+                    <Media
+                      link="/assets/Mint/help.png"
+                      type="image"
+                      containerClasses="w-[25px] h-[25px] xl:w-[59px] xl:h-[59px]"
+                    />
+                  </div>
+                </Link>
+              )}
+            </div>
             <Timer />
             <Content
               content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
-              className="!text-[13px]"
+              className="!text-[6px] xl:!text-[13px]"
             />
           </div>
         )}
       </div>
       <div>
-        {canMintNow ? (
-          <Character
-            link="/assets/Mint/MintNow/character_woman.png"
-            originWidth={358}
-            originHeight={436}
-            className="!absolute bottom-0 right-0"
-            screenWidth={1440}
-          />
-        ) : (
-          <>
+        {!canMintNow ? (
+          <div className="xl:block hidden">
             <Character
-              link="/assets/Mint/MintNow/character.svg"
-              originWidth={345.89}
-              originHeight={692.14}
-              className="!absolute bottom-0 left-0"
+              link="/assets/Mint/MintNow/character_woman.png"
+              originWidth={358}
+              originHeight={436}
+              className="!absolute bottom-0 right-0"
               screenWidth={1440}
             />
-            <Link href="/faq" target="_self">
-              <div className="cursor-pointer">
-                <Media
-                  link="/assets/Mint/help.png"
-                  type="image"
-                  containerClasses="!absolute right-[70px] bottom-[30px] z-[10]
-                w-[25px] h-[25px] xl:w-[51px] xl:h-[51px]"
-                />
-              </div>
-            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="xl:block hidden">
+              <Character
+                link="/assets/Mint/MintNow/character.svg"
+                originWidth={345.89}
+                originHeight={692.14}
+                className="!absolute bottom-0 left-0"
+                screenWidth={1440}
+              />
+            </div>
+            <div className="!absolute bottom-0 left-0 xl:!hidden w-full flex justify-center">
+              <Media
+                link="/assets/Mint/MintNow/mobile_character.png"
+                type="image"
+                containerClasses="w-[223px] h-[450px]"
+              />
+            </div>
           </>
         )}
       </div>
