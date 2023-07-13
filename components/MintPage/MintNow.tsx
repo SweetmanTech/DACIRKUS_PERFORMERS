@@ -16,7 +16,7 @@ const MintNow = () => {
   return (
     <SectionContainer>
       <div className="relative w-full min-h-[655px] xl:h-[100vh] flex justify-center items-start xl:items-center z-[1]">
-        {!canMintNow ? (
+        {canMintNow ? (
           <div
             className="pt-[90px] pb-[90px]
           flex flex-col items-center
@@ -108,7 +108,7 @@ const MintNow = () => {
         )}
       </div>
       <div>
-        {!canMintNow ? (
+        {canMintNow ? (
           <div className="xl:block hidden">
             <Character
               link="/assets/Mint/MintNow/character_woman.png"
