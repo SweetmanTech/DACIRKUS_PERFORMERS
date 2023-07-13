@@ -6,7 +6,7 @@ import Media from "../../shared/Media"
 const Collaborate = () => (
   <SectionContainer>
     <div className="relative w-full h-[100vh] flex justify-center items-center">
-      <div className="grid grid-cols-2 gap-x-[150px]">
+      <div className="grid grid-cols-2">
         <div className="flex flex-col justify-center">
           <Title text={`Create, Remix,\nCollaborate,\nand Get Paid`} className="leading-[103.3%]" />
           <Content
