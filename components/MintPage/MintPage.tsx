@@ -7,13 +7,29 @@ import Archetypes from "./Archetypes"
 import InHouse from "./InHouse"
 import Collaborate from "./Collaborate"
 import Footer from "../Footer"
+import { useEffect, useState } from 'react'
+import Image from "next/image"
 
 const MintPage = () => {
   const isXl = useMediaQuery("(max-width: 1150px)")
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    setInterval(() => {
+      setLoaded(true)
+    }, 5000)
+  }, [])
 
   return (
     <Layout type="base">
-      <div className="h-screen overflow-y-auto overflow-x-hidden">
+      <div className="relative h-screen overflow-y-auto overflow-x-hidden">
+        {!loaded && <div className="fixed w-screen h-screen flex justify-center items-center z-[10] bg-[black]">
+          <Image
+            src='/assets/Common/loading.svg'
+            width={200}
+            height={200}
+          />
+        </div>}
         <MintNow />
         <Cre8orsWay />
         <PFPs />

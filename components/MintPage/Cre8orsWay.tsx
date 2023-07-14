@@ -8,39 +8,39 @@ const Cre8orsWay = () => {
   const avatarList = [
     {
       id: "avatar1",
-      link: "/assets/Mint/Cre8orsWay/avatar1.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar1.png",
     },
     {
       id: "avatar2",
-      link: "/assets/Mint/Cre8orsWay/avatar2.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar2.png",
     },
     {
       id: "avatar3",
-      link: "/assets/Mint/Cre8orsWay/avatar3.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar3.png",
     },
     {
       id: "avatar4",
-      link: "/assets/Mint/Cre8orsWay/avatar4.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar4.png",
     },
     {
       id: "avatar5",
-      link: "/assets/Mint/Cre8orsWay/avatar5.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar5.png",
     },
     {
       id: "avatar6",
-      link: "/assets/Mint/Cre8orsWay/avatar6.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar6.png",
     },
     {
       id: "avatar7",
-      link: "/assets/Mint/Cre8orsWay/avatar7.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar7.png",
     },
     {
       id: "avatar8",
-      link: "/assets/Mint/Cre8orsWay/avatar8.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar8.png",
     },
     {
       id: "avatar9",
-      link: "/assets/Mint/Cre8orsWay/avatar9.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar9.png",
     },
   ]
 
