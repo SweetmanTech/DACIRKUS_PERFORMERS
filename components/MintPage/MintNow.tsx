@@ -143,7 +143,7 @@ const MintNow = () => {
         ) : (
           <div className="xl:block hidden">
             <Character
-              link="/assets/Mint/MintNow/character.svg"
+              link="/assets/Mint/MintNow/character.png"
               originWidth={345.89}
               originHeight={692.14}
               className="!absolute bottom-0 left-0"
