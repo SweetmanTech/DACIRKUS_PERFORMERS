@@ -1,5 +1,6 @@
 import Link from "next/link"
 import { useMediaQuery } from "usehooks-ts"
+import { useMeasure } from "react-use"
 import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
@@ -13,9 +14,15 @@ const MintNow = () => {
   const canMintNow = new Date().getTime() >= new Date("27 Jul 2023 09:00:00 UTC").getTime()
   const isXl = useMediaQuery("(max-width: 1150px")
 
+  const [containerRef, containerSizes] = useMeasure()
+  const [timerRef, timerSizes] = useMeasure()
+
   return (
     <SectionContainer>
-      <div className="relative w-full min-h-[700px] xl:h-[100vh] flex justify-center items-start xl:items-center z-[1]">
+      <div
+        className="relative w-full h-[100vh] flex justify-center items-start xl:items-center z-[1]"
+        ref={containerRef}
+      >
         {canMintNow ? (
           <div
             className="pt-[90px] pb-[90px]
@@ -81,36 +88,44 @@ const MintNow = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col justify-between items-center mt-[90px] xl:mt-0 xl:h-[470px]">
+          <div className="flex flex-col justify-between items-center mt-[70px] xl:mt-0 xl:h-[470px]">
             <div className="xl:!hidden w-full flex justify-center pb-[35px]">
               <Media
                 link="/assets/Mint/MintNow/mobile_character.png"
                 type="image"
                 containerClasses="w-[223px] h-[450px]"
+                containerStyle={{
+                  height: `${((containerSizes.height - timerSizes.height) / 3) * 2}px`,
+                  width: `${
+                    ((((containerSizes.height - timerSizes.height) / 3) * 2) / 450) * 233
+                  }px`,
+                }}
               />
             </div>
-            <div className="flex items-center gap-x-[10px] pb-[20px] xl:pb-0">
-              <Title
-                text="Mint Your Cre8ors"
-                className="!text-[22px] xs:!text-[27px] xl:!text-[65px]"
+            <div ref={timerRef} className="flex justify-center flex-col items-center">
+              <div className="flex items-center gap-x-[25px] pb-[20px] xl:pb-0">
+                <Title
+                  text="Mint Your Cre8or"
+                  className="!text-[33px] xs:!text-[39px] xl:!text-[65px]"
+                />
+                {!isXl && (
+                  <Link href="/faq" target="_self">
+                    <div className="cursor-pointer">
+                      <Media
+                        link="/assets/Mint/help.png"
+                        type="image"
+                        containerClasses="w-[25px] h-[25px] xl:w-[40px] xl:h-[40px]"
+                      />
+                    </div>
+                  </Link>
+                )}
+              </div>
+              <Timer />
+              <Content
+                content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
+                className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
               />
-              {!isXl && (
-                <Link href="/faq" target="_self">
-                  <div className="cursor-pointer">
-                    <Media
-                      link="/assets/Mint/help.png"
-                      type="image"
-                      containerClasses="w-[25px] h-[25px] xl:w-[59px] xl:h-[59px]"
-                    />
-                  </div>
-                </Link>
-              )}
             </div>
-            <Timer />
-            <Content
-              content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
-              className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
-            />
           </div>
         )}
       </div>

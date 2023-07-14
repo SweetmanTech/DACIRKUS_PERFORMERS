@@ -25,7 +25,7 @@ const Timer = () => {
 
   return (
     <div className="bg-white p-[10px] xl:p-[20px] rounded-[10px]">
-      <div className="grid grid-cols-4 gap-x-[10px] xl:gap-x-[30px]">
+      <div className="grid grid-cols-4 gap-x-[10px] samsungS8:gap-x-[12px] xl:gap-x-[30px]">
         <div>
           <div
             className="font-quicksand font-bold 
@@ -36,19 +36,21 @@ const Timer = () => {
           </div>
           <div
             className="grid grid-cols-2 
-          gap-x-[5px] xl:gap-x-[10px]"
+          gap-x-[3px] xl:gap-x-[10px]"
           >
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {days.length > 1 ? days[0] : "0"}
             </div>
             <div
-              className="text-center text-white 
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {days.length > 1 ? days[1] : days[0]}
             </div>
@@ -64,19 +66,21 @@ const Timer = () => {
           </div>
           <div
             className="grid grid-cols-2
-          gap-x-[5px] xl:gap-x-[10px]"
+            gap-x-[3px] xl:gap-x-[10px]"
           >
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {hours.length > 1 ? hours[0] : "0"}
             </div>
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {hours.length > 1 ? hours[1] : hours[0]}
             </div>
@@ -92,19 +96,21 @@ const Timer = () => {
           </div>
           <div
             className="grid grid-cols-2
-          gap-x-[5px] xl:gap-x-[10px]"
+            gap-x-[3px] xl:gap-x-[10px]"
           >
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {minutes.length > 1 ? minutes[0] : "0"}
             </div>
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {minutes.length > 1 ? minutes[1] : minutes[0]}
             </div>
@@ -120,19 +126,21 @@ const Timer = () => {
           </div>
           <div
             className="grid grid-cols-2
-          gap-x-[5px] xl:gap-x-[10px]"
+            gap-x-[3px] xl:gap-x-[10px]"
           >
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {seconds.length > 1 ? seconds[0] : "0"}
             </div>
             <div
-              className="text-center text-white
-              text-[35px] xl:text-[102px] font-medium font-quicksand bg-black rounded-[10px]
-              min-w-[30px] xl:min-w-[101px]"
+              className="text-center text-white flex items-center justify-center
+              leading-[100%]
+              text-[35px] xl:text-[98px] font-medium font-quicksand bg-black rounded-[10px]
+              min-w-[30px] samsungS8:min-w-[35px] xl:min-w-[80px] xl:h-[102px] h-[44px]"
             >
               {seconds.length > 1 ? seconds[1] : seconds[0]}
             </div>

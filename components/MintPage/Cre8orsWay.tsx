@@ -55,7 +55,7 @@ const Cre8orsWay = () => {
                 xl:gap-[20px] 2xl:gap-x-[150px]"
         >
           <div className="flex justify-center">
-            <div className="grid grid-cols-3 gap-y-[20px] gap-x-[10px]">
+            <div className="grid grid-cols-3 gap-y-[20px] gap-x-[5px] xl:gap-x-[10px]">
               {avatarList.map((avatar) => (
                 <Media
                   key={avatar.id}
@@ -64,7 +64,7 @@ const Cre8orsWay = () => {
                   containerClasses="xl:w-[170px] xl:h-[170px]
                                     w-[75px] h-[75px]
                                     rounded-full overflow-hidden
-                                    border-[5px] border-[white]"
+                                    border-[2px] xl:border-[5px] border-[white]"
                 />
               ))}
             </div>

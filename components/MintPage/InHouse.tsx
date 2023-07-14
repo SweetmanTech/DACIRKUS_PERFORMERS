@@ -33,7 +33,7 @@ const InHouse = () => {
                 isXl ? `IP Management and\nLicensing` : `In-House IP\nManagement\nAnd Licensing`
               }
               className="leading-[103.3%] 
-              text-center xl:text-left
+              text-center xl:text-right
               !text-[22px] xs:!text-[27px] xl:!text-[65px]"
             />
             <Content
@@ -44,7 +44,7 @@ const InHouse = () => {
               }
               className="leading-[103.3%]
               pt-[10px] xl:pt-[27px]
-              text-center xl:text-left
+              text-center xl:text-right
               !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
             />
           </div>
