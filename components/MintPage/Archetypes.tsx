@@ -44,13 +44,14 @@ const Archetypes = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[550px] xl:h-[900px] flex-col flex justify-center">
+      <div className="relative w-full h-[550px] xl:h-[1000px] flex-col flex justify-center">
         <div className="flex xl:hidden justify-center">
           <div className="grid grid-cols-4 gap-y-[20px] pb-[35px] w-[300px] samsungS8:w-[340px]">
             {pfpList.map((pfp) => (
               <Media
                 key={pfp.id}
                 link={pfp.link}
+                blurLink={pfp.link}
                 type="image"
                 containerClasses="w-[79px] h-[110px]"
               />
@@ -66,7 +67,7 @@ const Archetypes = () => {
           <Content
             content={
               isXl
-                ? `Each PFP comes with a creative DNA card NFT. This card represents\nyour Cre8ors archetype. Trade your cards to change your archetype\nwithout the need to sell your entire PFP. Cre8ors PFPs are interactive\nand upgradable ERC-6551 tokens.`
+                ? `Each PFP comes with a creative DNA card NFT. This card represents your\nCre8ors archetype. Trade your cards to change your archetype without\nthe need to sell your entire PFP. Cre8ors PFPs are interactive and\nupgradable ERC-6551 tokens.`
                 : `Each PFP comes with a creative DNA card NFT. This card represents your Cre8ors\narchetype. Trade your cards to change your archetype without the need to sell\nyour entire PFP. Cre8ors PFPs are interactive and upgradable ERC-6551 tokens.`
             }
             className="leading-[103.3%] text-center
@@ -80,6 +81,7 @@ const Archetypes = () => {
               <Media
                 key={pfp.id}
                 link={pfp.link}
+                blurLink={pfp.link}
                 type="image"
                 containerClasses="w-[212px] h-[294px]"
               />

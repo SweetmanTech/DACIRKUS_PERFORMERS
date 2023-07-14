@@ -11,6 +11,7 @@ interface IMedia {
     VideoHTMLAttributes<HTMLVideoElement>,
     HTMLVideoElement
   >
+  blurLink?: string
 }
 
 function Media({
@@ -19,7 +20,8 @@ function Media({
   className,
   videoProps,
   containerClasses,
-  containerStyle
+  containerStyle,
+  blurLink
 }: IMedia) {
   const videoRef = useRef<any>()
   useEffect(() => {
@@ -50,7 +52,7 @@ function Media({
             layout='fill'
             alt='not found image'
             placeholder='blur'
-            blurDataURL='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcMXP2OQAGOQKc/DqDigAAAABJRU5ErkJggg=='
+            blurDataURL={ blurLink || 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcMXP2OQAGOQKc/DqDigAAAABJRU5ErkJggg=='}
             unoptimized
         />
       )}

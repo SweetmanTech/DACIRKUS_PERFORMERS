@@ -8,39 +8,39 @@ const Cre8orsWay = () => {
   const avatarList = [
     {
       id: "avatar1",
-      link: "/assets/Mint/Cre8orsWay/avatar1.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar1.png",
     },
     {
       id: "avatar2",
-      link: "/assets/Mint/Cre8orsWay/avatar2.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar2.png",
     },
     {
       id: "avatar3",
-      link: "/assets/Mint/Cre8orsWay/avatar3.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar3.png",
     },
     {
       id: "avatar4",
-      link: "/assets/Mint/Cre8orsWay/avatar4.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar4.png",
     },
     {
       id: "avatar5",
-      link: "/assets/Mint/Cre8orsWay/avatar5.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar5.png",
     },
     {
       id: "avatar6",
-      link: "/assets/Mint/Cre8orsWay/avatar6.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar6.png",
     },
     {
       id: "avatar7",
-      link: "/assets/Mint/Cre8orsWay/avatar7.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar7.png",
     },
     {
       id: "avatar8",
-      link: "/assets/Mint/Cre8orsWay/avatar8.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar8.png",
     },
     {
       id: "avatar9",
-      link: "/assets/Mint/Cre8orsWay/avatar9.svg",
+      link: "/assets/Mint/Cre8orsWay/avatar9.png",
     },
   ]
 
@@ -60,6 +60,7 @@ const Cre8orsWay = () => {
                 <Media
                   key={avatar.id}
                   link={avatar.link}
+                  blurLink={avatar.link}
                   type="image"
                   containerClasses="xl:w-[170px] xl:h-[170px]
                                     w-[75px] h-[75px]
@@ -83,7 +84,7 @@ const Cre8orsWay = () => {
             <Content
               content={
                 isXl
-                  ? `They’re a novel collection of 8,888 Artificially Intelligent Protocol-Enabled\nPictures, or AiPEPs (Powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into one stand-out\navatar. PFPs will never be the same. `
+                  ? `They’re a novel collection of 8,888 Artificially Intelligent Protocol-\nEnabled Pictures, or AiPEPs (Powered by the ERC-6551 token standard)\nthat blend B&W AI photography with colorful 2D-characters into one\nstand-out avatar. PFPs will never be the same. `
                   : `They’re a novel collection of 8,888 Artificially\nIntelligent Protocol-Enabled Pictures, or AiPEPs\n(Powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into\none stand-out avatar. PFPs will never be the same.`
               }
               className="leading-[103.3%] 
