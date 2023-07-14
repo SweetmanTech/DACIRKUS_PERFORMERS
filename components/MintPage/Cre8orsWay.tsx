@@ -60,6 +60,7 @@ const Cre8orsWay = () => {
                 <Media
                   key={avatar.id}
                   link={avatar.link}
+                  blurLink={avatar.link}
                   type="image"
                   containerClasses="xl:w-[170px] xl:h-[170px]
                                     w-[75px] h-[75px]

@@ -24,6 +24,7 @@ const Character: FC<CharacterProps> = ({
       height: `${(screenWidth / 1440) * originHeight}px`,
     }}
     containerClasses={`${className}`}
+    blurLink={link}
   />
 )
 

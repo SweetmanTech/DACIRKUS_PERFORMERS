@@ -14,6 +14,7 @@ const Collaborate = () => {
           <div className="block xl:hidden">
             <Media
               link="/assets/Mint/Collaborate/mobile_graphic.png"
+              blurLink="/assets/Mint/Collaborate/mobile_graphic.png"
               type="image"
               containerClasses="w-[300px] h-[285.6px] xs:w-[379.12px] xs:h-[361px]"
             />
@@ -44,6 +45,7 @@ const Collaborate = () => {
           <div className="hidden xl:block">
             <Media
               link="/assets/Mint/Collaborate/graphic.png"
+              blurLink="/assets/Mint/Collaborate/graphic.png"
               type="image"
               containerClasses="w-[685px] h-[653px]"
             />

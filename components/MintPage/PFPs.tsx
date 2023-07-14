@@ -18,6 +18,7 @@ const PFPs = () => {
           <div className="xl:hidden w-[100%] flex justify-center pb-[56px]">
             <Media
               link="/assets/Mint/PFP/mobile_character.svg"
+              blurLink="/assets/Mint/PFP/mobile_character.png"
               type="image"
               containerClasses="w-[224px] h-[280px]"
             />
@@ -43,7 +44,8 @@ const PFPs = () => {
           </div>
           <div className="xl:block hidden">
             <Media
-              link="/assets/Mint/PFP/PFP.svg"
+              link="/assets/Mint/PFP/character.svg"
+              blurLink="/assets/Mint/PFP/character.png"
               type="image"
               containerClasses="w-[593px] h-[691.6px]"
             />

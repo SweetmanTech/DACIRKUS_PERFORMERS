@@ -84,6 +84,7 @@ const MintNow = () => {
                 link="/assets/Mint/MintNow/down-arrow.svg"
                 type="image"
                 containerClasses="w-[15px] h-[15px]"
+                blurLink="/assets/Mint/MintNow/down-arrow.svg"
               />
             </div>
           </div>

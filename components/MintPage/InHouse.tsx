@@ -22,6 +22,11 @@ const InHouse = () => {
                   ? "/assets/Mint/InHouse/mobile_character.png"
                   : "/assets/Mint/InHouse/character.png"
               }
+              blurLink={
+                isXl
+                  ? "/assets/Mint/InHouse/mobile_character.png"
+                  : "/assets/Mint/InHouse/character.png"
+              }
               type="image"
               containerClasses="xl:w-[519px] xl:h-[766px]
               w-[242.03px] h-[357px]"
