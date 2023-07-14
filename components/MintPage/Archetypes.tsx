@@ -66,7 +66,7 @@ const Archetypes = () => {
           <Content
             content={
               isXl
-                ? `Each PFP comes with a creative DNA card NFT. This card represents\nyour Cre8ors archetype. Trade your cards to change your archetype\nwithout the need to sell your entire PFP. Cre8ors PFPs are interactive\nand upgradable ERC-6551 tokens.`
+                ? `Each PFP comes with a creative DNA card NFT. This card represents your\nCre8ors archetype. Trade your cards to change your archetype without\nthe need to sell your entire PFP. Cre8ors PFPs are interactive and\nupgradable ERC-6551 tokens.`
                 : `Each PFP comes with a creative DNA card NFT. This card represents your Cre8ors\narchetype. Trade your cards to change your archetype without the need to sell\nyour entire PFP. Cre8ors PFPs are interactive and upgradable ERC-6551 tokens.`
             }
             className="leading-[103.3%] text-center

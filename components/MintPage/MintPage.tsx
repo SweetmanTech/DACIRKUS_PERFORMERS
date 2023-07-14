@@ -1,4 +1,3 @@
-import { useMediaQuery } from "usehooks-ts"
 import { useEffect, useState } from "react"
 import Image from "next/image"
 import Layout from "../Layout"
@@ -11,7 +10,6 @@ import Collaborate from "./Collaborate"
 import Footer from "../Footer"
 
 const MintPage = () => {
-  const isXl = useMediaQuery("(max-width: 1150px)")
   const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
@@ -36,10 +34,9 @@ const MintPage = () => {
         <MintNow />
         <Cre8orsWay />
         <PFPs />
-        {!isXl && <Archetypes />}
+        <Archetypes />
         <InHouse />
-        {isXl && <Archetypes />}
-        {!isXl && <Collaborate />}
+        <Collaborate />
         <Footer className="pt-0" />
       </div>
     </Layout>

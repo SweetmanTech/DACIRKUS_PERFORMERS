@@ -83,7 +83,7 @@ const Cre8orsWay = () => {
             <Content
               content={
                 isXl
-                  ? `They’re a novel collection of 8,888 Artificially Intelligent Protocol-Enabled\nPictures, or AiPEPs (Powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into one stand-out\navatar. PFPs will never be the same. `
+                  ? `They’re a novel collection of 8,888 Artificially Intelligent Protocol-\nEnabled Pictures, or AiPEPs (Powered by the ERC-6551 token standard)\nthat blend B&W AI photography with colorful 2D-characters into one\nstand-out avatar. PFPs will never be the same. `
                   : `They’re a novel collection of 8,888 Artificially\nIntelligent Protocol-Enabled Pictures, or AiPEPs\n(Powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into\none stand-out avatar. PFPs will never be the same.`
               }
               className="leading-[103.3%] 
