@@ -1,6 +1,6 @@
 import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import Link from "next/link"
 import { useRouter } from "next/router"
 import CustomConnectWallet from "../CustomConnectWallet"
@@ -10,9 +10,10 @@ import { useTheme } from "../../providers/ThemeProvider"
 
 const DesktopMenu = () => {
   const { onChangeThemeConfig, themeMode } = useTheme()
-  const [isHidden, setIsHidden] = useState(false)
 
   const router = useRouter()
+
+  const isHidden = router.pathname.includes("/mint")
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -20,15 +21,6 @@ const DesktopMenu = () => {
   const onToggle = () => {
     onChangeThemeConfig()
   }
-
-  useEffect(() => {
-    if (router.pathname.includes("/mint")) {
-      setIsHidden(true)
-      return
-    }
-
-    setIsHidden(false)
-  }, [router.pathname])
 
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">

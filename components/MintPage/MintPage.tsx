@@ -21,7 +21,7 @@ const MintPage = () => {
         <InHouse />
         {isXl && <Archetypes />}
         {!isXl && <Collaborate />}
-        <Footer className="pt-0"/>
+        <Footer className="pt-0" />
       </div>
     </Layout>
   )

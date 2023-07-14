@@ -9,9 +9,9 @@ import { ToggleButton } from "../../shared/Button"
 
 const MenuList = ({ toggleMenu }) => {
   const { onChangeThemeConfig, themeMode } = useTheme()
-  const [isHidden, setIsHidden] = useState(false)
 
   const router = useRouter()
+  const isHidden = router.pathname.includes("/mint")
 
   const [isDarkMode, setIsDarkMode] = useState(false)
 
@@ -23,15 +23,6 @@ const MenuList = ({ toggleMenu }) => {
   useEffect(() => {
     setIsDarkMode(themeMode !== "light")
   }, [themeMode])
-
-  useEffect(() => {
-    if (router.pathname.includes("/mint")) {
-      setIsHidden(true)
-      return
-    }
-
-    setIsHidden(false)
-  }, [router.pathname])
 
   return (
     <div

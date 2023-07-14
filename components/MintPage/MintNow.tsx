@@ -15,7 +15,7 @@ const MintNow = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full min-h-[655px] xl:h-[100vh] flex justify-center items-start xl:items-center z-[1]">
+      <div className="relative w-full min-h-[700px] xl:h-[100vh] flex justify-center items-start xl:items-center z-[1]">
         {canMintNow ? (
           <div
             className="pt-[90px] pb-[90px]
@@ -81,8 +81,15 @@ const MintNow = () => {
             </div>
           </div>
         ) : (
-          <div className="flex flex-col justify-between items-center mt-[90px] xl:mt-0 h-[170px] xl:h-[470px]">
-            <div className="flex items-center gap-x-[10px]">
+          <div className="flex flex-col justify-between items-center mt-[90px] xl:mt-0 xl:h-[470px]">
+            <div className="xl:!hidden w-full flex justify-center pb-[35px]">
+              <Media
+                link="/assets/Mint/MintNow/mobile_character.png"
+                type="image"
+                containerClasses="w-[223px] h-[450px]"
+              />
+            </div>
+            <div className="flex items-center gap-x-[10px] pb-[20px] xl:pb-0">
               <Title
                 text="Mint Your Cre8ors"
                 className="!text-[22px] xs:!text-[27px] xl:!text-[65px]"
@@ -102,7 +109,7 @@ const MintNow = () => {
             <Timer />
             <Content
               content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
-              className="!text-[6px] xl:!text-[13px]"
+              className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
             />
           </div>
         )}
@@ -119,24 +126,15 @@ const MintNow = () => {
             />
           </div>
         ) : (
-          <>
-            <div className="xl:block hidden">
-              <Character
-                link="/assets/Mint/MintNow/character.svg"
-                originWidth={345.89}
-                originHeight={692.14}
-                className="!absolute bottom-0 left-0"
-                screenWidth={1440}
-              />
-            </div>
-            <div className="!absolute bottom-0 left-0 xl:!hidden w-full flex justify-center">
-              <Media
-                link="/assets/Mint/MintNow/mobile_character.png"
-                type="image"
-                containerClasses="w-[223px] h-[450px]"
-              />
-            </div>
-          </>
+          <div className="xl:block hidden">
+            <Character
+              link="/assets/Mint/MintNow/character.svg"
+              originWidth={345.89}
+              originHeight={692.14}
+              className="!absolute bottom-0 left-0"
+              screenWidth={1440}
+            />
+          </div>
         )}
       </div>
     </SectionContainer>
