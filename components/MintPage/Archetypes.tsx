@@ -51,6 +51,7 @@ const Archetypes = () => {
               <Media
                 key={pfp.id}
                 link={pfp.link}
+                blurLink={pfp.link}
                 type="image"
                 containerClasses="w-[79px] h-[110px]"
               />
@@ -80,6 +81,7 @@ const Archetypes = () => {
               <Media
                 key={pfp.id}
                 link={pfp.link}
+                blurLink={pfp.link}
                 type="image"
                 containerClasses="w-[212px] h-[294px]"
               />
