@@ -15,7 +15,7 @@ const Collaborate = () => {
             <Media
               link="/assets/Mint/Collaborate/mobile_graphic.png"
               type="image"
-              containerClasses="w-[379.12px] h-[361px]"
+              containerClasses="w-[300px] h-[285.6px] xs:w-[379.12px] xs:h-[361px]"
             />
           </div>
           <div className="flex flex-col justify-center">
