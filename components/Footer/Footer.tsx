@@ -69,7 +69,7 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         className || ""
       } footer`}
     >
-      <div className="md:w-[1280px] w-[90%]">
+      <div className="w-[90%] xl:w-[1280px]">
         <div className="justify-start items-start flex md:hidden pt-6 pr-6">
           <Image
             src={
