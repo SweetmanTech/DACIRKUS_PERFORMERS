@@ -93,6 +93,7 @@ const MintNow = () => {
             <div className="xl:!hidden w-full flex justify-center pb-[35px]">
               <Media
                 link="/assets/Mint/MintNow/mobile_character.png"
+                blurLink="/assets/Mint/MintNow/mobile_character.png"
                 type="image"
                 containerClasses="w-[223px] h-[450px]"
                 containerStyle={{
@@ -114,6 +115,7 @@ const MintNow = () => {
                     <div className="cursor-pointer">
                       <Media
                         link="/assets/Mint/help.png"
+                        blurLink="/assets/Mint/help.png"
                         type="image"
                         containerClasses="w-[25px] h-[25px] xl:w-[40px] xl:h-[40px]"
                       />
