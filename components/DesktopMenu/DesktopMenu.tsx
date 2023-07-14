@@ -25,32 +25,32 @@ const DesktopMenu = () => {
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
       {!isHidden && (
-        <div className="flex items-center pr-4">
-          <Link href="/status" target="_blank" rel="noreferrer">
-            <div className="font-bold cursor-pointer dark:text-white text-black">
-              Allowlist Status
-            </div>
-          </Link>
-        </div>
-      )}
-      {!isHidden && (
-        <div className="flex items-center font-bold font-quicksand">
-          <button
-            type="button"
-            className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
-            onClick={() => onChangeThemeConfig("light")}
-          >
-            light
-          </button>
-          <ToggleButton onClick={onToggle} value={themeMode === "dark"} id="light_dark_switch" />
-          <button
-            type="button"
-            className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
-            onClick={() => onChangeThemeConfig("dark")}
-          >
-            dark
-          </button>
-        </div>
+        <>
+          <div className="flex items-center pr-4">
+            <Link href="/status" target="_blank" rel="noreferrer">
+              <div className="font-bold cursor-pointer dark:text-white text-black">
+                Allowlist Status
+              </div>
+            </Link>
+          </div>
+          <div className="flex items-center font-bold font-quicksand">
+            <button
+              type="button"
+              className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
+              onClick={() => onChangeThemeConfig("light")}
+            >
+              light
+            </button>
+            <ToggleButton onClick={onToggle} value={themeMode === "dark"} id="light_dark_switch" />
+            <button
+              type="button"
+              className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
+              onClick={() => onChangeThemeConfig("dark")}
+            >
+              dark
+            </button>
+          </div>
+        </>
       )}
       <div className="relative">
         <button
