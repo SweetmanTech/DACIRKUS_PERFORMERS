@@ -12,8 +12,7 @@ const PFPs = () => {
       <div className="relative w-full h-[550px] xl:h-[824px] flex justify-center items-center">
         <div
           className="grid
-                grid-cols-1 xl:grid-cols-2 
-                xl:gap-[20px] 2xl:gap-x-[150px]"
+                grid-cols-1 xl:grid-cols-2"
         >
           <div className="xl:hidden w-[100%] flex justify-center pb-[56px]">
             <Media
@@ -47,7 +46,7 @@ const PFPs = () => {
               link="/assets/Mint/PFP/character.svg"
               blurLink="/assets/Mint/PFP/character.png"
               type="image"
-              containerClasses="w-[593px] h-[691.6px]"
+              containerClasses="w-[601px] h-[867px]"
             />
           </div>
         </div>
