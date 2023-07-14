@@ -30,7 +30,7 @@ const Timer = () => {
           <div
             className="font-quicksand font-bold 
           text-[7px] xl:text-[20px]
-          text-center pb-[15px]"
+          text-center pb-[3px] xl:pb-[15px]"
           >
             DAYS
           </div>
@@ -60,7 +60,7 @@ const Timer = () => {
           <div
             className="font-quicksand font-bold
           text-[7px] xl:text-[20px]
-          text-center pb-[15px]"
+          text-center pb-[3px] xl:pb-[15px]"
           >
             HOURS
           </div>
@@ -90,7 +90,7 @@ const Timer = () => {
           <div
             className="font-quicksand font-bold
           text-[7px] xl:text-[20px]
-          text-center pb-[15px]"
+          text-center pb-[3px] xl:pb-[15px]"
           >
             MINUTES
           </div>
@@ -120,7 +120,7 @@ const Timer = () => {
           <div
             className="font-quicksand font-bold
           text-[7px] xl:text-[20px]
-          text-center pb-[15px]"
+          text-center pb-[3px] xl:pb-[15px]"
           >
             SECONDS
           </div>
