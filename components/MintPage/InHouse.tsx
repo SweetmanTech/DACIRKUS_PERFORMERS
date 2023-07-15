@@ -44,13 +44,13 @@ const InHouse = () => {
             <Content
               content={
                 isXl
-                  ? `We believe IP is one of the most valuable utilities for NFT holders, so why\nstop at just the artwork? Our dedicated IP managment department will\nhelp you license your Cre8ors IP.From the PFP artwork to all the co-\ncreations you make with the community, Cre8ors mission is to unleash\nthe creative potential and unlockfinancial freedom for our members.`
-                  : `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with\nthe community, Cre8ors mission is to unleash the creative\npotential and unlock financial freedom for our members.`
+                  ? `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with\nthe community, Cre8ors mission is to unleash the creative\npotential and unlock financial freedom for our members.`
+                  : `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with the\ncommunity, Cre8ors mission is to unleash the creative potential\nand unlock financial freedom for our members.`
               }
               className="leading-[103.3%]
               pt-[10px] xl:pt-[27px]
               text-center xl:text-right
-              !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
+              !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
           </div>
         </div>

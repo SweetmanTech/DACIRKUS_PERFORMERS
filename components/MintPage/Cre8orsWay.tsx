@@ -84,13 +84,13 @@ const Cre8orsWay = () => {
             <Content
               content={
                 isXl
-                  ? `They’re a novel collection of 8,888 Artificially Intelligent Protocol-\nEnabled Pictures, or AiPEPs (Powered by the ERC-6551 token standard)\nthat blend B&W AI photography with colorful 2D-characters into one\nstand-out avatar. PFPs will never be the same. `
-                  : `They’re a novel collection of 8,888 Artificially\nIntelligent Protocol-Enabled Pictures, or AiPEPs\n(Powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into\none stand-out avatar. PFPs will never be the same.`
+                  ? `They’re a novel collection of 8,888 ERC-721C Artificially Intelligent\nProtocol-Enabled Pictures, or AiPEPs (powered by the ERC-6551\ntoken standard) that blend B&W AI photography with colorful 2D-\ncharacters into one stand-out avatar. PFPs will never be the same.`
+                  : `They’re a novel collection of 8,888 ERC-721C Artificially\nIntelligent Protocol-Enabled Pictures, or AiPEPs\n(powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into\none stand-out avatar. PFPs will never be the same.`
               }
               className="leading-[103.3%] 
                             pt-[10px] xl:pt-[27px]
                             text-center xl:text-right
-                            !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
+                            !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
           </div>
         </div>

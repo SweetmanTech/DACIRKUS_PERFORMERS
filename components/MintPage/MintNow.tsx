@@ -38,7 +38,7 @@ const MintNow = () => {
              !text-[22px] xs:!text-[27px] xl:!text-[65px]"
             />
             <Content
-              content={`You choose how much you pay, depending on how long you plan on holding.\nIf you change your mind, unlock later by paying the difference.\nCre8orsList (Allowlist) can mint up to 4 NFTs per wallet.`}
+              content={`You choose how much you pay, depending on how long you plan on holding.\nIf you change your mind, unlock later by paying the difference.\nCre8orsList (Allowlist) can mint up to 8 NFTs per wallet.`}
               className="leading-[103.3%] text-center
               pt-[10px] xl:pt-[27px]
               !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
