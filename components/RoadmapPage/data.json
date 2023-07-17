@@ -131,6 +131,7 @@
     "mobileLockBackImg": "/assets/Roadmap/lock_mint.png",
     "label": "Cre8ors mint",
     "date": "2023-08-08",
+    "period": 3,
     "certain": true,
     "link": "/mint",
     "text": "More info coming soon.",
