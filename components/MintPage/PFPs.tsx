@@ -19,7 +19,7 @@ const PFPs = () => {
               link="/assets/Mint/PFP/mobile_character.svg"
               blurLink="/assets/Mint/PFP/mobile_character.png"
               type="image"
-              containerClasses="w-[281px] h-[351px]"
+              containerClasses="w-[283px] h-[353px]"
             />
           </div>
           <div className="flex flex-col justify-center xl:pl-[30px]">
@@ -46,7 +46,7 @@ const PFPs = () => {
               link="/assets/Mint/PFP/character.svg"
               blurLink="/assets/Mint/PFP/character.png"
               type="image"
-              containerClasses="w-[601px] h-[867px]"
+              containerClasses="w-[641px] h-[900px]"
             />
           </div>
         </div>

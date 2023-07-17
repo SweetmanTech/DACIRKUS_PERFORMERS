@@ -19,17 +19,17 @@ const InHouse = () => {
             <Media
               link={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.png"
-                  : "/assets/Mint/InHouse/character.png"
+                  ? "/assets/Mint/InHouse/mobile_character.svg"
+                  : "/assets/Mint/InHouse/character.svg"
               }
               blurLink={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.png"
-                  : "/assets/Mint/InHouse/character.png"
+                  ? "/assets/Mint/InHouse/mobile_character.svg"
+                  : "/assets/Mint/InHouse/character.svg"
               }
               type="image"
-              containerClasses="xl:w-[519px] xl:h-[766px]
-              w-[242.03px] h-[357px]"
+              containerClasses="xl:w-[470px] xl:h-[798px]
+              w-[273px] h-[340px]"
             />
           </div>
           <div className="flex flex-col justify-center">
