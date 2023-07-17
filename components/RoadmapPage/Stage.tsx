@@ -226,7 +226,7 @@ const Stage: FC<StageProps> = ({
                             10,
                           )
                         : ""
-                    }${stageNumber == 11 ? " - 10" : ""}`
+                    }${stageNumber === 11 ? " - 10" : ""}`
                   : "???????????"
               }
             </div>
