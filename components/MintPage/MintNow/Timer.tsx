@@ -6,7 +6,7 @@ const Timer = () => {
   const [minutes, setMinutes] = useState("00")
   const [seconds, setSeconds] = useState("00")
 
-  const mintDay = "27 Jul 2023 09:00:00 UTC"
+  const mintDay = "8 Aug 2023 08:00:00 UTC"
 
   const getTime = () => {
     const time = Date.parse(mintDay) - Date.now()

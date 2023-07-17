@@ -67,12 +67,12 @@ const Archetypes = () => {
           <Content
             content={
               isXl
-                ? `Each PFP comes with a creative DNA card NFT. This card represents your\nCre8ors archetype. Trade your cards to change your archetype without\nthe need to sell your entire PFP. Cre8ors PFPs are interactive and\nupgradable ERC-6551 tokens.`
-                : `Each PFP comes with a creative DNA card NFT. This card represents your Cre8ors\narchetype. Trade your cards to change your archetype without the need to sell\nyour entire PFP. Cre8ors PFPs are interactive and upgradable ERC-6551 tokens.`
+                ? `Each PFP comes with a creative DNA card NFT. This card\nrepresents your Cre8ors archetype. Trade your cards to\nchange your archetype without the need to sell your entire\nPFP. Cre8ors PFPs are interactive ERC721C tokens with\nownership of an ERC-6551 smart wallet.`
+                : `Each PFP comes with a creative DNA card NFT. This card represents your Cre8ors archetype.\nTrade your cards to change your archetype without the need to sell your entire PFP. Cre8ors\nPFPs are interactive ERC721C tokens with ownership of an ERC-6551 smart wallet.`
             }
             className="leading-[103.3%] text-center
                   pt-[10px] xl:pt-[27px]
-                  !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
+                  !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
           />
         </div>
         <div className="hidden xl:flex justify-center">

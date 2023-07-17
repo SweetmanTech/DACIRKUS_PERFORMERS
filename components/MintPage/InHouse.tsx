@@ -19,17 +19,17 @@ const InHouse = () => {
             <Media
               link={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.png"
-                  : "/assets/Mint/InHouse/character.png"
+                  ? "/assets/Mint/InHouse/mobile_character.svg"
+                  : "/assets/Mint/InHouse/character.svg"
               }
               blurLink={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.png"
-                  : "/assets/Mint/InHouse/character.png"
+                  ? "/assets/Mint/InHouse/mobile_character.svg"
+                  : "/assets/Mint/InHouse/character.svg"
               }
               type="image"
-              containerClasses="xl:w-[519px] xl:h-[766px]
-              w-[242.03px] h-[357px]"
+              containerClasses="xl:w-[470px] xl:h-[798px]
+              w-[273px] h-[340px]"
             />
           </div>
           <div className="flex flex-col justify-center">
@@ -44,13 +44,13 @@ const InHouse = () => {
             <Content
               content={
                 isXl
-                  ? `We believe IP is one of the most valuable utilities for NFT holders, so why\nstop at just the artwork? Our dedicated IP managment department will\nhelp you license your Cre8ors IP.From the PFP artwork to all the co-\ncreations you make with the community, Cre8ors mission is to unleash\nthe creative potential and unlockfinancial freedom for our members.`
-                  : `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with\nthe community, Cre8ors mission is to unleash the creative\npotential and unlock financial freedom for our members.`
+                  ? `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with\nthe community, Cre8ors mission is to unleash the creative\npotential and unlock financial freedom for our members.`
+                  : `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with the\ncommunity, Cre8ors mission is to unleash the creative potential\nand unlock financial freedom for our members.`
               }
               className="leading-[103.3%]
               pt-[10px] xl:pt-[27px]
               text-center xl:text-right
-              !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
+              !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
           </div>
         </div>

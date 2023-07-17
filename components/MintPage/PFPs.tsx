@@ -19,7 +19,7 @@ const PFPs = () => {
               link="/assets/Mint/PFP/mobile_character.svg"
               blurLink="/assets/Mint/PFP/mobile_character.png"
               type="image"
-              containerClasses="w-[224px] h-[280px]"
+              containerClasses="w-[283px] h-[353px]"
             />
           </div>
           <div className="flex flex-col justify-center xl:pl-[30px]">
@@ -32,13 +32,13 @@ const PFPs = () => {
             <Content
               content={
                 isXl
-                  ? `Imagine minting a musician that creates music for you, or a writer that\nwrites for you. As artificial intelligence improves, so does your NFT. One\nday your Cre8or might make a hit song, or write a best-selling novel. If\nyou own the NFT then you own the IP; and since you own the IP you reap\nall the rewards. PFPs you will want to pass down to your grandkids for\ngenerations to come.`
+                  ? `Imagine minting a musician that creates music for you, or a\nwriter that writes for you. As artificial intelligence improves, so\ndoes your NFT. One day your Cre8or might make a hit song, or\nwrite a best-selling novel. If you own the NFT then you own the IP;\nand since you own the IP you reap all the rewards. PFPs you will\nwant to pass down to your grandkids for generations to come.`
                   : `Imagine minting a musician that creates music for you, or a\nwriter that writes for you. As artificial intelligence improves, so\ndoes your NFT. One day your Cre8or might make a hit song, or\nwrite a best-selling novel. If you own the NFT then you own the IP;\nand since you own the IP, you reap all the rewards. PFPs you will\nwant to pass down to your grandkids of generations to come.`
               }
               className="leading-[103.3%]
                             pt-[10px] xl:pt-[27px]
                             text-center xl:text-left
-                            !text-[8.5px] xs:!text-[10px] xl:!text-[19px]"
+                            !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
           </div>
           <div className="xl:block hidden">
@@ -46,7 +46,7 @@ const PFPs = () => {
               link="/assets/Mint/PFP/character.svg"
               blurLink="/assets/Mint/PFP/character.png"
               type="image"
-              containerClasses="w-[601px] h-[867px]"
+              containerClasses="w-[641px] h-[900px]"
             />
           </div>
         </div>
