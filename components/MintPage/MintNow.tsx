@@ -11,7 +11,7 @@ import MintCard from "./MintNow/MintCard"
 import { Button } from "../../shared/Button"
 
 const MintNow = () => {
-  const canMintNow = new Date().getTime() >= new Date("08 Aug 2023 09:00:00 UTC").getTime()
+  const canMintNow = new Date().getTime() >= new Date("08 Aug 2023 08:00:00 UTC").getTime()
   const isXl = useMediaQuery("(max-width: 1150px")
 
   const [containerRef, containerSizes] = useMeasure()
