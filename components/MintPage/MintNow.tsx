@@ -11,7 +11,7 @@ import MintCard from "./MintNow/MintCard"
 import { Button } from "../../shared/Button"
 
 const MintNow = () => {
-  const canMintNow = new Date().getTime() >= new Date("27 Jul 2023 09:00:00 UTC").getTime()
+  const canMintNow = new Date().getTime() >= new Date("08 Aug 2023 09:00:00 UTC").getTime()
   const isXl = useMediaQuery("(max-width: 1150px")
 
   const [containerRef, containerSizes] = useMeasure()
@@ -125,7 +125,7 @@ const MintNow = () => {
               </div>
               <Timer />
               <Content
-                content="Passports: July 27th @ 8am EST • Allowlist: July 28th @ 8am EST • Public Sale : July 29th 8am EST"
+                content="Passports: August 8th @ 8am EST • Allowlist: August 9th @ 8am EST • Public Sale : August 10th 8am EST"
                 className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
               />
             </div>
