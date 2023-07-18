@@ -20,7 +20,7 @@ const MintNow = () => {
   return (
     <SectionContainer>
       <div
-        className="relative w-full h-[100vh] flex justify-center items-start xl:items-center z-[1]"
+        className="relative w-full min-h-[100vh] flex justify-center items-start xl:items-center z-[1]"
         ref={containerRef}
       >
         {canMintNow ? (
