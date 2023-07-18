@@ -125,7 +125,7 @@ const MintNow = () => {
               </div>
               <Timer />
               <Content
-                content="Passports: August 8th @ 8am EST • Allowlist: August 9th @ 8am EST • Public Sale : August 10th 8am EST"
+                content="Passports: August 8 @ 8am EST • Cre8orlist: August 9 @ 8am EST • Public Sale : August 10 8am EST"
                 className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
               />
             </div>
