@@ -8,6 +8,7 @@ import StatusPill from "./components/StatusPill"
 import SelectColumnFilter from "./components/SelectColumFilter"
 import PopupModal from "./components/PopupModal"
 import { useAdminProvider } from "../../providers/AdminProvider"
+import AddApplicant from "../Modal/AddApplicant"
 
 type ITableDatum = {
   _id: string
@@ -21,6 +22,7 @@ type ITableDatum = {
 }
 type ITableData = Array<ITableDatum>
 const AdminPage = () => {
+  const [modalOpen, setModalOpen] = useState(false)
   const mapEvilToGood = (evil: string) => {
     switch (evil) {
       case "The Delegator":
@@ -211,6 +213,12 @@ const AdminPage = () => {
     ],
     [handleDelete],
   )
+  const resetStatus = async () =>
+    axios.put(`${process.env.NEXT_PUBLIC_SHARED_API_URL}/resetStatus`, null, {
+      headers: {
+        Authorization: `Bearer ${bearerToken}`,
+      },
+    })
   const getData = useCallback(async () => {
     const res = await axios.get("/api/allowlist/allData", {
       headers: {
@@ -248,14 +256,40 @@ const AdminPage = () => {
             <div>
               <h1 className="text-xl font-semibold">Current Allowlist Applicants</h1>
             </div>
-            <CSVLink
-              data={csvData}
-              filename="allowlist.csv"
-              className="px-4 py-2 mt-4 text-white bg-purple-500 border rounded-lg"
-            >
-              Export CSV
-            </CSVLink>
+            <div className="flex flex-row space-x-2">
+              <button
+                type="button"
+                className="px-4 py-2 mt-4 text-white bg-gray-500 border rounded-md"
+                onClick={() => setModalOpen(true)}
+              >
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke-width="1.5"
+                  stroke="currentColor"
+                  className="w-6 h-6"
+                >
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 4.5v15m7.5-7.5h-15" />
+                </svg>
+              </button>
+              <button
+                type="button"
+                className="px-4 py-2 mt-4 text-white bg-yellow-600 border rounded-md"
+                onClick={resetStatus}
+              >
+                Reset
+              </button>
+              <CSVLink
+                data={csvData}
+                filename="allowlist.csv"
+                className="px-4 py-2 mt-4 text-white bg-purple-500 border rounded-lg"
+              >
+                Export CSV
+              </CSVLink>
+            </div>
           </div>
+
           <div className="mt-4">
             <Table columns={columns} data={tableData} setPickedApplicants={setPickedApplicants} />
           </div>
@@ -279,6 +313,7 @@ const AdminPage = () => {
           )}
         </main>
         {loading && <PopupModal open={loading} />}
+        {modalOpen && <AddApplicant setModalOpen={setModalOpen} setLoading={setLoading} />}
       </div>
     )
   )
