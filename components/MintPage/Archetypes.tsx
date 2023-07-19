@@ -60,14 +60,16 @@ const Archetypes = () => {
         </div>
         <div>
           <Title
-            text={isXl ? "8 Creative Archetypes" : "The Eight Creative Archetypes"}
+            text={
+              isXl ? `An Intelligent PFP\n+ A Smart Wallet` : "An Intelligent PFP + A Smart Wallet"
+            }
             className="leading-[103.3%] text-center
                     !text-[22px] xs:!text-[27px] xl:!text-[65px]"
           />
           <Content
             content={
               isXl
-                ? `Each PFP comes with a creative DNA card NFT. This card\nrepresents your Cre8ors archetype. Trade your cards to\nchange your archetype without the need to sell your entire\nPFP.  Cre8ors PFPs are interactive ERC721HAC hybrid tokens\nwith ownership of their own ERC-6551 smart wallet.`
+                ? `Each PFP comes with a creative DNA card NFT. This card\nrepresents your Cre8ors archetype. Trade your cards to\nchange your archetype without the need to sell your entire\nPFP. Cre8ors PFPs are interactive ERC721HAC hybrid tokens\nwith ownership of their own ERC-6551 smart wallet.`
                 : `Each PFP comes with a creative DNA card NFT. This card represents your Cre8ors archetype.\nTrade your cards to change your archetype without the need to sell your entire PFP. Cre8ors\nPFPs are interactive ERC721HAC hybrid tokens with ownership of their own ERC-6551 smart wallet.`
             }
             className="leading-[103.3%] text-center
