@@ -3,6 +3,7 @@
 import axios from "axios"
 import { useCallback, useEffect, useMemo, useState } from "react"
 import { CSVLink } from "react-csv"
+import { toast } from "react-toastify"
 import Table from "./components/Table"
 import StatusPill from "./components/StatusPill"
 import SelectColumnFilter from "./components/SelectColumFilter"
@@ -74,11 +75,16 @@ const AdminPage = () => {
       username: applicant.twitterHandle,
       cre8orType: mapEvilToGood(applicant.cre8orType),
     }))
-    await axios.post(`${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`, body, {
-      headers: {
-        Authorization: `Bearer ${bearerToken}`,
+    const response = await axios.post(
+      `${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`,
+      body,
+      {
+        headers: {
+          Authorization: `Bearer ${bearerToken}`,
+        },
       },
-    })
+    )
+    toast.info(`Tweets Remaining: ${response?.data?.remainingTweets}`)
   }
 
   const handleClick = async (status) => {
