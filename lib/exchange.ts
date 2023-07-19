@@ -7,8 +7,10 @@ export const approveClaimTicket = async (
   claimTicketId: number | string,
 ) => {
   const contract = new Contract(process.env.NEXT_PUBLIC_CRE8ORS_CLAIM_TICKET_ADDRESS, abi, signer)
-
-  const tx = await contract.approve(process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS, claimTicketId)
+  const tx = await contract.approve(
+    process.env.NEXT_PUBLIC_CRE8ORS_EXCHANGE_ADDRESS,
+    parseInt(claimTicketId.toString(), 16),
+  )
   const res = await tx.wait()
   return res
 }
