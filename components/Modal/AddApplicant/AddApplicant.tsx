@@ -30,7 +30,7 @@ const AddApplicant = ({ setModalOpen, setLoading, mapEvilToGood }) => {
       },
     )
     const docId = response?.data?.result?._id
-    if (tweetAcceptance) {
+    if (tweetAcceptance && docId && creatorType !== "Other") {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`,
         {
@@ -47,6 +47,10 @@ const AddApplicant = ({ setModalOpen, setLoading, mapEvilToGood }) => {
       toast.info(`Tweets Remaining: ${res?.data?.remainingTweets}`)
     }
 
+    setWalletAddress("")
+    setTwitterHandle("")
+    setReason("")
+    setCreatorType("")
     setModalOpen(false)
     setLoading(false)
   }
@@ -115,6 +119,7 @@ const AddApplicant = ({ setModalOpen, setLoading, mapEvilToGood }) => {
                 <option value="The Catalyst">Thespian</option>
                 <option value="The Idealist">Photographer</option>
                 <option value="The Generator">Designer</option>
+                <option value="Other">Other</option>
               </select>
               <div className="mt-2">
                 <input
