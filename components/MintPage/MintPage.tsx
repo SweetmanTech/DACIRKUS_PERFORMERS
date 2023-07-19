@@ -1,11 +1,11 @@
 import Layout from "../Layout"
-import MintNow from "./MintNow"
 import Cre8orsWay from "./Cre8orsWay"
 import PFPs from "./PFPs"
 import Archetypes from "./Archetypes"
 import InHouse from "./InHouse"
 import Collaborate from "./Collaborate"
 import Footer from "../Footer"
+import MintNow from "./MintNow"
 
 const MintPage = () => (
   <Layout type="base">
