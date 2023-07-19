@@ -319,7 +319,13 @@ const AdminPage = () => {
           )}
         </main>
         {loading && <PopupModal open={loading} />}
-        {modalOpen && <AddApplicant setModalOpen={setModalOpen} setLoading={setLoading} />}
+        {modalOpen && (
+          <AddApplicant
+            setModalOpen={setModalOpen}
+            setLoading={setLoading}
+            mapEvilToGood={mapEvilToGood}
+          />
+        )}
       </div>
     )
   )

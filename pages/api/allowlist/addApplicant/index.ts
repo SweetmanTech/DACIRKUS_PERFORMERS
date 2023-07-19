@@ -12,6 +12,7 @@ class AddApplicant {
       reason: string
       twitterHandle: string
       creatorType: string
+      status: string
     },
   ) {
     const response = await addAllowListApplicant(body)
