@@ -12,10 +12,10 @@ const InHouse = () => {
       <div className="relative w-full h-[550px] xl:h-[960px] flex justify-center items-center">
         <div
           className="grid  
-                grid-cols-1 xl:grid-cols-2 
-                xl:gap-[20px] 2xl:gap-x-[150px]"
+                grid-cols-1 xl:grid-cols-5 
+               gap-x-0"
         >
-          <div className="w-[100%] flex justify-center pb-[56px]">
+          <div className="w-[100%] flex justify-center pb-[56px] col-span-2">
             <Media
               link={
                 isXl
@@ -32,10 +32,12 @@ const InHouse = () => {
               w-[273px] h-[340px]"
             />
           </div>
-          <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center col-span-3 xl:pr-[50px] 2xl:pr-0">
             <Title
               text={
-                isXl ? `IP Management and\nLicensing` : `In-House IP\nManagement\nAnd Licensing`
+                isXl
+                  ? `It’s Not Just a JPEG.\nThink, PFP’s as a Service\n(PaaS)     `
+                  : `It’s Not Just a JPEG.\nThink, PFP’s as a\nService (PaaS)`
               }
               className="leading-[103.3%] 
               text-center xl:text-right
@@ -44,8 +46,8 @@ const InHouse = () => {
             <Content
               content={
                 isXl
-                  ? `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with\nthe community, Cre8ors mission is to unleash the creative\npotential and unlock financial freedom for our members.`
-                  : `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our dedicated IP\nmanagment department will help you license your Cre8ors IP.\nFrom the PFP artwork to all the co-creations you make with the\ncommunity, Cre8ors mission is to unleash the creative potential\nand unlock financial freedom for our members.`
+                  ? `We believe IP is one of the most valuable utilities for\nNFT holders, so why stop at just the artwork? Our in-\nhouse IP management and licensing department can\nhelp you license your Cre8ors IP. From the artwork to\nthe co-creations you make with the community,\nCre8ors mission is to unleash your creative potential\nand unlock financial freedom for our members.`
+                  : `We believe IP is one of the most valuable utilities for NFT\nholders, so why stop at just the artwork? Our in-house IP\nmanagement and licensing department can help you license\nyour Cre8ors IP. From the artwork to the co-creations you make\nwith the community, Cre8ors mission is to unleash your creative\npotential and unlock financial freedom for our members.`
               }
               className="leading-[103.3%]
               pt-[10px] xl:pt-[27px]
