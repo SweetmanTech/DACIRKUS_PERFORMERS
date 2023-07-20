@@ -34,8 +34,8 @@ const PFPs = () => {
             <Content
               content={
                 isXl
-                  ? `Imagine minting a musician that creates music for you, or a\nwriter that writes for you. As artificial intelligence improves, so\ndoes your NFT. One day your Cre8or might make a hit song, or\nwrite a best-selling novel. If you own the NFT then you own the IP;\nand since you own the IP you reap all the rewards. Tokens that\nyou can pass down to your grandkids for generations to come.`
-                  : `Imagine minting a musician that creates music for you, or a writer\nthat writes for you. As artificial intelligence improves, so does your\nNFT. One day your Cre8or might make a hit song, or write a best-\nselling novel. If you own the NFT then you own the IP; and since\nyou own the IP, you reap all the rewards. Tokens that you can\npass down to your grandkids for generations to come.`
+                  ? `Imagine minting a musician that creates music for you, or a\nwriter that writes for you. As artificial intelligence improves, so\ndoes your NFT. One day your Cre8or might make a hit song, or\nwrite a best-selling novel. If you own the NFT then you own the IP;\nand since you own the IP you reap all the rewards. PFP's \nyou can pass down to your grandkids for generations to come.`
+                  : `Imagine minting a musician that creates music for you, or a writer\nthat writes for you. As artificial intelligence improves, so does your\nNFT. One day your Cre8or might make a hit song, or write a best-\nselling novel. If you own the NFT then you own the IP; and since\nyou own the IP, you reap all the rewards. PFP's you can\npass down to your grandkids for generations to come.`
               }
               className="leading-[103.3%]
                             pt-[10px] xl:pt-[27px]
