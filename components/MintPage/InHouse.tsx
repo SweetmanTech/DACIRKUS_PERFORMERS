@@ -9,13 +9,13 @@ const InHouse = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[550px] xl:h-[960px] flex justify-center items-center">
+      <div className="relative w-full pt-[85px] xl:pt-0 xl:h-[960px] flex justify-center items-center">
         <div
           className="grid  
                 grid-cols-1 xl:grid-cols-5 
                gap-x-0"
         >
-          <div className="w-[100%] flex justify-center pb-[56px] col-span-2">
+          <div className="w-[100%] flex justify-center pb-[35px] col-span-2">
             <Media
               link={
                 isXl
@@ -36,8 +36,8 @@ const InHouse = () => {
             <Title
               text={
                 isXl
-                  ? `It’s Not Just a JPEG.\nThink, PFP’s as a Service\n(PaaS)     `
-                  : `It’s Not Just a JPEG.\nThink, PFP’s as a\nService (PaaS)`
+                  ? `Not Just a JPEG. Think,\nPFP’s as a Service (PaaS)`
+                  : `Not Just a JPEG.\nThink, PFP’s as a\nService (PaaS)`
               }
               className="leading-[103.3%] 
               text-center xl:text-right

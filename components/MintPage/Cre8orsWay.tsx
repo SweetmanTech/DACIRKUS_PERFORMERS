@@ -48,7 +48,7 @@ const Cre8orsWay = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[550px] xl:h-[816px] flex justify-center items-center">
+      <div className="relative w-full pt-[85px] samsungS8:pt-0 xl:h-[calc(100vh+100px)] flex justify-center items-center">
         <div
           className="grid 
                 grid-cols-1 xl:grid-cols-2 
@@ -63,7 +63,7 @@ const Cre8orsWay = () => {
                   blurLink={avatar.link}
                   type="image"
                   containerClasses="xl:w-[170px] xl:h-[170px]
-                                    w-[75px] h-[75px]
+                                    w-[87px] h-[87px]
                                     rounded-full overflow-hidden
                                     border-[2px] xl:border-[5px] border-[white]"
                 />

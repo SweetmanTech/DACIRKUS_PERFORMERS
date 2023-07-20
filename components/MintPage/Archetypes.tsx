@@ -44,7 +44,7 @@ const Archetypes = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[550px] xl:h-[1000px] flex-col flex justify-center">
+      <div className="relative w-full pt-[85px] xl:pt-0 xl:h-[1000px] flex-col flex justify-center">
         <div className="flex xl:hidden justify-center">
           <div className="grid grid-cols-4 gap-y-[20px] pb-[35px] w-[300px] samsungS8:w-[340px]">
             {pfpList.map((pfp) => (
@@ -69,8 +69,8 @@ const Archetypes = () => {
           <Content
             content={
               isXl
-                ? `Cre8ors PFPs are interactive ERC721-HAC hybrid tokens with\nownership of their own ERC-6551 smart wallet. Each PFP comes\nwith a creative DNA card NFT inside. This card represents your\nCre8ors archetype trait. Trade your cards and change your\ntraits without the need to sell your entire PFP.`
-                : `Cre8ors PFPs are interactive ERC721-HAC hybrid tokens with ownership of their own ERC-6551 smart wallet.\nEach PFP comes with a creative DNA card NFT inside. This card represents your Cre8ors archetype trait.\nTrade your cards and change your traits without the need to sell your entire PFP.`
+                ? `Cre8ors PFP's are interactive ERC721-HAC hybrid tokens with\nownership of their own ERC-6551 smart wallet. Each PFP comes\nwith a creative DNA card NFT inside. This card represents your\nCre8ors archetype trait. Trade your cards and change your\ntraits without the need to sell your entire PFP.`
+                : `Cre8ors PFP's are interactive ERC721-HAC hybrid tokens with ownership of their own ERC-6551 smart wallet.\nEach PFP comes with a creative DNA card NFT inside. This card represents your Cre8ors archetype trait.\nTrade your cards and change your traits without the need to sell your entire PFP.`
             }
             className="leading-[103.3%] text-center
                   pt-[10px] xl:pt-[27px]

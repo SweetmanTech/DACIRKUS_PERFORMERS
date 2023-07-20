@@ -1,6 +1,7 @@
 import Link from "next/link"
 import { useMediaQuery } from "usehooks-ts"
 import { useMeasure } from "react-use"
+import Image from "next/image"
 import SectionContainer from "../SectionContainer"
 import Title from "../../Common/Title"
 import Content from "../../Common/Content"
@@ -17,7 +18,10 @@ const PreMintBoard = () => {
   return (
     <SectionContainer>
       <div
-        className="relative w-full min-h-[100vh] flex justify-center items-start xl:items-center z-[1]"
+        className="relative w-full min-h-[100vh] 
+        pb-0 samsungS8:pb-[85px] xl:pb-0 
+        flex justify-center 
+        items-center samsungS8:items-end xl:items-center z-[1]"
         ref={containerRef}
       >
         <div className="flex flex-col justify-between items-center mt-[70px] xl:mt-0 xl:h-[470px]">
@@ -41,12 +45,13 @@ const PreMintBoard = () => {
               />
               {!isXl && (
                 <Link href="/faq" target="_self">
-                  <div className="cursor-pointer">
-                    <Media
-                      link="/assets/Mint/help.png"
-                      blurLink="/assets/Mint/help.png"
-                      type="image"
-                      containerClasses="w-[25px] h-[25px] xl:w-[40px] xl:h-[40px]"
+                  <div className="cursor-pointer w-[25px] h-[25px] xl:w-[40px] xl:h-[40px] overflow-hidden rounded-full relative">
+                    <Image
+                      className="absolute w-[100%] h-[100%]"
+                      src="/assets/Mint/help.png"
+                      layout="fill"
+                      alt="not found image"
+                      unoptimized
                     />
                   </div>
                 </Link>

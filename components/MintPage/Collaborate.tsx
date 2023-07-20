@@ -9,7 +9,7 @@ const Collaborate = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[600px] xl:h-[960px] flex justify-center items-center">
+      <div className="relative w-full pt-[85px] pb-[50px] xl:py-0 xl:h-[960px] flex justify-center items-center">
         <div className="grid grid-cols-1 xl:grid-cols-2">
           <div className="block xl:hidden pb-[33px]">
             <Media
