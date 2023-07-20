@@ -5,12 +5,12 @@ import Archetypes from "./Archetypes"
 import InHouse from "./InHouse"
 import Collaborate from "./Collaborate"
 import Footer from "../Footer"
-import MintNow from "./MintNow"
+import PreMintBoard from "./PreMint/PreMintBoard"
 
 const MintPage = () => (
   <Layout type="base">
     <div className="relative h-screen overflow-y-auto overflow-x-hidden">
-      <MintNow />
+      <PreMintBoard />
       <Cre8orsWay />
       <PFPs />
       <Archetypes />
