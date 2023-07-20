@@ -74,7 +74,7 @@ const Cre8orsWay = () => {
             <Title
               text={
                 isXl
-                  ? `Cre8ors Are Way More\nThean Just Profile Pictures`
+                  ? `Cre8ors Are Way More\nThan Just Profile Pictures`
                   : `Cre8ors Are Way\nMore Than Just\nProfile Pictures`
               }
               className="leading-[103.3%] 

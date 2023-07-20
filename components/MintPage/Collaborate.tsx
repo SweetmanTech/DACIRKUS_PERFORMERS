@@ -33,7 +33,7 @@ const Collaborate = () => {
             <Content
               content={
                 isXl
-                  ? `Cre8ors Protocol is an interoperable smart contract that uses\nnovel community-bonding mechanics to generate composable\nmedia catalogs at scale. But, WTF does that mean?\n\nWe’re building a series of remix dApps that make it fun and\neasy for holders to collaborate, license, and get paid when co-\ncreating on-chain with friends. and other communities.`
+                  ? `Cre8ors Protocol is an interoperable smart contract that uses\nnovel community-bonding mechanics to generate composable\nmedia catalogs at scale. But, WTF does that mean?\n\nWe’re building a series of remix dApps that make it fun and\neasy for holders to collaborate, license, and get paid when co-\ncreating on-chain with friends and other communities.`
                   : `Cre8ors Protocol is an interoperable smart contract that\nuses novel community-bonding mechanics to generate\ncomposable media catalogs at scale. But, WTF does that\nmean?\n\nWe’re building a series of remix dApps that make it fun\nand easy for holders to collaborate, license, and get\npaid when co-creating on-chain with friends and other\ncommunities.`
               }
               className="leading-[103.3%] 

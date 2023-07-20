@@ -36,8 +36,8 @@ const InHouse = () => {
             <Title
               text={
                 isXl
-                  ? `Not Just a JPEG. Think,\nPFP’s as a Service (PaaS)`
-                  : `Not Just a JPEG.\nThink, PFP’s as a\nService (PaaS)`
+                  ? `Not Just a JPEG. Think,\nPFP as a Service (PaaS)`
+                  : `Not Just a JPEG.\nThink, PFP as a\nService (PaaS)`
               }
               className="leading-[103.3%] 
               text-center xl:text-right

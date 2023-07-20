@@ -60,9 +60,7 @@ const Archetypes = () => {
         </div>
         <div>
           <Title
-            text={
-              isXl ? `An Intelligent PFP\n+ A Smart Wallet` : "An Intelligent PFP + A Smart Wallet"
-            }
+            text={isXl ? `An Intelligent PFP\n+ Smart Wallet` : "An Intelligent PFP + Smart Wallet"}
             className="leading-[103.3%] text-center
                     !text-[22px] xs:!text-[27px] xl:!text-[65px]"
           />
