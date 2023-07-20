@@ -30,7 +30,7 @@ const AddApplicant = ({ setModalOpen, setLoading, mapEvilToGood }) => {
       },
     )
     const docId = response?.data?.result?._id
-    if (tweetAcceptance && docId && creatorType !== "Other") {
+    if (tweetAcceptance && docId && !["Other", "Friends And Family"].includes(creatorType)) {
       const res = await axios.post(
         `${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`,
         {
@@ -120,6 +120,7 @@ const AddApplicant = ({ setModalOpen, setLoading, mapEvilToGood }) => {
                 <option value="The Idealist">Photographer</option>
                 <option value="The Generator">Designer</option>
                 <option value="Other">Other</option>
+                <option value="Friends And Family">Friends And Family</option>
               </select>
               <div className="mt-2">
                 <input
