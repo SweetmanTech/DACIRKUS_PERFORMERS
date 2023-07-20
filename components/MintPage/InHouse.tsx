@@ -24,8 +24,8 @@ const InHouse = () => {
               }
               blurLink={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.svg"
-                  : "/assets/Mint/InHouse/character.svg"
+                  ? "/assets/Mint/InHouse/mobile_character.png"
+                  : "/assets/Mint/InHouse/character.png"
               }
               type="image"
               containerClasses="xl:w-[470px] xl:h-[798px]

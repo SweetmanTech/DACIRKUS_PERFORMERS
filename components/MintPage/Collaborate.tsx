@@ -13,7 +13,7 @@ const Collaborate = () => {
         <div className="grid grid-cols-1 xl:grid-cols-2">
           <div className="block xl:hidden pb-[33px]">
             <Media
-              link="/assets/Mint/Collaborate/mobile_graphic.png"
+              link="/assets/Mint/Collaborate/mobile_graphic.svg"
               blurLink="/assets/Mint/Collaborate/mobile_graphic.png"
               type="image"
               containerClasses="w-[300px] h-[285.6px] xs:w-[379.12px] xs:h-[361px]"
