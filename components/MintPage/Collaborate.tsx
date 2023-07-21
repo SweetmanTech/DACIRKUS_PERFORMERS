@@ -11,12 +11,12 @@ const Collaborate = () => {
     <SectionContainer>
       <div className="relative w-full pt-[85px] pb-[50px] xl:py-0 xl:h-[960px] flex justify-center items-center">
         <div className="grid grid-cols-1 xl:grid-cols-2">
-          <div className="block xl:hidden pb-[33px]">
+          <div className="block xl:hidden pb-[33px] flex justify-center">
             <Media
               link="/assets/Mint/Collaborate/mobile_graphic.png"
               blurLink="/assets/Mint/Collaborate/mobile_graphic.png"
               type="image"
-              containerClasses="w-[300px] h-[285.6px] xs:w-[379.12px] xs:h-[361px]"
+              containerClasses="w-[280px] h-[280px] xs:w-[304px] xs:h-[304px]"
             />
           </div>
           <div className="flex flex-col justify-center">
