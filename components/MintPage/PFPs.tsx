@@ -9,17 +9,17 @@ const PFPs = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full pt-[75px] xl:pt-0 xl:h-[824px] flex justify-center items-center">
+      <div className="relative w-full pt-[85px] xl:pt-0 xl:h-[824px] flex justify-center items-center">
         <div
           className="grid
                 grid-cols-1 xl:grid-cols-2"
         >
           <div className="xl:hidden w-[100%] flex justify-center pb-[56px]">
             <Media
-              link="/assets/Mint/PFP/mobile_character.png"
+              link="/assets/Mint/PFP/mobile_character.svg"
               blurLink="/assets/Mint/PFP/mobile_character.png"
               type="image"
-              containerClasses="w-[283px] h-[353px]"
+              containerClasses="w-[228px] h-[318px]"
             />
           </div>
           <div className="flex flex-col justify-center xl:pl-[30px]">

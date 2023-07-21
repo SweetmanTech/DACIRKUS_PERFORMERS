@@ -19,7 +19,7 @@ const InHouse = () => {
             <Media
               link={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.png"
+                  ? "/assets/Mint/InHouse/mobile_character.svg"
                   : "/assets/Mint/InHouse/character.svg"
               }
               blurLink={
@@ -29,7 +29,7 @@ const InHouse = () => {
               }
               type="image"
               containerClasses="xl:w-[470px] xl:h-[798px]
-              w-[273px] h-[340px]"
+              w-[195.32px] h-[337.39px]"
             />
           </div>
           <div className="flex flex-col justify-center col-span-3 xl:pr-[50px] 2xl:pr-0">
