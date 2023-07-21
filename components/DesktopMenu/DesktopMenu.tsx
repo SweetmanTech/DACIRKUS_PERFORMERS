@@ -2,6 +2,7 @@ import { ChevronUpIcon, ChevronDownIcon } from "@heroicons/react/24/solid"
 import Image from "next/image"
 import { useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import CustomConnectWallet from "../CustomConnectWallet"
 import DiscordIcon from "../DiscordIcon"
 import { ToggleButton } from "../../shared/Button"
@@ -9,6 +10,10 @@ import { useTheme } from "../../providers/ThemeProvider"
 
 const DesktopMenu = () => {
   const { onChangeThemeConfig, themeMode } = useTheme()
+
+  const router = useRouter()
+
+  const isHidden = router.pathname.includes("/mint")
 
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen)
@@ -19,30 +24,34 @@ const DesktopMenu = () => {
 
   return (
     <div className="flex flex-row text-sm uppercase font-quicksand gap-x-12">
-      <div className="flex items-center pr-4">
-        <Link href="/status" target="_blank" rel="noreferrer">
-          <div className="font-bold cursor-pointer dark:text-white text-black">
-            Allowlist Status
+      {!isHidden && (
+        <>
+          <div className="flex items-center pr-4">
+            <Link href="/status" target="_blank" rel="noreferrer">
+              <div className="font-bold cursor-pointer dark:text-white text-black">
+                Allowlist Status
+              </div>
+            </Link>
           </div>
-        </Link>
-      </div>
-      <div className="flex items-center font-bold font-quicksand">
-        <button
-          type="button"
-          className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
-          onClick={() => onChangeThemeConfig("light")}
-        >
-          light
-        </button>
-        <ToggleButton onClick={onToggle} value={themeMode === "dark"} id="light_dark_switch" />
-        <button
-          type="button"
-          className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
-          onClick={() => onChangeThemeConfig("dark")}
-        >
-          dark
-        </button>
-      </div>
+          <div className="flex items-center font-bold font-quicksand">
+            <button
+              type="button"
+              className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
+              onClick={() => onChangeThemeConfig("light")}
+            >
+              light
+            </button>
+            <ToggleButton onClick={onToggle} value={themeMode === "dark"} id="light_dark_switch" />
+            <button
+              type="button"
+              className="px-2 text-[#9C9C9C] cursor-pointer text-[15px] font-quicksand uppercase"
+              onClick={() => onChangeThemeConfig("dark")}
+            >
+              dark
+            </button>
+          </div>
+        </>
+      )}
       <div className="relative">
         <button
           type="button"

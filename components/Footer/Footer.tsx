@@ -69,13 +69,13 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
         className || ""
       } footer`}
     >
-      <div className="md:w-[1280px] w-[90%]">
+      <div className="w-[90%] xl:w-[1280px]">
         <div className="justify-start items-start flex md:hidden pt-6 pr-6">
           <Image
             src={
               themeMode === "light"
-                ? "/assets/Landing/footer/mobile_logo.png"
-                : "/assets/Landing/footer/mobile_white_logo.png"
+                ? "/assets/Landing/footer/mobile_logo.svg"
+                : "/assets/Landing/footer/mobile_white_logo.svg"
             }
             width={58}
             height={10}

@@ -226,6 +226,20 @@ const Stage: FC<StageProps> = ({
                             10,
                           )
                         : ""
+                    }${
+                      stageData.period
+                        ? ` - ${
+                            parseInt(
+                              stageData.date.slice(
+                                stageData.date.length - 2,
+                                stageData.date.length,
+                              ),
+                              10,
+                            ) +
+                            stageData.period -
+                            1
+                          }`
+                        : ""
                     }`
                   : "???????????"
               }
