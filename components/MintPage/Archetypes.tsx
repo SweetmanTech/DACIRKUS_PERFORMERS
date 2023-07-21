@@ -8,35 +8,43 @@ const Archetypes = () => {
   const pfpList = [
     {
       id: "pfp1",
-      link: "/assets/Mint/PFP/musician.png",
+      blurLink: "/assets/Mint/PFP/musician.png",
+      link: "/assets/Mint/PFP/musician.svg",
     },
     {
       id: "pfp2",
-      link: "/assets/Mint/PFP/writer.png",
+      blurLink: "/assets/Mint/PFP/writer.png",
+      link: "/assets/Mint/PFP/writer.svg",
     },
     {
       id: "pfp3",
-      link: "/assets/Mint/PFP/photographer.png",
+      blurLink: "/assets/Mint/PFP/photographer.png",
+      link: "/assets/Mint/PFP/photographer.svg",
     },
     {
       id: "pfp4",
-      link: "/assets/Mint/PFP/designer.png",
+      blurLink: "/assets/Mint/PFP/designer.png",
+      link: "/assets/Mint/PFP/designer.svg",
     },
     {
       id: "pfp5",
-      link: "/assets/Mint/PFP/engineer.png",
+      blurLink: "/assets/Mint/PFP/engineer.png",
+      link: "/assets/Mint/PFP/engineer.svg",
     },
     {
       id: "pfp6",
-      link: "/assets/Mint/PFP/dancer.png",
+      blurLink: "/assets/Mint/PFP/dancer.png",
+      link: "/assets/Mint/PFP/dancer.svg",
     },
     {
       id: "pfp7",
-      link: "/assets/Mint/PFP/director.png",
+      blurLink: "/assets/Mint/PFP/director.png",
+      link: "/assets/Mint/PFP/director.svg",
     },
     {
       id: "pfp8",
-      link: "/assets/Mint/PFP/thespain.png",
+      blurLink: "/assets/Mint/PFP/thespain.png",
+      link: "/assets/Mint/PFP/thespain.svg",
     },
   ]
 
@@ -85,7 +93,7 @@ const Archetypes = () => {
               <Media
                 key={pfp.id}
                 link={pfp.link}
-                blurLink={pfp.link}
+                blurLink={pfp.blurLink}
                 type="image"
                 containerClasses="w-[212px] h-[294px]"
               />
