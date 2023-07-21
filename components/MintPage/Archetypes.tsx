@@ -44,7 +44,7 @@ const Archetypes = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full pt-[85px] xl:pt-0 xl:h-[1000px] flex-col flex justify-center">
+      <div className="relative w-full pt-[85px] xl:pt-0 xl:h-[1200px] flex-col flex justify-center">
         <div className="flex xl:hidden justify-center">
           <div className="grid grid-cols-4 gap-y-[20px] pb-[35px] w-[300px] samsungS8:w-[340px]">
             {pfpList.map((pfp) => (
