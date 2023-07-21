@@ -74,8 +74,8 @@ const Footer: React.FC<FooterProps> = ({ className }) => {
           <Image
             src={
               themeMode === "light"
-                ? "/assets/Landing/footer/mobile_logo.png"
-                : "/assets/Landing/footer/mobile_white_logo.png"
+                ? "/assets/Landing/footer/mobile_logo.svg"
+                : "/assets/Landing/footer/mobile_white_logo.svg"
             }
             width={58}
             height={10}

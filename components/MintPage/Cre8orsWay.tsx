@@ -48,7 +48,7 @@ const Cre8orsWay = () => {
 
   return (
     <SectionContainer>
-      <div className="relative w-full h-[550px] xl:h-[816px] flex justify-center items-center">
+      <div className="relative w-full pt-[85px] samsungS8:pt-0 xl:h-[calc(100vh+100px)] flex justify-center items-center">
         <div
           className="grid 
                 grid-cols-1 xl:grid-cols-2 
@@ -63,7 +63,7 @@ const Cre8orsWay = () => {
                   blurLink={avatar.link}
                   type="image"
                   containerClasses="xl:w-[170px] xl:h-[170px]
-                                    w-[75px] h-[75px]
+                                    w-[87px] h-[87px]
                                     rounded-full overflow-hidden
                                     border-[2px] xl:border-[5px] border-[white]"
                 />
@@ -74,7 +74,7 @@ const Cre8orsWay = () => {
             <Title
               text={
                 isXl
-                  ? `Cre8ors Are Way More\nThean Just Profile Pictures`
+                  ? `Cre8ors Are Way More\nThan Just Profile Pictures`
                   : `Cre8ors Are Way\nMore Than Just\nProfile Pictures`
               }
               className="leading-[103.3%] 
@@ -84,8 +84,8 @@ const Cre8orsWay = () => {
             <Content
               content={
                 isXl
-                  ? `They’re a novel collection of 8,888 ERC-721C Artificially Intelligent\nProtocol-Enabled Pictures, or AiPEPs (powered by the ERC-6551\ntoken standard) that blend B&W AI photography with colorful 2D-\ncharacters into one stand-out avatar. PFPs will never be the same.`
-                  : `They’re a novel collection of 8,888 ERC-721C Artificially\nIntelligent Protocol-Enabled Pictures, or AiPEPs\n(powered by the ERC-6551 token standard) that blend\nB&W AI photography with colorful 2D-characters into\none stand-out avatar. PFPs will never be the same.`
+                  ? `They’re a novel collection of 8,888 Artificially Intelligent\nProtocol-Enabled Pictures, or AiPEP’s that blend B&W AI\nphotography with colorful 2D-characters into one\nstand-out avatar. PFP’s will never be the same.`
+                  : `They’re a novel collection of 8,888 Artificially Intelligent\nProtocol-Enabled Pictures, or AiPEP’s that blend B&W\nAI photography with colorful 2D-characters into one\nstand-out avatar. PFP’s will never be the same.`
               }
               className="leading-[103.3%] 
                             pt-[10px] xl:pt-[27px]
