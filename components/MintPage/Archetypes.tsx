@@ -70,7 +70,7 @@ const Archetypes = () => {
           <Title
             text={
               isXl
-                ? `An Intelligent PFP\n+ Smart Wallet`
+                ? `An Intelligent PFP,\nHybrid Token +\nSmart Wallet`
                 : "An Intelligent PFP,\nHybrid Token + Smart Wallet"
             }
             className="leading-[103.3%] text-center
@@ -79,8 +79,8 @@ const Archetypes = () => {
           <Content
             content={
               isXl
-                ? `Cre8ors PFP's are interactive ERC721-HAC hybrid tokens with\nownership of their own ERC-6551 smart wallet. Each PFP comes\nwith a creative DNA card NFT inside. This card represents your\nCre8ors archetype trait. Trade your cards and change your\ntraits without the need to sell your entire PFP.`
-                : `Cre8ors PFP's are new interactive ERC-721ACH hybrid tokens with ownership of their own ERC-6551 smart\nwallet. Each PFP comes with a creative DNA card NFT inside. This card represents your Cre8ors archetype\ntrait. Trade your cards and change your traits without the need to sell your entire PFP.`
+                ? `Cre8ors PFP’s are a new interactive ERC-721ACH hybrid token\nthat comes with ownership of its own ERC-6551 smart wallet.\nEach PFP comes with a creative DNA card NFT inside. This card\nrepresents your Cre8ors archetype trait. Trade your cards and\nchange your traits without the need to sell your entire PFP.`
+                : `Cre8ors PFP’s are a new interactive ERC-721ACH hybrid token that comes with ownership of its own\nERC-6551 smart wallet. Each PFP comes with a creative DNA card NFT inside. This card represents your\nCre8ors archetype trait. Trade your cards and change your traits without the need to sell your entire PFP.`
             }
             className="leading-[103.3%] text-center
                   pt-[10px] xl:pt-[27px]
