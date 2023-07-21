@@ -11,13 +11,21 @@ const Collaborate = () => {
     <SectionContainer>
       <div className="relative w-full pt-[85px] pb-[50px] xl:py-0 xl:h-[960px] flex justify-center items-center">
         <div className="grid grid-cols-1 xl:grid-cols-2">
-          <div className="block xl:hidden pb-[33px] flex justify-center">
+          <div className="block xl:hidden pb-[33px] flex justify-center relative">
             <Media
-              link="/assets/Mint/Collaborate/mobile_graphic.svg"
-              blurLink="/assets/Mint/Collaborate/mobile_graphic.png"
+              link="/assets/Mint/Collaborate/mobile_circle.svg"
+              blurLink="/assets/Mint/Collaborate/mobile_circle.png"
               type="image"
               containerClasses="w-[280px] h-[280px] xs:w-[304px] xs:h-[304px]"
             />
+            <div className="absolute z-[1] left-0 top-0 flex justify-center w-full h-full">
+              <Media
+                link="/assets/Mint/Collaborate/mobile_character.svg"
+                blurLink="/assets/Mint/Collaborate/mobile_character.png"
+                type="image"
+                containerClasses="w-[280px] h-[280px] xs:w-[304px] xs:h-[304px]"
+              />
+            </div>
           </div>
           <div className="flex flex-col justify-center">
             <Title
@@ -42,13 +50,21 @@ const Collaborate = () => {
                             !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
           </div>
-          <div className="hidden xl:block">
+          <div className="hidden xl:block relative">
             <Media
-              link="/assets/Mint/Collaborate/graphic.png"
-              blurLink="/assets/Mint/Collaborate/graphic.png"
+              link="/assets/Mint/Collaborate/circle.svg"
+              blurLink="/assets/Mint/Collaborate/circle.png"
               type="image"
-              containerClasses="w-[685px] h-[653px]"
+              containerClasses="w-[548px] h-[548px]"
             />
+            <div className="absolute z-[1] left-0 top-0 w-full h-full">
+              <Media
+                link="/assets/Mint/Collaborate/character.svg"
+                blurLink="/assets/Mint/Collaborate/character.png"
+                type="image"
+                containerClasses="w-[548px] h-[548px]"
+              />
+            </div>
           </div>
         </div>
       </div>
