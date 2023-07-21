@@ -1,23 +1,27 @@
+/* eslint-disable no-underscore-dangle */
 import axios from "axios"
 import { useState } from "react"
+import { toast } from "react-toastify"
 import { useAdminProvider } from "../../../providers/AdminProvider"
 
-const AddApplicant = ({ setModalOpen, setLoading }) => {
+const AddApplicant = ({ setModalOpen, setLoading, mapEvilToGood }) => {
   const { bearerToken } = useAdminProvider()
   const [walletAddress, setWalletAddress] = useState("")
   const [twitterHandle, setTwitterHandle] = useState("")
   const [reason, setReason] = useState("")
   const [creatorType, setCreatorType] = useState("")
+  const [tweetAcceptance, setTweetAcceptance] = useState(false)
 
   const onSave = async () => {
     setLoading(true)
-    await axios.post(
+    const response = await axios.post(
       "/api/allowlist/addApplicant",
       {
         walletAddress,
         twitterHandle,
         reason,
-        creatorType,
+        creatorType: creatorType || "The Delegator",
+        status: "Accepted",
       },
       {
         headers: {
@@ -25,6 +29,28 @@ const AddApplicant = ({ setModalOpen, setLoading }) => {
         },
       },
     )
+    const docId = response?.data?.result?._id
+    if (tweetAcceptance && docId && !["Other", "Friends And Family"].includes(creatorType)) {
+      const res = await axios.post(
+        `${process.env.NEXT_PUBLIC_SHARED_API_URL}/tweetAcceptanceStatus`,
+        {
+          docId,
+          username: twitterHandle,
+          cre8orType: mapEvilToGood(creatorType),
+        },
+        {
+          headers: {
+            Authorization: `Bearer ${bearerToken}`,
+          },
+        },
+      )
+      toast.info(`Tweets Remaining: ${res?.data?.remainingTweets}`)
+    }
+
+    setWalletAddress("")
+    setTwitterHandle("")
+    setReason("")
+    setCreatorType("")
     setModalOpen(false)
     setLoading(false)
   }
@@ -93,7 +119,26 @@ const AddApplicant = ({ setModalOpen, setLoading }) => {
                 <option value="The Catalyst">Thespian</option>
                 <option value="The Idealist">Photographer</option>
                 <option value="The Generator">Designer</option>
+                <option value="Other">Other</option>
+                <option value="Friends And Family">Friends And Family</option>
               </select>
+              <div className="mt-2">
+                <input
+                  id="default-checkbox"
+                  type="checkbox"
+                  value=""
+                  onChange={(e) => {
+                    setTweetAcceptance(e.target.checked)
+                  }}
+                  className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded "
+                />
+                <label
+                  htmlFor="default-checkbox"
+                  className="ml-2 text-sm font-medium text-gray-900 "
+                >
+                  Tweet Acceptance
+                </label>
+              </div>
             </div>
             {/* footer */}
             <div className="flex items-center justify-end p-6 border-t border-solid rounded-b border-slate-200">
