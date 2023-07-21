@@ -16,7 +16,7 @@ const PFPs = () => {
         >
           <div className="xl:hidden w-[100%] flex justify-center pb-[56px]">
             <Media
-              link="/assets/Mint/PFP/mobile_character.svg"
+              link="/assets/Mint/PFP/mobile_character.png"
               blurLink="/assets/Mint/PFP/mobile_character.png"
               type="image"
               containerClasses="w-[283px] h-[353px]"

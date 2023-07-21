@@ -19,7 +19,7 @@ const InHouse = () => {
             <Media
               link={
                 isXl
-                  ? "/assets/Mint/InHouse/mobile_character.svg"
+                  ? "/assets/Mint/InHouse/mobile_character.png"
                   : "/assets/Mint/InHouse/character.svg"
               }
               blurLink={
