@@ -66,6 +66,7 @@ const PreMintBoard = () => {
             <Button
               id="apply_now_board"
               className="mt-[25px] xl:mt-[90px]
+              rounded-[12px]
               text-[16px] xl:text-[30px]
               !px-0 !py-0
               xl:w-[308px] xl:h-[88px]
