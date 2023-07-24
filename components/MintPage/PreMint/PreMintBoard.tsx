@@ -83,6 +83,12 @@ const PreMintBoard = () => {
                 className="!text-[15px] xl:!text-[18px]"
                 content="Scroll down to learn more"
               />
+              <Media
+                link="/assets/Mint/MintNow/down-arrow.svg"
+                type="image"
+                containerClasses="w-[15px] h-[15px]"
+                blurLink="/assets/Mint/MintNow/down-arrow.svg"
+              />
             </div>
           </div>
         </div>
