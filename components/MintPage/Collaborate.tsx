@@ -11,7 +11,7 @@ const Collaborate = () => {
   return (
     <SectionContainer>
       <div className="relative w-full pt-[85px] pb-[50px] xl:py-0 xl:h-[960px] flex justify-center items-center">
-        <div className="grid grid-cols-1 xl:grid-cols-2">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-[50px]">
           <div className="block xl:hidden pb-[33px] flex justify-center relative">
             <Media
               link="/assets/Mint/Collaborate/mobile_circle.svg"
