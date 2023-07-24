@@ -1,6 +1,7 @@
 import Image from "next/image"
 import { useEffect, useState } from "react"
 import Link from "next/link"
+import { useRouter } from "next/router"
 import CustomConnectWallet from "../CustomConnectWallet"
 import DiscordIcon from "../DiscordIcon"
 import { useTheme } from "../../providers/ThemeProvider"
@@ -8,6 +9,9 @@ import { ToggleButton } from "../../shared/Button"
 
 const MenuList = ({ toggleMenu }) => {
   const { onChangeThemeConfig, themeMode } = useTheme()
+
+  const router = useRouter()
+  const isHidden = router.pathname.includes("/mint")
 
   const [isDarkMode, setIsDarkMode] = useState(false)
 
@@ -94,9 +98,11 @@ const MenuList = ({ toggleMenu }) => {
             />
           </div>
         </a>
-        <div className="flex items-center font-quicksand font-bold border-[1px] rounded-[20px] border-[gray]">
-          <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
-        </div>
+        {!isHidden && (
+          <div className="flex items-center font-quicksand font-bold border-[1px] rounded-[20px] border-[gray]">
+            <ToggleButton onClick={onToggle} value={isDarkMode} id="light_dark_switch" />
+          </div>
+        )}
       </div>
     </div>
   )

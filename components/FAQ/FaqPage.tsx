@@ -392,11 +392,11 @@ const FaqPage = () => {
     },
     {
       title: "When will the Cre8ors AiPEP collection be released?",
-      content: <>The Cre8ors AiPEP collection drops on July 27th 2023.</>,
+      content: <>The Cre8ors AiPEP collection drops on August 8th-10th 2023.</>,
       mobile_content: (
         <>
           The Cre8ors AiPEP collection drops
-          <br /> on July 27th 2023.
+          <br /> on August 8th-10th 2023.
         </>
       ),
     },

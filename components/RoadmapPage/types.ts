@@ -5,6 +5,7 @@ export interface StageData {
   label: string | null
   date: string | null
   certain?: boolean
+  period?: number
   link: string
   text: string
   mobile_text: string
