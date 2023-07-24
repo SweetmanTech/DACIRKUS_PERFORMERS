@@ -3,6 +3,7 @@ import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
 import Media from "../../shared/Media"
+import ApplyAllowListButton from "./ApplyAllowListButton"
 
 const InHouse = () => {
   const isXl = useMediaQuery("(max-width: 1150px)")
@@ -54,6 +55,7 @@ const InHouse = () => {
               text-center xl:text-right
               !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
+            <ApplyAllowListButton id="apply_button_paas" position="end" />
           </div>
         </div>
       </div>

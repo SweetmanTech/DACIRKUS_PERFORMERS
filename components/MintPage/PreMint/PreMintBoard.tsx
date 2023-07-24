@@ -8,6 +8,7 @@ import Content from "../../Common/Content"
 import Character from "../Character"
 import Media from "../../../shared/Media"
 import Timer from "./Timer"
+import { Button } from "../../../shared/Button"
 
 const PreMintBoard = () => {
   const isXl = useMediaQuery("(max-width: 1150px")
@@ -38,7 +39,7 @@ const PreMintBoard = () => {
             />
           </div>
           <div ref={timerRef} className="flex justify-center flex-col items-center">
-            <div className="flex items-center gap-x-[25px] pb-[20px] xl:pb-0">
+            <div className="flex items-center gap-x-[25px] pb-[8px] samsungS8:pb-[20px] xl:pb-0">
               <Title
                 text="Mint Your Cre8or"
                 className="!text-[33px] xs:!text-[39px] xl:!text-[65px]"
@@ -60,8 +61,35 @@ const PreMintBoard = () => {
             <Timer />
             <Content
               content="Passports: August 8 @ 8am EST • Cre8orlist: August 9 @ 8am EST • Public Sale : August 10 8am EST"
-              className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
+              className="!text-[6px] xl:!text-[13px] pt-[10px] samsungS8:pt-[20px] xl:pb-0"
             />
+            <Button
+              id="apply_now_board"
+              className="mt-[10px] samsungS8:mt-[25px] xl:mt-[90px]
+              rounded-[12px]
+              text-[16px] xl:text-[30px]
+              !px-0 !py-0
+              xl:w-[308px] xl:h-[88px]
+              w-[145px] h-[35px]"
+              onClick={() => window.open("https://everythingcorp.cre8ors.com/quiz", "_blank")}
+            >
+              Apply now
+            </Button>
+            <div
+              className="pt-[15px] xs:pt-[20px] xl:pt-[27px] 
+            flex justify-center items-center gap-x-[10px]"
+            >
+              <Content
+                className="!text-[15px] xl:!text-[18px]"
+                content="Scroll down to learn more"
+              />
+              <Media
+                link="/assets/Mint/MintNow/down-arrow.svg"
+                type="image"
+                containerClasses="w-[15px] h-[15px]"
+                blurLink="/assets/Mint/MintNow/down-arrow.svg"
+              />
+            </div>
           </div>
         </div>
       </div>

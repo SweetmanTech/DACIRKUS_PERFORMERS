@@ -3,6 +3,7 @@ import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
 import Media from "../../shared/Media"
+import ApplyAllowListButton from "./ApplyAllowListButton"
 
 const Cre8orsWay = () => {
   const avatarList = [
@@ -92,6 +93,7 @@ const Cre8orsWay = () => {
                             text-center xl:text-right
                             !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
+            <ApplyAllowListButton id="apply_now_pfps" position="end" />
           </div>
         </div>
       </div>

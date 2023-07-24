@@ -3,6 +3,7 @@ import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
 import Media from "../../shared/Media"
+import ApplyAllowListButton from "./ApplyAllowListButton"
 
 const Collaborate = () => {
   const isXl = useMediaQuery("(max-width: 1150px)")
@@ -10,7 +11,7 @@ const Collaborate = () => {
   return (
     <SectionContainer>
       <div className="relative w-full pt-[85px] pb-[50px] xl:py-0 xl:h-[960px] flex justify-center items-center">
-        <div className="grid grid-cols-1 xl:grid-cols-2">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-x-[50px]">
           <div className="block xl:hidden pb-[33px] flex justify-center relative">
             <Media
               link="/assets/Mint/Collaborate/mobile_circle.svg"
@@ -49,6 +50,7 @@ const Collaborate = () => {
                             text-center xl:text-left
                             !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
+            <ApplyAllowListButton id="apply_now_paas" position="start" />
           </div>
           <div className="hidden xl:block relative">
             <Media
