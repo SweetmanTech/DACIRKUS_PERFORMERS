@@ -8,6 +8,7 @@ import Content from "../../Common/Content"
 import Character from "../Character"
 import Media from "../../../shared/Media"
 import Timer from "./Timer"
+import { Button } from "../../../shared/Button"
 
 const PreMintBoard = () => {
   const isXl = useMediaQuery("(max-width: 1150px")
@@ -62,6 +63,17 @@ const PreMintBoard = () => {
               content="Passports: August 8 @ 8am EST • Cre8orlist: August 9 @ 8am EST • Public Sale : August 10 8am EST"
               className="!text-[6px] xl:!text-[13px] pt-[20px] xl:pb-0"
             />
+            <Button
+              id="apply_now_board"
+              className="mt-[25px] xl:mt-[90px]
+              text-[16px] xl:text-[30px]
+              !px-0 !py-0
+              xl:w-[308px] xl:h-[88px]
+              w-[145px] h-[35px]"
+              onClick={() => window.open("https://everythingcorp.cre8ors.com/quiz", "_blank")}
+            >
+              Apply now
+            </Button>
           </div>
         </div>
       </div>

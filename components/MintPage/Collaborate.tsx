@@ -3,6 +3,7 @@ import SectionContainer from "./SectionContainer"
 import Title from "../Common/Title"
 import Content from "../Common/Content"
 import Media from "../../shared/Media"
+import ApplyAllowListButton from "./ApplyAllowListButton"
 
 const Collaborate = () => {
   const isXl = useMediaQuery("(max-width: 1150px)")
@@ -49,6 +50,7 @@ const Collaborate = () => {
                             text-center xl:text-left
                             !text-[10px] samsungS8:!text-[11px] xs:!text-[12px] xl:!text-[19px]"
             />
+            <ApplyAllowListButton id="apply_now_paas" position="start" />
           </div>
           <div className="hidden xl:block relative">
             <Media
