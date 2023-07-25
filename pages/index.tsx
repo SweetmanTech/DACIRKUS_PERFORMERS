@@ -1,6 +1,10 @@
-import type { NextPage } from "next"
-import EnterPage from "../components/Enter"
+const Game = () => {
+  return (
+    <div>
+      Hello World
+      <iframe src="/game/index.html" className="h-[100vh] w-[100vw]" />
+    </div>
+  )
+}
 
-const Enter: NextPage = () => <EnterPage />
-
-export default Enter
+export default Game
