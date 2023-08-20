@@ -1,32 +1,10 @@
-import React, { useState, useEffect } from "react"
-import * as _ from "lodash"
 import { useMediaQuery } from "usehooks-ts"
-import getOwnersForCollection from "../../lib/alchemy/getOwnersForCollection"
-import getParticipants from "../../lib/getParticipants"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
 
 const LeaderboardPage = () => {
-  const [collectors, setCollectors] = useState([])
   const isMobile = useMediaQuery("(max-width: 768px)")
-
-  useEffect(() => {
-    const fetchTopCollectors = async () => {
-      const { ownerAddresses } = await getOwnersForCollection()
-      const newCollectors = _.orderBy(ownerAddresses, ["tokenBalances[0].balance"], ["desc"])
-      const addressToTwitter = await getParticipants()
-      const mappedData = newCollectors.map((collector) => ({
-        walletAddress: collector.ownerAddress,
-        nftsOwned: collector.tokenBalances[0].balance,
-      }))
-      const tableData = mappedData.map((item) => ({
-        ...item,
-        twitterHandle: addressToTwitter[item.walletAddress.toString()],
-      }))
-      setCollectors(tableData)
-    }
-    fetchTopCollectors()
-  }, [])
+  const collectors = []
 
   return (
     <div className="w-full pt-24 mx-auto">
@@ -49,7 +27,7 @@ const LeaderboardPage = () => {
             drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] 
             font-[500]"
         >
-          Currently Tracking: Divine Ancestral Pendants Collect and burn 88 to redeem a Passport
+          Relief Game by Heno
         </div>
       </div>
       <div className="md:px-4 w-full flex justify-center">
