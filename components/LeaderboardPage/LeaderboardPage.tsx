@@ -1,6 +1,7 @@
 import { useMediaQuery } from "usehooks-ts"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
+import SeoHead from "../SeoHead"
 
 const LeaderboardPage = () => {
   const isMobile = useMediaQuery("(max-width: 768px)")
@@ -8,6 +9,7 @@ const LeaderboardPage = () => {
 
   return (
     <div className="w-full pt-24 mx-auto">
+      <SeoHead title="Leaderboard" />
       <div
         className="
           font-[eigerdals] 
