@@ -12,9 +12,7 @@ import { ToastContainer } from "react-toastify"
 import { SessionProvider } from "next-auth/react"
 import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
-import { ChatProvider } from "../providers/ChatProvider"
 import { ThemeProvider } from "../providers/ThemeProvider"
-import { AdminProvider } from "../providers/AdminProvider"
 
 const isMainnet = !process.env.NEXT_PUBLIC_TESTNET
 const myChains = [isMainnet ? mainnet : goerli, isMainnet ? polygon : polygonMumbai]
@@ -42,13 +40,9 @@ function MyApp({ Component, pageProps }: AppProps) {
       <RainbowKitProvider modalSize="compact" chains={chains}>
         <ThemeProvider>
           <SessionProvider>
-            <AdminProvider>
-              <ChatProvider>
-                <Component {...pageProps} />
-                <ToastContainer />
-                <Analytics />
-              </ChatProvider>
-            </AdminProvider>
+            <Component {...pageProps} />
+            <ToastContainer />
+            <Analytics />
           </SessionProvider>
         </ThemeProvider>
       </RainbowKitProvider>
