@@ -4,6 +4,7 @@ const Game = () => {
   useEffect(() => {
     const winAny = window as any
     winAny.receiveGameData = (data) => {
+      // eslint-disable-next-line no-console
       console.log("SWEETS Received from Godot:", data)
     }
   }, [])
