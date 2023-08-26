@@ -22,7 +22,7 @@ const LeaderboardPage = () => {
       <div
         className="
           font-[eigerdals] 
-          dark:text-white text-center 
+          text-white text-center 
           text-[40px] md:text-[75px] 
           font-bold pt-6
         "
@@ -32,7 +32,7 @@ const LeaderboardPage = () => {
       <div className="w-full flex justify-center pb-4">
         <div
           className="font-quicksand 
-            dark:text-white text-center 
+            text-white text-center 
             w-[300px] xs:w-[350px] md:w-[430px] 
             text-[13px] xs:text-[15px] md:text-[18px] 
             drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] 
