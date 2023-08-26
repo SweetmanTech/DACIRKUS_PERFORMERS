@@ -1,5 +1,5 @@
 import { initializeApp } from "firebase/app"
-import { getFirestore, query, orderBy, limit, collection, getDocs } from "firebase/firestore"
+import { getFirestore, query, orderBy, collection, getDocs } from "firebase/firestore"
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
