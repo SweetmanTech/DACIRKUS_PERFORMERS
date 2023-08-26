@@ -18,11 +18,11 @@ const LeaderboardPage = () => {
   }, [])
 
   return (
-    <div className="w-full pt-24 mx-auto">
+    <div className="w-full pt-24 mx-auto font-[ArcadeCabinet] ">
       <SeoHead title="Leaderboard" />
       <div
         className="
-          font-[eigerdals] 
+          
           text-white text-center 
           text-[40px] md:text-[75px] 
           font-bold pt-6
