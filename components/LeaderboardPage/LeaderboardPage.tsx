@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-import { useMediaQuery } from "usehooks-ts"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
 import SeoHead from "../SeoHead"
