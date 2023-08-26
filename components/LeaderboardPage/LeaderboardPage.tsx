@@ -1,11 +1,21 @@
+import { useEffect, useState } from "react"
 import { useMediaQuery } from "usehooks-ts"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
 import SeoHead from "../SeoHead"
+import { getLeaderboard } from "../../lib/firebase/firebase"
+import LeaderboardHeader from "./Leaderboardheader"
 
 const LeaderboardPage = () => {
-  const isMobile = useMediaQuery("(max-width: 768px)")
-  const collectors = []
+  const [scores, setScores] = useState([])
+
+  useEffect(() => {
+    const init = async () => {
+      const response = await getLeaderboard()
+      setScores(response)
+    }
+    init()
+  }, [])
 
   return (
     <div className="w-full pt-24 mx-auto">
@@ -44,55 +54,14 @@ const LeaderboardPage = () => {
             scrollbar-thumb-rounded-full"
         >
           <table className="w-full font-quicksand bg-white">
-            <thead className="border-b-[2px] border-black border-solid">
-              <tr>
-                <th
-                  className="p-[5px] md:p-4 
-                    text-left border-r-[2px] 
-                    border-black text-center
-                    uppercase 
-                    text-[8px] xs:text-[11px] md:text-[18px]
-                    md:min-w-[100px]"
-                >
-                  Rank
-                </th>
-                <th
-                  className="p-[5px] md:p-4 
-                    text-left border-r-[2px] 
-                    border-black text-center 
-                    uppercase 
-                    text-[8px] xs:text-[11px] md:text-[18px]
-                    w-[100px] xs:!w-[130px] md:!w-[200px]"
-                >
-                  # of NFTs {!isMobile ? "Owned" : ""}
-                </th>
-                <th
-                  className="p-[5px] md:p-4 
-                    text-left border-r-[2px] 
-                    border-black text-center 
-                    uppercase 
-                    text-[8px] xs:text-[11px] md:text-[18px]"
-                >
-                  Address
-                </th>
-                <th
-                  className="p-[5px] md:p-4 
-                    text-left text-center 
-                    uppercase 
-                    text-[8px] xs:text-[11px] md:text-[18px]"
-                >
-                  Twitter
-                </th>
-              </tr>
-            </thead>
-            {collectors.length > 0 ? (
+            <LeaderboardHeader />
+            {scores.length > 0 ? (
               <tbody>
-                {collectors.map((collector, index) => (
+                {scores.map((collector, index) => (
                   <LeaderboardRow
-                    key={collector.walletAddress}
-                    address={collector.walletAddress}
-                    numberOwned={collector.nftsOwned}
-                    twitterHandle={collector.twitterHandle}
+                    key={collector.wallet}
+                    address={collector.wallet}
+                    numberOwned={collector.score}
                     rank={index + 1}
                   />
                 ))}
