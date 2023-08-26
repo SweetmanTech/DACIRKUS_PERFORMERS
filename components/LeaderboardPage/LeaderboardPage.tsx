@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import { ConnectButton } from "@rainbow-me/rainbowkit"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
 import SeoHead from "../SeoHead"
@@ -40,6 +41,9 @@ const LeaderboardPage = () => {
         >
           Relief Game by Heno
         </div>
+      </div>
+      <div className="w-full flex justify-center pb-4">
+        <ConnectButton label="sign in" />
       </div>
       <div className="md:px-4 w-full flex justify-center">
         <div
