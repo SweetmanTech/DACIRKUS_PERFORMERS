@@ -16,7 +16,7 @@ const firestore = getFirestore(app)
 
 export const getLeaderboard = async () => {
   const citiesRef = collection(firestore, "userdata")
-  const q = query(citiesRef, orderBy("score", "desc"), limit(3))
+  const q = query(citiesRef, orderBy("score", "desc"))
   const querySnapshot = await getDocs(q)
   const scores = []
   querySnapshot.forEach((doc) => {
