@@ -14791,8 +14791,12 @@ const InternalConfig = function (initConfig) {
      * @type {?function(...*)}
      */
     onPrint: function () {
-      console.log("SWEETS REDIRECT TO LEADERBOARD", Array.from(arguments))
-      console.log.apply(console, Array.from(arguments)) // eslint-disable-line no-console
+      const argsArray = Array.from(arguments)
+      console.log("SWEETS REDIRECT TO LEADERBOARD", argsArray)
+      if (argsArray[0].includes("Firebase")) {
+        window.open("/leaderboard")
+      }
+      console.log.apply(console, argsArray) // eslint-disable-line no-console
     },
     /**
      * A callback function for handling the standard error stream. This method should usually only be used in debug pages.

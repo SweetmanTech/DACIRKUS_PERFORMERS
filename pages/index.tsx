@@ -11,7 +11,7 @@ const Game = () => {
 
   return (
     <div>
-      <iframe src="/game/index.html" title="Hypersurveilled" className="h-[100vh] w-[100vw]" />
+      <iframe src="/game/index.html" title="Hypersurveilled" className="h-[80vh] w-[100vw]" />
     </div>
   )
 }
