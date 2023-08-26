@@ -14792,7 +14792,6 @@ const InternalConfig = function (initConfig) {
      */
     onPrint: function () {
       const argsArray = Array.from(arguments)
-      console.log("SWEETS REDIRECT TO LEADERBOARD", argsArray)
       if (argsArray[0].includes("Firebase")) {
         window.open("/leaderboard")
       }
