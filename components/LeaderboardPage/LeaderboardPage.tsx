@@ -3,7 +3,7 @@ import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
 import SeoHead from "../SeoHead"
 import { getLeaderboard } from "../../lib/firebase/firebase"
-import LeaderboardHeader from "./Leaderboardheader"
+import LeaderboardHeader from "./LeaderboardHeader"
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState([])
