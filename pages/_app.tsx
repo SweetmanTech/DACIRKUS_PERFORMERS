@@ -22,8 +22,8 @@ const { chains, provider, webSocketProvider } = configureChains(myChains, [
 ])
 
 const { connectors } = getDefaultWallets({
-  appName: "CRE8ORS",
-  projectId: "68c5ce6a0bf63be0182de421f19951b8",
+  appName: "Relief Game",
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_KEY,
   chains,
 })
 
