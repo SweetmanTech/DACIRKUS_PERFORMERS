@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css"
 import type { AppProps } from "next/app"
 import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit"
 import { configureChains, createClient, WagmiConfig } from "wagmi"
-import { mainnet, polygon, goerli, polygonMumbai } from "@wagmi/core/chains"
+import { mainnet, goerli } from "@wagmi/core/chains"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { ToastContainer } from "react-toastify"
@@ -15,15 +15,15 @@ import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "../providers/ThemeProvider"
 
 const isMainnet = !process.env.NEXT_PUBLIC_TESTNET
-const myChains = [isMainnet ? mainnet : goerli, isMainnet ? polygon : polygonMumbai]
+const myChains = [isMainnet ? mainnet : goerli]
 const { chains, provider, webSocketProvider } = configureChains(myChains, [
   alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
   publicProvider(),
 ])
 
 const { connectors } = getDefaultWallets({
-  appName: "CRE8ORS",
-  projectId: "68c5ce6a0bf63be0182de421f19951b8",
+  appName: "Relief Game",
+  projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_KEY,
   chains,
 })
 
