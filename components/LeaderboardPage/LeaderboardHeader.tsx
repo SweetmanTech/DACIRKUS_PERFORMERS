@@ -24,7 +24,7 @@ const LeaderboardHeader = () => {
                     text-[8px] xs:text-[11px] md:text-[18px]
                     w-[100px] xs:!w-[130px] md:!w-[200px]"
         >
-          # of NFTs {!isMobile ? "Owned" : ""}
+          Score
         </th>
         <th
           className="p-[5px] md:p-4 
