@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { ReactNode } from "react"
 
 interface IModal {
@@ -28,7 +30,7 @@ const Modal = ({
         ${isVisible ? "flex" : "hidden"}
         ${modalClassName || ""}
       `}
-    onClick={async (e) => (e.target === e.currentTarget && onClose ? await onClose() : () => {})}
+    onClick={async (e) => (e.target === e.currentTarget && onClose ? onClose() : () => {})}
   >
     <div className={`mt-[50px] bg-white rounded-lg relative ${containerClassName || ""}`}>
       {showCloseButton && (

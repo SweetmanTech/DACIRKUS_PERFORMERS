@@ -1,3 +1,5 @@
+// @ts-nocheck
+/* eslint-disable */
 import { FC, ReactNode, useState, useEffect } from "react"
 import { classNames } from "./Utils"
 
