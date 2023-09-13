@@ -3,9 +3,9 @@ import "@rainbow-me/rainbowkit/styles.css"
 import "react-toastify/dist/ReactToastify.css"
 
 import type { AppProps } from "next/app"
-import { RainbowKitProvider, getDefaultWallets } from "@rainbow-me/rainbowkit"
-import { configureChains, createClient, WagmiConfig } from "wagmi"
-import { mainnet, goerli } from "@wagmi/core/chains"
+import { RainbowKitProvider, darkTheme, getDefaultWallets } from "@rainbow-me/rainbowkit"
+import { configureChains, createConfig, WagmiConfig } from "wagmi"
+import { zora, zoraTestnet } from "@wagmi/core/chains"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { ToastContainer } from "react-toastify"
@@ -15,8 +15,8 @@ import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "../providers/ThemeProvider"
 
 const isMainnet = !process.env.NEXT_PUBLIC_TESTNET
-const myChains = [isMainnet ? mainnet : goerli]
-const { chains, provider, webSocketProvider } = configureChains(myChains, [
+const myChains = [isMainnet ? zora : zoraTestnet]
+const { chains, publicClient, webSocketPublicClient } = configureChains(myChains, [
   alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
   publicProvider(),
 ])
@@ -27,17 +27,27 @@ const { connectors } = getDefaultWallets({
   chains,
 })
 
-const wagmiClient = createClient({
+const wagmiClient = createConfig({
   autoConnect: true,
   connectors,
-  provider,
-  webSocketProvider,
+  publicClient,
+  webSocketPublicClient,
 })
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <WagmiConfig client={wagmiClient}>
-      <RainbowKitProvider modalSize="compact" chains={chains}>
+    <WagmiConfig config={wagmiClient}>
+      <RainbowKitProvider
+        modalSize="compact"
+        chains={chains}
+        theme={darkTheme({
+          accentColor: "#ffa337",
+          accentColorForeground: "white",
+          borderRadius: "large",
+          fontStack: "system",
+          overlayBlur: "small",
+        })}
+      >
         <ThemeProvider>
           <SessionProvider>
             <Component {...pageProps} />
