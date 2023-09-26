@@ -18,14 +18,13 @@ const LeaderboardPage = () => {
   }, [])
 
   return (
-    <div className="w-full pt-24 mx-auto font-[ArcadeCabinet] ">
+    <div className="w-full  mx-auto font-[ArcadeCabinet] ">
       <SeoHead title="Leaderboard" />
       <div
         className="
-          
           text-white text-center 
-          text-[40px] md:text-[75px] 
-          font-bold pt-6
+          text-[40px] md:text-[100px] 
+          font-bold
         "
       >
         Leaderboard
@@ -64,6 +63,7 @@ const LeaderboardPage = () => {
                   <LeaderboardRow
                     key={collector.wallet}
                     address={collector.wallet}
+                    name={collector.name}
                     numberOwned={collector.score}
                     rank={index + 1}
                   />
