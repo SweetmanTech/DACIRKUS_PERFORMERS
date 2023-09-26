@@ -5,7 +5,7 @@
  */
 const truncateEthAddress = (address: string) => {
   if (address.length <= 15) return address
-  return `${address.slice(0, 5)}...${address.slice(-4)}`;
+  return `${address.slice(0, 5)}...${address.slice(-4)}`
 }
 
 export default truncateEthAddress
