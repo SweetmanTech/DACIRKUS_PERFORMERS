@@ -28,6 +28,15 @@ const LeaderboardHeader = () => (
                     uppercase 
                     text-[8px] xs:text-[11px] md:text-[18px]"
       >
+        Name
+      </th>
+      <th
+        className="p-[5px] md:p-4 
+                    text-left border-r-[2px] 
+                    border-black text-center 
+                    uppercase 
+                    text-[8px] xs:text-[11px] md:text-[18px]"
+      >
         Address
       </th>
     </tr>

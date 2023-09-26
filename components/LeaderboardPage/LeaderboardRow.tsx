@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import retryGetEns from "../../lib/retryGetEns"
 import truncateEthAddress from "../../lib/truncateEthAddress"
 
-const LeaderboardRow = ({ address, numberOwned, rank }) => {
+const LeaderboardRow = ({ address, numberOwned, rank, name }) => {
   const [ensName, setEnsName] = useState(null as string)
 
   useEffect(() => {
@@ -29,6 +29,12 @@ const LeaderboardRow = ({ address, numberOwned, rank }) => {
         p-[5px] md:px-4 md:py-2 border-r-2 border-black"
       >
         {numberOwned}
+      </td>
+      <td
+        className="text-[8px] text-[11px] md:text-[16px]
+        p-[5px] md:px-4 md:py-2 border-r-2 border-black"
+      >
+        {name}
       </td>
       <td
         className="flex md:items-center justify-center gap-[2px] md:gap-3 
