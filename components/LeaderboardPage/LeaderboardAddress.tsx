@@ -32,16 +32,16 @@ const LeaderboardAddress = ({ address }) => {
   }, [address])
 
   return (
-    <button type="button" onClick={handleClick}>
-      <td
-        className="flex md:items-center justify-center gap-[2px] md:gap-3 
+    <td
+      className="flex md:items-center justify-center gap-[2px] md:gap-3 
         w-full
         text-[8px] text-[11px] md:text-[16px]
         p-[5px] md:px-4 md:py-2 border-r-2 border-black"
-      >
+    >
+      <button type="button" onClick={handleClick}>
         {ensName || truncateEthAddress(address)}
-      </td>
-    </button>
+      </button>
+    </td>
   )
 }
 
