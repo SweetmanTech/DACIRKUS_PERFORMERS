@@ -43,7 +43,7 @@ const GamePage = () => {
 
     // Transfer port2 to the iframe
     // [heart, camera, money]
-    iframe.contentWindow.postMessage([1, 0, 0], "*", [channel.port2])
+    iframe.contentWindow.postMessage([1, 1, 1], "*", [channel.port2])
 
     console.log("WE DID IT ISAIAH")
   }
