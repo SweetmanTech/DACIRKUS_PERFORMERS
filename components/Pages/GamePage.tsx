@@ -1,5 +1,5 @@
 import { useAccount } from "wagmi"
-import { useEffect, useState } from "react"
+import { useState } from "react"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import TokenGateModal from "../TokenGateModal"
 import useBalanceOf from "../../hooks/useBalanceOf"
