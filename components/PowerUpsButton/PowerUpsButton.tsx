@@ -35,7 +35,6 @@ const PowerUpsButton = ({ onClick }) => {
       return
     }
     callGodotFunction()
-    console.log("SWEETS PASS DATA TO GAME")
     onClick()
     setClicked(false)
   }
