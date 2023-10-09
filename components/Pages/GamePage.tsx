@@ -5,42 +5,15 @@ import PowerUpsButton from "../PowerUpsButton"
 const GamePage = () => {
   const [openModal, setOpenModal] = useState(true)
 
-  // MessageChannel for communication
-  const channel = new MessageChannel()
-
-  function onMessage(event) {
-    // Handle incoming messages here
-    console.log("Received message:", event.data)
-  }
-
-  function callGodotFunction() {
-    const iframe = document.querySelector("#godotGame") as HTMLIFrameElement
-    if (!iframe) {
-      console.error("Iframe not found!")
-      return
-    }
-
-    console.log(iframe)
-    console.log("onload called")
-
-    // Listen for messages on port1
-    channel.port1.onmessage = onMessage
-
-    // Transfer port2 to the iframe
-    // [heart, camera, money]
-    iframe.contentWindow.postMessage([1, 1, 1], "*", [channel.port2])
-
-    console.log("WE DID IT ISAIAH")
+  const handleClick = () => {
+    setOpenModal(false)
   }
 
   return (
     <div>
-      <button type="button" className="text-white" onClick={callGodotFunction}>
-        SEND DATA TO GODOT
-      </button>
       {openModal && (
-        <StartModal handleClick={() => setOpenModal(false)}>
-          <PowerUpsButton />
+        <StartModal handleClick={handleClick}>
+          <PowerUpsButton onClick={handleClick} />
         </StartModal>
       )}
 
@@ -48,7 +21,7 @@ const GamePage = () => {
         id="godotGame"
         src="/game/index.html"
         title="Hypersurveilled"
-        className="h-[90vh] w-[100vw]"
+        className="h-[100vh] w-[100vw]"
       />
     </div>
   )
