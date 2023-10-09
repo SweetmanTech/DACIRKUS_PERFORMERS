@@ -1,5 +1,6 @@
 import { BigNumber, Contract } from "ethers"
 import { useAccount } from "wagmi"
+import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { toast } from "react-toastify"
 import abi from "../lib/abi/zora-drop.json"
 import { useEthersSigner } from "./useEthersSigner"
@@ -12,12 +13,17 @@ const useZoraMint = () => {
   const signer = useEthersSigner({ chainId: CHAIN_ID })
   const { publicSalePrice } = useSaleStatus()
   const { checkNetwork } = useCheckNetwork()
-  const { address } = useAccount()
+  const { isConnected, address } = useAccount()
+  const { openConnectModal } = useConnectModal()
 
   const mintWithRewards = async () => {
     try {
+      if (!isConnected) {
+        openConnectModal()
+        return false
+      }
       if (!checkNetwork()) {
-        throw new Error("switch your network")
+        return false
       }
       const quantity = 1
       const contract = new Contract(process.env.NEXT_PUBLIC_DROP_ADDRESS, abi, signer)

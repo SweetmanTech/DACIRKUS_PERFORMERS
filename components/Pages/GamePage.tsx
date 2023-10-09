@@ -6,20 +6,16 @@ import useBalanceOf from "../../hooks/useBalanceOf"
 import useZoraMint from "../../hooks/useZoraMint"
 import Button from "../Button"
 import Spinner from "../Spinner"
+import StartModal from "../StartModal"
+import PowerUpsButton from "../PowerUpsButton"
 
 const GamePage = () => {
   const [minting, setMinting] = useState(false)
   const { mintWithRewards } = useZoraMint()
   const { isConnected } = useAccount()
   const { balance, fetchBalance } = useBalanceOf()
-  const openModal = !isConnected || balance < 1
+  const [openModal, setOpenModal] = useState(true)
 
-  const mint = async () => {
-    setMinting(true)
-    await mintWithRewards()
-    await fetchBalance()
-    setMinting(false)
-  }
   // MessageChannel for communication
   const channel = new MessageChannel()
 
@@ -54,21 +50,9 @@ const GamePage = () => {
         SEND DATA TO GODOT
       </button>
       {openModal && (
-        <TokenGateModal title={isConnected ? "unlock" : "connect"}>
-          {isConnected ? (
-            <div>
-              {minting ? (
-                <Spinner />
-              ) : (
-                <Button onClick={mint} id="mint">
-                  MINT to unlock
-                </Button>
-              )}
-            </div>
-          ) : (
-            <ConnectButton />
-          )}
-        </TokenGateModal>
+        <StartModal handleClick={() => setOpenModal(false)}>
+          <PowerUpsButton />
+        </StartModal>
       )}
 
       <iframe
