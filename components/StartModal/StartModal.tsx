@@ -22,7 +22,7 @@ const StartModal = ({ handleClick, children }) => (
         <div className="text-lg md:text-xl text-white uppercase">by Heno</div>
       </div>
       <Button
-        className="text-xl md:text-4xl flex pb-4 md:pb-8 bg-white text-black"
+        className="text-xl md:text-4xl flex pb-4 md:pb-8"
         id="play-button"
         onClick={handleClick}
       >
