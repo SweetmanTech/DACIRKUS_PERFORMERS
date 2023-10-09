@@ -1,19 +1,8 @@
-import { useAccount } from "wagmi"
 import { useState } from "react"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
-import TokenGateModal from "../TokenGateModal"
-import useBalanceOf from "../../hooks/useBalanceOf"
-import useZoraMint from "../../hooks/useZoraMint"
-import Button from "../Button"
-import Spinner from "../Spinner"
 import StartModal from "../StartModal"
 import PowerUpsButton from "../PowerUpsButton"
 
 const GamePage = () => {
-  const [minting, setMinting] = useState(false)
-  const { mintWithRewards } = useZoraMint()
-  const { isConnected } = useAccount()
-  const { balance, fetchBalance } = useBalanceOf()
   const [openModal, setOpenModal] = useState(true)
 
   // MessageChannel for communication
