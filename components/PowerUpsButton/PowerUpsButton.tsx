@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import _ from "lodash"
+import { useAccount } from "wagmi"
+import { useConnectModal } from "@rainbow-me/rainbowkit"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import useZoraMint from "../../hooks/useZoraMint"
 import Spinner from "../Spinner"
-import { useAccount } from "wagmi"
-import { useConnectModal } from "@rainbow-me/rainbowkit"
 
 const PowerUpsButton = ({ onClick }) => {
   const [clicked, setClicked] = useState(false)
