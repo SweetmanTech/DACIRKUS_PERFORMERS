@@ -12,26 +12,15 @@ const PowerUpsButton = ({ onClick }) => {
   const { balance, fetchBalance, cameraCount, moneyCount, heartCount } = useBalanceOf()
   const { isConnected } = useAccount()
   const { openConnectModal } = useConnectModal()
-
-  // MessageChannel for communication
   const channel = new MessageChannel()
 
   function callGodotFunction() {
     const iframe = document.querySelector("#godotGame") as HTMLIFrameElement
     if (!iframe) {
-      console.error("Iframe not found!")
       return
     }
-
-    // Transfer port2 to the iframe
-    // [heart, camera, money]
-    console.log("SWEETS cameraCount", cameraCount)
-    console.log("SWEETS moneyCount", moneyCount)
-    console.log("SWEETS heartCount", heartCount)
     iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount], "*", [channel.port2])
   }
-
-  console.log("SWEETS BALANCE", balance)
 
   const handleClick = async () => {
     if (!isConnected) {
