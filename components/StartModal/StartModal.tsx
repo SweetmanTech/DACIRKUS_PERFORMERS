@@ -21,11 +21,7 @@ const StartModal = ({ handleClick, children }) => (
         <div className="text-xl md:text-4xl text-white uppercase">Hypersurveilled</div>
         <div className="text-lg md:text-xl text-white uppercase">by Heno</div>
       </div>
-      <Button
-        className="text-xl md:text-4xl flex pb-4 md:pb-8"
-        id="play-button"
-        onClick={handleClick}
-      >
+      <Button className="text-xl md:text-4xl pb-4 md:pb-8" id="play-button" onClick={handleClick}>
         Start Game
       </Button>
       {children}
