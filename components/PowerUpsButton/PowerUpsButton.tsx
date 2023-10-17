@@ -5,10 +5,8 @@ import { useConnectModal } from "@rainbow-me/rainbowkit"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import useZoraMint from "../../hooks/useZoraMint"
 import Spinner from "../Spinner"
-import { SPOTIFY_CLIENT_ID, SPOTIFY_REDIRECT_URI } from "../../lib/consts"
-import generateRandomString from "../../lib/spotify/generateRandomString"
-import generateCodeChallenge from "../../lib/spotify/generateCodeChallenge"
 import Button from "../Button"
+import { useSpotifyProvider } from "../../providers/SpotifyProvider"
 
 const PowerUpsButton = ({ onClick }) => {
   const [clicked, setClicked] = useState(false)
@@ -16,6 +14,7 @@ const PowerUpsButton = ({ onClick }) => {
   const { balance, fetchBalance, cameraCount, moneyCount, heartCount } = useBalanceOf()
   const { isConnected } = useAccount()
   const { openConnectModal } = useConnectModal()
+  const { login } = useSpotifyProvider()
   const channel = new MessageChannel()
 
   function callGodotFunction() {
@@ -28,32 +27,7 @@ const PowerUpsButton = ({ onClick }) => {
 
   const handleClick = async () => {
     console.log("SWEETS POWER UP CLICKED")
-    const clientId = SPOTIFY_CLIENT_ID
-    const redirectUri = SPOTIFY_REDIRECT_URI
-
-    const codeVerifier = generateRandomString(128)
-
-    generateCodeChallenge(codeVerifier).then((codeChallenge) => {
-      const state = generateRandomString(16)
-      const scope = "user-read-private user-read-email streaming"
-
-      localStorage.setItem("code_verifier", codeVerifier)
-
-      const args = new URLSearchParams({
-        response_type: "code",
-        client_id: clientId,
-        scope,
-        redirect_uri: redirectUri,
-        state,
-        code_challenge_method: "S256",
-        code_challenge: codeChallenge,
-      })
-
-      window.location = `https://accounts.spotify.com/authorize?${args}` as any
-    })
-
-    console.log("SWEETS POWER UP CLICKED response")
-
+    login()
     if (!isConnected) {
       openConnectModal()
       return
@@ -87,12 +61,7 @@ const PowerUpsButton = ({ onClick }) => {
       type="button"
       className="text-lg md:text-2xl pb-4 md:pb-8"
     >
-      {clicked ? (
-        <Spinner />
-      ) : (
-        `play with\n 
-      power-ups`
-      )}
+      {clicked ? <Spinner /> : `play with power-ups`}
     </Button>
   )
 }
