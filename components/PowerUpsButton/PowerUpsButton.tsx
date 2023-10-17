@@ -5,11 +5,10 @@ import { useConnectModal } from "@rainbow-me/rainbowkit"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import useZoraMint from "../../hooks/useZoraMint"
 import Spinner from "../Spinner"
-import spotifyLogin from "../../lib/spotify/spotifyLogin"
-import axios from "axios"
 import { SPOTIFY_CLIENT_ID, SPOTIFY_REDIRECT_URI } from "../../lib/consts"
 import generateRandomString from "../../lib/spotify/generateRandomString"
 import generateCodeChallenge from "../../lib/spotify/generateCodeChallenge"
+import Button from "../Button"
 
 const PowerUpsButton = ({ onClick }) => {
   const [clicked, setClicked] = useState(false)
@@ -36,7 +35,7 @@ const PowerUpsButton = ({ onClick }) => {
 
     generateCodeChallenge(codeVerifier).then((codeChallenge) => {
       const state = generateRandomString(16)
-      const scope = "user-read-private user-read-email"
+      const scope = "user-read-private user-read-email streaming"
 
       localStorage.setItem("code_verifier", codeVerifier)
 
@@ -82,9 +81,19 @@ const PowerUpsButton = ({ onClick }) => {
   }, [balance, isConnected, heartCount, moneyCount, cameraCount])
 
   return (
-    <button onClick={handleClick} type="button" className="text-xs md:text-xl text-white">
-      {clicked ? <Spinner /> : "play with power-ups"}
-    </button>
+    <Button
+      id="power-up"
+      onClick={handleClick}
+      type="button"
+      className="text-lg md:text-2xl pb-4 md:pb-8"
+    >
+      {clicked ? (
+        <Spinner />
+      ) : (
+        `play with\n 
+      power-ups`
+      )}
+    </Button>
   )
 }
 
