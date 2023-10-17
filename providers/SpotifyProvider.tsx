@@ -57,23 +57,18 @@ const SpotifyProvider = ({ children }) => {
       },
     })
 
-    const playResponse = await fetch(
-      `https://api.spotify.com/v1/me/tracks?ids=5aDNHHNXc16VktqV1gSq23`,
-      {
-        method: "PUT",
-        body: JSON.stringify({ ids: ["5aDNHHNXc16VktqV1gSq23"] }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${accessToken}`,
-        },
+    await fetch(`https://api.spotify.com/v1/me/tracks?ids=5aDNHHNXc16VktqV1gSq23`, {
+      method: "PUT",
+      body: JSON.stringify({ ids: ["5aDNHHNXc16VktqV1gSq23"] }),
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
       },
-    )
-    console.log("SWEETS playResponse", playResponse)
-  }, [accessToken])
+    })
+  }, [accessToken, deviceId])
 
   useEffect(() => {
     if (!accessToken) return
-    console.log("SWEETS SETUP PLAYER with ACCESST TOKEN", accessToken)
     const script = document.createElement("script")
     script.src = "https://sdk.scdn.co/spotify-player.js"
     script.async = true
