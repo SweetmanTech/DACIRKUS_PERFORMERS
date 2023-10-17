@@ -18,6 +18,7 @@ const getAccessToken = async (code) => {
   })
     .then(async (response) => {
       if (!response.ok) {
+        // eslint-disable-next-line no-console
         console.error(response)
       }
       return response.json()
@@ -27,6 +28,7 @@ const getAccessToken = async (code) => {
       return data.access_token
     })
     .catch((error) => {
+      // eslint-disable-next-line no-console
       console.error("Error:", error)
     })
 }
