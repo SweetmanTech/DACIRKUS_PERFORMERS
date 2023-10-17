@@ -26,7 +26,7 @@ const PowerUpsButton = ({ onClick }) => {
   }
 
   const handleClick = async () => {
-    console.log("SWEETS POWER UP CLICKED")
+    // TODO: CHANGE BUTTONS TO SHOW WALLET OPTIONS
     login()
     if (!isConnected) {
       openConnectModal()
