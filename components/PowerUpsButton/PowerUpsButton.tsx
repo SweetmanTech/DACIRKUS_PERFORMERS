@@ -14,7 +14,7 @@ const PowerUpsButton = ({ onClick }) => {
   const { balance, fetchBalance, cameraCount, moneyCount, heartCount } = useBalanceOf()
   const { isConnected } = useAccount()
   const { openConnectModal } = useConnectModal()
-  const { login } = useSpotifyProvider()
+  const { deviceId, login } = useSpotifyProvider()
   const channel = new MessageChannel()
 
   function callGodotFunction() {
@@ -22,16 +22,22 @@ const PowerUpsButton = ({ onClick }) => {
     if (!iframe) {
       return
     }
-    iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount], "*", [channel.port2])
+    const spotifyMoney = deviceId ? 1 : 0
+    iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount + spotifyMoney], "*", [
+      channel.port2,
+    ])
   }
 
   const handleClick = async () => {
-    // TODO: CHANGE BUTTONS TO SHOW WALLET OPTIONS
-    login()
+    if (!deviceId) {
+      login()
+    }
+
     if (!isConnected) {
       openConnectModal()
       return
     }
+
     if (_.isNull(balance)) return
     setClicked(true)
     if (balance === 0) {

@@ -132,7 +132,7 @@ const SpotifyProvider = ({ children }) => {
     init()
   }, [query])
 
-  const value = useMemo(() => ({ login, playSong }), [login, playSong])
+  const value = useMemo(() => ({ deviceId, login, playSong }), [deviceId, login, playSong])
 
   return <SpotifyContext.Provider value={value}>{children}</SpotifyContext.Provider>
 }
