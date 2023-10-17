@@ -18,8 +18,8 @@ const StartModal = ({ handleClick, children }) => (
             bg-black"
     >
       <div className="flex flex-col items-center gap-2">
-        <div className="text-xl md:text-4xl text-white uppercase">Hypersurveilled</div>
-        <div className="text-lg md:text-xl text-white uppercase">by Heno</div>
+        <div className="text-xl md:text-4xl text-white uppercase">Relief</div>
+        <div className="text-lg md:text-xl text-white uppercase">by Heno.</div>
       </div>
       <Button className="text-xl md:text-4xl pb-4 md:pb-8" id="play-button" onClick={handleClick}>
         Start Game

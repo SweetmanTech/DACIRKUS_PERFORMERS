@@ -5,6 +5,8 @@ import { useConnectModal } from "@rainbow-me/rainbowkit"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import useZoraMint from "../../hooks/useZoraMint"
 import Spinner from "../Spinner"
+import Button from "../Button"
+import { useSpotifyProvider } from "../../providers/SpotifyProvider"
 
 const PowerUpsButton = ({ onClick }) => {
   const [clicked, setClicked] = useState(false)
@@ -12,6 +14,7 @@ const PowerUpsButton = ({ onClick }) => {
   const { balance, fetchBalance, cameraCount, moneyCount, heartCount } = useBalanceOf()
   const { isConnected } = useAccount()
   const { openConnectModal } = useConnectModal()
+  const { deviceId, login } = useSpotifyProvider()
   const channel = new MessageChannel()
 
   function callGodotFunction() {
@@ -19,14 +22,22 @@ const PowerUpsButton = ({ onClick }) => {
     if (!iframe) {
       return
     }
-    iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount], "*", [channel.port2])
+    const spotifyMoney = deviceId ? 1 : 0
+    iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount + spotifyMoney], "*", [
+      channel.port2,
+    ])
   }
 
   const handleClick = async () => {
+    if (!deviceId) {
+      login()
+    }
+
     if (!isConnected) {
       openConnectModal()
       return
     }
+
     if (_.isNull(balance)) return
     setClicked(true)
     if (balance === 0) {
@@ -50,9 +61,14 @@ const PowerUpsButton = ({ onClick }) => {
   }, [balance, isConnected, heartCount, moneyCount, cameraCount])
 
   return (
-    <button onClick={handleClick} type="button" className="text-xs md:text-xl text-white">
-      {clicked ? <Spinner /> : "play with power-ups"}
-    </button>
+    <Button
+      id="power-up"
+      onClick={handleClick}
+      type="button"
+      className="text-lg md:text-2xl pb-4 md:pb-8"
+    >
+      {clicked ? <Spinner /> : `play with power-ups`}
+    </Button>
   )
 }
 
