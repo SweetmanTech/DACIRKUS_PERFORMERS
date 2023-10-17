@@ -1,12 +1,10 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable camelcase */
 import { useEffect, useState } from "react"
+import { useRouter } from "next/router"
 import StartModal from "../StartModal"
 import PowerUpsButton from "../PowerUpsButton"
-import { useRouter } from "next/router"
 import { SPOTIFY_CLIENT_ID, SPOTIFY_REDIRECT_URI } from "../../lib/consts"
-import playOnSpotify from "../../lib/spotify/playOnSpotify"
-import Head from "next/head"
 
 const GamePage = () => {
   const [openModal, setOpenModal] = useState(true)
