@@ -63,11 +63,11 @@ const PowerUpsButton = ({ onClick }) => {
   return (
     <Button
       id="power-up"
-      onClick={handleClick}
+      onClick={onClick}
       type="button"
       className="text-lg md:text-2xl pb-4 md:pb-8"
     >
-      {clicked ? <Spinner /> : `play with power-ups`}
+      play with power-ups
     </Button>
   )
 }

@@ -4,7 +4,7 @@ import { FC, ReactNode, useState, useEffect } from "react"
 import { classNames } from "./Utils"
 
 interface ButtonProps {
-  id: string
+  id?: string
   children?: ReactNode
   className?: string
   type?: "button" | "submit" | "reset" | undefined
@@ -19,7 +19,7 @@ interface ToggleButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({
-  id,
+  id = "button",
   children,
   className,
   onClick,
