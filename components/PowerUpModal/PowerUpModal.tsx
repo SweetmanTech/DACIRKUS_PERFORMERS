@@ -1,7 +1,7 @@
 import Modal from "../Modal"
-import Button from "../Button"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
 import WalletPowerUpButton from "./WalletPowerUpButton"
+import SpotifyPowerUpButton from "./SpotifyPowerUpButton"
+import StartGameWithPowerUpButton from "./StartGameWithPowerUpButton"
 
 const PowerUpModal = ({ handleClick }) => (
   <Modal
@@ -20,16 +20,16 @@ const PowerUpModal = ({ handleClick }) => (
             bg-black"
     >
       <div className="flex flex-col items-center gap-2">
-        <div className="text-xl md:text-4xl text-white uppercase">Choose your Power Ups</div>
+        <div className="text-xl md:text-4xl text-white uppercase text-center">
+          Choose your Power Ups
+        </div>
         <div className="text-lg md:text-xl text-white uppercase text-center">
           extra lives, extra money, easier enemies
         </div>
       </div>
+      <SpotifyPowerUpButton />
       <WalletPowerUpButton />
-
-      <Button className="text-xl md:text-4xl pb-4 md:pb-8" id="play-button" onClick={handleClick}>
-        Start Game
-      </Button>
+      <StartGameWithPowerUpButton onClick={handleClick} />
     </div>
   </Modal>
 )

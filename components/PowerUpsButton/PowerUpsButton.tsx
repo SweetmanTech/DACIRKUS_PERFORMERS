@@ -1,10 +1,8 @@
 import { useEffect, useState } from "react"
 import _ from "lodash"
 import { useAccount } from "wagmi"
-import { useConnectModal } from "@rainbow-me/rainbowkit"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import useZoraMint from "../../hooks/useZoraMint"
-import Spinner from "../Spinner"
 import Button from "../Button"
 import { useSpotifyProvider } from "../../providers/SpotifyProvider"
 
@@ -13,7 +11,6 @@ const PowerUpsButton = ({ onClick }) => {
   const { mintWithRewards } = useZoraMint()
   const { balance, fetchBalance, cameraCount, moneyCount, heartCount } = useBalanceOf()
   const { isConnected } = useAccount()
-  const { openConnectModal } = useConnectModal()
   const { deviceId, login } = useSpotifyProvider()
   const channel = new MessageChannel()
 
@@ -26,28 +23,6 @@ const PowerUpsButton = ({ onClick }) => {
     iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount + spotifyMoney], "*", [
       channel.port2,
     ])
-  }
-
-  const handleClick = async () => {
-    if (!deviceId) {
-      login()
-    }
-
-    if (!isConnected) {
-      openConnectModal()
-      return
-    }
-
-    if (_.isNull(balance)) return
-    setClicked(true)
-    if (balance === 0) {
-      await mintWithRewards()
-      await fetchBalance()
-      return
-    }
-    callGodotFunction()
-    onClick()
-    setClicked(false)
   }
 
   useEffect(() => {

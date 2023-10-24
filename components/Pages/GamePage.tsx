@@ -1,31 +1,27 @@
 import { useState } from "react"
+import { useRouter } from "next/router"
 import StartModal from "../StartModal"
 import PowerUpsButton from "../PowerUpsButton"
-import PowerUpModal from "../PowerUpModal"
 
 const GamePage = () => {
   const [openModal, setOpenModal] = useState(true)
-  const [usePowerups, setUsePowerups] = useState(false)
+  const { push } = useRouter()
 
   const handleClick = () => {
     setOpenModal(false)
   }
 
   const handlePowerUpClick = () => {
-    setUsePowerups(true)
+    push("/powerup")
   }
 
   return (
     <div>
       {openModal && (
         <div>
-          {usePowerups ? (
-            <PowerUpModal handleClick={handleClick} />
-          ) : (
-            <StartModal handleClick={handleClick}>
-              <PowerUpsButton onClick={handlePowerUpClick} />
-            </StartModal>
-          )}
+          <StartModal handleClick={handleClick}>
+            <PowerUpsButton onClick={handlePowerUpClick} />
+          </StartModal>
         </div>
       )}
 
