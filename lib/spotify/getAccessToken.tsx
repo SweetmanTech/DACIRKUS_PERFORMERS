@@ -9,7 +9,6 @@ const getAccessToken = async (code) => {
     client_id: SPOTIFY_CLIENT_ID,
     code_verifier: codeVerifier,
   })
-  console.log("SWEETS FETCHING...")
   return fetch("https://accounts.spotify.com/api/token", {
     method: "POST",
     headers: {
@@ -18,8 +17,6 @@ const getAccessToken = async (code) => {
     body,
   })
     .then(async (response) => {
-      console.log("SWEETS response", response)
-
       if (!response.ok) {
         // eslint-disable-next-line no-console
         console.error(response)
