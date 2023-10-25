@@ -1,9 +1,9 @@
-# CRE8ORS UI
+# RELIEF by Heno.
 
-[CRE8ORS](https://cre8ors.com) 
+[PLAY]([https://cre8ors.com](https://play.mynameisheno.com/)) 
 
-<img width="1440" alt="Screenshot 2023-06-05 at 8 32 08 PM" src="https://github.com/defientco/CRE8ORS-UI/assets/23249402/6bcaa039-a51b-406f-92f9-fd0f147f2b8e">
 
+<img width="1419" alt="Screenshot 2023-10-24 at 11 36 34 PM" src="https://github.com/SweetmanTech/Heno-Relief-Game/assets/23249402/2329db9f-7503-4bf6-b1ac-5d28e12febfd">
 
 ## Getting Started
 
@@ -19,11 +19,6 @@ yarn
 ```bash
 yarn
 ```
-
-Next, copy the `.env.local` file to `.env` and fill in:
-
-- NEXT_PUBLIC_CRE8ORS_ADDRESS=
-- NEXT_PUBLIC_CHAIN_ID=
 
 Finally, run the development server:
 
