@@ -1,6 +1,6 @@
 # RELIEF by Heno.
 
-[PLAY]([https://cre8ors.com](https://play.mynameisheno.com/)) 
+[PLAY](https://play.mynameisheno.com/)
 
 
 <img width="1419" alt="Screenshot 2023-10-24 at 11 36 34 PM" src="https://github.com/SweetmanTech/Heno-Relief-Game/assets/23249402/2329db9f-7503-4bf6-b1ac-5d28e12febfd">
