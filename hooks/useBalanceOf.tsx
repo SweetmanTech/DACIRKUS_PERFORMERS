@@ -17,9 +17,9 @@ const useBalanceOf = () => {
     () => new Contract(process.env.NEXT_PUBLIC_DROP_ADDRESS, abi, getDefaultProvider(CHAIN_ID)),
     [],
   )
-  const [cameraCount, setCameraCount] = useState(null)
-  const [moneyCount, setMoneyCount] = useState(null)
-  const [heartCount, setHeartCount] = useState(null)
+  const [cameraCount, setCameraCount] = useState(0)
+  const [moneyCount, setMoneyCount] = useState(0)
+  const [heartCount, setHeartCount] = useState(0)
   const [totalSupply, setTotalSupply] = useState(0)
 
   const fetchBalance = useCallback(async () => {

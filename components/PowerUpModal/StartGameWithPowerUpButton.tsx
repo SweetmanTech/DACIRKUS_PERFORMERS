@@ -1,3 +1,4 @@
+import { useAccount } from "wagmi"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import { useSpotifyProvider } from "../../providers/SpotifyProvider"
 import Button from "../Button"
@@ -5,6 +6,7 @@ import Button from "../Button"
 const StartGameWithPowerUpButton = ({ onClick }) => {
   const { cameraCount, moneyCount, heartCount } = useBalanceOf()
   const { deviceId } = useSpotifyProvider()
+  const { address } = useAccount()
 
   const channel = new MessageChannel()
 
@@ -13,10 +15,12 @@ const StartGameWithPowerUpButton = ({ onClick }) => {
     if (!iframe) {
       return
     }
-    const spotifyMoney = deviceId ? 1 : 0
-    iframe.contentWindow.postMessage([heartCount, cameraCount, moneyCount + spotifyMoney], "*", [
-      channel.port2,
-    ])
+    const spotifyMoney = deviceId ? 5 : 0
+    iframe.contentWindow.postMessage(
+      [heartCount, cameraCount, moneyCount, spotifyMoney, address || ""],
+      "*",
+      [channel.port2],
+    )
   }
 
   const handleClick = () => {
