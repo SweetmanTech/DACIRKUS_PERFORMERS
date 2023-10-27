@@ -4,7 +4,7 @@ import { FC, ReactNode, useState, useEffect } from "react"
 import { classNames } from "./Utils"
 
 interface ButtonProps {
-  id: string
+  id?: string
   children?: ReactNode
   className?: string
   type?: "button" | "submit" | "reset" | undefined
@@ -19,7 +19,7 @@ interface ToggleButtonProps {
 }
 
 export const Button: FC<ButtonProps> = ({
-  id,
+  id = "button",
   children,
   className,
   onClick,
@@ -53,7 +53,7 @@ export const Button: FC<ButtonProps> = ({
       id={id}
       type={type || "button"}
       className={`${id}_all hover:scale-[1.1] scale-[1] transition duration-[300ms] px-[28px] py-[11px] font-bold font-quicksand 
-        uppercase text-white dark:text-[black] rounded bg-[black] dark:bg-[white] 
+        uppercase text-black rounded bg-white 
         shadow-[0px_4px_4px_rgb(0,0,0,0.25)] dark:shadow-[0px_4px_4px_rgb(255,255,255,0.25)]
         flex items-center justify-center gap-[10px]
         ${className || ""}`}

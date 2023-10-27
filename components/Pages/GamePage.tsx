@@ -1,46 +1,43 @@
-import { useAccount } from "wagmi"
 import { useState } from "react"
-import { ConnectButton } from "@rainbow-me/rainbowkit"
-import TokenGateModal from "../TokenGateModal"
-import useBalanceOf from "../../hooks/useBalanceOf"
-import useZoraMint from "../../hooks/useZoraMint"
+import { useRouter } from "next/router"
+import StartModal from "../StartModal"
 import Button from "../Button"
-import Spinner from "../Spinner"
 
 const GamePage = () => {
-  const [minting, setMinting] = useState(false)
-  const { mintWithRewards } = useZoraMint()
-  const { isConnected } = useAccount()
-  const { balance, fetchBalance } = useBalanceOf()
-  const openModal = !isConnected || balance < 1
+  const [openModal, setOpenModal] = useState(true)
+  const { push } = useRouter()
 
-  const mint = async () => {
-    setMinting(true)
-    await mintWithRewards()
-    await fetchBalance()
-    setMinting(false)
+  const handleClick = () => {
+    setOpenModal(false)
+  }
+
+  const handlePowerUpClick = () => {
+    push("/powerup")
   }
 
   return (
     <div>
       {openModal && (
-        <TokenGateModal title={isConnected ? "unlock" : "connect"}>
-          {isConnected ? (
-            <div>
-              {minting ? (
-                <Spinner />
-              ) : (
-                <Button onClick={mint} id="mint">
-                  MINT to unlock
-                </Button>
-              )}
-            </div>
-          ) : (
-            <ConnectButton />
-          )}
-        </TokenGateModal>
+        <div>
+          <StartModal handleClick={handleClick}>
+            <Button
+              id="power-up"
+              onClick={handlePowerUpClick}
+              type="button"
+              className="text-lg md:text-2xl pb-4 md:pb-8"
+            >
+              play with power-ups
+            </Button>
+          </StartModal>
+        </div>
       )}
-      <iframe src="/game/index.html" title="Hypersurveilled" className="h-[100vh] w-[100vw]" />
+
+      <iframe
+        id="godotGame"
+        src="/game/index.html"
+        title="Hypersurveilled"
+        className="h-[100vh] w-[100vw]"
+      />
     </div>
   )
 }
