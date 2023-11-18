@@ -15,7 +15,6 @@ const useZoraMint = () => {
   const { checkNetwork } = useCheckNetwork()
   const { isConnected, address } = useAccount()
   const { openConnectModal } = useConnectModal()
-  console.log("SWEETS publicSalePrice", publicSalePrice)
   const mintWithRewards = async () => {
     try {
       if (!isConnected) {
