@@ -5,6 +5,7 @@ import SkeletonTableBody from "./SkeletonTableBody"
 import SeoHead from "../SeoHead"
 import { getLeaderboard } from "../../lib/firebase/firebase"
 import LeaderboardHeader from "./LeaderboardHeader"
+import { ARTIST, TITLE } from "../../lib/consts"
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState([])
@@ -38,7 +39,7 @@ const LeaderboardPage = () => {
             drop-shadow-[0_2px_2px_rgba(0,0,0,0.45)] 
             font-[500]"
         >
-          Relief Game by Heno
+          {TITLE} by {ARTIST}
         </div>
       </div>
       <div className="w-full flex justify-center pb-4">
