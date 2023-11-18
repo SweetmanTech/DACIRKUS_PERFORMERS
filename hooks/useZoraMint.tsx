@@ -15,7 +15,6 @@ const useZoraMint = () => {
   const { checkNetwork } = useCheckNetwork()
   const { isConnected, address } = useAccount()
   const { openConnectModal } = useConnectModal()
-
   const mintWithRewards = async () => {
     try {
       if (!isConnected) {
@@ -36,7 +35,7 @@ const useZoraMint = () => {
         gasLimit: 300293,
       })
       const receipt = await tx.wait()
-      toast.success("unlocked!")
+      toast.success("collected!")
       return receipt
     } catch (err) {
       handleTxError(err)
