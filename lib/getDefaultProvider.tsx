@@ -14,6 +14,7 @@ const getDefaultProvider = (chainId: number) => {
     return ethers.getDefaultProvider(ZORA_TESTNET)
   }
   const rpc = `${base}v2/${process.env.NEXT_PUBLIC_ALCHEMY_API_KEY}`
+  console.log("SWEETS RPC", rpc)
   return ethers.getDefaultProvider(rpc)
 }
 
