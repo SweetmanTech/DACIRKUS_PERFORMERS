@@ -29,7 +29,7 @@ const useZoraMint = () => {
       const contract = new Contract(process.env.NEXT_PUBLIC_DROP_ADDRESS, abi, signer)
       const zoraFee = await contract.zoraFeeForAmount(quantity)
       const zoraFeeWei = zoraFee.fee
-      const comment = "relief is here!"
+      const comment = "!!!"
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
       const tx = await contract.mintWithRewards(address, quantity, comment, mintReferral, {
         value: BigNumber.from(publicSalePrice).add(zoraFeeWei).toString(),

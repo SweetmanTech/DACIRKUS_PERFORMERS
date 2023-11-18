@@ -5,7 +5,7 @@ import "react-toastify/dist/ReactToastify.css"
 import type { AppProps } from "next/app"
 import { RainbowKitProvider, darkTheme, getDefaultWallets } from "@rainbow-me/rainbowkit"
 import { configureChains, createConfig, WagmiConfig } from "wagmi"
-import { zora, zoraTestnet } from "@wagmi/core/chains"
+import { base, baseGoerli } from "@wagmi/core/chains"
 import { alchemyProvider } from "wagmi/providers/alchemy"
 import { publicProvider } from "wagmi/providers/public"
 import { ToastContainer } from "react-toastify"
@@ -13,16 +13,17 @@ import { SessionProvider } from "next-auth/react"
 import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import { ThemeProvider } from "../providers/ThemeProvider"
+import { TITLE } from "../lib/consts"
 
 const isMainnet = !process.env.NEXT_PUBLIC_TESTNET
-const myChains = [isMainnet ? zora : zoraTestnet]
+const myChains = [isMainnet ? base : baseGoerli]
 const { chains, publicClient, webSocketPublicClient } = configureChains(myChains, [
   alchemyProvider({ apiKey: process.env.NEXT_PUBLIC_ALCHEMY_API_KEY }),
   publicProvider(),
 ])
 
 const { connectors } = getDefaultWallets({
-  appName: "Relief Game",
+  appName: TITLE,
   projectId: process.env.NEXT_PUBLIC_WALLETCONNECT_KEY,
   chains,
 })
@@ -41,7 +42,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         modalSize="compact"
         chains={chains}
         theme={darkTheme({
-          accentColor: "#ffa337",
+          accentColor: "#ca4342",
           accentColorForeground: "white",
           borderRadius: "large",
           fontStack: "system",
