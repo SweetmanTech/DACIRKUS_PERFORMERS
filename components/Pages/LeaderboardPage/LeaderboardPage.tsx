@@ -2,10 +2,10 @@ import { useEffect, useState } from "react"
 import { ConnectButton } from "@rainbow-me/rainbowkit"
 import LeaderboardRow from "./LeaderboardRow"
 import SkeletonTableBody from "./SkeletonTableBody"
-import SeoHead from "../SeoHead"
-import { getLeaderboard } from "../../lib/firebase/firebase"
+import SeoHead from "../../SeoHead"
+import { getLeaderboard } from "../../../lib/firebase/firebase"
 import LeaderboardHeader from "./LeaderboardHeader"
-import { ARTIST, TITLE } from "../../lib/consts"
+import { ARTIST, TITLE } from "../../../lib/consts"
 
 const LeaderboardPage = () => {
   const [scores, setScores] = useState([])

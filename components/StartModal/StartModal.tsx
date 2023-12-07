@@ -1,5 +1,5 @@
 import Modal from "../Modal"
-import Button from "../Button"
+import Button from "../../shared/Button"
 import { ARTIST, TITLE } from "../../lib/consts"
 
 const StartModal = ({ handleClick, children }) => (

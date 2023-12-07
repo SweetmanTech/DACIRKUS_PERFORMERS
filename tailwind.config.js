@@ -17,6 +17,8 @@ module.exports = {
     extend: {
       fontFamily: {
         arcade: ["ArcadeCabinet", "sans-serif"],
+        scrambledeggs_bold: ["ScrambledEggs Bold", "sans-serif"],
+        slimfit: ["Slim Fit", "sans-serif"],
         sans: ["ArcadeCabinet", ...defaultTheme.fontFamily.sans],
       },
       screens: {
@@ -26,8 +28,8 @@ module.exports = {
         sm: "640px",
         md: "768px",
         lg: "1024px",
-        xl: "1150px",
-        "2xl": "1315px",
+        xl: "1280px",
+        "2xl": "1440px",
         "3xl": "1920px",
       },
     },

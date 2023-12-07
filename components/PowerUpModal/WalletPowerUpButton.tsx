@@ -1,5 +1,5 @@
 import { ConnectButton } from "@rainbow-me/rainbowkit"
-import Button from "../Button"
+import Button from "../../shared/Button"
 
 const WalletPowerUpButton = () => (
   <ConnectButton.Custom>

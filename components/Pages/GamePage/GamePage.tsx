@@ -1,4 +1,4 @@
-import { TITLE } from "../../lib/consts"
+import { TITLE } from "../../../lib/consts"
 
 const GamePage = () => (
   <div>

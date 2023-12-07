@@ -1,7 +1,7 @@
 import { useAccount } from "wagmi"
 import useBalanceOf from "../../hooks/useBalanceOf"
 import { useSpotifyProvider } from "../../providers/SpotifyProvider"
-import Button from "../Button"
+import Button from "../../shared/Button"
 
 const StartGameWithPowerUpButton = ({ onClick }) => {
   const { cameraCount, moneyCount, heartCount } = useBalanceOf()

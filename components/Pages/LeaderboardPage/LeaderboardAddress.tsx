@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react"
-
-import retryGetEns from "../../lib/retryGetEns"
-import truncateEthAddress from "../../lib/truncateEthAddress"
-import getLensHandle from "../../lib/lens/getLensHandle"
+import retryGetEns from "../../../lib/retryGetEns"
+import truncateEthAddress from "../../../lib/truncateEthAddress"
+import getLensHandle from "../../../lib/lens/getLensHandle"
 
 const LeaderboardAddress = ({ address }) => {
   const [ensName, setEnsName] = useState(null as string)

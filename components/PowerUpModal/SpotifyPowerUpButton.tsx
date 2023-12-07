@@ -1,5 +1,5 @@
 import { useSpotifyProvider } from "../../providers/SpotifyProvider"
-import Button from "../Button"
+import Button from "../../shared/Button"
 
 const SpotifyPowerUpButton = () => {
   const { deviceId, login } = useSpotifyProvider()
