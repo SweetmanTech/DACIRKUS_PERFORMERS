@@ -1,4 +1,4 @@
-import { CACCS, CCOLORS, CEYES, CHAIRS, CTYPES } from "../../../../lib/character"
+import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Button from "../Button"
 
@@ -9,6 +9,7 @@ const AttributeButtons = () => {
     cEye,
     cHair,
     cColor,
+    cOutFit,
     nextCType,
     prevCType,
     randomCType,
@@ -24,6 +25,9 @@ const AttributeButtons = () => {
     nextCHair,
     prevCHair,
     randomCHair,
+    randomCOutFit,
+    nextCOutFit,
+    prevCOutFit,
   } = useCharacter()
 
   return (
@@ -61,11 +65,11 @@ const AttributeButtons = () => {
         onRandom={randomCColor}
       />
       <Button
-        value="YellowGeneric"
+        value={COUTFITS[cOutFit]}
         label="Dutfit"
-        onNext={nextCType}
-        onPrev={prevCType}
-        onRandom={randomCType}
+        onNext={nextCOutFit}
+        onPrev={prevCOutFit}
+        onRandom={randomCOutFit}
       />
       <Button
         value="Brown"

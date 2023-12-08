@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from "react"
-import { CACCS, CCOLORS, CEYES, CHAIRS, CTYPES } from "../lib/character"
+import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CTYPES } from "../lib/character"
 import getRandomInt from "../lib/getRandomInt"
 
 const CharacterContext = createContext(null)
@@ -10,6 +10,7 @@ const CharacterProvider = ({ children }) => {
   const [cEye, setCEye] = useState(0)
   const [cHair, setCHair] = useState(0)
   const [cColor, setCColor] = useState(0)
+  const [cOutFit, setCOutFit] = useState(0)
 
   const randomCType = () => {
     setCType(getRandomInt(CTYPES.length))
@@ -71,6 +72,18 @@ const CharacterProvider = ({ children }) => {
     setCColor(cColor === 0 ? CCOLORS.length - 1 : cColor - 1)
   }
 
+  const randomCOutFit = () => {
+    setCOutFit(getRandomInt(COUTFITS.length))
+  }
+
+  const nextCOutFit = () => {
+    setCOutFit(cOutFit === COUTFITS.length - 1 ? 0 : cOutFit + 1)
+  }
+
+  const prevCOutFit = () => {
+    setCOutFit(cOutFit === 0 ? COUTFITS.length - 1 : cOutFit - 1)
+  }
+
   const value = useMemo(
     () => ({
       cType,
@@ -78,6 +91,7 @@ const CharacterProvider = ({ children }) => {
       cEye,
       cHair,
       cColor,
+      cOutFit,
       randomCType,
       nextCType,
       prevCType,
@@ -93,6 +107,9 @@ const CharacterProvider = ({ children }) => {
       nextCHair,
       prevCHair,
       randomCHair,
+      randomCOutFit,
+      nextCOutFit,
+      prevCOutFit,
     }),
     [
       cEye,
@@ -100,6 +117,7 @@ const CharacterProvider = ({ children }) => {
       cAcc,
       cHair,
       cColor,
+      cOutFit,
       randomCType,
       nextCType,
       prevCType,
@@ -115,6 +133,9 @@ const CharacterProvider = ({ children }) => {
       nextCHair,
       prevCHair,
       randomCHair,
+      randomCOutFit,
+      nextCOutFit,
+      prevCOutFit,
     ],
   )
 
