@@ -65,7 +65,7 @@ export const CHAIRS = [
 
 export const CCOLORS = [
   "black",
-  "blond",
+  "blonde",
   "blue",
   "brown",
   "gold",

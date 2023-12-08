@@ -1,4 +1,5 @@
 import AttributeButtons from "../AttributeButtons"
+import CharacterModel from "../CharacterModel"
 import MenuButtons from "../MenuButtons"
 
 const AttributeSelect = () => (
@@ -9,6 +10,9 @@ const AttributeSelect = () => (
     >
       <AttributeButtons />
       <MenuButtons />
+    </div>
+    <div>
+      <CharacterModel />
     </div>
   </div>
 )
