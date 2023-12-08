@@ -6,6 +6,7 @@ import { STATUS } from "../../../lib/bookStatus"
 import CharacterSelect from "./CharacterSelect"
 import { useAnimatedBook } from "../../../providers/AnimatedBookProvider"
 import AttributeSelect from "./AttributeSelect"
+import Success from "./Success"
 
 const CreatePage = () => {
   const { currentStep } = useCreate()
@@ -14,11 +15,12 @@ const CreatePage = () => {
   return (
     <Layout type="base">
       <AnimatedBook>
-        {currentStep === STEPS.CHOOSE_CHARACTER_TYPE && currentStatus === STATUS.OPENED && (
-          <CharacterSelect />
-        )}
-        {currentStep === STEPS.SELECT_CHARACTER && currentStatus === STATUS.OPENED && (
-          <AttributeSelect />
+        {currentStatus === STATUS.OPENED && (
+          <>
+            {currentStep === STEPS.CHOOSE_CHARACTER_TYPE && <CharacterSelect />}
+            {currentStep === STEPS.SELECT_CHARACTER && <AttributeSelect />}
+            {currentStep === STEPS.SUCCESS && <Success />}
+          </>
         )}
       </AnimatedBook>
     </Layout>
