@@ -67,6 +67,10 @@ const AnimatedBookProvider = ({ children }) => {
                         setCurrentStatus(STATUS.OPENED)
                         return 0
                     }
+                    if (currentStatus === STATUS.CLOSE) {
+                        setCurrentStatus(STATUS.IDLE)
+                        return 0
+                    }
                     return prevIndex
                 }
                 return (prevIndex + 1) % frames[currentStatus].length
