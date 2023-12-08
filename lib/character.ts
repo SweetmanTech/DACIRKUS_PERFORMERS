@@ -11,3 +11,26 @@ export const CTYPES = [
   "UnicycleF",
   "UnicycleM",
 ]
+
+export const CACCS = [
+  "bandana",
+  "baseballcap",
+  "bellhophat",
+  "birthdayhat",
+  "braceletGold",
+  "braceletSilver",
+  "cigar",
+  "eyepatch",
+  "fedora",
+  "glasses",
+  "gold teeth",
+  "halo",
+  "heromask",
+  "kasahat",
+  "necklaceGold",
+  "necklaceSilver",
+  "piratehat",
+  "sailorhat",
+  "skimask",
+  "tattoo",
+]

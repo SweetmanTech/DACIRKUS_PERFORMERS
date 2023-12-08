@@ -1,9 +1,10 @@
-import { CTYPES } from "../../../../lib/character"
+import { CACCS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Button from "../Button"
 
 const AttributeButtons = () => {
-  const { cType, nextCType, prevCType, randomCType } = useCharacter()
+  const { cType, cAcc, nextCType, prevCType, randomCType, randomCAcc, nextCAcc, prevCAcc } =
+    useCharacter()
 
   return (
     <div
@@ -12,11 +13,11 @@ const AttributeButtons = () => {
       md:px-[18px] lg:px-[24px] xl:px-[30px]"
     >
       <Button
-        value="neckaceGolo"
+        value={CACCS[cAcc]}
         label="Acc."
-        onNext={nextCType}
-        onPrev={prevCType}
-        onRandom={randomCType}
+        onNext={nextCAcc}
+        onPrev={prevCAcc}
+        onRandom={randomCAcc}
       />
       <Button
         value="red"

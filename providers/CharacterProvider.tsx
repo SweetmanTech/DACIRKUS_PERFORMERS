@@ -1,11 +1,12 @@
 import { createContext, useContext, useMemo, useState } from "react"
-import { CTYPES } from "../lib/character"
+import { CACCS, CTYPES } from "../lib/character"
 import getRandomInt from "../lib/getRandomInt"
 
 const CharacterContext = createContext(null)
 
 const CharacterProvider = ({ children }) => {
   const [cType, setCType] = useState(0)
+  const [cAcc, setCAcc] = useState(0)
 
   const randomCType = () => {
     const type = getRandomInt(CTYPES.length)
@@ -30,17 +31,48 @@ const CharacterProvider = ({ children }) => {
       setCType(cType - 1)
   }
   
+  const randomCAcc = () => {
+    const acc = getRandomInt(CACCS.length)
+    setCAcc(acc)
+  }
+
+  const nextCAcc = () => {
+    if (cAcc === CACCS.length - 1) {
+      setCAcc(0)
+      return
+    }
+
+    setCAcc(cAcc + 1)
+  }
+
+  const prevCAcc = () => {
+    if (cAcc === 0) {
+        setCAcc(CACCS.length - 1)
+        return
+      }
+  
+      setCAcc(cAcc - 1)
+  }
+  
   const value = useMemo(() => ({
       cType,
+      cAcc,
       randomCType,
       nextCType,
-      prevCType
+      prevCType,
+      randomCAcc,
+      nextCAcc,
+      prevCAcc
     }), 
     [
       cType,
+      cAcc,
       randomCType,
       nextCType,
-      prevCType
+      prevCType,
+      randomCAcc,
+      nextCAcc,
+      prevCAcc
     ]
   )
 
