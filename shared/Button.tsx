@@ -18,7 +18,6 @@ const Button: FC<ButtonProps> = ({
   ...rest
 }) => {
   return (
-    // eslint-disable-next-line jsx-a11y/mouse-events-have-key-events
     <button
       id={id}
       type={type || "button"}
