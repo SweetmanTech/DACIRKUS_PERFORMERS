@@ -9,7 +9,6 @@ const AnimatedBook = ({ children }) => {
     <div className="relative">
       <AnimatePresence>
         <motion.img
-          key={currentFrame}
           src={frameUrl}
           alt={`Scene ${currentFrame}`}
           className="xl:w-[1280px] lg:w-[1024px] md:w-[768px] aspect-[848/640]"
