@@ -49,3 +49,29 @@ export const CEYES = [
   "red",
   "white",
 ]
+
+export const CHAIRS = [
+  "afro",
+  "bald",
+  "kbuzz",
+  "dread",
+  "fade",
+  "horn",
+  "mohawk",
+  "normal",
+  "ponytail",
+  "slicked",
+]
+
+export const CCOLORS = [
+  "black",
+  "blond",
+  "blue",
+  "brown",
+  "gold",
+  "green",
+  "purple",
+  "rainbow",
+  "red",
+  "white",
+]

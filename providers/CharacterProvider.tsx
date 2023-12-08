@@ -1,5 +1,5 @@
 import { createContext, useContext, useMemo, useState } from "react"
-import { CACCS, CEYES, CTYPES } from "../lib/character"
+import { CACCS, CCOLORS, CEYES, CHAIRS, CTYPES } from "../lib/character"
 import getRandomInt from "../lib/getRandomInt"
 
 const CharacterContext = createContext(null)
@@ -8,6 +8,8 @@ const CharacterProvider = ({ children }) => {
   const [cType, setCType] = useState(0)
   const [cAcc, setCAcc] = useState(0)
   const [cEye, setCEye] = useState(0)
+  const [cHair, setCHair] = useState(0)
+  const [cColor, setCColor] = useState(0)
 
   const randomCType = () => {
     setCType(getRandomInt(CTYPES.length))
@@ -45,11 +47,37 @@ const CharacterProvider = ({ children }) => {
     setCEye(cEye === 0 ? CEYES.length - 1 : cEye - 1)
   }
 
+  const randomCHair = () => {
+    setCHair(getRandomInt(CHAIRS.length))
+  }
+
+  const nextCHair = () => {
+    setCHair(cHair === CHAIRS.length - 1 ? 0 : cHair + 1)
+  }
+
+  const prevCHair = () => {
+    setCHair(cHair === 0 ? CHAIRS.length - 1 : cHair - 1)
+  }
+
+  const randomCColor = () => {
+    setCColor(getRandomInt(CCOLORS.length))
+  }
+
+  const nextCColor = () => {
+    setCColor(cColor === CCOLORS.length - 1 ? 0 : cColor + 1)
+  }
+
+  const prevCColor = () => {
+    setCColor(cColor === 0 ? CCOLORS.length - 1 : cColor - 1)
+  }
+
   const value = useMemo(
     () => ({
       cType,
       cAcc,
       cEye,
+      cHair,
+      cColor,
       randomCType,
       nextCType,
       prevCType,
@@ -59,11 +87,19 @@ const CharacterProvider = ({ children }) => {
       randomCEye,
       nextCEye,
       prevCEye,
+      nextCColor,
+      prevCColor,
+      randomCColor,
+      nextCHair,
+      prevCHair,
+      randomCHair,
     }),
     [
       cEye,
       cType,
       cAcc,
+      cHair,
+      cColor,
       randomCType,
       nextCType,
       prevCType,
@@ -73,6 +109,12 @@ const CharacterProvider = ({ children }) => {
       randomCEye,
       nextCEye,
       prevCEye,
+      nextCColor,
+      prevCColor,
+      randomCColor,
+      nextCHair,
+      prevCHair,
+      randomCHair,
     ],
   )
 
