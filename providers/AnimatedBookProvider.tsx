@@ -5,34 +5,34 @@ const AnimatedBookContext = createContext(null)
 
 const AnimatedBookProvider = ({ children }) => {
   const openFrames = [
-    "/images/Book/Open/1.png",
+    "/images/Book/Idle/1.png",
     "/images/Book/Open/2.png",
     "/images/Book/Open/3.png",
     "/images/Book/Open/4.png",
     "/images/Book/Open/5.png",
-    "/images/Book/Open/6.png",
+    "/images/Book/Opened/1.png",
   ]
 
   const leftFlipFrames = [
-    "/images/Book/LeftFlip/1.png",
+    "/images/Book/Opened/1.png",
     "/images/Book/LeftFlip/2.png",
     "/images/Book/LeftFlip/3.png",
     "/images/Book/LeftFlip/4.png",
     "/images/Book/LeftFlip/5.png",
     "/images/Book/LeftFlip/6.png",
     "/images/Book/LeftFlip/7.png",
-    "/images/Book/LeftFlip/8.png",
+    "/images/Book/Opened/1.png",
   ]
 
-  const idleFrames = ["/images/Book/Open/1.png"]
+  const idleFrames = ["/images/Book/Idle/1.png"]
 
   const closeFrames = [
-    "/images/Book/Close/1.png",
+    "/images/Book/Opened/1.png",
     "/images/Book/Close/2.png",
     "/images/Book/Close/3.png",
     "/images/Book/Close/4.png",
     "/images/Book/Close/5.png",
-    "/images/Book/Close/6.png",
+    "/images/Book/Idle16.png",
   ]
 
   const openedFrames = ["/images/Book/Opened/1.png"]
