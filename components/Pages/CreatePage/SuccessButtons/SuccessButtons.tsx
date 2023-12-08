@@ -1,6 +1,6 @@
 import { STEPS } from "../../../../lib/createStep"
 import { useCreate } from "../../../../providers/CreateProvider"
-import BackHomeButton from "../../../BackHomeButton"
+import HomeButton from "../../../HomeButton"
 import PlayButton from "../../../PlayButton"
 import TweetButton from "../../../TweetButton"
 
@@ -13,7 +13,7 @@ const SuccessButtons = () => {
       md:pt-[9px] lg:pt-[12px] xl:pt-[15px]"
     >
       <PlayButton />
-      <BackHomeButton onClick={() => setCurrentStep(STEPS.CHOOSE_CHARACTER_TYPE)} />
+      <HomeButton onClick={() => setCurrentStep(STEPS.CHOOSE_CHARACTER_TYPE)} />
       <TweetButton />
     </div>
   )

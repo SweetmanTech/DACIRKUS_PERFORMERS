@@ -2,7 +2,7 @@ import { STATUS } from "../../lib/bookStatus"
 import { useAnimatedBook } from "../../providers/AnimatedBookProvider"
 import Media from "../../shared/Media"
 
-const BackHomeButton = ({ onClick }) => {
+const HomeButton = ({ onClick }) => {
   const { setCurrentStatus } = useAnimatedBook()
   const backToHome = () => {
     setCurrentStatus(STATUS.CLOSE)
@@ -26,4 +26,4 @@ const BackHomeButton = ({ onClick }) => {
   )
 }
 
-export default BackHomeButton
+export default HomeButton
