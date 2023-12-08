@@ -1,4 +1,4 @@
-import MintPage from "../../components/Pages/MintPage"
+import MintPage from "../../components/Pages/MintPage/MintPage"
 
 const Mint = () => <MintPage />
 

@@ -1,4 +1,4 @@
-import GamePage from "../components/Pages/GamePage"
+import GamePage from "../components/Pages/GamePage/GamePage"
 import SeoHead from "../components/SeoHead"
 import SpotifyProvider from "../providers/SpotifyProvider"
 

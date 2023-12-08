@@ -1,5 +1,5 @@
 import useZoraMint from "../../hooks/useZoraMint"
-import Button from "../Button"
+import Button from "../../shared/Button"
 
 const MintButton = () => {
   const { mintWithRewards } = useZoraMint()
