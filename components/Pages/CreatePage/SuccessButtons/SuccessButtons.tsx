@@ -10,7 +10,7 @@ const SuccessButtons = () => {
   return (
     <div
       className="flex items-center md:gap-x-[18px] lg:gap-x-[24px] xl:gap-x-[30px]
-      pt-[15px]"
+      md:pt-[9px] lg:pt-[12px] xl:pt-[15px]"
     >
       <PlayButton />
       <BackHomeButton onClick={() => setCurrentStep(STEPS.CHOOSE_CHARACTER_TYPE)} />
