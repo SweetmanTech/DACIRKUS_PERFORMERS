@@ -105,3 +105,21 @@ export const COUTFITS = [
   "WhiteSuit",
   "YellowGeneric",
 ]
+
+export const CSKINS = [
+  "Light",
+  "White",
+  "Orange",
+  "RedBrown",
+  "Chocolate",
+  "Black",
+  "Green",
+  "Mixed",
+  "Blue",
+  "Tan",
+  "LightBrown",
+  "Brown",
+  "Coco",
+  "DarkBrown",
+  "Pink",
+]
