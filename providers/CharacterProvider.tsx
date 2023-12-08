@@ -13,6 +13,16 @@ const CharacterProvider = ({ children }) => {
   const [cOutFit, setCOutFit] = useState(0)
   const [cSkin, setCSkin] = useState(0)
 
+  const randomeAttr = () => {
+    randomCType()
+    randomCAcc()
+    randomCEye()
+    randomCHair()
+    randomCColor()
+    randomCOutFit()
+    randomCSkin()
+  }
+
   const randomCType = () => {
     setCType(getRandomInt(CTYPES.length))
   }
@@ -127,6 +137,7 @@ const CharacterProvider = ({ children }) => {
       randomCSkin,
       prevCSkin,
       nextCSkin,
+      randomeAttr,
     }),
     [
       cSkin,
@@ -157,6 +168,7 @@ const CharacterProvider = ({ children }) => {
       randomCSkin,
       prevCSkin,
       nextCSkin,
+      randomeAttr,
     ],
   )
 

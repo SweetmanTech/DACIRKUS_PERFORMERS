@@ -1,6 +1,7 @@
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
+import { useCharacter } from "../../../../providers/CharacterProvider"
 import { useCreate } from "../../../../providers/CreateProvider"
 import WavyText from "../../../WavyText"
 import CharacterItem from "../CharacterItem"
@@ -8,6 +9,7 @@ import CharacterItem from "../CharacterItem"
 const CharacterList = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep } = useCreate()
+  const { randomeAttr } = useCharacter()
 
   const selectCustom = () => {
     setCurrentStatus(STATUS.LEFTFLIP)
@@ -15,6 +17,7 @@ const CharacterList = () => {
   }
 
   const selectRandom = () => {
+    randomeAttr()
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
