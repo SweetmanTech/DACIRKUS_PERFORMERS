@@ -20,10 +20,10 @@ const CharacterList = () => {
       xl:pt-[60px] lg:pt-[48px] md:pt-[36px] flex flex-col 
       xl:gap-y-[20px] lg:gap-y-[16px] md:gap-y-[12px]"
     >
-      <CharacterItem type={1} label="Custom Character" onClick={selectCustom}/>
-      <CharacterItem type={5} label="Random Character" onClick={selectCustom}/>
-      <CharacterItem type={25} label="Random Character" onClick={selectCustom}/>
-      <CharacterItem type={100} label="Random Character" onClick={selectCustom}/>
+      <CharacterItem type={1} label="Custom Character" onClick={selectCustom} />
+      <CharacterItem type={5} label="Random Character" onClick={selectCustom} />
+      <CharacterItem type={25} label="Random Character" onClick={selectCustom} />
+      <CharacterItem type={100} label="Random Character" onClick={selectCustom} />
       <WavyText
         text={`"Whale's only"`}
         className="text-[#ca4343] drop-shadow-[2px_2px_2px_rgba(0,0,0,1)] font-slimfit 

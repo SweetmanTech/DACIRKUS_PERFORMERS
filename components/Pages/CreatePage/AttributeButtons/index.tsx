@@ -1,3 +1,3 @@
-import AttributeButtons from "./AttributeButtons";
+import AttributeButtons from "./AttributeButtons"
 
 export default AttributeButtons
