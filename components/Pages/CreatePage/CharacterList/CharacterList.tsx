@@ -14,6 +14,11 @@ const CharacterList = () => {
     setCurrentStep(STEPS.SELECT_CHARACTER)
   }
 
+  const selectRandom = () => {
+    setCurrentStatus(STATUS.LEFTFLIP)
+    setCurrentStep(STEPS.SUCCESS)
+  }
+
   return (
     <div
       className="md:pl-[42px] lg:pl-[56px] xl:pl-[70px] 
@@ -21,9 +26,9 @@ const CharacterList = () => {
       xl:gap-y-[20px] lg:gap-y-[16px] md:gap-y-[12px]"
     >
       <CharacterItem type={1} label="Custom Character" onClick={selectCustom} />
-      <CharacterItem type={5} label="Random Character" onClick={selectCustom} />
-      <CharacterItem type={25} label="Random Character" onClick={selectCustom} />
-      <CharacterItem type={100} label="Random Character" onClick={selectCustom} />
+      <CharacterItem type={5} label="Random Character" onClick={selectRandom} />
+      <CharacterItem type={25} label="Random Character" onClick={selectRandom} />
+      <CharacterItem type={100} label="Random Character" onClick={selectRandom} />
       <WavyText
         text={`"Whale's only"`}
         className="text-[#ca4343] drop-shadow-[2px_2px_2px_rgba(0,0,0,1)] font-slimfit 
