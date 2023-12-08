@@ -13,6 +13,17 @@ const AnimatedBookProvider = ({ children }) => {
         '/images/Book/Open/6.png',
     ];
 
+    const leftFlipFrames = [
+        '/images/Book/LeftFlip/1.png',
+        '/images/Book/LeftFlip/2.png',
+        '/images/Book/LeftFlip/3.png',
+        '/images/Book/LeftFlip/4.png',
+        '/images/Book/LeftFlip/5.png',
+        '/images/Book/LeftFlip/6.png',
+        '/images/Book/LeftFlip/7.png',
+        '/images/Book/LeftFlip/8.png',
+    ]
+
     const idleFrames = [
         '/images/Book/Open/1.png'
     ]
@@ -34,7 +45,8 @@ const AnimatedBookProvider = ({ children }) => {
         "Idle": idleFrames,
         "Open": openFrames,
         "Close": closeFrames,
-        "Opened": openedFrames 
+        "Opened": openedFrames,
+        "LeftFlip": leftFlipFrames
     }
   
     
@@ -51,7 +63,7 @@ const AnimatedBookProvider = ({ children }) => {
             setCurrentFrame((prevIndex) => {
                 if (prevIndex === frames[currentStatus].length - 1) {
                     clearInterval(interval)
-                    if (currentStatus === STATUS.OPEN) {
+                    if (currentStatus === STATUS.OPEN || currentStatus === STATUS.LEFTFLIP) {
                         setCurrentStatus(STATUS.OPENED)
                         return 0
                     }
@@ -69,16 +81,18 @@ const AnimatedBookProvider = ({ children }) => {
     }, [currentFrame, currentStatus])
 
   const value = useMemo(() => ({
-    currentFrame,
-    frameUrl,
-    currentStatus,
-    openBook
+        currentFrame,
+        frameUrl,
+        currentStatus,
+        setCurrentStatus,
+        openBook
     }), 
     [
         currentFrame,
         frameUrl,
         currentStatus,
-        openBook
+        openBook,
+        setCurrentStatus
     ]
   )
 

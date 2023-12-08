@@ -4,7 +4,7 @@ import { STEPS } from "../lib/createStep"
 const CreateContext = createContext(null)
 
 const CreateProvider = ({ children }) => {
-  const [currentStep, setCurrentStep] = useState(STEPS.SELECT_CHARACTER)
+  const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
   const [characterType, setCharacterType] = useState(1)
 
   const value = useMemo(() => ({

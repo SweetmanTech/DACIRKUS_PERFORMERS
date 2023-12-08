@@ -3,5 +3,5 @@ export enum STATUS {
   OPENED = "Opened",
   CLOSE = "Close",
   OPEN = "Open",
-  FLIP = "Flip",
+  LEFTFLIP = "LeftFlip",
 }
