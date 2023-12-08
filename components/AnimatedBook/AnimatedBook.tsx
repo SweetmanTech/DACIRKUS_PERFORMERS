@@ -30,14 +30,13 @@ const AnimatedBook = ({ children }) => {
       {currentStatus === STATUS.IDLE && (
         // eslint-disable-next-line jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions
         <div
-          className="absolute z-[1] left-0 top-0 w-full h-full flex justify-center cursor-pointer"
+          className="absolute z-[1] left-0 top-0 w-full h-full flex justify-center items-center cursor-pointer"
           onClick={openBook}
         >
           <div
             className="xl:w-[480px] lg:w-[384px] md:w-[288px] 
-            xl:h-[600px] lg:h-[480px] md:h-[360px] 
-            xl:translate-y-[220px] lg:translate-y-[176px] md:translate-y-[132px] 
-            xl:translate-x-[10px] lg:translate-x-[8px] md:translate-x-[6px]"
+            xl:h-[600px] lg:h-[480px] md:h-[360px]
+            md:translate-y-[21px] lg:translate-y-[28px] xl:translate-y-[35px]"
           >
             {children}
           </div>
