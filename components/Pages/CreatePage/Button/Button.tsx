@@ -1,11 +1,12 @@
 import Media from "../../../../shared/Media"
 
-const Button = ({ value, label }) => (
+const Button = ({ value, label, onNext, onPrev, onRandom }) => (
   <div className="flex md:gap-x-[12px] lg:gap-x-[16px] xl:gap-x-[20px] items-center">
     <button
       type="button"
       className="md:w-[24px] lg:w-[32px] xl:w-[40px] aspect-[1/1] border-[2px] border-black flex justify-center items-center
                 bg-[#626975] active:bg-[#4e545d] shadow-[inset_0px_-3px_0px_1px_#323840] active:shadow-[inset_none] rounded-[5px]"
+      onClick={onRandom}
     >
       <Media
         type="image"
@@ -20,6 +21,7 @@ const Button = ({ value, label }) => (
         type="button"
         className="md:w-[33px] lg:w-[44px] xl:w-[55px] aspect-[1/1] border-[2px] border-black flex justify-center items-center
         bg-[#626975] active:bg-[#4e545d] shadow-[inset_0px_-3px_0px_1px_#323840] active:shadow-[inset_none] rounded-[5px]"
+        onClick={onPrev}
       >
         <Media
           type="image"
@@ -35,6 +37,7 @@ const Button = ({ value, label }) => (
         type="button"
         className="md:w-[33px] lg:w-[44px] xl:w-[55px] w-[55px] aspect-[1/1] border-[2px] border-black flex justify-center items-center
         bg-[#626975] active:bg-[#4e545d] shadow-[inset_0px_-3px_0px_1px_#323840] active:shadow-[inset_none] rounded-[5px]"
+        onClick={onNext}
       >
         <Media
           type="image"
