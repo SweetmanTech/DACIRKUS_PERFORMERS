@@ -9,8 +9,8 @@ const AttributeButtons = () => (
     <Button value="neckaceGolo" label="Acc." />
     <Button value="red" label="Eyes" />
     <Button value="horn" label="Hair" />
-    <Button value="Brown" label="Color." />
-    <Button value="YellowGeneric" label="Dutfit" />
+    <Button value="Brown" label="Color" />
+    <Button value="YellowGeneric" label="Outfit" />
     <Button value="Brown" label="Skin" />
     <Button value="MagicianM" label="Type" />
   </div>
