@@ -34,3 +34,18 @@ export const CACCS = [
   "skimask",
   "tattoo",
 ]
+
+export const CEYES = [
+  "black",
+  "blue",
+  "brown",
+  "ember",
+  "gold",
+  "green",
+  "grey",
+  "hazel",
+  "laser",
+  "purple",
+  "red",
+  "white",
+]

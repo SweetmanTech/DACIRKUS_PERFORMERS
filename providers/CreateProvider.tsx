@@ -7,19 +7,14 @@ const CreateProvider = ({ children }) => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
   const [characterType, setCharacterType] = useState(1)
 
-
-  const value = useMemo(() => ({
+  const value = useMemo(
+    () => ({
       currentStep,
       setCurrentStep,
       characterType,
       setCharacterType,
-    }), 
-    [
-      currentStep,
-      setCurrentStep,
-      characterType,
-      setCharacterType,
-    ]
+    }),
+    [currentStep, setCurrentStep, characterType, setCharacterType],
   )
 
   return <CreateContext.Provider value={value}>{children}</CreateContext.Provider>
