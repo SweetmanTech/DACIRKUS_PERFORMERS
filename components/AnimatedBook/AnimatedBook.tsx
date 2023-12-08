@@ -6,21 +6,22 @@ const AnimatedBook = ({ children }) => {
   const { currentFrame, frameUrl, currentStatus, openBook } = useAnimatedBook()
 
   return (
-    <div className="relative">
+    <div className="relative flex items-center">
       <AnimatePresence>
         <motion.img
           src={frameUrl}
           alt={`Scene ${currentFrame}`}
-          className="xl:w-[1280px] lg:w-[1024px] md:w-[768px] aspect-[848/640]"
+          className="xl:w-[1280px] lg:w-[1024px] md:w-[768px] 
+          xl:h-[966px] lg:h-[772.83px] md:h-[579.62px]"
         />
       </AnimatePresence>
       {currentStatus === STATUS.OPENED && (
-        <div className="absolute z-[1] left-0 top-0 w-full h-full flex justify-center">
+        <div className="absolute z-[1] left-0 top-0 w-full h-full flex justify-center items-center">
           <div
             className="xl:w-[990px] lg:w-[792px] md:w-[594px] 
-            xl:h-[600px] lg:h-[480px] md:h-[360px] 
-            xl:translate-y-[220px] lg:translate-y-[176px] md:translate-y-[132px] 
-            xl:translate-x-[-25px] lg:translate-x-[-20px] md:translate-x-[-15px]"
+            xl:h-[600px] lg:h-[480px] md:h-[360px]
+            md:translate-y-[21px] lg:translate-y-[28px] xl:translate-y-[35px]
+            md:translate-x-[-15px] lg:translate-x-[-20px] xl:translate-x-[-25px]"
           >
             {children}
           </div>
