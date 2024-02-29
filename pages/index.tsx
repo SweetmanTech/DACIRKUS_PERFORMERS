@@ -1,12 +1,16 @@
-import GamePage from "../components/Pages/GamePage/GamePage"
-import SeoHead from "../components/SeoHead"
-import SpotifyProvider from "../providers/SpotifyProvider"
+import CreatePage from "../components/Pages/CreatePage"
+import AnimatedBookProvider from "../providers/AnimatedBookProvider"
+import CharacterProvider from "../providers/CharacterProvider"
+import CreateProvider from "../providers/CreateProvider"
 
-const Game = () => (
-  <SpotifyProvider>
-    <GamePage />
-    <SeoHead />
-  </SpotifyProvider>
+const Create = () => (
+  <CharacterProvider>
+    <CreateProvider>
+      <AnimatedBookProvider>
+        <CreatePage />
+      </AnimatedBookProvider>
+    </CreateProvider>
+  </CharacterProvider>
 )
 
-export default Game
+export default Create
