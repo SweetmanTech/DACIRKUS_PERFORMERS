@@ -1,10 +1,12 @@
 import CharacterList from "../CharacterList"
 import CreateDescription from "../CreateDescription"
+import WeCantWork from "../WeCantWork"
+import DaPerformerCharacterCustomizer from "../DaPerformerCharacterCustomizer"
 
 const CharacterSelect = () => (
   <div className="w-full h-full grid grid-cols-2">
-    <CreateDescription />
-    <CharacterList />
+    <WeCantWork />
+    <DaPerformerCharacterCustomizer />
   </div>
 )
 
