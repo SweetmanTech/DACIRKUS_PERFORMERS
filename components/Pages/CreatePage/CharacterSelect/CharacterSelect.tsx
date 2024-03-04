@@ -1,5 +1,3 @@
-import CharacterList from "../CharacterList"
-import CreateDescription from "../CreateDescription"
 import WeCantWork from "../WeCantWork"
 import DaPerformerCharacterCustomizer from "../DaPerformerCharacterCustomizer"
 
