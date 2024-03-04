@@ -5,7 +5,6 @@ import { useCharacter } from "../../../../providers/CharacterProvider"
 import { useCreate } from "../../../../providers/CreateProvider"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
-import WavyText from "../../../WavyText"
 
 const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
@@ -29,10 +28,11 @@ const DaPerformerCharacterCustomizer = () => {
     font-slimfit text-white"
     >
       <div className="flex justify-center pt-8">
-        <div className="relative cursor-pointer" onClick={selectCustom}>
+        <Button className="relative cursor-pointer" onClick={selectCustom}>
           <Media
             type="image"
             link="/images/Create/DaPerformersCharactererformers.png"
+            alt="DaPerformersCharactererformers-main"
             blurLink="/images/Create/DaPerformersCharactererformers.png"
             containerClasses="sm:h-[360px] aspect-[1/1]"
           />
@@ -40,16 +40,18 @@ const DaPerformerCharacterCustomizer = () => {
             <Media
               type="image"
               link="/images/Create/da-performer-character-customizer.png"
+              alt="da-performer-character-customizer"
               blurLink="/images/Create/da-performer-character-customizer.png"
               containerClasses=" sm:h-[310px] aspect-[1/1]"
             />
           </div>
-        </div>
+        </Button>
       </div>
       <div className="flex justify-center">
         <Media
           type="image"
           link="/images/Create/random-bulk-min-to-unlock.png"
+          alt="random-bulk-min-to-unlock"
           blurLink="/images/Create/random-bulk-min-to-unlock.png"
           containerClasses=" sm:w-[350px] sm:h-[40px] aspect-[1/1]"
         />
@@ -60,6 +62,7 @@ const DaPerformerCharacterCustomizer = () => {
             <Media
               type="image"
               link="/images/Create/DaPerformersCharactererformers-Image-1.png"
+              alt="DaPerformersCharactererformers-Image-1"
               blurLink="/images/Create/DaPerformersCharactererformers-Image-1.png"
               containerClasses="sm:h-[40px] aspect-[1/1]"
             />
@@ -68,6 +71,7 @@ const DaPerformerCharacterCustomizer = () => {
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
+                alt="DaPerformersCharactererformers-1"
                 blurLink="/images/Create/DaPerformersCharactererformers.png"
                 containerClasses="sm:h-[90px] aspect-[1/1]"
               />
@@ -75,6 +79,7 @@ const DaPerformerCharacterCustomizer = () => {
                 <Media
                   type="image"
                   link="/images/Create/5.png"
+                  alt="5"
                   blurLink="/images/Create/5.png"
                   containerClasses="sm:h-[50px] aspect-[1/1]"
                 />
@@ -85,6 +90,7 @@ const DaPerformerCharacterCustomizer = () => {
             <Media
               type="image"
               link="/images/Create/DaPerformersCharactererformers-Image-2.png"
+              alt="DaPerformersCharactererformers-Image-2"
               blurLink="/images/Create/DaPerformersCharactererformers-Image-2.png"
               containerClasses="sm:h-[40px] aspect-[1/1]"
             />
@@ -93,6 +99,7 @@ const DaPerformerCharacterCustomizer = () => {
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
+                alt="DaPerformersCharactererformers-2"
                 blurLink="/images/Create/DaPerformersCharactererformers.png"
                 containerClasses="sm:h-[90px] aspect-[1/1]"
               />
@@ -100,6 +107,7 @@ const DaPerformerCharacterCustomizer = () => {
                 <Media
                   type="image"
                   link="/images/Create/10.png"
+                  alt="10"
                   blurLink="/images/Create/10.png"
                   containerClasses="sm:h-[60px] aspect-[1/1]"
                 />
@@ -111,6 +119,7 @@ const DaPerformerCharacterCustomizer = () => {
               type="image"
               link="/images/Create/DaPerformersCharactererformers-Image-3.png"
               blurLink="/images/Create/DaPerformersCharactererformers-Image-3.png"
+              alt="DaPerformersCharactererformers-Image-3"
               containerClasses="sm:h-[40px] aspect-[1/1]"
             />
 
@@ -119,11 +128,13 @@ const DaPerformerCharacterCustomizer = () => {
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
                 blurLink="/images/Create/DaPerformersCharactererformers.png"
+                alt="DaPerformersCharactererformers"
                 containerClasses="sm:h-[90px] aspect-[1/1]"
               />
               <div className="absolute m-auto">
                 <Media
                   type="image"
+                  alt="25"
                   link="/images/Create/25.png"
                   blurLink="/images/Create/25.png"
                   containerClasses="sm:h-[60px] aspect-[1/1]"

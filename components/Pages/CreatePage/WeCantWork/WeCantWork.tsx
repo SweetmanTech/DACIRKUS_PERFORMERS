@@ -1,6 +1,5 @@
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
-import WavyText from "../../../WavyText"
 
 const WeCantWork = () => (
   <div
@@ -12,6 +11,7 @@ const WeCantWork = () => (
       <Media
         type="image"
         link="/images/Create/weCantStackShack.png"
+        alt="weCantStackShack"
         blurLink="/images/Create/weCantStackShack.png"
         containerClasses="xl:w-[240px] sm:h-[70px] aspect-[1/1]"
       />
@@ -21,6 +21,7 @@ const WeCantWork = () => (
         <Media
           type="image"
           link="/images/Create/weCantStackShack-1.png"
+          alt="weCantStackShack-1"
           blurLink="/images/Create/weCantStackShack-1.png"
           containerClasses="xl:w-[170px] aspect-[1/1]"
         />
@@ -30,6 +31,7 @@ const WeCantWork = () => (
           <Media
             type="image"
             link="/images/Create/SoWeAreGoingToPutOnASnow.png"
+            alt="SoWeAreGoingToPutOnASnow"
             blurLink="/images/Create/SoWeAreGoingToPutOnASnow.png"
             containerClasses=" xl:w-[210px] sm:h-[140px]  aspect-[1/1]"
           />
@@ -39,6 +41,7 @@ const WeCantWork = () => (
             <Media
               type="image"
               link="/images/Create/CallingForAllOnPeformarmers.png"
+              alt="CallingForAllOnPeformarmers"
               blurLink="/images/Create/CallingForAllOnPeformarmers.png"
               containerClasses=" xl:w-[190px] sm:h-[170px]   aspect-[1/1]"
             />
@@ -47,6 +50,7 @@ const WeCantWork = () => (
             <Media
               type="image"
               link="/images/Create/CallingForAllOnPeformarmers-Image.png"
+              alt="CallingForAllOnPeformarmers-Image"
               blurLink="/images/Create/CallingForAllOnPeformarmers-Image.png"
               containerClasses=" lg:w-[160px] xl:w-[190px]    aspect-[1/1]"
             />
@@ -59,6 +63,7 @@ const WeCantWork = () => (
         <Media
           type="image"
           link="/images/Create/GetBackToWork-Image.png"
+          alt="GetBackToWork-Image"
           blurLink="/images/Create/GetBackToWork-Image.png"
           containerClasses="sm:h-[160px] aspect-[1/1]"
         />
@@ -67,6 +72,7 @@ const WeCantWork = () => (
         <Media
           type="image"
           link="/images/Create/GetBackToWork.png"
+          alt="GetBackToWork"
           blurLink="/images/Create/GetBackToWork.png"
           containerClasses="sm:h-[200px] aspect-[1/1]"
         />
@@ -78,6 +84,7 @@ const WeCantWork = () => (
           <Media
             type="image"
             link="/images/Create/DaPerformersCharactererformers.png"
+            alt="DaPerformersCharactererformers"
             blurLink="/images/Create/DaPerformersCharactererformers.png"
             containerClasses="sm:h-[90px] aspect-[1/1]"
           />
@@ -85,6 +92,7 @@ const WeCantWork = () => (
             <Media
               type="image"
               link="/images/Create/faq.png"
+              alt="faq"
               blurLink="/images/Create/faq.png"
               containerClasses="sm:h-[70px] aspect-[1/1]"
             />
@@ -96,6 +104,7 @@ const WeCantWork = () => (
           <Media
             type="image"
             link="/images/Create/DaPerformersCharactererformers.png"
+            alt="DaPerformersCharactererformers-2"
             blurLink="/images/Create/DaPerformersCharactererformers.png"
             containerClasses="sm:h-[90px] aspect-[1/1]"
           />
@@ -103,6 +112,7 @@ const WeCantWork = () => (
             <Media
               type="image"
               link="/images/Create/question-mark.png"
+              alt="question-mark"
               blurLink="/images/Create/question-mark.png"
               containerClasses="sm:h-[70px] aspect-[1/1]"
             />
@@ -114,6 +124,7 @@ const WeCantWork = () => (
           <Media
             type="image"
             link="/images/Create/DaPerformersCharactererformers.png"
+            alt="DaPerformersCharactererformers-3"
             blurLink="/images/Create/DaPerformersCharactererformers.png"
             containerClasses="sm:h-[90px] aspect-[1/1]"
           />
@@ -121,6 +132,7 @@ const WeCantWork = () => (
             <Media
               type="image"
               link="/images/Create/tos.png"
+              alt="tos"
               blurLink="/images/Create/tos.png"
               containerClasses="sm:h-[70px] aspect-[1/1]"
             />
