@@ -1,0 +1,3 @@
+import DaPerformerCharacterCustomizer from "./DaPerformerCharacterCustomizer"
+
+export default DaPerformerCharacterCustomizer
