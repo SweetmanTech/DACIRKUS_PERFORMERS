@@ -1,8 +1,5 @@
-import { Contract } from "ethers"
-import { useCallback, useEffect, useMemo, useState } from "react"
-import abi from "../lib/abi/zora-drop.json"
-import getDefaultProvider from "../lib/getDefaultProvider"
-import { CHAIN_ID } from "../lib/consts"
+import { useCallback, useEffect, useState } from "react"
+import getSaleStatus from "@/lib/viem/getSaleStatus"
 
 const useSaleStatus = () => {
   const [presaleActive, setPresaleActive] = useState<any>(null)
@@ -11,10 +8,6 @@ const useSaleStatus = () => {
   const [publicSaleStart, setPublicSaleStart] = useState(0)
   const [publicSalePrice, setPublicSalePrice] = useState("0")
   const [loading, setLoading] = useState(true)
-  const cre8orsContract = useMemo(
-    () => new Contract(process.env.NEXT_PUBLIC_DROP_ADDRESS, abi, getDefaultProvider(CHAIN_ID)),
-    [],
-  )
 
   const initializeStatus = useCallback(async () => {
     setPresaleActive(null)
@@ -23,18 +16,18 @@ const useSaleStatus = () => {
     setPublicSaleActive(0)
 
     setLoading(true)
-    const details = await cre8orsContract.saleDetails()
+    const details = await getSaleStatus() as any
     setPublicSaleActive(details.publicSaleActive)
     setPresaleActive(details.presaleActive)
     setPresaleStart(Math.floor(parseInt(details.presaleStart, 10) / 1000000))
     setPublicSaleStart(Math.floor(parseInt(details.publicSaleStart, 10) / 1000000))
     setPublicSalePrice(details.publicSalePrice.toString())
     setLoading(false)
-  }, [cre8orsContract])
+  }, [])
 
   useEffect(() => {
     initializeStatus()
-  }, [cre8orsContract, initializeStatus])
+  }, [initializeStatus])
 
   return {
     loadingSaleStatus: loading,
