@@ -1,6 +1,6 @@
+import abi from "@/lib/abi/zora-drop.json"
 import { DROP_ADDRESS } from "../consts"
 import { publicClient } from "./publicClients"
-import abi from "@/lib/abi/zora-drop.json"
 
 const getSaleStatus = async () => {
   const response = await publicClient.readContract({

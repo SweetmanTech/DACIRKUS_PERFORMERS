@@ -1,23 +1,22 @@
 import { usePrivy } from "@privy-io/react-auth"
+import useZoraMinByPrivy from "@/hooks/useZoraMintByPrivy"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
 import { useCreate } from "../../../../providers/CreateProvider"
-import useZoraMinByPrivy from "@/hooks/useZoraMintByPrivy"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep } = useCreate()
-  const { authenticated, login, logout } = usePrivy()
+  const { authenticated, login } = usePrivy()
   const { mintWithRewards } = useZoraMinByPrivy()
 
-  const handleMint = () => {
+  const handleMint = async () => {
     if (!authenticated) {
       login()
       return
     }
-    mintWithRewards()
-    return
+    await mintWithRewards()
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
