@@ -3,17 +3,21 @@ import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
 import { useCreate } from "../../../../providers/CreateProvider"
+import useZoraMinByPrivy from "@/hooks/useZoraMintByPrivy"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep } = useCreate()
-  const { authenticated, login } = usePrivy()
+  const { authenticated, login, logout } = usePrivy()
+  const { mintWithRewards } = useZoraMinByPrivy()
 
   const handleMint = () => {
     if (!authenticated) {
       login()
       return
     }
+    mintWithRewards()
+    return
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
