@@ -1,6 +1,7 @@
 import { BigNumber } from "ethers"
 import { UnsignedTransactionRequest, usePrivy } from "@privy-io/react-auth"
 import { Interface } from "ethers/lib/utils"
+import handleTxError from "@/lib/handleTxError"
 
 const usePrivySendTransaction = () => {
   const { sendTransaction: privySendTransaction } = usePrivy()
@@ -38,6 +39,7 @@ const usePrivySendTransaction = () => {
     } catch (error) {
       // eslint-disable-next-line no-console
       console.error(error)
+      handleTxError(error)
       return { error }
     }
   }

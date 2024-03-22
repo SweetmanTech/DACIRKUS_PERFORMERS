@@ -9,6 +9,7 @@ import abi from "@/lib/abi/zora-drop.json"
 import { numberToHex } from "viem"
 import { BigNumber } from "ethers"
 import usePreparePrivyWallet from "./usePrepareWallet"
+import { toast } from "react-toastify"
 
 const useZoraMinByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
@@ -19,8 +20,7 @@ const useZoraMinByPrivy = () => {
 
   const mintWithRewards = async () => {
     try {
-      if (!prepare()) return
-      if (!connectedWallet) return
+      if (!prepare() || !connectedWallet) return {error: true}
       
       setLoading(true)
       const quantity = 1
@@ -42,8 +42,13 @@ const useZoraMinByPrivy = () => {
         "Collect",
       )
 
+      const { error: privyError } = response as any
+      if (privyError) {
+        setLoading(false)
+        return {error: true}
+      }
       setLoading(false)
-
+      toast.success('Collect!')
       return response
     } catch (err) {
       setLoading(false)
