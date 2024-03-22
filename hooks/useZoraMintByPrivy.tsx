@@ -48,7 +48,7 @@ const useZoraMinByPrivy = () => {
         return {error: true}
       }
       setLoading(false)
-      toast.success('Collect!')
+      toast.success('Collected!')
       return response
     } catch (err) {
       setLoading(false)
