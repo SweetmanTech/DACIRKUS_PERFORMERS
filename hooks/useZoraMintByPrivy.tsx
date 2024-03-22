@@ -8,16 +8,20 @@ import { CHAIN_ID, DROP_ADDRESS } from "@/lib/consts"
 import abi from "@/lib/abi/zora-drop.json"
 import { numberToHex } from "viem"
 import { BigNumber } from "ethers"
+import usePreparePrivyWallet from "./usePrepareWallet"
 
 const useZoraMinByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
   const { connectedWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
-
+  const { prepare } = usePreparePrivyWallet()
   const [loading, setLoading] = useState(false)
 
   const mintWithRewards = async () => {
     try {
+      if (!prepare()) return
+      if (!connectedWallet) return
+      
       setLoading(true)
       const quantity = 1
       const zoraFee = await getZoraFee(1) as any
