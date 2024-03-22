@@ -1,3 +1,4 @@
+import { usePrivy } from "@privy-io/react-auth"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -6,8 +7,13 @@ import { useCreate } from "../../../../providers/CreateProvider"
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep } = useCreate()
+  const { authenticated, login } = usePrivy()
 
   const handleMint = () => {
+    if (!authenticated) {
+      login()
+      return
+    }
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
