@@ -3,6 +3,7 @@ import { useMemo } from "react"
 
 const useConnectedWallet = () => {
   const { wallets } = useWallets()
+  console.log("ZIAD WALLETS", wallets)
   const privyWallet = wallets?.find((wallet) => wallet.walletClientType === "privy")
   const externalWallets = useMemo(
     () => wallets?.filter((wallet) => wallet.walletClientType !== "privy"),

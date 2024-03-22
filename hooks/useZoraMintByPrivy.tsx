@@ -24,8 +24,9 @@ const useZoraMinByPrivy = () => {
 
   const mintWithRewards = async () => {
     try {
+      console.log("ZIAD MINT START")
       if (!prepare() || !connectedWallet) return {error: true}
-
+      console.log("ZIAD PASS PRIVY")
       setLoading(true)
       const quantity = 1
       const zoraFee = await getZoraFee(1) as any
@@ -57,6 +58,7 @@ const useZoraMinByPrivy = () => {
         return response
       }
 
+      console.log("ZIAD EXTERNAL WALLET TX START")
       const response = await sendTxByWallet(
         DROP_ADDRESS,
         CHAIN_ID,
@@ -76,7 +78,7 @@ const useZoraMinByPrivy = () => {
     } catch (err) {
       setLoading(false)
       // eslint-disable-next-line no-console
-      console.error(err)
+      console.error(err, "ZIAD", err)
       handleTxError(err)
       return { error: err }
     }
