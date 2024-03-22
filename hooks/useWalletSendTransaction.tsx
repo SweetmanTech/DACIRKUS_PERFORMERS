@@ -16,12 +16,12 @@ const useWalletSendTransaction = () => {
     value = BigNumber.from("0").toHexString(),
     gasLimit = 0,
   ) => {
-    if (!externalWallet) return
+    if (!externalWallet) return {error: true}
     try {
       const privyChainId = externalWallet.chainId
       if (privyChainId !== `eip155:${chainId}`) {
         await externalWallet.switchChain(CHAIN_ID)
-        return
+        return {error: true}
       }
       const contract = new Contract(to, abi, signer)
       if (signer) {
