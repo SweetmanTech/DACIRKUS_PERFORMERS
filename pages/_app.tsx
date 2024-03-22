@@ -9,6 +9,7 @@ import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import { type PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth"
 import { ThemeProvider } from "../providers/ThemeProvider"
+import UserProvider from "@/providers/UserProvider"
 
 const privyConfig: PrivyClientConfig = {
   loginMethods: ["email", "wallet"],
@@ -25,13 +26,15 @@ const privyConfig: PrivyClientConfig = {
 function MyApp({ Component, pageProps }: AppProps) {
   return (
     <PrivyProvider appId={process.env.NEXT_PUBLIC_PRIVY_APP_ID} config={privyConfig}>
-      <ThemeProvider>
-        <SessionProvider>
-          <Component {...pageProps} />
-          <ToastContainer />
-          <Analytics />
-        </SessionProvider>
-      </ThemeProvider>
+      <UserProvider>
+        <ThemeProvider>
+          <SessionProvider>
+            <Component {...pageProps} />
+            <ToastContainer />
+            <Analytics />
+          </SessionProvider>
+        </ThemeProvider>
+      </UserProvider>
     </PrivyProvider>
   )
 }
