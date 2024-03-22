@@ -10,13 +10,17 @@ import { numberToHex } from "viem"
 import { BigNumber } from "ethers"
 import usePreparePrivyWallet from "./usePrepareWallet"
 import { toast } from "react-toastify"
+import { useUserProvider } from "@/providers/UserProvider"
+import useWalletSendTransaction from "./useWalletSendTransaction"
 
 const useZoraMinByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
   const { connectedWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
+  const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
   const { prepare } = usePreparePrivyWallet()
   const [loading, setLoading] = useState(false)
+  const { isLoggedByEmail } = useUserProvider()
 
   const mintWithRewards = async () => {
     try {
@@ -31,24 +35,43 @@ const useZoraMinByPrivy = () => {
       const price = BigNumber.from(publicSalePrice).add(zoraFee[1]).toString()
       const hexValue = numberToHex(BigInt(price))
 
-      const response = await sendTxByPrivy(
+      if (isLoggedByEmail) {
+        const response = await sendTxByPrivy(
+          DROP_ADDRESS,
+          CHAIN_ID,
+          abi,
+          "mintWithRewards",
+          args,
+          hexValue,
+          "Collect",
+          "Collect",
+        )
+  
+        const { error: privyError } = response as any
+        if (privyError) {
+          setLoading(false)
+          return {error: true}
+        }
+        toast.success('Collect!')
+        setLoading(false)
+        return response
+      }
+
+      const response = await sendTxByWallet(
         DROP_ADDRESS,
         CHAIN_ID,
         abi,
         "mintWithRewards",
         args,
         hexValue,
-        "Collect",
-        "Collect",
       )
-
-      const { error: privyError } = response as any
-      if (privyError) {
+      const { error: walletError } = response as any
+      if (walletError) {
         setLoading(false)
         return {error: true}
       }
-      setLoading(false)
       toast.success('Collect!')
+      setLoading(false)
       return response
     } catch (err) {
       setLoading(false)

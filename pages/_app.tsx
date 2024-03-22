@@ -8,8 +8,8 @@ import { SessionProvider } from "next-auth/react"
 import * as React from "react"
 import { Analytics } from "@vercel/analytics/react"
 import { type PrivyClientConfig, PrivyProvider } from "@privy-io/react-auth"
-import { ThemeProvider } from "../providers/ThemeProvider"
 import UserProvider from "@/providers/UserProvider"
+import { ThemeProvider } from "../providers/ThemeProvider"
 
 const privyConfig: PrivyClientConfig = {
   loginMethods: ["email", "wallet"],
