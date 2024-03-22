@@ -31,7 +31,7 @@ const useWalletSendTransaction = () => {
         if (gasLimit) {
           data.gasLimit = gasLimit
         }
-        const tx = await contract[functionName](args, data)
+        const tx = await contract[functionName](...args, data)
         const txHash = tx.wait()
         return txHash
       }

@@ -25,7 +25,7 @@ const useZoraMinByPrivy = () => {
   const mintWithRewards = async () => {
     try {
       if (!prepare() || !connectedWallet) return {error: true}
-      
+
       setLoading(true)
       const quantity = 1
       const zoraFee = await getZoraFee(1) as any
