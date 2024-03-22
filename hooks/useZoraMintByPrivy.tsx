@@ -52,7 +52,7 @@ const useZoraMinByPrivy = () => {
           setLoading(false)
           return {error: true}
         }
-        toast.success('Collect!')
+        toast.success('Collected!')
         setLoading(false)
         return response
       }
@@ -70,8 +70,8 @@ const useZoraMinByPrivy = () => {
         setLoading(false)
         return {error: true}
       }
-      toast.success('Collect!')
       setLoading(false)
+      toast.success('Collected!')
       return response
     } catch (err) {
       setLoading(false)
