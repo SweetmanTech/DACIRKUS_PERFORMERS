@@ -18,7 +18,7 @@ const privyConfig: PrivyClientConfig = {
     logo: "/images/logo.jpg",
   },
   embeddedWallets: {
-    createOnLogin: "all-users",
+    createOnLogin: "users-without-wallets",
   },
 }
 
