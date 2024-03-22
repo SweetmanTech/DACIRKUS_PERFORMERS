@@ -16,7 +16,6 @@ const useWalletSendTransaction = () => {
     value = BigNumber.from("0").toHexString(),
     gasLimit = 0,
   ) => {
-    console.log("ZIAD WALLET TRANSACTION", externalWallet)
     if (!externalWallet) return {error: true}
     try {
       const privyChainId = externalWallet.chainId
@@ -38,7 +37,6 @@ const useWalletSendTransaction = () => {
       }
       return { error: true }
     } catch (error) {
-      console.log("ZIAD WALLET TX ERROR", error)
       console.log(error)
       return { error }
     }
