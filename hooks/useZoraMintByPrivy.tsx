@@ -15,7 +15,7 @@ import useWalletSendTransaction from "./useWalletSendTransaction"
 
 const useZoraMinByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
-  const { connectedWallet } = useConnectedWallet()
+  const { connectedWallet, externalWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
   const { prepare } = usePreparePrivyWallet()
@@ -32,7 +32,7 @@ const useZoraMinByPrivy = () => {
       const zoraFee = await getZoraFee(1) as any
       const comment = "!!!"
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
-      const args = [connectedWallet, quantity, comment, mintReferral]
+      const args = [isLoggedByEmail ? connectedWallet : externalWallet.address, quantity, comment, mintReferral]
       const price = BigNumber.from(publicSalePrice).add(zoraFee[1]).toString()
       const hexValue = numberToHex(BigInt(price))
 
