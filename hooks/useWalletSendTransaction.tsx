@@ -32,8 +32,9 @@ const useWalletSendTransaction = () => {
           data.gasLimit = gasLimit
         }
         const tx = await contract[functionName](...args, data)
-        const txHash = tx.wait()
-        return txHash
+        const receipt = await tx.wait()
+        console.log("ziad", receipt)
+        return receipt
       }
       return { error: true }
     } catch (error) {

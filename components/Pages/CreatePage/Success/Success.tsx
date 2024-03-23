@@ -34,7 +34,7 @@ const Success = () => (
         className="text-white font-slimfit md:text-[38.4px] lg:text-[51.2px] xl:text-[64px] drop-shadow-[2px_2px_2px_rgba(0,0,0,1)] text-right 
       md:pt-[6px] lg:pt-[8px] xl:pt-[10px]"
       >
-        {}
+        
       </p>
       <SelectedAttributes />
       <SuccessButtons />

@@ -46,16 +46,16 @@ const useZoraMinByPrivy = () => {
           hexValue,
           "Collect",
           "Collect",
-        )
+        ) as any
   
-        const { error: privyError } = response as any
+        const { error: privyError } = response
         if (privyError) {
           setLoading(false)
           return {error: true}
         }
         toast.success('Collected!')
         setLoading(false)
-        return response
+        return parseInt(response.logs[3].topics[3], 16)
       } 
 
       const response = await sendTxByWallet(
@@ -73,7 +73,7 @@ const useZoraMinByPrivy = () => {
       }
       setLoading(false)
       toast.success('Collected!')
-      return response
+      return parseInt(response.logs[3].topics[3], 16)
     } catch (err) {
       setLoading(false)
       // eslint-disable-next-line no-console
