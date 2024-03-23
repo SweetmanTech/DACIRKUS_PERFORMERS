@@ -1,3 +1,4 @@
+import SeoHead from "@/components/SeoHead"
 import { STEPS } from "../../../lib/createStep"
 import { useCreate } from "../../../providers/CreateProvider"
 import AnimatedBook from "../../AnimatedBook"
@@ -14,6 +15,7 @@ const CreatePage = () => {
 
   return (
     <Layout type="base">
+      <SeoHead />
       <AnimatedBook>
         {currentStatus === STATUS.OPENED && (
           <>
