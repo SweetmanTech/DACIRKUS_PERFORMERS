@@ -1,11 +1,11 @@
+import { useCreate } from "@/providers/CreateProvider"
 import WavyText from "../../../WavyText"
 import CharacterModel from "../CharacterModel"
 import SelectedAttributes from "../SelectedAttributes"
 import SuccessButtons from "../SuccessButtons"
-import { useCreate } from "@/providers/CreateProvider"
 
 const Success = () => {
-  const {mintedTokenId} = useCreate()
+  const { mintedTokenId } = useCreate()
   return (
     <div className="w-full h-full grid grid-cols-2">
       <div className="relative w-full md:pr-[18px] md:pr-[24px] xl:pr-[30px]">
@@ -37,7 +37,7 @@ const Success = () => {
           className="text-white font-slimfit md:text-[38.4px] lg:text-[51.2px] xl:text-[64px] drop-shadow-[2px_2px_2px_rgba(0,0,0,1)] text-right 
         md:pt-[6px] lg:pt-[8px] xl:pt-[10px]"
         >
-          {mintedTokenId}
+          #{mintedTokenId}
         </p>
         <SelectedAttributes />
         <SuccessButtons />
