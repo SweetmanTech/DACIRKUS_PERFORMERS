@@ -12,6 +12,7 @@ import usePreparePrivyWallet from "./usePrepareWallet"
 import { toast } from "react-toastify"
 import { useUserProvider } from "@/providers/UserProvider"
 import useWalletSendTransaction from "./useWalletSendTransaction"
+import getTokenId from "@/lib/getTokenId"
 
 const useZoraMinByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
@@ -24,8 +25,8 @@ const useZoraMinByPrivy = () => {
 
   const mintWithRewards = async () => {
     try {
-      if (!prepare()) return {error: true}
-      if (!connectedWallet && isLoggedByEmail) return {error: true}
+      if (!prepare()) return { error: true }
+      if (!connectedWallet && isLoggedByEmail) return { error: true }
 
       setLoading(true)
       const quantity = 1
@@ -46,17 +47,17 @@ const useZoraMinByPrivy = () => {
           hexValue,
           "Collect",
           "Collect",
-        )
-  
-        const { error: privyError } = response as any
+        ) as any
+
+        const { error: privyError } = response
         if (privyError) {
           setLoading(false)
-          return {error: true}
+          return { error: true }
         }
         toast.success('Collected!')
         setLoading(false)
-        return response
-      } 
+        return getTokenId(response.logs[3].topics[3])
+      }
 
       const response = await sendTxByWallet(
         DROP_ADDRESS,
@@ -69,11 +70,11 @@ const useZoraMinByPrivy = () => {
       const { error: walletError } = response as any
       if (walletError) {
         setLoading(false)
-        return {error: true}
+        return { error: true }
       }
       setLoading(false)
       toast.success('Collected!')
-      return response
+      return getTokenId(response.logs[3].topics[3])
     } catch (err) {
       setLoading(false)
       // eslint-disable-next-line no-console
