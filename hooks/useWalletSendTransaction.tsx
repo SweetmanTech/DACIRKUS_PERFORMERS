@@ -33,12 +33,10 @@ const useWalletSendTransaction = () => {
         }
         const tx = await contract[functionName](...args, data)
         const receipt = await tx.wait()
-        console.log("ziad", receipt)
         return receipt
       }
       return { error: true }
     } catch (error) {
-      console.log(error)
       return { error }
     }
   }
