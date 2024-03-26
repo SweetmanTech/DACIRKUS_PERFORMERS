@@ -10,46 +10,71 @@ import { numberToHex } from "viem"
 import { BigNumber } from "ethers"
 import usePreparePrivyWallet from "./usePrepareWallet"
 import { toast } from "react-toastify"
+import { useUserProvider } from "@/providers/UserProvider"
+import useWalletSendTransaction from "./useWalletSendTransaction"
+import getTokenId from "@/lib/getTokenId"
 
 const useZoraMinByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
-  const { connectedWallet } = useConnectedWallet()
+  const { connectedWallet, externalWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
+  const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
   const { prepare } = usePreparePrivyWallet()
   const [loading, setLoading] = useState(false)
+  const { isLoggedByEmail } = useUserProvider()
 
   const mintWithRewards = async () => {
     try {
-      if (!prepare() || !connectedWallet) return {error: true}
-      
+      if (!prepare()) return { error: true }
+      if (!connectedWallet && isLoggedByEmail) return { error: true }
+
       setLoading(true)
       const quantity = 1
       const zoraFee = await getZoraFee(1) as any
       const comment = "!!!"
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
-      const args = [connectedWallet, quantity, comment, mintReferral]
+      const args = [isLoggedByEmail ? connectedWallet : externalWallet.address, quantity, comment, mintReferral]
       const price = BigNumber.from(publicSalePrice).add(zoraFee[1]).toString()
       const hexValue = numberToHex(BigInt(price))
 
-      const response = await sendTxByPrivy(
+      if (isLoggedByEmail) {
+        const response = await sendTxByPrivy(
+          DROP_ADDRESS,
+          CHAIN_ID,
+          abi,
+          "mintWithRewards",
+          args,
+          hexValue,
+          "Collect",
+          "Collect",
+        ) as any
+
+        const { error: privyError } = response
+        if (privyError) {
+          setLoading(false)
+          return { error: true }
+        }
+        toast.success('Collected!')
+        setLoading(false)
+        return getTokenId(response.logs[3].topics[3])
+      }
+
+      const response = await sendTxByWallet(
         DROP_ADDRESS,
         CHAIN_ID,
         abi,
         "mintWithRewards",
         args,
         hexValue,
-        "Collect",
-        "Collect",
       )
-
-      const { error: privyError } = response as any
-      if (privyError) {
+      const { error: walletError } = response as any
+      if (walletError) {
         setLoading(false)
-        return {error: true}
+        return { error: true }
       }
       setLoading(false)
       toast.success('Collected!')
-      return response
+      return getTokenId(response.logs[3].topics[3])
     } catch (err) {
       setLoading(false)
       // eslint-disable-next-line no-console

@@ -6,7 +6,7 @@ import { useCreate } from "../../../../providers/CreateProvider"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
-  const { setCurrentStep } = useCreate()
+  const { setCurrentStep, setMintedTokenId } = useCreate()
   const { mintWithRewards, loading } = useZoraMinByPrivy()
 
   const handleMint = async () => {
@@ -15,6 +15,7 @@ const MintButton = () => {
     if (error) {
       return
     }
+    setMintedTokenId(response)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }

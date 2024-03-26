@@ -1,20 +1,16 @@
-import { createContext, useContext, useMemo, useState } from "react"
-import { STEPS } from "../lib/createStep"
+import useCreateData from "@/hooks/useCreateData"
+import { createContext, useContext, useMemo } from "react"
 
 const CreateContext = createContext(null)
 
 const CreateProvider = ({ children }) => {
-  const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
-  const [characterType, setCharacterType] = useState(1)
+  const createData = useCreateData()
 
   const value = useMemo(
     () => ({
-      currentStep,
-      setCurrentStep,
-      characterType,
-      setCharacterType,
+      ...createData,
     }),
-    [currentStep, setCurrentStep, characterType, setCharacterType],
+    [createData],
   )
 
   return <CreateContext.Provider value={value}>{children}</CreateContext.Provider>
