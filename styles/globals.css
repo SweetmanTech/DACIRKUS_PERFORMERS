@@ -30,6 +30,13 @@
     scrollbar-width: none;
   }
 }
+
+:root {
+  --privy-color-accent: #239063 !important;
+  --privy-color-foreground-accent: white !important;
+  --privy-color-accent-dark: var(--privy-color-accent) !important;
+}
+
 html,
 body {
   background-color: #010e17;
@@ -59,7 +66,6 @@ a {
     scroll-padding-right: 2rem;
   }
 }
-
 
 * {
   box-sizing: border-box;
