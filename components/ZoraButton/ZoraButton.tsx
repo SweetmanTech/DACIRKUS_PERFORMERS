@@ -6,7 +6,7 @@ const ZoraButton = () => {
   const { mintedTokenId } = useCreate()
 
   const handleClick = () => {
-    window.open(`${OPENSEA_COLLECTION_URL}${mintedTokenId}`, "_blank")
+    window.open(`${OPENSEA_COLLECTION_URL}/${mintedTokenId}`, "_blank")
   }
 
   return (
