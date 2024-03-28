@@ -6,7 +6,7 @@ const useCreateData = () => {
     const [characterType, setCharacterType] = useState(1)
     const [mintedTokenId, setMintedTokenId] = useState(null)
     return {
-        currentStep,
+      currentStep,
       setCurrentStep,
       characterType,
       setCharacterType,
