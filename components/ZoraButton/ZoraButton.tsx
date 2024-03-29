@@ -1,4 +1,4 @@
-import { DROP_ADDRESS, OPENSEA_COLLECTION_URL } from "@/lib/consts"
+import { OPENSEA_COLLECTION_URL } from "@/lib/consts"
 import { useCreate } from "@/providers/CreateProvider"
 import Zorb from "../Zorb"
 
@@ -16,7 +16,7 @@ const ZoraButton = () => {
                     bg-[#626975] active:bg-[#4e545d] shadow-[inset_0px_-3px_0px_1px_#323840] active:shadow-[inset_none] rounded-[5px]"
       onClick={handleClick}
     >
-      <Zorb address={DROP_ADDRESS} width={30} height={30} />
+      <Zorb width={45} height={45} />
     </button>
   )
 }
