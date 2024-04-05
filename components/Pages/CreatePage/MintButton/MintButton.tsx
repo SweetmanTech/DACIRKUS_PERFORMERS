@@ -1,4 +1,4 @@
-import useZoraMinByPrivy from "@/hooks/useZoraMintByPrivy"
+import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -7,7 +7,7 @@ import { useCreate } from "../../../../providers/CreateProvider"
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { mintWithRewards, loading } = useZoraMinByPrivy()
+  const { mintWithRewards, loading } = useZoraMintByPrivy()
 
   const handleMint = async () => {
     const response = (await mintWithRewards()) as any

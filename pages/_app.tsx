@@ -12,7 +12,7 @@ import UserProvider from "@/providers/UserProvider"
 import { ThemeProvider } from "../providers/ThemeProvider"
 
 const privyConfig: PrivyClientConfig = {
-  loginMethods: ["email", "wallet"],
+  loginMethods: ["email"],
   appearance: {
     theme: "dark",
     accentColor: "#FFFFFF",
