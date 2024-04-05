@@ -33,8 +33,15 @@ const useZoraMintByPrivy = () => {
       const zoraFee = (await getZoraFee(1)) as any
       const comment = "!!!"
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
+      console.log("SWEETS mintReferral", mintReferral)
+      console.log("SWEETS externalWallet.address", externalWallet?.address)
+      console.log(
+        "SWEETS isLoggedByEmail ? connectedWallet : externalWallet.address",
+        isLoggedByEmail ? connectedWallet : externalWallet?.address,
+      )
+
       const args = [
-        isLoggedByEmail ? connectedWallet : externalWallet.address,
+        isLoggedByEmail ? connectedWallet : externalWallet?.address,
         quantity,
         comment,
         mintReferral,
