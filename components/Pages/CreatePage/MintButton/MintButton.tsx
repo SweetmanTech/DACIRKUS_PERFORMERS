@@ -24,7 +24,6 @@ const MintButton = () => {
   const { prepare } = usePreparePrivyWallet(mint)
 
   const handleMint = async () => {
-    // logout()
     const isPrepared = await prepare()
     if (!isPrepared) return
     mint()
