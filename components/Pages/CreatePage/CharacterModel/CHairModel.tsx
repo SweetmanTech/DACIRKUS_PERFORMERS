@@ -16,6 +16,9 @@ const CHairModel = () => {
         blurLink={`/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`}
         containerClasses="md:w-[270px] lg:w-[360px] xl:w-[450px] aspect-[192/1152] 
         md:translate-y-[-369px] lg:translate-y-[-492px] xl:translate-y-[-615px]"
+        containerStyle={{
+          imageRendering: "pixelated",
+        }}
       />
     </div>
   )
