@@ -23,7 +23,7 @@ const useZoraMintByPrivy = () => {
   const { prepare } = usePreparePrivyWallet()
   const [loading, setLoading] = useState(false)
   const { isLoggedByEmail } = useUserProvider()
-  const { login } = usePrivy()
+  const { logout } = usePrivy()
 
   const mintWithRewards = async () => {
     try {
@@ -31,7 +31,8 @@ const useZoraMintByPrivy = () => {
       if (!connectedWallet && isLoggedByEmail) return { error: true }
       if (!externalWallet?.address && !isLoggedByEmail) {
         console.log("SWEETS ISAIAH???")
-        await login()
+        await logout()
+        toast.error("Logged out expired session. Please try again.")
         return { error: true }
       }
 
