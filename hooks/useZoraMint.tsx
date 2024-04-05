@@ -17,7 +17,7 @@ const useZoraMint = () => {
   const { openConnectModal } = useConnectModal()
   const mintWithRewards = async () => {
     try {
-      if (!isConnected || !address) {
+      if (!(isConnected && address)) {
         openConnectModal()
         return false
       }
