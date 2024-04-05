@@ -14,7 +14,7 @@ import { useUserProvider } from "@/providers/UserProvider"
 import useWalletSendTransaction from "./useWalletSendTransaction"
 import getTokenId from "@/lib/getTokenId"
 
-const useZoraMinByPrivy = () => {
+const useZoraMintByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
   const { connectedWallet, externalWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
@@ -30,15 +30,20 @@ const useZoraMinByPrivy = () => {
 
       setLoading(true)
       const quantity = 1
-      const zoraFee = await getZoraFee(1) as any
+      const zoraFee = (await getZoraFee(1)) as any
       const comment = "!!!"
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
-      const args = [isLoggedByEmail ? connectedWallet : externalWallet.address, quantity, comment, mintReferral]
+      const args = [
+        isLoggedByEmail ? connectedWallet : externalWallet.address,
+        quantity,
+        comment,
+        mintReferral,
+      ]
       const price = BigNumber.from(publicSalePrice).add(zoraFee[1]).toString()
       const hexValue = numberToHex(BigInt(price))
 
       if (isLoggedByEmail) {
-        const response = await sendTxByPrivy(
+        const response = (await sendTxByPrivy(
           DROP_ADDRESS,
           CHAIN_ID,
           abi,
@@ -47,14 +52,14 @@ const useZoraMinByPrivy = () => {
           hexValue,
           "Collect",
           "Collect",
-        ) as any
+        )) as any
 
         const { error: privyError } = response
         if (privyError) {
           setLoading(false)
           return { error: true }
         }
-        toast.success('Collected!')
+        toast.success("Collected!")
         setLoading(false)
         return getTokenId(response.logs[3].topics[3])
       }
@@ -73,7 +78,7 @@ const useZoraMinByPrivy = () => {
         return { error: true }
       }
       setLoading(false)
-      toast.success('Collected!')
+      toast.success("Collected!")
       return getTokenId(response.logs[3].topics[3])
     } catch (err) {
       setLoading(false)
@@ -87,4 +92,4 @@ const useZoraMinByPrivy = () => {
   return { mintWithRewards, loading }
 }
 
-export default useZoraMinByPrivy
+export default useZoraMintByPrivy
