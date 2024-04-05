@@ -1,11 +1,13 @@
-import { usePrivy } from "@privy-io/react-auth"
+import { useLogin, usePrivy } from "@privy-io/react-auth"
 
-const usePreparePrivyWallet = () => {
-  const { user, login, authenticated } = usePrivy()
+// eslint-disable-next-line no-console
+const usePreparePrivyWallet = (onComplete: any = () => console.log) => {
+  const { user, authenticated } = usePrivy()
+  const { login } = useLogin({ onComplete })
 
-  const prepare = () => {
+  const prepare = async () => {
     if (!user || !authenticated) {
-      login()
+      await login()
       return false
     }
     return true
