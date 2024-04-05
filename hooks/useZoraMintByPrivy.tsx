@@ -1,38 +1,33 @@
 import handleTxError from "@/lib/handleTxError"
-import useSaleStatus from "./useSaleStatus"
 import { useState } from "react"
 import getZoraFee from "@/lib/viem/getZoraFee"
-import useConnectedWallet from "./useConnectedWallet"
-import usePrivySendTransaction from "./usePrivySendTransaction"
 import { CHAIN_ID, DROP_ADDRESS } from "@/lib/consts"
 import abi from "@/lib/abi/zora-drop.json"
 import { numberToHex } from "viem"
 import { BigNumber } from "ethers"
-import usePreparePrivyWallet from "./usePrepareWallet"
 import { toast } from "react-toastify"
 import { useUserProvider } from "@/providers/UserProvider"
-import useWalletSendTransaction from "./useWalletSendTransaction"
 import getTokenId from "@/lib/getTokenId"
 import { usePrivy } from "@privy-io/react-auth"
+import useConnectedWallet from "./useConnectedWallet"
+import usePrivySendTransaction from "./usePrivySendTransaction"
+import useSaleStatus from "./useSaleStatus"
+import useWalletSendTransaction from "./useWalletSendTransaction"
 
 const useZoraMintByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
   const { connectedWallet, externalWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
-  const { prepare } = usePreparePrivyWallet()
   const [loading, setLoading] = useState(false)
   const { isLoggedByEmail } = useUserProvider()
   const { logout } = usePrivy()
 
   const mintWithRewards = async () => {
     try {
-      if (!prepare()) return { error: true }
       if (!connectedWallet && isLoggedByEmail) return { error: true }
       if (!externalWallet?.address && !isLoggedByEmail) {
-        console.log("SWEETS ISAIAH???")
         await logout()
-        toast.error("Logged out expired session. Please try again.")
         return { error: true }
       }
 
@@ -41,13 +36,6 @@ const useZoraMintByPrivy = () => {
       const zoraFee = (await getZoraFee(1)) as any
       const comment = "!!!"
       const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
-      console.log("SWEETS mintReferral", mintReferral)
-      console.log("SWEETS externalWallet.address", externalWallet?.address)
-      console.log(
-        "SWEETS isLoggedByEmail ? connectedWallet : externalWallet.address",
-        isLoggedByEmail ? connectedWallet : externalWallet?.address,
-      )
-
       const args = [
         isLoggedByEmail ? connectedWallet : externalWallet?.address,
         quantity,

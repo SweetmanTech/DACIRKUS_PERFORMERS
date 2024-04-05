@@ -1,15 +1,18 @@
 import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
-import { STATUS } from "../../../../lib/bookStatus"
-import { STEPS } from "../../../../lib/createStep"
-import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
-import { useCreate } from "../../../../providers/CreateProvider"
+import { STATUS } from "@/lib/bookStatus"
+import { STEPS } from "@/lib/createStep"
+import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
+import { useCreate } from "@/providers/CreateProvider"
+import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
+import { useLogout } from "@privy-io/react-auth"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
   const { mintWithRewards, loading } = useZoraMintByPrivy()
+  const { logout } = useLogout()
 
-  const handleMint = async () => {
+  const mint = async () => {
     const response = (await mintWithRewards()) as any
     const { error } = response
     if (error) {
@@ -18,6 +21,15 @@ const MintButton = () => {
     setMintedTokenId(response)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
+  }
+
+  const { prepare } = usePreparePrivyWallet(mint)
+
+  const handleMint = async () => {
+    // logout()
+    const isPrepared = await prepare()
+    if (!isPrepared) return
+    mint()
   }
 
   return (
