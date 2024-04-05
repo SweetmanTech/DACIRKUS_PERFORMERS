@@ -1,10 +1,10 @@
 import { usePrivy } from "@privy-io/react-auth"
 
 const usePreparePrivyWallet = () => {
-  const { ready, user, login, authenticated } = usePrivy()
+  const { user, login, authenticated } = usePrivy()
 
   const prepare = () => {
-    if (!user && ready && !authenticated) {
+    if (!user || !authenticated) {
       login()
       return false
     }
