@@ -2,13 +2,13 @@ import { BigNumber, Contract } from "ethers"
 import { useAccount } from "wagmi"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { toast } from "react-toastify"
+import { usePrivy } from "@privy-io/react-auth"
 import abi from "../lib/abi/zora-drop.json"
 import { useEthersSigner } from "./useEthersSigner"
 import handleTxError from "../lib/handleTxError"
 import useCheckNetwork from "./useCheckNetwork"
 import useSaleStatus from "./useSaleStatus"
 import { CHAIN_ID } from "../lib/consts"
-import { usePrivy } from "@privy-io/react-auth"
 
 const useZoraMint = () => {
   const signer = useEthersSigner({ chainId: CHAIN_ID })
