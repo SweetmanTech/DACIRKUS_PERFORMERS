@@ -8,16 +8,18 @@ import handleTxError from "../lib/handleTxError"
 import useCheckNetwork from "./useCheckNetwork"
 import useSaleStatus from "./useSaleStatus"
 import { CHAIN_ID } from "../lib/consts"
+import { usePrivy } from "@privy-io/react-auth"
 
 const useZoraMint = () => {
   const signer = useEthersSigner({ chainId: CHAIN_ID })
   const { publicSalePrice } = useSaleStatus()
   const { checkNetwork } = useCheckNetwork()
   const { isConnected, address } = useAccount()
+  const { authenticated } = usePrivy()
   const { openConnectModal } = useConnectModal()
   const mintWithRewards = async () => {
     try {
-      if (!(isConnected && address)) {
+      if (!(isConnected && authenticated)) {
         openConnectModal()
         return false
       }
