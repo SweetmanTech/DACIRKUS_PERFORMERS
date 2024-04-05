@@ -4,13 +4,11 @@ import { STEPS } from "@/lib/createStep"
 import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { useCreate } from "@/providers/CreateProvider"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
-import { useLogout } from "@privy-io/react-auth"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
   const { mintWithRewards, loading } = useZoraMintByPrivy()
-  const { logout } = useLogout()
 
   const mint = async () => {
     const response = (await mintWithRewards()) as any
