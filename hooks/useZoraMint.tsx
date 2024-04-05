@@ -2,6 +2,7 @@ import { BigNumber, Contract } from "ethers"
 import { useAccount } from "wagmi"
 import { useConnectModal } from "@rainbow-me/rainbowkit"
 import { toast } from "react-toastify"
+import { usePrivy } from "@privy-io/react-auth"
 import abi from "../lib/abi/zora-drop.json"
 import { useEthersSigner } from "./useEthersSigner"
 import handleTxError from "../lib/handleTxError"
@@ -14,10 +15,11 @@ const useZoraMint = () => {
   const { publicSalePrice } = useSaleStatus()
   const { checkNetwork } = useCheckNetwork()
   const { isConnected, address } = useAccount()
+  const { authenticated } = usePrivy()
   const { openConnectModal } = useConnectModal()
   const mintWithRewards = async () => {
     try {
-      if (!(isConnected && address)) {
+      if (!(isConnected && authenticated)) {
         openConnectModal()
         return false
       }
