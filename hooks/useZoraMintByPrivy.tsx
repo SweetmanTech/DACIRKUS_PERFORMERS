@@ -13,6 +13,7 @@ import { toast } from "react-toastify"
 import { useUserProvider } from "@/providers/UserProvider"
 import useWalletSendTransaction from "./useWalletSendTransaction"
 import getTokenId from "@/lib/getTokenId"
+import { usePrivy } from "@privy-io/react-auth"
 
 const useZoraMintByPrivy = () => {
   const { publicSalePrice } = useSaleStatus()
@@ -22,11 +23,17 @@ const useZoraMintByPrivy = () => {
   const { prepare } = usePreparePrivyWallet()
   const [loading, setLoading] = useState(false)
   const { isLoggedByEmail } = useUserProvider()
+  const { login } = usePrivy()
 
   const mintWithRewards = async () => {
     try {
       if (!prepare()) return { error: true }
       if (!connectedWallet && isLoggedByEmail) return { error: true }
+      if (!externalWallet?.address && !isLoggedByEmail) {
+        console.log("SWEETS ISAIAH???")
+        await login()
+        return { error: true }
+      }
 
       setLoading(true)
       const quantity = 1
