@@ -1,6 +1,9 @@
-import { useState } from "react"
+import { useRef, useState } from "react"
 import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../lib/character"
 import getRandomInt from "../lib/getRandomInt"
+import domtoimage from 'dom-to-image';
+import { uploadToIpfs } from "@/lib/ipfs";
+import handleTxError from "@/lib/handleTxError";
 
 const useCharacterData = () => {
   const [cType, setCType] = useState(0)
@@ -10,6 +13,7 @@ const useCharacterData = () => {
   const [cColor, setCColor] = useState(0)
   const [cOutFit, setCOutFit] = useState(0)
   const [cSkin, setCSkin] = useState(0)
+  const characterRef = useRef()
 
   const randomeAttr = () => {
     randomCType()
@@ -105,6 +109,18 @@ const useCharacterData = () => {
     setCSkin(cSkin === 0 ? CSKINS.length - 1 : cSkin - 1)
   }
 
+  const uploadCharacter = async () => {
+    if (!characterRef?.current) return false
+    try {
+      const blob = await domtoimage.toBlob(characterRef.current)
+      const ipfsCid = await uploadToIpfs(blob)
+      return ipfsCid
+    } catch(error) {
+      handleTxError(error)
+      return false
+    }
+  }
+
   return {
     cType,
     cAcc,
@@ -135,6 +151,8 @@ const useCharacterData = () => {
     prevCSkin,
     nextCSkin,
     randomeAttr,
+    characterRef,
+    uploadCharacter
   }
 }
 

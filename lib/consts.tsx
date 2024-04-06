@@ -15,3 +15,4 @@ export const DROP_ADDRESS = process.env.NEXT_PUBLIC_DROP_ADDRESS
 export const OPENSEA_COLLECTION_URL = `https://${IS_TESTNET && "testnets."}opensea.io/assets/${
   IS_TESTNET ? "base-sepolia" : "base"
 }/${DROP_ADDRESS}`
+export const DOMAIN_URL = "http://localhost:3000"

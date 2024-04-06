@@ -4,11 +4,19 @@ import { STEPS } from "@/lib/createStep"
 import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { useCreate } from "@/providers/CreateProvider"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
+import { useCharacter } from "@/providers/CharacterProvider"
+import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import getIpfsLink from "@/lib/getIpfsLink"
+import getAttributes from "@/lib/getAttributes"
+import updateSpritesheet from "@/lib/updateSpritesheet"
+import { useState } from "react"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { mintWithRewards, loading } = useZoraMintByPrivy()
+  const { uploadCharacter, cType, cAcc, cEye, cHair, cColor, cOutFit, cSkin } = useCharacter()
+  const { mintWithRewards } = useZoraMintByPrivy()
+  const [loading, setLoading] = useState(false)
 
   const mint = async () => {
     const response = (await mintWithRewards()) as any
@@ -17,6 +25,24 @@ const MintButton = () => {
       return
     }
     setMintedTokenId(response)
+    const imgCid = await uploadCharacter()
+    const image = getIpfsLink(`ipfs://${imgCid}`)
+    const type = CTYPES[cType]
+    const skin = CSKINS[cSkin]
+    const acc = CACCS[cAcc]
+    const eye = CEYES[cEye]
+    const hair = CHAIRS[cHair]
+    const color = CCOLORS[cColor]
+    const outfit = COUTFITS[cOutFit]
+    const tokenData = {
+      image,
+      attributes: getAttributes(type, skin, acc, eye, hair, color, outfit),
+      tokenId: response,
+      description: `PFP: ${image}`,
+      name: `Performer #${response}`,
+    }
+
+    await updateSpritesheet(tokenData)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
@@ -24,9 +50,14 @@ const MintButton = () => {
   const { prepare } = usePreparePrivyWallet(mint)
 
   const handleMint = async () => {
+    setLoading(true)
     const isPrepared = await prepare()
-    if (!isPrepared) return
-    mint()
+    if (!isPrepared) {
+      setLoading(false)
+      return
+    }
+    await mint()
+    setLoading(false)
   }
 
   return (

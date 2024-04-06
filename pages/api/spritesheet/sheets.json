@@ -1,0 +1,17 @@
+[
+  {
+    "image": "https://nftstorage.link/ipfs/bafkreiaxip4g6lwb6ry34cguczqc2byxzq32hku4sj7ce7ebnmx2dyxxce",
+    "attributes": [
+      { "value": "ClownF", "trait_type": "Type" },
+      { "value": "Mixed", "trait_type": "Skin" },
+      { "value": "gold teeth", "trait_type": "Acc." },
+      { "value": "white", "trait_type": "Eye" },
+      { "value": "curly", "trait_type": "Hair" },
+      { "value": "brown", "trait_type": "Color" },
+      { "value": "OrangeGeneric", "trait_type": "Outfit" }
+    ],
+    "tokenId": 40,
+    "description": "PFP: https://nftstorage.link/ipfs/bafkreiaxip4g6lwb6ry34cguczqc2byxzq32hku4sj7ce7ebnmx2dyxxce",
+    "name": "Performer #40"
+  }
+]
