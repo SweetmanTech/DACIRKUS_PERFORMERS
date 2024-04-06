@@ -8,7 +8,7 @@ const AttributeSelect = () => {
   const { randomeAttr } = useCharacter()
 
   useEffect(() => {
-    // randomeAttr()
+    randomeAttr()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
