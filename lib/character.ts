@@ -52,6 +52,7 @@ export const CEYES = [
 
 export const CHAIRS = [
   "afro",
+  "bald",
   "buzz",
   "curly",
   "dread",

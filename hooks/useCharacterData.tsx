@@ -3,7 +3,7 @@ import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../lib/
 import getRandomInt from "../lib/getRandomInt"
 
 const useCharacterData = () => {
-    const [cType, setCType] = useState(0)
+  const [cType, setCType] = useState(0)
   const [cAcc, setCAcc] = useState(0)
   const [cEye, setCEye] = useState(0)
   const [cHair, setCHair] = useState(0)
