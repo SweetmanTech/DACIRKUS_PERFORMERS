@@ -19,7 +19,6 @@ const useZoraMintByPrivy = () => {
   const { connectedWallet, externalWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
-  const [loading, setLoading] = useState(false)
   const { isLoggedByEmail } = useUserProvider()
   const { logout } = usePrivy()
 
@@ -31,7 +30,6 @@ const useZoraMintByPrivy = () => {
         return { error: true }
       }
 
-      setLoading(true)
       const quantity = 1
       const zoraFee = (await getZoraFee(1)) as any
       const comment = "!!!"
@@ -59,11 +57,9 @@ const useZoraMintByPrivy = () => {
 
         const { error: privyError } = response
         if (privyError) {
-          setLoading(false)
           return { error: true }
         }
         toast.success("Collected!")
-        setLoading(false)
         return getTokenId(response.logs[3].topics[3])
       }
 
@@ -77,14 +73,11 @@ const useZoraMintByPrivy = () => {
       )
       const { error: walletError } = response as any
       if (walletError) {
-        setLoading(false)
         return { error: true }
       }
-      setLoading(false)
       toast.success("Collected!")
       return getTokenId(response.logs[3].topics[3])
     } catch (err) {
-      setLoading(false)
       // eslint-disable-next-line no-console
       console.error(err)
       handleTxError(err)
@@ -92,7 +85,7 @@ const useZoraMintByPrivy = () => {
     }
   }
 
-  return { mintWithRewards, loading }
+  return { mintWithRewards }
 }
 
 export default useZoraMintByPrivy
