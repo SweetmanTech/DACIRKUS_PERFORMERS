@@ -5,7 +5,7 @@ import CharacterModel from "../CharacterModel"
 import MenuButtons from "../MenuButtons"
 
 const AttributeSelect = () => {
-  const { randomeAttr, characterRef } = useCharacter()
+  const { randomeAttr } = useCharacter()
 
   useEffect(() => {
     randomeAttr()
@@ -21,7 +21,7 @@ const AttributeSelect = () => {
         <AttributeButtons />
         <MenuButtons />
       </div>
-      <div className="relative w-full md:pr-[18px] md:pr-[24px] xl:pr-[30px]" ref={characterRef}>
+      <div className="relative w-full md:pr-[18px] md:pr-[24px] xl:pr-[30px]">
         <div className="relative w-full h-full md:ml-[-30px] lg:ml-[-40px] xl:ml-[-50px] ">
           <div className="relative w-full h-full overflow-hidden">
             <div
