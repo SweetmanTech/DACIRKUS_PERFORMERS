@@ -1,4 +1,4 @@
-/* eslint-disable */
+/* eslint-disable @next/next/no-img-element */
 import { DOMAIN_URL } from "@/lib/consts"
 import { CEYES, CSKINS, CTYPES, CACCS, CCOLORS, CHAIRS, COUTFITS } from "@/lib/character"
 

@@ -1,9 +1,9 @@
 import { ImageResponse } from "@vercel/og"
-import { NextRequest } from "next/server"
-import IpfsImage from "@/components/OgImages/IpfsImage"
+import { NextRequest, NextResponse } from "next/server"
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import CharacterModel from "@/components/OgImages/CharacterModel"
-import sheets from "../spritesheet/sheets.json"
+import tokenMinted from "@/lib/tokenMinted"
+import { DROP_ADDRESS } from "@/lib/consts"
 
 export const config = {
   runtime: "experimental-edge",
@@ -14,17 +14,15 @@ export default async function handler(req: NextRequest) {
   const queryParams = req.nextUrl.searchParams
   const tokenId: any = queryParams.get("tokenId")
 
-  const tokenSheets = sheets.filter((data) => data.tokenId === parseInt(tokenId, 10))
-  const tokenSheet: any = tokenSheets?.length > 0 ? tokenSheets[0] : null
+  const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
+  if (!isMinted) return NextResponse.json({ message: "Not minted yet!" })
 
   const [type, skin, acc, eye, hair, color, outfit] = getDeterministricAttributes(
     parseInt(tokenId, 10),
   )
 
   return new ImageResponse(
-    tokenSheet?.image ? (
-      <IpfsImage ipfs={tokenSheet.image} />
-    ) : (
+    (
       <CharacterModel
         type={type}
         skin={skin}
