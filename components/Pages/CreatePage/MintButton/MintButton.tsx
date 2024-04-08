@@ -4,11 +4,13 @@ import { STEPS } from "@/lib/createStep"
 import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { useCreate } from "@/providers/CreateProvider"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
+import { useState } from "react"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { mintWithRewards, loading } = useZoraMintByPrivy()
+  const { mintWithRewards } = useZoraMintByPrivy()
+  const [loading, setLoading] = useState(false)
 
   const mint = async () => {
     const response = (await mintWithRewards()) as any
@@ -24,9 +26,14 @@ const MintButton = () => {
   const { prepare } = usePreparePrivyWallet(mint)
 
   const handleMint = async () => {
+    setLoading(true)
     const isPrepared = await prepare()
-    if (!isPrepared) return
-    mint()
+    if (!isPrepared) {
+      setLoading(false)
+      return
+    }
+    await mint()
+    setLoading(false)
   }
 
   return (

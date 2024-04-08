@@ -53,7 +53,8 @@ export const CEYES = [
 export const CHAIRS = [
   "afro",
   "bald",
-  "kbuzz",
+  "buzz",
+  "curly",
   "dread",
   "fade",
   "horn",
@@ -77,7 +78,7 @@ export const CCOLORS = [
 ]
 
 export const COUTFITS = [
-  "Black Overall",
+  "BlackOverall",
   "BlackGeneric",
   "BlackSuit",
   "BlueGeneric",
