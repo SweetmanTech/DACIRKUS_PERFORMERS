@@ -10,9 +10,7 @@ const tokenMinted = async (contractAddress: string, tokenId: string) => {
   })) as string
   const totalSupply = response.toString()
 
-  if (parseInt(tokenId, 10) > parseInt(totalSupply, 10)) return false
-
-  return true
+  return parseInt(tokenId, 10) > parseInt(totalSupply, 10)
 }
 
 export default tokenMinted

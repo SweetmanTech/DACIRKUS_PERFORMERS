@@ -1,4 +1,5 @@
-/* eslint-disable */
+/* eslint-disable no-param-reassign */
+/* eslint-disable no-plusplus */
 import hashJs from "hash.js"
 import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "./character"
 
@@ -7,7 +8,7 @@ const maxTokenID = 10000
 const generateSequence = (length: number) => Array.from({ length }, (_, index) => index + 1)
 
 const deterministicShuffle = (array: Array<number>, seed: string) => {
-  for (let i = array.length - 1; i > 0; i--) {
+  for (let i = 1; i <= array.length - 1; i++) {
     const hash = hashJs
       .sha256()
       .update(seed + String(i))

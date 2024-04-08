@@ -34,7 +34,7 @@ export default async function handler(req: NextRequest) {
       />
     ),
     {
-      width: 396,
+      width: 480,
       height: 480,
     },
   )
