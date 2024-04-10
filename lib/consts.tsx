@@ -17,4 +17,4 @@ export const OPENSEA_COLLECTION_URL = `https://${IS_TESTNET && "testnets."}opens
 }/${DROP_ADDRESS}`
 export const DOMAIN_URL = "https://daperformers.com"
 export const COMMENT = "!!!"
-export const MINT_REFERRAL = process.env.NEXT_PUBLIC_MINT_REFERRAL;
+export const MINT_REFERRAL = process.env.NEXT_PUBLIC_MINT_REFERRAL
