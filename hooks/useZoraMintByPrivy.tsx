@@ -1,7 +1,7 @@
 import handleTxError from "@/lib/handleTxError"
 import { useState } from "react"
 import getZoraFee from "@/lib/viem/getZoraFee"
-import { CHAIN_ID, DROP_ADDRESS } from "@/lib/consts"
+import { CHAIN_ID, COMMENT, DROP_ADDRESS, MINT_REFERRAL } from "@/lib/consts"
 import abi from "@/lib/abi/zora-drop.json"
 import { numberToHex } from "viem"
 import { BigNumber } from "ethers"
@@ -22,7 +22,7 @@ const useZoraMintByPrivy = () => {
   const { isLoggedByEmail } = useUserProvider()
   const { logout } = usePrivy()
 
-  const mintWithRewards = async () => {
+  const mintWithRewards = async (quantity = 1) => {
     try {
       if (!connectedWallet && isLoggedByEmail) return { error: true }
       if (!externalWallet?.address && !isLoggedByEmail) {
@@ -30,18 +30,16 @@ const useZoraMintByPrivy = () => {
         return { error: true }
       }
 
-      const quantity = 1
-      const zoraFee = (await getZoraFee(1)) as any
-      const comment = "!!!"
-      const mintReferral = process.env.NEXT_PUBLIC_MINT_REFERRAL
+      const zoraFee = (await getZoraFee(quantity)) as any
       const args = [
         isLoggedByEmail ? connectedWallet : externalWallet?.address,
         quantity,
-        comment,
-        mintReferral,
+        COMMENT,
+        MINT_REFERRAL,
       ]
-      const price = BigNumber.from(publicSalePrice).add(zoraFee[1]).toString()
-      const hexValue = numberToHex(BigInt(price))
+      const price = BigNumber.from(publicSalePrice).mul(quantity)
+      const totalPrice = price.add(zoraFee[1]).toString()
+      const hexValue = numberToHex(BigInt(totalPrice))
 
       if (isLoggedByEmail) {
         const response = (await sendTxByPrivy(

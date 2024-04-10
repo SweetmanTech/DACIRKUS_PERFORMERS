@@ -1,3 +1,4 @@
+import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -9,15 +10,21 @@ import Media from "../../../../shared/Media"
 const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep } = useCreate()
-  const { randomeAttr } = useCharacter()
+  const { randomAttr } = useCharacter()
+  const { mintWithRewards } = useZoraMintByPrivy()
 
   const selectCustom = () => {
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SELECT_CHARACTER)
   }
 
-  const selectRandom = () => {
-    randomeAttr()
+  const mintMultiple = async (quantity) => {
+    randomAttr()
+    const response = (await mintWithRewards(quantity)) as any
+    const { error } = response
+    if (error) {
+      return
+    }
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
@@ -67,7 +74,7 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={selectRandom}>
+            <Button className="relative mt-2" onClick={() => mintMultiple(5)}>
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -95,7 +102,7 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={selectRandom}>
+            <Button className="relative mt-2" onClick={() => mintMultiple(10)}>
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -123,7 +130,7 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={selectRandom}>
+            <Button className="relative mt-2" onClick={() => mintMultiple(25)}>
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"

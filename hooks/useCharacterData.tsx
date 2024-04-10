@@ -11,7 +11,7 @@ const useCharacterData = () => {
   const [cOutFit, setCOutFit] = useState(0)
   const [cSkin, setCSkin] = useState(0)
 
-  const randomeAttr = () => {
+  const randomAttr = () => {
     randomCType()
     randomCAcc()
     randomCEye()
@@ -134,7 +134,7 @@ const useCharacterData = () => {
     randomCSkin,
     prevCSkin,
     nextCSkin,
-    randomeAttr,
+    randomAttr,
   }
 }
 
