@@ -7,6 +7,7 @@ interface IMedia {
   posterLink?: string
   containerStyle?: CSSProperties
   containerClasses?: string
+  imageClasses?: string
   className?: string
   videoProps?: DetailedHTMLProps<VideoHTMLAttributes<HTMLVideoElement>, HTMLVideoElement>
   blurLink?: string
@@ -20,6 +21,7 @@ function Media({
   type,
   link,
   containerClasses,
+  imageClasses = "",
   containerStyle,
   blurLink,
   alt,
@@ -31,7 +33,7 @@ function Media({
     <div className={`relative ${containerClasses || ""}`} style={containerStyle || {}}>
       {type === "image" && link && (
         <Image
-          className="absolute !w-full object-contain"
+          className={`absolute !w-full object-contain ${imageClasses}`}
           src={link}
           layout={layout}
           alt={alt || "not found image"}
