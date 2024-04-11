@@ -76,8 +76,6 @@ const useZoraMintByPrivy = () => {
       toast.success("Collected!")
       return getTokenId(response.logs[3].topics[3])
     } catch (err) {
-      // eslint-disable-next-line no-console
-      console.error(err)
       handleTxError(err)
       return { error: err }
     }

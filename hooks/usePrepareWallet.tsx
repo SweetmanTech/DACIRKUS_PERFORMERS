@@ -7,7 +7,7 @@ const usePreparePrivyWallet = (onComplete: any = () => console.log) => {
 
   const prepare = async () => {
     if (!user || !authenticated) {
-      await login()
+      login()
       return false
     }
     return true
