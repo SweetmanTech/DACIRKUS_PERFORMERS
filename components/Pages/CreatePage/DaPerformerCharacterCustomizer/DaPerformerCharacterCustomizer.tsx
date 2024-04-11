@@ -1,4 +1,6 @@
 import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
+import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
+import { useState } from "react"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -10,8 +12,10 @@ import Media from "../../../../shared/Media"
 const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep } = useCreate()
-  const { randomAttr } = useCharacter()
+  const { randomAttr, setDummyRandom } = useCharacter()
   const { mintWithRewards } = useZoraMintByPrivy()
+  const [loading, setLoading] = useState(false)
+  const { prepare } = usePreparePrivyWallet()
 
   const selectCustom = () => {
     setCurrentStatus(STATUS.LEFTFLIP)
@@ -19,15 +23,28 @@ const DaPerformerCharacterCustomizer = () => {
   }
 
   const mintMultiple = async (quantity) => {
-    randomAttr()
+    const randomAttributes = randomAttr(quantity)
+    setDummyRandom(randomAttributes)
     const response = (await mintWithRewards(quantity)) as any
     const { error } = response
     if (error) {
       return
     }
     setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS)
+    setCurrentStep(STEPS.SUCCESS_MULTIPLE)
   }
+
+  const handleMint = async (quantity) => {
+    setLoading(true)
+    const isPrepared = await prepare()
+    if (!isPrepared) {
+      setLoading(false)
+      return
+    }
+    await mintMultiple(quantity)
+    setLoading(false)
+  }
+
   return (
     <div
       className="
@@ -74,7 +91,7 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={() => mintMultiple(5)}>
+            <Button className="relative mt-2" onClick={() => handleMint(5)} disabled={loading}>
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -102,7 +119,7 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={() => mintMultiple(10)}>
+            <Button className="relative mt-2" onClick={() => handleMint(10)} disabled={loading}>
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -130,7 +147,7 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={() => mintMultiple(25)}>
+            <Button className="relative mt-2" onClick={() => handleMint(25)} disabled={loading}>
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"

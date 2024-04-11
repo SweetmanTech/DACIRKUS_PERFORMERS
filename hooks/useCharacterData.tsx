@@ -10,9 +10,10 @@ const useCharacterData = () => {
   const [cColor, setCColor] = useState(0)
   const [cOutFit, setCOutFit] = useState(0)
   const [cSkin, setCSkin] = useState(0)
+  const [dummyRandom, setDummyRandom] = useState([])
 
-  const randomAttr = (quantity: 1) => {
-    return Array.from({length: quantity}).map((_) => {
+  const randomAttr = (quantity = 1) => {
+    return Array.from({length: quantity}).map(() => {
       const type = randomCType()
       const acc = randomCAcc()
       const eye = randomCEye()
@@ -152,6 +153,8 @@ const useCharacterData = () => {
     prevCSkin,
     nextCSkin,
     randomAttr,
+    dummyRandom,
+    setDummyRandom
   }
 }
 
