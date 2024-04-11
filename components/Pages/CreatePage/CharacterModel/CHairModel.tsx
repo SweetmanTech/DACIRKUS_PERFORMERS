@@ -2,8 +2,14 @@ import { CCOLORS, CHAIRS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
-const CHairModel = () => {
-  const { cHair, cColor, cType } = useCharacter()
+const CHairModel = ({ isSingle, index }) => {
+  const { cHair, cColor, cType, dummyRandom } = useCharacter()
+
+  const hairImage = isSingle
+    ? `/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`
+    : `/images/Characters/${CTYPES[dummyRandom[index].type]}/Hair/${
+        CCOLORS[dummyRandom[index].color]
+      }${CHAIRS[dummyRandom[index].hair]}.png`
 
   return (
     <div
@@ -12,8 +18,8 @@ const CHairModel = () => {
     >
       <Media
         type="image"
-        link={`/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`}
-        blurLink={`/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`}
+        link={hairImage}
+        blurLink={hairImage}
         containerClasses="md:w-[270px] lg:w-[360px] xl:w-[450px] aspect-[192/1152] 
         md:translate-y-[-369px] lg:translate-y-[-492px] xl:translate-y-[-615px]"
         containerStyle={{
