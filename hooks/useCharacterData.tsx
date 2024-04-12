@@ -10,19 +10,25 @@ const useCharacterData = () => {
   const [cColor, setCColor] = useState(0)
   const [cOutFit, setCOutFit] = useState(0)
   const [cSkin, setCSkin] = useState(0)
+  const [dummyRandom, setDummyRandom] = useState([])
 
-  const randomAttr = () => {
-    randomCType()
-    randomCAcc()
-    randomCEye()
-    randomCHair()
-    randomCColor()
-    randomCOutFit()
-    randomCSkin()
+  const randomAttr = (quantity = 1) => {
+    return Array.from({length: quantity}).map(() => {
+      const type = randomCType()
+      const acc = randomCAcc()
+      const eye = randomCEye()
+      const hair = randomCHair()
+      const color = randomCColor()
+      const outfit = randomCOutFit()
+      const skin = randomCSkin()
+      return {type, acc, eye, hair, color, outfit, skin}
+    })
   }
 
   const randomCType = () => {
-    setCType(getRandomInt(CTYPES.length))
+    const type =getRandomInt(CTYPES.length)
+    setCType(type)
+    return type
   }
 
   const nextCType = () => {
@@ -34,7 +40,9 @@ const useCharacterData = () => {
   }
 
   const randomCAcc = () => {
-    setCAcc(getRandomInt(CACCS.length))
+    const acc = getRandomInt(CACCS.length)
+    setCAcc(acc)
+    return acc
   }
 
   const nextCAcc = () => {
@@ -46,7 +54,9 @@ const useCharacterData = () => {
   }
 
   const randomCEye = () => {
-    setCEye(getRandomInt(CEYES.length))
+    const eye = getRandomInt(CEYES.length)
+    setCEye(eye)
+    return eye
   }
 
   const nextCEye = () => {
@@ -58,7 +68,9 @@ const useCharacterData = () => {
   }
 
   const randomCHair = () => {
-    setCHair(getRandomInt(CHAIRS.length))
+    const hair = getRandomInt(CHAIRS.length)
+    setCHair(hair)
+    return hair
   }
 
   const nextCHair = () => {
@@ -70,7 +82,9 @@ const useCharacterData = () => {
   }
 
   const randomCColor = () => {
-    setCColor(getRandomInt(CCOLORS.length))
+    const color = getRandomInt(CCOLORS.length)
+    setCColor(color)
+    return color
   }
 
   const nextCColor = () => {
@@ -82,7 +96,9 @@ const useCharacterData = () => {
   }
 
   const randomCOutFit = () => {
-    setCOutFit(getRandomInt(COUTFITS.length))
+    const outfit = getRandomInt(COUTFITS.length)
+    setCOutFit(outfit)
+    return outfit
   }
 
   const nextCOutFit = () => {
@@ -94,7 +110,9 @@ const useCharacterData = () => {
   }
 
   const randomCSkin = () => {
-    setCSkin(getRandomInt(CSKINS.length))
+    const skin = getRandomInt(CSKINS.length)
+    setCSkin(skin)
+    return skin
   }
 
   const nextCSkin = () => {
@@ -135,6 +153,8 @@ const useCharacterData = () => {
     prevCSkin,
     nextCSkin,
     randomAttr,
+    dummyRandom,
+    setDummyRandom
   }
 }
 

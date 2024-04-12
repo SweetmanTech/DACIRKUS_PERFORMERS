@@ -4,13 +4,13 @@ import CHairModel from "./CHairModel"
 import COutFitModel from "./COutFitModel"
 import CSkinkModel from "./CSkinkModel"
 
-const CharacterModel = () => (
+const CharacterModel = ({ isSingle = false, index = 0 }) => (
   <div className="w-full h-full relative">
-    <CSkinkModel />
-    <CAccModel />
-    <CEyeModel />
-    <CHairModel />
-    <COutFitModel />
+    <CSkinkModel isSingle={isSingle} index={index} />
+    <CAccModel isSingle={isSingle} index={index} />
+    <CEyeModel isSingle={isSingle} index={index} />
+    <CHairModel isSingle={isSingle} index={index} />
+    <COutFitModel isSingle={isSingle} index={index} />
   </div>
 )
 

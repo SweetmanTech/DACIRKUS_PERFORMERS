@@ -8,6 +8,7 @@ import CharacterSelect from "./CharacterSelect"
 import { useAnimatedBook } from "../../../providers/AnimatedBookProvider"
 import AttributeSelect from "./AttributeSelect"
 import Success from "./Success"
+import SuccessMultiple from "./SuccessMultiple"
 
 const CreatePage = () => {
   const { currentStep } = useCreate()
@@ -22,6 +23,7 @@ const CreatePage = () => {
             {currentStep === STEPS.CHOOSE_CHARACTER_TYPE && <CharacterSelect />}
             {currentStep === STEPS.SELECT_CHARACTER && <AttributeSelect />}
             {currentStep === STEPS.SUCCESS && <Success />}
+            {currentStep === STEPS.SUCCESS_MULTIPLE && <SuccessMultiple />}
           </>
         )}
       </AnimatedBook>
