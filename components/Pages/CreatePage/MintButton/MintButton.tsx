@@ -13,12 +13,12 @@ const MintButton = () => {
   const [loading, setLoading] = useState(false)
 
   const mint = async () => {
-    const response = (await mintWithRewards()) as any
-    const { error } = response
+    const firstMintedTokenId = (await mintWithRewards()) as any
+    const { error } = firstMintedTokenId
     if (error) {
       return
     }
-    setMintedTokenId(response)
+    setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
   }
