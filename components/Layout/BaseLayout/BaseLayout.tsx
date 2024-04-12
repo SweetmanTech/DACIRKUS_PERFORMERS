@@ -8,7 +8,7 @@ const BaseLayout = ({ children }: ILayout) => (
       <Media
         type="image"
         link="/images/Layout/background-green.png"
-        blurLink="/images/Layout/background-gree.png"
+        blurLink="/images/Layout/background-green.png"
         containerClasses="w-full h-full"
         containerStyle={{
           imageRendering: "pixelated",
