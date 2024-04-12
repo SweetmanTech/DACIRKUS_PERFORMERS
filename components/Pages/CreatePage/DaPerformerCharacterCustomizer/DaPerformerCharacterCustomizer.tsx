@@ -11,7 +11,7 @@ import Media from "../../../../shared/Media"
 
 const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
-  const { setCurrentStep } = useCreate()
+  const { setCurrentStep, setMintedTokenId } = useCreate()
   const { randomAttr, setDummyRandom } = useCharacter()
   const { mintWithRewards } = useZoraMintByPrivy()
   const [loading, setLoading] = useState(false)
@@ -25,11 +25,12 @@ const DaPerformerCharacterCustomizer = () => {
   const mintMultiple = async (quantity) => {
     const randomAttributes = randomAttr(quantity)
     setDummyRandom(randomAttributes)
-    const response = (await mintWithRewards(quantity)) as any
-    const { error } = response
+    const firstMintedTokenId = (await mintWithRewards(quantity)) as any
+    const { error } = firstMintedTokenId
     if (error) {
       return
     }
+    setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS_MULTIPLE)
   }
