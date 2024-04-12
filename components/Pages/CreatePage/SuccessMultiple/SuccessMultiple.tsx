@@ -13,6 +13,7 @@ const SuccessMultiple = () => {
 
   const cols = getMultipleCols(dummyRandom.length)
   const uiMedatdata = useUiMetadata(dummyRandom.length)
+  const lastMintedTokenId = mintedTokenId + dummyRandom.length - 1
 
   return (
     <div className="w-full h-full grid grid-cols-2">
@@ -60,7 +61,7 @@ const SuccessMultiple = () => {
           className="text-white font-slimfit md:text-[38.4px] lg:text-[51.2px] xl:text-[64px] drop-shadow-[2px_2px_2px_rgba(0,0,0,1)] text-right 
         md:pt-[6px] lg:pt-[8px] xl:pt-[10px]"
         >
-          #{mintedTokenId}
+          #{mintedTokenId}-{lastMintedTokenId}
         </p>
         <SelectedAttributes />
         <SuccessButtons />

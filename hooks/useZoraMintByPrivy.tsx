@@ -58,7 +58,7 @@ const useZoraMintByPrivy = () => {
           return { error: true }
         }
         toast.success("Collected!")
-        return getTokenId(response.logs[3].topics[3])
+        return getTokenId(response)
       }
 
       const response = await sendTxByWallet(
@@ -74,7 +74,7 @@ const useZoraMintByPrivy = () => {
         return { error: true }
       }
       toast.success("Collected!")
-      return getTokenId(response.logs[3].topics[3])
+      return getTokenId(response)
     } catch (err) {
       handleTxError(err)
       return { error: err }
