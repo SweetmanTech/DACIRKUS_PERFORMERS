@@ -36,8 +36,7 @@ const DaPerformerCharacterCustomizer = () => {
 
   const handleMint = async (quantity) => {
     setLoading(true)
-    const isPrepared = await prepare()
-    if (!isPrepared) {
+    if (!prepare()) {
       setLoading(false)
       return
     }
