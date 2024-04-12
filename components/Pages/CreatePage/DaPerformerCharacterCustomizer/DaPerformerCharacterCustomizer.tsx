@@ -21,7 +21,8 @@ const DaPerformerCharacterCustomizer = () => {
   }
 
   const mintMultiple = async (quantity) => {
-    if (!prepare()) return
+    const isPrepared = await prepare()
+    if (!isPrepared) return
     randomAttr()
     const response = (await mintWithRewards(quantity)) as any
     const { error } = response
