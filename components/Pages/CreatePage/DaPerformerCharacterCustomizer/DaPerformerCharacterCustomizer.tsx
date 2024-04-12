@@ -1,4 +1,5 @@
 import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
+import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -12,6 +13,7 @@ const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStep } = useCreate()
   const { randomAttr } = useCharacter()
   const { mintWithRewards } = useZoraMintByPrivy()
+  const { prepare } = usePreparePrivyWallet()
 
   const selectCustom = () => {
     setCurrentStatus(STATUS.LEFTFLIP)
@@ -19,6 +21,7 @@ const DaPerformerCharacterCustomizer = () => {
   }
 
   const mintMultiple = async (quantity) => {
+    if (!prepare()) return
     randomAttr()
     const response = (await mintWithRewards(quantity)) as any
     const { error } = response
