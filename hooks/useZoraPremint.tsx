@@ -2,10 +2,11 @@ import handleTxError from "@/lib/handleTxError"
 import getZoraFee from "@/lib/viem/getZoraFee"
 import { CHAIN_ID, COMMENT, DROP_ADDRESS } from "@/lib/consts"
 import abi from "@/lib/abi/zora-drop.json"
-import { numberToHex } from "viem"
+import { Address, numberToHex } from "viem"
 import { toast } from "react-toastify"
 import getTokenId from "@/lib/getTokenId"
 import { usePrivy } from "@privy-io/react-auth"
+import { publicClient } from "@/lib/viem/publicClients"
 import useConnectedWallet from "./useConnectedWallet"
 import useWalletSendTransaction from "./useWalletSendTransaction"
 
@@ -34,7 +35,7 @@ const useZoraPremint = () => {
       const totalPrice = price.toString()
       const hexValue = numberToHex(BigInt(totalPrice))
 
-      const response = await sendTxByWallet(
+      const hash = await sendTxByWallet(
         DROP_ADDRESS,
         CHAIN_ID,
         abi,
@@ -42,10 +43,12 @@ const useZoraPremint = () => {
         args,
         hexValue,
       )
-      const { error: walletError } = response as any
-      if (walletError) {
+      if ((hash as { error: any })?.error) {
         return { error: true }
       }
+      const response = await publicClient.waitForTransactionReceipt({
+        hash: hash as Address,
+      })
       toast.success("Collected!")
       return getTokenId(response)
     } catch (err) {
