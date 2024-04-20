@@ -5,15 +5,16 @@ import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { useCreate } from "@/providers/CreateProvider"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
+import useZoraPremint from "@/hooks/useZoraPremint"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { mintWithRewards } = useZoraMintByPrivy()
+  const { mint: zoraMint } = useZoraPremint()
   const [loading, setLoading] = useState(false)
 
   const mint = async () => {
-    const firstMintedTokenId = (await mintWithRewards()) as any
+    const firstMintedTokenId = (await zoraMint()) as any
     const { error } = firstMintedTokenId
     if (error) {
       return
