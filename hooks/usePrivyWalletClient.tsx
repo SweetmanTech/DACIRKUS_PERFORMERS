@@ -18,9 +18,9 @@ const usePrivyWalletClient = (chain = CHAIN as Chain) => {
       setWalletClient(response)
     }
 
-    if (!externalWallet.address || !chain) return
+    if (!externalWallet?.address || !chain) return
     init()
-  }, [externalWallet.address, chain])
+  }, [externalWallet, chain])
 
   return { walletClient }
 }
