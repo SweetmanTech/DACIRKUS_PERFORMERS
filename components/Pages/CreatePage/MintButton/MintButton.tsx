@@ -22,6 +22,7 @@ const MintButton = () => {
     if (error) {
       return
     }
+    console.log("SWEETS FIRST TOKEN", firstMintedTokenId)
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
