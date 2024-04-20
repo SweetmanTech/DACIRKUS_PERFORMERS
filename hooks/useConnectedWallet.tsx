@@ -1,5 +1,6 @@
 import { usePrivy, useWallets } from "@privy-io/react-auth"
 import { useMemo } from "react"
+import { Address } from "viem"
 
 const useConnectedWallet = () => {
   const { wallets } = useWallets()
@@ -14,7 +15,7 @@ const useConnectedWallet = () => {
   const externalWallet = externalWallets?.length ? externalWallets[0] : null
   const wallet = isLoggedByEmail ? privyWallet : externalWallet
   const loggedInWallet = isAuthenticated ? wallet : null
-  const connectedWallet = loggedInWallet?.address
+  const connectedWallet = loggedInWallet?.address as Address
 
   return {
     connectedWallet,

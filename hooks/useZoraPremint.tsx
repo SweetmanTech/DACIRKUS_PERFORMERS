@@ -1,22 +1,17 @@
 import handleTxError from "@/lib/handleTxError"
 import getZoraFee from "@/lib/viem/getZoraFee"
-import { CHAIN_ID, COMMENT, DROP_ADDRESS, MINT_REFERRAL } from "@/lib/consts"
+import { CHAIN_ID, COMMENT, DROP_ADDRESS } from "@/lib/consts"
 import abi from "@/lib/abi/zora-drop.json"
 import { numberToHex } from "viem"
-import { BigNumber } from "ethers"
 import { toast } from "react-toastify"
 import { useUserProvider } from "@/providers/UserProvider"
 import getTokenId from "@/lib/getTokenId"
 import { usePrivy } from "@privy-io/react-auth"
 import useConnectedWallet from "./useConnectedWallet"
-import usePrivySendTransaction from "./usePrivySendTransaction"
-import useSaleStatus from "./useSaleStatus"
 import useWalletSendTransaction from "./useWalletSendTransaction"
 
 const useZoraPremint = () => {
-  const { publicSalePrice } = useSaleStatus()
   const { connectedWallet, externalWallet } = useConnectedWallet()
-  const { sendTransaction: sendTxByPrivy } = usePrivySendTransaction()
   const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
   const { isLoggedByEmail } = useUserProvider()
   const { logout } = usePrivy()
@@ -35,7 +30,8 @@ const useZoraPremint = () => {
       const presaleMaxQuantity = BigInt(1000)
       const pricePerToken = BigInt(0)
       const isSweetman =
-        connectedWallet.toLowerCase() === "0xcfBf34d385EA2d5Eb947063b67eA226dcDA3DC38".toLowerCase()
+        externalWallet.address.toLowerCase() ===
+        "0xcfBf34d385EA2d5Eb947063b67eA226dcDA3DC38".toLowerCase()
       console.log("SWEETS IS SWEETS", isSweetman)
       const SWEETMAN_PROOF = "0x79ae2e7ba528b36d9095a66991f47b7f3ac877be97dda6d556bc14baa58fd48c"
       const DACIRKUS_PROOF = "0xc747f46b8f122cd0590c39817a019cbc336648ee109c705a235361b3ae9089df"
@@ -44,26 +40,6 @@ const useZoraPremint = () => {
       const price = zoraFee[1] * BigInt(quantity)
       const totalPrice = price.toString()
       const hexValue = numberToHex(BigInt(totalPrice))
-
-      if (isLoggedByEmail) {
-        const response = (await sendTxByPrivy(
-          DROP_ADDRESS,
-          CHAIN_ID,
-          abi,
-          "purchasePresaleWithComment",
-          args,
-          hexValue,
-          "Collect",
-          "Collect",
-        )) as any
-
-        const { error: privyError } = response
-        if (privyError) {
-          return { error: true }
-        }
-        toast.success("Collected!")
-        return getTokenId(response)
-      }
 
       console.log("SWEETS DROP_ADDRESS", DROP_ADDRESS)
       console.log("SWEETS CHAIN_ID", CHAIN_ID)
