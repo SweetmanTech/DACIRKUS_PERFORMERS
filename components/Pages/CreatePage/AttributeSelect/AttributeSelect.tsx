@@ -5,10 +5,10 @@ import CharacterModel from "../CharacterModel"
 import MenuButtons from "../MenuButtons"
 
 const AttributeSelect = () => {
-  const { randomeAttr } = useCharacter()
+  const { randomAttr } = useCharacter()
 
   useEffect(() => {
-    randomeAttr()
+    randomAttr()
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
 
@@ -29,7 +29,7 @@ const AttributeSelect = () => {
             md:translate-y-[612px] lg:translate-y-[816px] xl:translate-y-[1020px] 
             md:translate-x-[294px] lg:translate-x-[392px] xl:translate-x-[490px]"
             >
-              <CharacterModel />
+              <CharacterModel isSingle />
             </div>
           </div>
         </div>

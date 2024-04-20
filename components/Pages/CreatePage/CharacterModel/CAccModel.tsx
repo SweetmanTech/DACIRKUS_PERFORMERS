@@ -2,8 +2,14 @@ import { CACCS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
-const CAccModel = () => {
-  const { cAcc, cType } = useCharacter()
+const CAccModel = ({ isSingle, index }) => {
+  const { cAcc, cType, dummyRandom } = useCharacter()
+
+  const accImage = isSingle
+    ? `/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`
+    : `/images/Characters/${CTYPES[dummyRandom[index].type]}/Accesories/${
+        CACCS[dummyRandom[index].acc]
+      }.png`
 
   return (
     <div
@@ -12,8 +18,8 @@ const CAccModel = () => {
     >
       <Media
         type="image"
-        link={`/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`}
-        blurLink={`/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`}
+        link={accImage}
+        blurLink={accImage}
         containerClasses="md:w-[270px] lg:w-[360px] xl:w-[450px] aspect-[192/1152] 
         md:translate-y-[-369px] lg:translate-y-[-492px] xl:translate-y-[-615px]"
         containerStyle={{

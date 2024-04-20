@@ -36,9 +36,11 @@ const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit }) => (
         <AttributeImage
           imageUrl={`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Eyes/${CEYES[eye]}.png`}
         />
-        <AttributeImage
-          imageUrl={`${`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Hair/${CCOLORS[color]}${CHAIRS[hair]}.png`}`}
-        />
+        {hair !== 1 && (
+          <AttributeImage
+            imageUrl={`${`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Hair/${CCOLORS[color]}${CHAIRS[hair]}.png`}`}
+          />
+        )}
         <AttributeImage
           imageUrl={`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Accesories/${CACCS[acc]}.png`}
         />

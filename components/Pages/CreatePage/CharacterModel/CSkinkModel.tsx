@@ -2,8 +2,14 @@ import { CSKINS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
-const CSkinkModel = () => {
-  const { cSkin, cType } = useCharacter()
+const CSkinkModel = ({ isSingle, index }) => {
+  const { cSkin, cType, dummyRandom } = useCharacter()
+
+  const skinImage = isSingle
+    ? `/images/Characters/${CTYPES[cType]}/SkinTone/${CSKINS[cSkin]}.png`
+    : `/images/Characters/${CTYPES[dummyRandom[index].type]}/SkinTone/${
+        CSKINS[dummyRandom[index].skin]
+      }.png`
 
   return (
     <div
@@ -12,8 +18,8 @@ const CSkinkModel = () => {
     >
       <Media
         type="image"
-        link={`/images/Characters/${CTYPES[cType]}/SkinTone/${CSKINS[cSkin]}.png`}
-        blurLink={`/images/Characters/${CTYPES[cType]}/SkinTone/${CSKINS[cSkin]}.png`}
+        link={skinImage}
+        blurLink={skinImage}
         containerClasses="md:w-[270px] lg:w-[360px] xl:w-[450px] aspect-[192/1152] 
         md:translate-y-[-369px] lg:translate-y-[-492px] xl:translate-y-[-615px]"
         containerStyle={{

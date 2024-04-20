@@ -2,8 +2,14 @@ import { CEYES, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
-const CEyeModel = () => {
-  const { cEye, cType } = useCharacter()
+const CEyeModel = ({ isSingle, index }) => {
+  const { cEye, cType, dummyRandom } = useCharacter()
+
+  const eyeImage = isSingle
+    ? `/images/Characters/${CTYPES[cType]}/Eyes/${CEYES[cEye]}.png`
+    : `/images/Characters/${CTYPES[dummyRandom[index].type]}/Eyes/${
+        CEYES[dummyRandom[index].eye]
+      }.png`
 
   return (
     <div
@@ -12,8 +18,8 @@ const CEyeModel = () => {
     >
       <Media
         type="image"
-        link={`/images/Characters/${CTYPES[cType]}/Eyes/${CEYES[cEye]}.png`}
-        blurLink={`/images/Characters/${CTYPES[cType]}/Eyes/${CEYES[cEye]}.png`}
+        link={eyeImage}
+        blurLink={eyeImage}
         containerClasses="md:w-[270px] lg:w-[360px] xl:w-[450px] aspect-[192/1152] 
         md:translate-y-[-369px] lg:translate-y-[-492px] xl:translate-y-[-615px]"
         containerStyle={{
