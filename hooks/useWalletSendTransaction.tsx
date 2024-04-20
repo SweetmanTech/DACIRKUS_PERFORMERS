@@ -1,14 +1,15 @@
-import { BigNumber, Contract } from "ethers"
+import { Address } from "viem"
+import { BigNumber } from "ethers"
+import { CHAIN, CHAIN_ID } from "@/lib/consts"
 import useConnectedWallet from "./useConnectedWallet"
-import { CHAIN_ID } from "@/lib/consts"
-import usePrivyEthersSigner from "./usePrivyEthersSigner"
+import usePrivyWalletClient from "./usePrivyWalletClient"
 
 const useWalletSendTransaction = () => {
   const { externalWallet } = useConnectedWallet()
-  const { signer } = usePrivyEthersSigner()
+  const { walletClient } = usePrivyWalletClient()
 
   const sendTransaction = async (
-    to,
+    to: Address,
     chainId: any,
     abi: any,
     functionName: string,
@@ -16,24 +17,30 @@ const useWalletSendTransaction = () => {
     value = BigNumber.from("0").toHexString(),
     gasLimit = 0,
   ) => {
-    if (!externalWallet) return {error: true}
+    if (!externalWallet) return { error: true }
     try {
       const privyChainId = externalWallet.chainId
       if (privyChainId !== `eip155:${chainId}`) {
         await externalWallet.switchChain(CHAIN_ID)
-        return {error: true}
+        return { error: true }
       }
-      const contract = new Contract(to, abi, signer)
-      if (signer) {
+      if (walletClient) {
         const data = {
           value,
         } as any
         if (gasLimit) {
           data.gasLimit = gasLimit
         }
-        const tx = await contract[functionName](...args, data)
-        const receipt = await tx.wait()
-        return receipt
+        const hash = await walletClient.writeContract({
+          address: to,
+          abi,
+          chain: CHAIN,
+          functionName,
+          account: externalWallet.address as Address,
+          args,
+          value,
+        })
+        return hash
       }
       return { error: true }
     } catch (error) {
