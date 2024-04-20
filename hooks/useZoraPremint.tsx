@@ -43,16 +43,12 @@ const useZoraPremint = () => {
         args,
         hexValue,
       )
-      console.log("SWEETS convert hash to receipt", hash)
       if ((hash as { error: any })?.error) {
         return { error: true }
       }
       const response = await publicClient.waitForTransactionReceipt({
         hash: hash as Address,
       })
-
-      console.log("SWEETS convert response to tokenId", response)
-
       toast.success("Collected!")
       return getTokenId(response)
     } catch (err) {
