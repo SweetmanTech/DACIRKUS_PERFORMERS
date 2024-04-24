@@ -7,7 +7,7 @@ const AttributeImage = ({ imageUrl }) => (
       width: 1440,
       position: "absolute",
       left: 0,
-      top: 0,
+      top: -1930,
       imageRendering: "pixelated",
     }}
     alt="not found"

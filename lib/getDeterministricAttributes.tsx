@@ -1,5 +1,5 @@
 import hashJs from "hash.js"
-import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "./character"
+import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES, CBGCOLORS } from "./character"
 
 const maxTokenID = 10000
 
@@ -19,7 +19,7 @@ const deterministicShuffle = (array: Array<number>, seed: string) => {
   return array
 }
 
-const shuffledList = deterministicShuffle(generateSequence(maxTokenID + 7), "DaPerformers")
+const shuffledList = deterministicShuffle(generateSequence(maxTokenID + 8), "DaPerformers")
 
 const getDeterministricAttributes = (tokenId: number) => {
   if (tokenId < 1 || tokenId > maxTokenID) {
@@ -33,8 +33,9 @@ const getDeterministricAttributes = (tokenId: number) => {
   const hair = shuffledList[index + 4] % CHAIRS.length
   const color = shuffledList[index + 5] % CCOLORS.length
   const outfit = shuffledList[index + 6] % COUTFITS.length
+  const bg = shuffledList[index + 7] % CBGCOLORS.length
 
-  return [type, skin, acc, eye, hair, color, outfit]
+  return [type, skin, acc, eye, hair, color, outfit, bg]
 }
 
 export default getDeterministricAttributes
