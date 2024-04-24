@@ -13,9 +13,9 @@ export const HENO_ARTIST_ID = "3mr6jeVpPIXBp8IMMb60aD"
 export const TITLE = "DaPerformers"
 export const ARTIST = "DaCirkus"
 export const DROP_ADDRESS = process.env.NEXT_PUBLIC_DROP_ADDRESS as Address
-export const ZORA_COLLECTION_URL = `https://${IS_TESTNET ? "testnet." : ""}zora.co/collect/${
-  IS_TESTNET ? "base-sepolia" : "base"
-}:${DROP_ADDRESS}`
+export const ZORA_COLLECTION_URL = IS_TESTNET
+  ? `https://testnets.opensea.io/assets/base-sepolia/${DROP_ADDRESS}`
+  : `https://zora.co/collect/base:${DROP_ADDRESS}`
 
 export const DOMAIN_URL = "https://daperformers.com"
 export const COMMENT = "!!!"
