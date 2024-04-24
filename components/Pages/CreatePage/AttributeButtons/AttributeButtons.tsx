@@ -1,4 +1,13 @@
-import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../../../../lib/character"
+import {
+  CACCS,
+  CBGCOLORS,
+  CCOLORS,
+  CEYES,
+  CHAIRS,
+  COUTFITS,
+  CSKINS,
+  CTYPES,
+} from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 import Button from "../Button"
 
@@ -32,6 +41,10 @@ const AttributeButtons = () => {
     randomCSkin,
     prevCSkin,
     nextCSkin,
+    cBG,
+    nextCBG,
+    prevCBG,
+    randomCBG,
   } = useCharacter()
 
   return (
@@ -40,6 +53,13 @@ const AttributeButtons = () => {
       md:gap-y-[6px] lg:gap-y-[8px] xl:gap-y-[10px]
       md:px-[18px] lg:px-[24px] xl:px-[30px]"
     >
+      <Button
+        value={CBGCOLORS[cBG]}
+        label="BG."
+        onNext={nextCBG}
+        onPrev={prevCBG}
+        onRandom={randomCBG}
+      />
       <Button
         value={CACCS[cAcc]}
         label="Acc."

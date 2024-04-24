@@ -1,10 +1,11 @@
 import { useState } from "react"
-import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../lib/character"
+import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../lib/character"
 import getRandomInt from "../lib/getRandomInt"
 
 const useCharacterData = () => {
   const [cType, setCType] = useState(0)
   const [cAcc, setCAcc] = useState(0)
+  const [cBG, setCBG] = useState(0)
   const [cEye, setCEye] = useState(0)
   const [cHair, setCHair] = useState(0)
   const [cColor, setCColor] = useState(0)
@@ -21,7 +22,8 @@ const useCharacterData = () => {
       const color = randomCColor()
       const outfit = randomCOutFit()
       const skin = randomCSkin()
-      return {type, acc, eye, hair, color, outfit, skin}
+      const bg = randomCBG()
+      return {type, acc, eye, hair, color, outfit, skin, bg}
     })
   }
 
@@ -123,6 +125,20 @@ const useCharacterData = () => {
     setCSkin(cSkin === 0 ? CSKINS.length - 1 : cSkin - 1)
   }
 
+  const randomCBG = () => {
+    const bg = getRandomInt(CBGCOLORS.length)
+    setCBG(bg)
+    return bg
+  }
+
+  const nextCBG = () => {
+    setCBG(cBG === CBGCOLORS.length - 1 ? 0 : cBG + 1)
+  }
+
+  const prevCBG = () => {
+    setCBG(cBG === 0 ? CBGCOLORS.length - 1 : cBG - 1)
+  }
+
   return {
     cType,
     cAcc,
@@ -153,6 +169,10 @@ const useCharacterData = () => {
     prevCSkin,
     nextCSkin,
     randomAttr,
+    cBG,
+    nextCBG,
+    prevCBG,
+    randomCBG,
     dummyRandom,
     setDummyRandom
   }

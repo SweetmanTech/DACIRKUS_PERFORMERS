@@ -1,15 +1,16 @@
 /* eslint-disable @next/next/no-img-element */
 import { DOMAIN_URL } from "@/lib/consts"
-import { CEYES, CSKINS, CTYPES, CACCS, CCOLORS, CHAIRS, COUTFITS } from "@/lib/character"
+import { CEYES, CSKINS, CTYPES, CACCS, CCOLORS, CHAIRS, COUTFITS, CBGCOLORS } from "@/lib/character"
 import AttributeImage from "./AttributeImage"
 
-const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit }) => (
+const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit, bg }) => (
   <div
     style={{
       display: "flex",
       width: 480,
       height: 480,
       paddingLeft: 40,
+      background: CBGCOLORS[bg],
     }}
   >
     <div

@@ -17,7 +17,7 @@ export default async function handler(req: NextRequest) {
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return NextResponse.json({ message: "Not minted yet!" })
 
-  const [type, skin, acc, eye, hair, color, outfit] = getDeterministricAttributes(
+  const [type, skin, acc, eye, hair, color, outfit, bg] = getDeterministricAttributes(
     parseInt(tokenId, 10),
   )
 
@@ -31,6 +31,7 @@ export default async function handler(req: NextRequest) {
         hair={hair}
         color={color}
         outfit={outfit}
+        bg={bg}
       />
     ),
     {

@@ -1,4 +1,4 @@
-const getAttributes = (type, skin, acc, eye, hair, color, outfit) => [
+const getAttributes = (type, skin, acc, eye, hair, color, outfit, bg) => [
   {
     value: type,
     trait_type: "Type",
@@ -26,6 +26,10 @@ const getAttributes = (type, skin, acc, eye, hair, color, outfit) => [
   {
     value: outfit,
     trait_type: "Outfit",
+  },
+  {
+    value: bg,
+    trait_type: "BG.",
   },
 ]
 

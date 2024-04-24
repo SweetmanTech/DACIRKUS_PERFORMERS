@@ -1,6 +1,6 @@
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import getAttributes from "@/lib/getAttributes"
-import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
 
@@ -10,7 +10,7 @@ export default async function handler(req: any, res: any) {
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return res.status(500).json({ message: "Not minted yet!" })
 
-  const [type, skin, acc, eye, hair, color, outfit] = getDeterministricAttributes(
+  const [type, skin, acc, eye, hair, color, outfit, bg] = getDeterministricAttributes(
     parseInt(tokenId, 10),
   )
   const deterministicAttribute = getAttributes(
@@ -21,6 +21,7 @@ export default async function handler(req: any, res: any) {
     CHAIRS[hair],
     CCOLORS[color],
     COUTFITS[outfit],
+    CBGCOLORS[bg],
   )
 
   const metaData = {
