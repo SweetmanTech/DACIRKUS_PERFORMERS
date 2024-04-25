@@ -1,26 +1,16 @@
-import { initializeApp } from "firebase/app"
-import { getFirestore, query, orderBy, collection, getDocs } from "firebase/firestore"
+import { initializeApp } from "firebase/app";
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
-  authDomain: "relief-game.firebaseapp.com",
-  projectId: "relief-game",
-  storageBucket: "relief-game.appspot.com",
-  messagingSenderId: "533966397288",
-  appId: "1:533966397288:web:911f9f0d539025183100dd",
-}
+  authDomain: "daperformers-9ae66.firebaseapp.com",
+  projectId: "daperformers-9ae66",
+  storageBucket: "daperformers-9ae66.appspot.com",
+  messagingSenderId: "871754136828",
+  appId: "1:871754136828:web:2b708fe6d6790eb050eb79",
+  measurementId: "G-Q9XVK5E27N"
+};
 
-const app = initializeApp(firebaseConfig)
+const app = initializeApp(firebaseConfig);
+export const firestore = getFirestore(app);
 
-const firestore = getFirestore(app)
-
-export const getLeaderboard = async () => {
-  const citiesRef = collection(firestore, "userdata")
-  const q = query(citiesRef, orderBy("score", "desc"))
-  const querySnapshot = await getDocs(q)
-  const scores = []
-  querySnapshot.forEach((doc) => {
-    scores.push(doc.data())
-  })
-  return scores
-}

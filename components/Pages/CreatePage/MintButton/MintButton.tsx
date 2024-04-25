@@ -7,12 +7,26 @@ import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
 import useZoraPremint from "@/hooks/useZoraPremint"
 import { IS_TESTNET } from "@/lib/consts"
+import { useCharacter } from "@/providers/CharacterProvider"
+import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import getAttributes from "@/lib/getAttributes"
+import addMetadata from "@/lib/firebase/addMetadata"
 
 const MintButton = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, setMintedTokenId } = useCreate()
   const { mintWithRewards } = useZoraMintByPrivy()
   const { mint: zoraMint } = useZoraPremint()
+  const {  
+    cType,
+    cAcc,
+    cEye,
+    cHair,
+    cColor,
+    cOutFit,
+    cSkin,
+    cBG
+  } = useCharacter()
 
   const [loading, setLoading] = useState(false)
 
@@ -22,6 +36,18 @@ const MintButton = () => {
     if (error) {
       return
     }
+    const attributes = getAttributes(
+      CTYPES[cType],
+      CSKINS[cSkin],
+      CACCS[cAcc],
+      CEYES[cEye],
+      CHAIRS[cHair],
+      CCOLORS[cColor],
+      COUTFITS[cOutFit],
+      CBGCOLORS[cBG],
+    )
+    await addMetadata(firstMintedTokenId + 1, attributes)
+    
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
