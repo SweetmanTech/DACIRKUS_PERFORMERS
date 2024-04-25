@@ -1,6 +1,7 @@
 import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
+import addMetadata from "@/lib/firebase/addMetadata"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -26,6 +27,10 @@ const DaPerformerCharacterCustomizer = () => {
     const randomAttributes = randomAttr(quantity)
     setDummyRandom(randomAttributes)
     const firstMintedTokenId = (await mintWithRewards(quantity)) as any
+    const metadataPromise = randomAttributes.map(async (attribute, i) => {
+      await addMetadata(firstMintedTokenId + i + 1, attribute)
+    })
+    await Promise.all(metadataPromise)
     const { error } = firstMintedTokenId
     if (error) {
       return

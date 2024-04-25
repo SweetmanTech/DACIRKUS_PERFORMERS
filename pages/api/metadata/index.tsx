@@ -3,6 +3,7 @@ import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
+import getMetadata from "@/lib/firebase/getMetadata"
 
 export default async function handler(req: any, res: any) {
   const { tokenId } = req.query
@@ -13,6 +14,8 @@ export default async function handler(req: any, res: any) {
   const [type, skin, acc, eye, hair, color, outfit, bg] = getDeterministricAttributes(
     parseInt(tokenId, 10),
   )
+
+  const response = (await getMetadata(tokenId)) as any
   const deterministicAttribute = getAttributes(
     CTYPES[type],
     CSKINS[skin],
@@ -28,7 +31,7 @@ export default async function handler(req: any, res: any) {
     name: `Performer #${tokenId}`,
     image: `${DOMAIN_URL}/api/og?tokenId=${tokenId}`,
     description: `PFP: ${DOMAIN_URL}/api/og?tokenId=${tokenId}`,
-    attributes: deterministicAttribute,
+    attributes: response?.attributes || deterministicAttribute,
   }
 
   return res.status(200).json(metaData)
