@@ -17,16 +17,8 @@ const MintButton = () => {
   const { setCurrentStep, setMintedTokenId } = useCreate()
   const { mintWithRewards } = useZoraMintByPrivy()
   const { mint: zoraMint } = useZoraPremint()
-  const {  
-    cType,
-    cAcc,
-    cEye,
-    cHair,
-    cColor,
-    cOutFit,
-    cSkin,
-    cBG
-  } = useCharacter()
+
+  const { cType, cAcc, cEye, cHair, cColor, cOutFit, cSkin, cBG } = useCharacter()
 
   const [loading, setLoading] = useState(false)
 
@@ -47,7 +39,6 @@ const MintButton = () => {
       CBGCOLORS[cBG],
     )
     await addMetadata(firstMintedTokenId + 1, attributes)
-    
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
