@@ -1,7 +1,7 @@
 import { Address } from "viem"
 import { Chain, base, baseSepolia } from "viem/chains"
 
-export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET
+export const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 export const CHAIN = (IS_TESTNET ? baseSepolia : base) as Chain
 export const CHAIN_ID = CHAIN.id
 export const SPOTIFY_CLIENT_ID = process.env.NEXT_PUBLIC_CLIENT_ID

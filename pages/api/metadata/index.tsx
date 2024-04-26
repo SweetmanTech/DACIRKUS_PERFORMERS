@@ -1,7 +1,7 @@
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
-import { DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
+import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
 import getMetadata from "@/lib/firebase/getMetadata"
 
@@ -27,11 +27,13 @@ export default async function handler(req: any, res: any) {
     CBGCOLORS[bg],
   )
 
+  const attribute = response[`${CHAIN_ID}`]
+
   const metaData = {
     name: `Performer #${tokenId}`,
     image: `${DOMAIN_URL}/api/og?tokenId=${tokenId}`,
     description: `PFP: ${DOMAIN_URL}/api/og?tokenId=${tokenId}`,
-    attributes: response?.attributes || deterministicAttribute,
+    attributes: attribute || deterministicAttribute,
   }
 
   return res.status(200).json(metaData)
