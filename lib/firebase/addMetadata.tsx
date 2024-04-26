@@ -1,12 +1,16 @@
 import { doc, setDoc } from "firebase/firestore"
 import { firestore } from "./firebase"
+import { CHAIN_ID } from "../consts"
 
-const addMetadata = async (tokenId, attributes) => {
+const addMetadata = async (tokenId, attributes, sheet) => {
   try {
     await setDoc(
       doc(firestore, "characters", `${tokenId}`),
       {
-        attributes,
+        [`${CHAIN_ID}`]: {
+          attributes,
+          sheet,
+        },
       },
       {
         merge: true,
