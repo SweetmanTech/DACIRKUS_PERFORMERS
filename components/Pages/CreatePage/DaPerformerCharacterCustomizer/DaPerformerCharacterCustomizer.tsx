@@ -2,6 +2,8 @@ import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
 import addMetadata from "@/lib/firebase/addMetadata"
+import getAttributes from "@/lib/getAttributes"
+import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -27,8 +29,18 @@ const DaPerformerCharacterCustomizer = () => {
     const randomAttributes = randomAttr(quantity)
     setDummyRandom(randomAttributes)
     const firstMintedTokenId = (await mintWithRewards(quantity)) as any
-    const metadataPromise = randomAttributes.map(async (attribute, i) => {
-      await addMetadata(firstMintedTokenId + i + 1, attribute)
+    const metadataPromise = randomAttributes.map(async (sheet, i) => {
+      const attribute = getAttributes(
+        CTYPES[sheet.type],
+        CSKINS[sheet.skin],
+        CACCS[sheet.acc],
+        CEYES[sheet.eye],
+        CHAIRS[sheet.hair],
+        CCOLORS[sheet.color],
+        COUTFITS[sheet.outfit],
+        CBGCOLORS[sheet.bg],
+      )
+      await addMetadata(firstMintedTokenId + i + 1, attribute, sheet)
     })
     await Promise.all(metadataPromise)
     const { error } = firstMintedTokenId

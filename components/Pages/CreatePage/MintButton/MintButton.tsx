@@ -38,7 +38,16 @@ const MintButton = () => {
       COUTFITS[cOutFit],
       CBGCOLORS[cBG],
     )
-    await addMetadata(firstMintedTokenId + 1, attributes)
+    await addMetadata(firstMintedTokenId + 1, attributes, {
+      type: cType,
+      skin: cSkin,
+      acc: cAcc,
+      eye: cEye,
+      hair: cHair,
+      color: cColor,
+      outfit: cOutFit,
+      bg: cBG,
+    })
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
