@@ -6,7 +6,7 @@ import tokenMinted from "@/lib/tokenMinted"
 import getMetadata from "@/lib/firebase/getMetadata"
 
 export default async function handler(req: any, res: any) {
-  const { tokenId } = req.query
+  const { tokenId, chainId } = req.query
 
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return res.status(500).json({ message: "Not minted yet!" })
@@ -27,7 +27,7 @@ export default async function handler(req: any, res: any) {
     CBGCOLORS[bg],
   )
 
-  const attribute = response[`${CHAIN_ID}`]
+  const attribute = response[`${chainId || CHAIN_ID}`]
 
   const metaData = {
     name: `Performer #${tokenId}`,
