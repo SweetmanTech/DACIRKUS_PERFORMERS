@@ -31,9 +31,9 @@ export default async function handler(req: any, res: any) {
   const finalAttribute = metadata?.attributes || deterministicAttribute
   const sheet = metadata?.sheet
 
-  const endpoint = `api/og?type=${sheet?.type || type}&&skin=${
-    sheet?.skin || skin
-  }&&acc=${sheet?.acc || acc}&&eye=${sheet?.eye || eye}&&hair=${sheet?.hair || hair}&&color=${
+  const endpoint = `api/og?type=${sheet?.type || type}&&skin=${sheet?.skin || skin}&&acc=${
+    sheet?.acc || acc
+  }&&eye=${sheet?.eye || eye}&&hair=${sheet?.hair || hair}&&color=${
     sheet?.color || color
   }&&outfit=${sheet?.outfit || outfit}&&bg=${sheet?.bg || bg}&&tokenId=${tokenId}`
 
