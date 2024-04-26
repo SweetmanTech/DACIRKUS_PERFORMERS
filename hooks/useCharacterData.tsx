@@ -174,7 +174,7 @@ const useCharacterData = () => {
     prevCBG,
     randomCBG,
     dummyRandom,
-    setDummyRandom
+    setDummyRandom,
   }
 }
 
