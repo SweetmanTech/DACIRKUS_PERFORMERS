@@ -27,13 +27,21 @@ export default async function handler(req: any, res: any) {
     CBGCOLORS[bg],
   )
 
-  const attribute = response[`${chainId || CHAIN_ID}`]
+  const metadata = response[`${chainId || CHAIN_ID}`]
+  const finalAttribute = metadata?.attributes || deterministicAttribute
+  const sheet = metadata?.sheet
+
+  const endpoint = `api/og?tokenId=${tokenId}&&type=${sheet?.type || type}&&skin=${
+    sheet?.skin || skin
+  }&&acc=${sheet?.acc || acc}&&eye=${sheet?.eye || eye}&&hair=${sheet?.hair || hair}&&color=${
+    sheet?.color || color
+  }&&outfit=${sheet?.outfit || outfit}&&bg=${sheet?.bg || bg}`
 
   const metaData = {
     name: `Performer #${tokenId}`,
-    image: `${DOMAIN_URL}/api/og?tokenId=${tokenId}`,
-    description: `PFP: ${DOMAIN_URL}/api/og?tokenId=${tokenId}`,
-    attributes: attribute || deterministicAttribute,
+    image: `${DOMAIN_URL}/${endpoint}`,
+    description: `PFP: ${DOMAIN_URL}/${endpoint}`,
+    attributes: finalAttribute,
   }
 
   return res.status(200).json(metaData)
