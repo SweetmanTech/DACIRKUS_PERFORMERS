@@ -40,7 +40,7 @@ export default async function handler(req: any, res: any) {
   const metaData = {
     name: `Performer #${tokenId}`,
     image: `${DOMAIN_URL}/${endpoint}`,
-    description: `PFP: ${DOMAIN_URL}/${endpoint}`,
+    description: `Spritesheet: ${DOMAIN_URL}/spritsheet/${chainId}/${tokenId}`,
     attributes: finalAttribute,
   }
 

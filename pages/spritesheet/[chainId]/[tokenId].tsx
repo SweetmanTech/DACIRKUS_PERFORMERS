@@ -1,5 +1,10 @@
-import SpritesSheetPage from "@/components/Pages/SpritesSheetPage";
+import SpriteSheetPage from "@/components/Pages/SpriteSheetPage"
+import CharacterProvider from "@/providers/CharacterProvider"
 
-const SpritesSheet = () => <SpritesSheetPage />
+const SpriteSheet = () => (
+  <CharacterProvider>
+    <SpriteSheetPage />
+  </CharacterProvider>
+)
 
-export default SpritesSheet
+export default SpriteSheet
