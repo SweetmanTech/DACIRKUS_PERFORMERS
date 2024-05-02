@@ -1,15 +1,16 @@
 export const CTYPES = [
-  "BalanceF",
-  "BalanceM",
-  "ClownF",
-  "ClownM",
-  "MagicianF",
-  "MuscleF",
-  "MuscleM",
-  "NormalF",
-  "NormalM",
-  "UnicycleF",
-  "UnicycleM",
+  "Balance1",
+  "Balance2",
+  "Funny1",
+  "Funny2",
+  "Magic1",
+  "Magic2",
+  "Strong1",
+  "Strong2",
+  "Normie1",
+  "Normie2",
+  "Tech1",
+  "Tech2",
 ]
 
 export const CACCS = [
