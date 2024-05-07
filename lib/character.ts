@@ -88,7 +88,7 @@ export const COUTFITS = [
   "Clown",
   "CyanGeneric",
   "GreenGeneric",
-  "GreeJersey",
+  "GreenJersey",
   "GreyGeneric",
   "Hero",
   "HypeBeast",
