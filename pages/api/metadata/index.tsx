@@ -1,6 +1,6 @@
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import getAttributes from "@/lib/getAttributes"
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
 import getMetadata from "@/lib/firebase/getMetadata"
@@ -24,7 +24,7 @@ export default async function handler(req: any, res: any) {
     CHAIRS[hair],
     CCOLORS[color],
     COUTFITS[outfit],
-    CBGCOLORS[bg],
+    CBGNAMES[bg],
   )
 
   const metadata = response[`${chainId || CHAIN_ID}`]
