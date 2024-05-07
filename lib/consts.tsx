@@ -18,5 +18,5 @@ export const ZORA_COLLECTION_URL = IS_TESTNET
   : `https://zora.co/collect/base:${DROP_ADDRESS}`
 
 export const DOMAIN_URL = "https://daperformers.com"
-export const COMMENT = "!!!"
+export const COMMENT = "Da Performers are coming!!!"
 export const MINT_REFERRAL = process.env.NEXT_PUBLIC_MINT_REFERRAL
