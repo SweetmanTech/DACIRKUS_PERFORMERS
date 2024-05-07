@@ -3,7 +3,7 @@ import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
 import addMetadata from "@/lib/firebase/addMetadata"
 import getAttributes from "@/lib/getAttributes"
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
@@ -38,7 +38,7 @@ const DaPerformerCharacterCustomizer = () => {
         CHAIRS[sheet.hair],
         CCOLORS[sheet.color],
         COUTFITS[sheet.outfit],
-        CBGCOLORS[sheet.bg],
+        CBGNAMES[sheet.bg],
       )
       await addMetadata(firstMintedTokenId + i + 1, attribute, sheet)
     })

@@ -8,7 +8,7 @@ import { useState } from "react"
 import useZoraPremint from "@/hooks/useZoraPremint"
 import { IS_TESTNET } from "@/lib/consts"
 import { useCharacter } from "@/providers/CharacterProvider"
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import getAttributes from "@/lib/getAttributes"
 import addMetadata from "@/lib/firebase/addMetadata"
 
@@ -36,7 +36,7 @@ const MintButton = () => {
       CHAIRS[cHair],
       CCOLORS[cColor],
       COUTFITS[cOutFit],
-      CBGCOLORS[cBG],
+      CBGNAMES[cBG],
     )
     await addMetadata(firstMintedTokenId + 1, attributes, {
       type: cType,

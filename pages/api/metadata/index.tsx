@@ -1,6 +1,6 @@
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import getAttributes from "@/lib/getAttributes"
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
 import getMetadata from "@/lib/firebase/getMetadata"
@@ -24,23 +24,23 @@ export default async function handler(req: any, res: any) {
     CHAIRS[hair],
     CCOLORS[color],
     COUTFITS[outfit],
-    CBGCOLORS[bg],
+    CBGNAMES[bg],
   )
 
   const metadata = response[`${chainId || CHAIN_ID}`]
   const finalAttribute = metadata?.attributes || deterministicAttribute
   const sheet = metadata?.sheet
 
-  const endpoint = `api/og?type=${sheet?.type || type}&&skin=${sheet?.skin || skin}&&acc=${
+  const endpoint = `api/og?type=${sheet?.type || type}&skin=${sheet?.skin || skin}&acc=${
     sheet?.acc || acc
-  }&&eye=${sheet?.eye || eye}&&hair=${sheet?.hair || hair}&&color=${
-    sheet?.color || color
-  }&&outfit=${sheet?.outfit || outfit}&&bg=${sheet?.bg || bg}&&tokenId=${tokenId}`
+  }&eye=${sheet?.eye || eye}&hair=${sheet?.hair || hair}&color=${sheet?.color || color}&outfit=${
+    sheet?.outfit || outfit
+  }&bg=${sheet?.bg || bg}&tokenId=${tokenId}`
 
   const metaData = {
     name: `Performer #${tokenId}`,
     image: `${DOMAIN_URL}/${endpoint}`,
-    description: `PFP: ${DOMAIN_URL}/${endpoint}`,
+    description: `PFP: ${DOMAIN_URL}/${endpoint} \n Spritesheet: ${DOMAIN_URL}/spritsheet/${chainId}/${tokenId}`,
     attributes: finalAttribute,
   }
 
