@@ -9,6 +9,7 @@ import { useAnimatedBook } from "../../../providers/AnimatedBookProvider"
 import AttributeSelect from "./AttributeSelect"
 import Success from "./Success"
 import SuccessMultiple from "./SuccessMultiple"
+import PfpRenderer from "./PfpRenderer"
 
 const CreatePage = () => {
   const { currentStep } = useCreate()
@@ -27,6 +28,7 @@ const CreatePage = () => {
           </>
         )}
       </AnimatedBook>
+      <PfpRenderer />
     </Layout>
   )
 }

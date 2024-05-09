@@ -75,11 +75,11 @@ const useUiMetadata = (quantity) => {
         topOffset: -125,
     }
     return {
-    imageWidth: 50,
-    imagHeight: 61,
-    scale: 0.17,
-    leftOffset: -110,
-    topOffset: -125,
+      imageWidth: 50,
+      imagHeight: 61,
+      scale: 0.17,
+      leftOffset: -110,
+      topOffset: -125,
     }
   }, [isLg, isXl, quantity])
 
