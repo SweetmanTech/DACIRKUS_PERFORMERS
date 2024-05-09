@@ -39,7 +39,9 @@ export default async function handler(req: any, res: any) {
 
   const metaData = {
     name: `Performer #${tokenId}`,
-    image: `${DOMAIN_URL}/${endpoint}`,
+    image: `https://remote-image.decentralized-content.com/image?url=${encodeURIComponent(
+      `${DOMAIN_URL}/${endpoint}`,
+    )}&w=1920&q=75`,
     description: `PFP: ${DOMAIN_URL}/${endpoint} \n Spritesheet: ${DOMAIN_URL}/spritesheet/${
       chainId || CHAIN_ID
     }/${tokenId}`,
