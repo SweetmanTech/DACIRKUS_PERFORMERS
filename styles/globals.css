@@ -75,6 +75,10 @@ a {
   max-width: none !important;
 }
 
+.sheet-renderer {
+  pointer-events: none;
+}
+
 * {
   box-sizing: border-box;
 }
