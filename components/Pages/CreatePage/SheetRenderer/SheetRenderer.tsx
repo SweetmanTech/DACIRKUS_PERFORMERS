@@ -3,7 +3,7 @@ import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import SheetModel from "../SheetModel"
 
 const SheetRenderer = () => {
-  const { cType, cSkin, cAcc, cEye, cHair, cColor, cOutFit, cBG, dummyRandom } = useCharacter()
+  const { cType, cSkin, cAcc, cEye, cHair, cColor, cOutFit, dummyRandom } = useCharacter()
   const { singleSheetRef, multipleSheetRefs } = useSheetRenderer()
 
   return (
@@ -20,7 +20,6 @@ const SheetRenderer = () => {
           hair={cHair}
           color={cColor}
           outfit={cOutFit}
-          bg={cBG}
         />
       </div>
       {dummyRandom?.map((randomdata, i) => (
@@ -34,7 +33,6 @@ const SheetRenderer = () => {
             hair={randomdata.hair}
             color={randomdata.color}
             outfit={randomdata.outfit}
-            bg={randomdata.bg}
           />
         </div>
       ))}
