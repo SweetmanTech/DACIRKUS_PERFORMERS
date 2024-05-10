@@ -11,6 +11,7 @@ import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { STATUS } from "@/lib/bookStatus"
 import { usePfpRenderer } from "@/providers/PfpRendererProvder"
 import handleTxError from "@/lib/handleTxError"
+import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -35,6 +36,7 @@ const useCreateData = () => {
   const { mint: zoraMint } = useZoraPremint()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
+  const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
 
   const singleMint = async () => {
     const firstMintedTokenId = (IS_TESTNET ? await mintWithRewards() : await zoraMint()) as any
@@ -63,8 +65,9 @@ const useCreateData = () => {
       bg: cBG,
     }
 
-    const cid = await renderSinglePfp()
-    await addMetadata(firstMintedTokenId + 1, attributes, sheet, `ipfs://${cid}`)
+    const cidOfPfp = await renderSinglePfp()
+    const cidOfSheet = await renderSingleSheet()
+    await addMetadata(firstMintedTokenId + 1, attributes, sheet, `ipfs://${cidOfPfp}`, `ipfs://${cidOfSheet}`)
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
