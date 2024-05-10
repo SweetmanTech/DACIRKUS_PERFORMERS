@@ -1,64 +1,35 @@
-import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
-import addMetadata from "@/lib/firebase/addMetadata"
-import getAttributes from "@/lib/getAttributes"
-import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import ReactLoading from "react-loading"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
-import { useCharacter } from "../../../../providers/CharacterProvider"
 import { useCreate } from "../../../../providers/CreateProvider"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
 
 const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
-  const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { randomAttr, setDummyRandom } = useCharacter()
-  const { mintWithRewards } = useZoraMintByPrivy()
+  const { setCurrentStep, multipleMint } = useCreate()
   const [loading, setLoading] = useState(false)
   const { prepare } = usePreparePrivyWallet()
+  const [selectedQuantity, setSelectedQuantity] = useState(-1)
 
   const selectCustom = () => {
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SELECT_CHARACTER)
   }
 
-  const mintMultiple = async (quantity) => {
-    const randomAttributes = randomAttr(quantity)
-    setDummyRandom(randomAttributes)
-    const firstMintedTokenId = (await mintWithRewards(quantity)) as any
-    const metadataPromise = randomAttributes.map(async (sheet, i) => {
-      const attribute = getAttributes(
-        CTYPES[sheet.type],
-        CSKINS[sheet.skin],
-        CACCS[sheet.acc],
-        CEYES[sheet.eye],
-        CHAIRS[sheet.hair],
-        CCOLORS[sheet.color],
-        COUTFITS[sheet.outfit],
-        CBGNAMES[sheet.bg],
-      )
-      await addMetadata(firstMintedTokenId + i + 1, attribute, sheet)
-    })
-    await Promise.all(metadataPromise)
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
-    }
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS_MULTIPLE)
-  }
-
   const handleMint = async (quantity) => {
+    setSelectedQuantity(quantity)
     setLoading(true)
     if (!prepare()) {
       setLoading(false)
+      setSelectedQuantity(-1)
       return
     }
-    await mintMultiple(quantity)
+    await multipleMint(quantity)
+    setSelectedQuantity(-1)
     setLoading(false)
   }
 
@@ -108,7 +79,11 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={() => handleMint(5)} disabled={loading}>
+            <Button
+              className={`relative mt-2 ${loading ? "cursor-not-allowed" : ""}`}
+              onClick={() => handleMint(5)}
+              disabled={loading}
+            >
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -117,13 +92,17 @@ const DaPerformerCharacterCustomizer = () => {
                 containerClasses="sm:h-[36px] md:h-[46px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
               />
               <div className="absolute m-auto">
-                <Media
-                  type="image"
-                  link="/images/Create/5.png"
-                  alt="5"
-                  blurLink="/images/Create/5.png"
-                  containerClasses="sm:h-[20px] md:h-[25px] lg:h-[35px] xl:h-[50px] aspect-[1/1]"
-                />
+                {loading && selectedQuantity === 5 ? (
+                  <ReactLoading type="spokes" color="#1e1e1e" width={60} />
+                ) : (
+                  <Media
+                    type="image"
+                    link="/images/Create/5.png"
+                    alt="5"
+                    blurLink="/images/Create/5.png"
+                    containerClasses="sm:h-[20px] md:h-[25px] lg:h-[35px] xl:h-[50px] aspect-[1/1]"
+                  />
+                )}
               </div>
             </Button>
           </div>
@@ -136,7 +115,11 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={() => handleMint(10)} disabled={loading}>
+            <Button
+              className={`relative mt-2 ${loading ? "cursor-not-allowed" : ""}`}
+              onClick={() => handleMint(10)}
+              disabled={loading}
+            >
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -145,13 +128,17 @@ const DaPerformerCharacterCustomizer = () => {
                 containerClasses="sm:h-[36px] md:h-[46px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
               />
               <div className="absolute m-auto">
-                <Media
-                  type="image"
-                  link="/images/Create/10.png"
-                  alt="10"
-                  blurLink="/images/Create/10.png"
-                  containerClasses="sm:h-[26px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-                />
+                {loading && selectedQuantity === 10 ? (
+                  <ReactLoading type="spokes" color="#1e1e1e" width={60} />
+                ) : (
+                  <Media
+                    type="image"
+                    link="/images/Create/10.png"
+                    alt="10"
+                    blurLink="/images/Create/10.png"
+                    containerClasses="sm:h-[26px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
+                  />
+                )}
               </div>
             </Button>
           </div>
@@ -164,7 +151,11 @@ const DaPerformerCharacterCustomizer = () => {
               containerClasses="sm:h-[26px] md:h-[26px] lg:h-[30px] xl:h-[40px] aspect-[1/1]"
             />
 
-            <Button className="relative mt-2" onClick={() => handleMint(25)} disabled={loading}>
+            <Button
+              className={`relative mt-2 ${loading ? "cursor-not-allowed" : ""}`}
+              onClick={() => handleMint(25)}
+              disabled={loading}
+            >
               <Media
                 type="image"
                 link="/images/Create/DaPerformersCharactererformers.png"
@@ -173,13 +164,17 @@ const DaPerformerCharacterCustomizer = () => {
                 containerClasses="sm:h-[36px] md:h-[46px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
               />
               <div className="absolute m-auto">
-                <Media
-                  type="image"
-                  alt="25"
-                  link="/images/Create/25.png"
-                  blurLink="/images/Create/25.png"
-                  containerClasses="sm:h-[26px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-                />
+                {loading && selectedQuantity === 25 ? (
+                  <ReactLoading type="spokes" color="#1e1e1e" width={60} />
+                ) : (
+                  <Media
+                    type="image"
+                    alt="25"
+                    link="/images/Create/25.png"
+                    blurLink="/images/Create/25.png"
+                    containerClasses="sm:h-[26px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
+                  />
+                )}
               </div>
             </Button>
           </div>

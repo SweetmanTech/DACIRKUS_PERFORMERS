@@ -67,6 +67,14 @@ a {
   }
 }
 
+.pfp-renderer {
+  pointer-events: none;
+}
+
+.pfp-renderer img {
+  max-width: none !important;
+}
+
 * {
   box-sizing: border-box;
 }

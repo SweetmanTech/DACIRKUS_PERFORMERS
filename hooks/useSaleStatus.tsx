@@ -16,7 +16,7 @@ const useSaleStatus = () => {
     setPublicSaleActive(0)
 
     setLoading(true)
-    const details = await getSaleStatus() as any
+    const details = (await getSaleStatus()) as any
     setPublicSaleActive(details.publicSaleActive)
     setPresaleActive(details.presaleActive)
     setPresaleStart(Math.floor(parseInt(details.presaleStart, 10) / 1000000))

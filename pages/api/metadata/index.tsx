@@ -4,6 +4,7 @@ import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } fro
 import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
 import getMetadata from "@/lib/firebase/getMetadata"
+import getIpfsLink from "@/lib/getIpfsLink"
 
 export default async function handler(req: any, res: any) {
   const { tokenId, chainId } = req.query
@@ -29,6 +30,7 @@ export default async function handler(req: any, res: any) {
 
   const metadata = response[`${chainId || CHAIN_ID}`]
   const finalAttribute = metadata?.attributes || deterministicAttribute
+  const pfp = metadata?.pfp
   const sheet = metadata?.sheet
 
   const endpoint = `api/og?type=${sheet?.type || type}&skin=${sheet?.skin || skin}&acc=${
@@ -37,12 +39,13 @@ export default async function handler(req: any, res: any) {
     sheet?.outfit || outfit
   }&bg=${sheet?.bg || bg}&tokenId=${tokenId}`
 
+  const pfpUrl = pfp ? getIpfsLink(pfp) : `${DOMAIN_URL}/${endpoint}`
+  const sheetUrl = `${DOMAIN_URL}/spritesheet/${chainId || CHAIN_ID}/${tokenId}`
+
   const metaData = {
     name: `Performer #${tokenId}`,
-    image: `${DOMAIN_URL}/${endpoint}`,
-    description: `PFP: ${DOMAIN_URL}/${endpoint} \n Spritesheet: ${DOMAIN_URL}/spritesheet/${
-      chainId || CHAIN_ID
-    }/${tokenId}`,
+    image: pfpUrl,
+    description: `PFP: ${pfpUrl} \n Spritesheet: ${sheetUrl}`,
     attributes: finalAttribute,
   }
 

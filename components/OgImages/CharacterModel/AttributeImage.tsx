@@ -1,6 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-const AttributeImage = ({ imageUrl }) => (
+const AttributeImage = ({ imageUrl, className = "" }) => (
   <img
     src={imageUrl}
     style={{
@@ -10,6 +10,7 @@ const AttributeImage = ({ imageUrl }) => (
       top: -1930,
       imageRendering: "pixelated",
     }}
+    className={className}
     alt="not found"
   />
 )

@@ -1,5 +1,14 @@
 import { useState } from "react"
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../lib/character"
+import {
+  CACCS,
+  CBGCOLORS,
+  CCOLORS,
+  CEYES,
+  CHAIRS,
+  COUTFITS,
+  CSKINS,
+  CTYPES,
+} from "../lib/character"
 import getRandomInt from "../lib/getRandomInt"
 
 const useCharacterData = () => {
@@ -14,7 +23,7 @@ const useCharacterData = () => {
   const [dummyRandom, setDummyRandom] = useState([])
 
   const randomAttr = (quantity = 1) => {
-    return Array.from({length: quantity}).map(() => {
+    return Array.from({ length: quantity }).map(() => {
       const type = randomCType()
       const acc = randomCAcc()
       const eye = randomCEye()
@@ -23,12 +32,12 @@ const useCharacterData = () => {
       const outfit = randomCOutFit()
       const skin = randomCSkin()
       const bg = randomCBG()
-      return {type, acc, eye, hair, color, outfit, skin, bg}
+      return { type, acc, eye, hair, color, outfit, skin, bg }
     })
   }
 
   const randomCType = () => {
-    const type =getRandomInt(CTYPES.length)
+    const type = getRandomInt(CTYPES.length)
     setCType(type)
     return type
   }
