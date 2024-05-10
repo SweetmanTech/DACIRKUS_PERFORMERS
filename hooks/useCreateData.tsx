@@ -67,7 +67,13 @@ const useCreateData = () => {
 
     const cidOfPfp = await renderSinglePfp()
     const cidOfSheet = await renderSingleSheet()
-    await addMetadata(firstMintedTokenId + 1, attributes, sheet, `ipfs://${cidOfPfp}`, `ipfs://${cidOfSheet}`)
+    await addMetadata(
+      firstMintedTokenId + 1,
+      attributes,
+      sheet,
+      `ipfs://${cidOfPfp}`,
+      `ipfs://${cidOfSheet}`,
+    )
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
@@ -81,7 +87,8 @@ const useCreateData = () => {
       handleTxError(mintError)
       return
     }
-    const cids = await renderMultiplePfps(quantity)
+    const cidsOfPfp = await renderMultiplePfps(quantity)
+    const cidsOfSheets = await renderMultipleSheets(quantity)
     const metadataPromise = dummyRandom.slice(0, quantity).map(async (sheet, i) => {
       const attribute = getAttributes(
         CTYPES[sheet.type],
@@ -93,7 +100,13 @@ const useCreateData = () => {
         COUTFITS[sheet.outfit],
         CBGNAMES[sheet.bg],
       )
-      await addMetadata(firstMintedTokenId + i + 1, attribute, sheet, `ipfs://${cids[i]}`)
+      await addMetadata(
+        firstMintedTokenId + i + 1,
+        attribute,
+        sheet,
+        `ipfs://${cidsOfPfp[i]}`,
+        `ipfs://${cidsOfSheets[i]}`,
+      )
     })
     await Promise.all(metadataPromise)
     const { error } = firstMintedTokenId

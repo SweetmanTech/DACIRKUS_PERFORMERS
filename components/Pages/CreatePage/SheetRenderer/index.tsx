@@ -1,3 +1,3 @@
-import SheetRenderer from "./SheetRenderer";
+import SheetRenderer from "./SheetRenderer"
 
 export default SheetRenderer

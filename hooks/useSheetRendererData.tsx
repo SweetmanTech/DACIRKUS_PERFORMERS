@@ -28,15 +28,12 @@ const useSheetRendererData = () => {
   const renderMultipleSheets = async (quantity) => {
     let cids = []
     let renderModuleCnt = 5
-    if (quantity === 25) renderModuleCnt = 10
 
     for (let i = 0; i < quantity; i += renderModuleCnt) {
-      const renderPromise = Array.from({ length: i < 20 ? renderModuleCnt : 5 }).map(
-        async (_, j) => {
-          const cid = await uploadPfp(multipleSheetRefs[i + j])
-          return cid
-        },
-      )
+      const renderPromise = Array.from({ length: renderModuleCnt }).map(async (_, j) => {
+        const cid = await uploadPfp(multipleSheetRefs[i + j])
+        return cid
+      })
       const groupCids = await Promise.all(renderPromise)
       cids = cids.concat(groupCids)
     }

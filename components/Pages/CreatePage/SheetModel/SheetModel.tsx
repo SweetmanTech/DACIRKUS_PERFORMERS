@@ -1,12 +1,13 @@
-import { CBGCOLORS } from "@/lib/character"
-import CAccModel from "./CAccModel"
-import CEyeModel from "./CEyeModel"
-import CHairModel from "./CHairModel"
-import COutFitModel from "./COutFitModel"
-import CSkinkModel from "./CSkinkModel"
+/* eslint-disable @next/next/no-img-element */
+import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 
-const SheetModel = ({type, skin, outfit, hair, eye, bg, acc, color}) => {
+const SheetModel = ({ type, skin, outfit, hair, eye, bg, acc, color }) => {
   const visibleHair = hair !== 1
+  const skinImage = `/images/Characters/${CTYPES[type]}/SkinTone/${CSKINS[skin]}.png`
+  const accImage = `/images/Characters/${CTYPES[type]}/Accesories/${CACCS[acc]}.png`
+  const eyeImage = `/images/Characters/${CTYPES[type]}/Eyes/${CEYES[eye]}.png`
+  const hairImage = `/images/Characters/${CTYPES[type]}/Hair/${CCOLORS[color]}${CHAIRS[hair]}.png`
+  const outfitImage = `/images/Characters/${CTYPES[type]}/Outfit/${COUTFITS[outfit]}.png`
 
   return (
     <div
@@ -15,12 +16,49 @@ const SheetModel = ({type, skin, outfit, hair, eye, bg, acc, color}) => {
         background: CBGCOLORS[bg],
       }}
     >
-      <div className="relative w-fit">
-        <CSkinkModel skin={skin} type={type}/>
-        <CAccModel acc={acc} type={type}/>
-        <CEyeModel eye={eye} type={type}/>
-        {visibleHair && <CHairModel hair={hair} color={color} type={type}/>}
-        <COutFitModel outfit={outfit} type={type}/>
+      <div className="relative w-[250px] aspect-[192/1152]">
+        <img
+          src={skinImage}
+          className="w-full h-full z-[1] absolute left-0 top-0"
+          style={{
+            imageRendering: "pixelated",
+          }}
+          alt="not found"
+        />
+        <img
+          src={eyeImage}
+          className="w-full h-full z-[2] absolute left-0 top-0"
+          style={{
+            imageRendering: "pixelated",
+          }}
+          alt="not found"
+        />
+        {visibleHair && (
+          <img
+            src={hairImage}
+            className="w-full h-full z-[3] absolute left-0 top-0"
+            style={{
+              imageRendering: "pixelated",
+            }}
+            alt="not found"
+          />
+        )}
+        <img
+          src={accImage}
+          className="w-full h-full z-[4] absolute left-0 top-0"
+          style={{
+            imageRendering: "pixelated",
+          }}
+          alt="not found"
+        />
+        <img
+          src={outfitImage}
+          className="w-full h-full z-[5] absolute left-0 top-0"
+          style={{
+            imageRendering: "pixelated",
+          }}
+          alt="not found"
+        />
       </div>
     </div>
   )

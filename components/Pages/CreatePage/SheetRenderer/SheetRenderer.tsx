@@ -1,6 +1,6 @@
 import { useCharacter } from "@/providers/CharacterProvider"
-import SheetModel from "../SheetModel"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
+import SheetModel from "../SheetModel"
 
 const SheetRenderer = () => {
   const { cType, cSkin, cAcc, cEye, cHair, cColor, cOutFit, cBG, dummyRandom } = useCharacter()

@@ -11,7 +11,7 @@ const addMetadata = async (tokenId, attributes, sheet, pfp = "", ss = "") => {
           attributes,
           sheet,
           pfp,
-          ss
+          ss,
         },
       },
       {
