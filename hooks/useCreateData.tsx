@@ -12,6 +12,7 @@ import { STATUS } from "@/lib/bookStatus"
 import { usePfpRenderer } from "@/providers/PfpRendererProvder"
 import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
+import getTotalSupply from "@/lib/getTotalSupply"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -39,11 +40,7 @@ const useCreateData = () => {
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
 
   const singleMint = async () => {
-    const firstMintedTokenId = (IS_TESTNET ? await mintWithRewards() : await zoraMint()) as any
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
-    }
+    const totalSupply = await getTotalSupply()
     const attributes = getAttributes(
       CTYPES[cType],
       CSKINS[cSkin],
@@ -68,12 +65,17 @@ const useCreateData = () => {
     const cidOfPfp = await renderSinglePfp()
     const cidOfSheet = await renderSingleSheet()
     await addMetadata(
-      firstMintedTokenId + 1,
+      totalSupply + 1,
       attributes,
       sheet,
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
+    const firstMintedTokenId = (IS_TESTNET ? await mintWithRewards() : await zoraMint()) as any
+    const { error } = firstMintedTokenId
+    if (error) {
+      return
+    }
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
@@ -81,12 +83,7 @@ const useCreateData = () => {
 
   const multipleMint = async (quantity) => {
     setQuantity(quantity)
-    const firstMintedTokenId = (await mintWithRewards(quantity)) as any
-    const { error: mintError } = firstMintedTokenId
-    if (mintError) {
-      handleTxError(mintError)
-      return
-    }
+    const totalSupply = await getTotalSupply()
     const cidsOfPfp = await renderMultiplePfps(quantity)
     const cidsOfSheets = await renderMultipleSheets(quantity)
     const metadataPromise = dummyRandom.slice(0, quantity).map(async (sheet, i) => {
@@ -101,14 +98,22 @@ const useCreateData = () => {
         CBGNAMES[sheet.bg],
       )
       await addMetadata(
-        firstMintedTokenId + i + 1,
+        totalSupply + i + 1,
         attribute,
         sheet,
         `ipfs://${cidsOfPfp[i]}`,
         `ipfs://${cidsOfSheets[i]}`,
       )
     })
+
     await Promise.all(metadataPromise)
+
+    const firstMintedTokenId = (await mintWithRewards(quantity)) as any
+    const { error: mintError } = firstMintedTokenId
+    if (mintError) {
+      handleTxError(mintError)
+      return
+    }
     const { error } = firstMintedTokenId
     if (error) {
       return
