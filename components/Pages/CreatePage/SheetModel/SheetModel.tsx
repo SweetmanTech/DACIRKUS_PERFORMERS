@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 
-const SheetModel = ({ type, skin, outfit, hair, eye, bg, acc, color }) => {
+const SheetModel = ({ type, skin, outfit, hair, eye, acc, color }) => {
   const visibleHair = hair !== 1
   const skinImage = `/images/Characters/${CTYPES[type]}/SkinTone/${CSKINS[skin]}.png`
   const accImage = `/images/Characters/${CTYPES[type]}/Accesories/${CACCS[acc]}.png`
@@ -10,12 +10,7 @@ const SheetModel = ({ type, skin, outfit, hair, eye, bg, acc, color }) => {
   const outfitImage = `/images/Characters/${CTYPES[type]}/Outfit/${COUTFITS[outfit]}.png`
 
   return (
-    <div
-      className="w-fit px-4 pb-6 pointer-events-none"
-      style={{
-        background: CBGCOLORS[bg],
-      }}
-    >
+    <div className="w-fit px-4 pb-6 pointer-events-none">
       <div className="relative w-[250px] aspect-[192/1152]">
         <img
           src={skinImage}
