@@ -1,68 +1,21 @@
-import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
-import { STATUS } from "@/lib/bookStatus"
-import { STEPS } from "@/lib/createStep"
-import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { useCreate } from "@/providers/CreateProvider"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
-import useZoraPremint from "@/hooks/useZoraPremint"
-import { IS_TESTNET } from "@/lib/consts"
-import { useCharacter } from "@/providers/CharacterProvider"
-import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
-import getAttributes from "@/lib/getAttributes"
-import addMetadata from "@/lib/firebase/addMetadata"
 
 const MintButton = () => {
-  const { setCurrentStatus } = useAnimatedBook()
-  const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { mintWithRewards } = useZoraMintByPrivy()
-  const { mint: zoraMint } = useZoraPremint()
-
-  const { cType, cAcc, cEye, cHair, cColor, cOutFit, cSkin, cBG } = useCharacter()
-
+  const { singleMint } = useCreate()
   const [loading, setLoading] = useState(false)
 
-  const mint = async () => {
-    const firstMintedTokenId = (IS_TESTNET ? await mintWithRewards() : await zoraMint()) as any
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
-    }
-    const attributes = getAttributes(
-      CTYPES[cType],
-      CSKINS[cSkin],
-      CACCS[cAcc],
-      CEYES[cEye],
-      CHAIRS[cHair],
-      CCOLORS[cColor],
-      COUTFITS[cOutFit],
-      CBGNAMES[cBG],
-    )
-    await addMetadata(firstMintedTokenId + 1, attributes, {
-      type: cType,
-      skin: cSkin,
-      acc: cAcc,
-      eye: cEye,
-      hair: cHair,
-      color: cColor,
-      outfit: cOutFit,
-      bg: cBG,
-    })
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS)
-  }
-
-  const { prepare } = usePreparePrivyWallet(mint)
+  const { prepare } = usePreparePrivyWallet(singleMint)
 
   const handleMint = async () => {
     setLoading(true)
-    const isPrepared = await prepare()
+    const isPrepared = prepare()
     if (!isPrepared) {
       setLoading(false)
       return
     }
-    await mint()
+    await singleMint()
     setLoading(false)
   }
 

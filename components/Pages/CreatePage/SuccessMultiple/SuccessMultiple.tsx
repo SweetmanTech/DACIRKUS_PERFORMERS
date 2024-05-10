@@ -8,17 +8,17 @@ import SelectedAttributes from "../SelectedAttributes"
 import SuccessButtons from "../SuccessButtons"
 
 const SuccessMultiple = () => {
-  const { mintedTokenId } = useCreate()
+  const { mintedTokenId, quantity } = useCreate()
   const { dummyRandom } = useCharacter()
 
-  const cols = getMultipleCols(dummyRandom.length)
-  const uiMedatdata = useUiMetadata(dummyRandom.length)
-  const lastMintedTokenId = mintedTokenId + dummyRandom.length - 1
+  const cols = getMultipleCols(quantity)
+  const uiMedatdata = useUiMetadata(quantity)
+  const lastMintedTokenId = mintedTokenId + quantity - 1
 
   return (
     <div className="w-full h-full grid grid-cols-2">
       <div className="relative w-full h-full">
-        {dummyRandom.map((_, i) => (
+        {dummyRandom.slice(0, quantity).map((_, i) => (
           <div
             className="absolute w-full h-full md:pr-[18px] md:pr-[24px] xl:pr-[30px]"
             // eslint-disable-next-line react/no-array-index-key

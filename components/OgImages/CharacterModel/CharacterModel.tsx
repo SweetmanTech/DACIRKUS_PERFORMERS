@@ -3,7 +3,7 @@ import { DOMAIN_URL } from "@/lib/consts"
 import { CEYES, CSKINS, CTYPES, CACCS, CCOLORS, CHAIRS, COUTFITS, CBGCOLORS } from "@/lib/character"
 import AttributeImage from "./AttributeImage"
 
-const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit, bg }) => (
+const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit, bg, noCors = false }) => (
   <div
     style={{
       display: "flex",
@@ -11,6 +11,8 @@ const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit, bg }) => (
       height: 480,
       paddingLeft: 40,
       background: CBGCOLORS[bg],
+      position: "relative",
+      overflow: "hidden",
     }}
   >
     <div
@@ -19,6 +21,7 @@ const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit, bg }) => (
         width: 325,
         height: 480,
         overflow: "hidden",
+        position: "relative",
       }}
     >
       <div
@@ -32,21 +35,36 @@ const CharacterModel = ({ type, skin, acc, eye, hair, color, outfit, bg }) => (
         }}
       >
         <AttributeImage
-          imageUrl={`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/SkinTone/${CSKINS[skin]}.png`}
+          imageUrl={`${noCors ? "" : DOMAIN_URL}/images/Characters/${CTYPES[type]}/SkinTone/${
+            CSKINS[skin]
+          }.png`}
+          className="left-0 top-0 z-[1]"
         />
         <AttributeImage
-          imageUrl={`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Eyes/${CEYES[eye]}.png`}
+          imageUrl={`${noCors ? "" : DOMAIN_URL}/images/Characters/${CTYPES[type]}/Eyes/${
+            CEYES[eye]
+          }.png`}
+          className="left-0 top-0 z-[2]"
         />
         {hair !== 1 && (
           <AttributeImage
-            imageUrl={`${`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Hair/${CCOLORS[color]}${CHAIRS[hair]}.png`}`}
+            imageUrl={`${`${noCors ? "" : DOMAIN_URL}/images/Characters/${CTYPES[type]}/Hair/${
+              CCOLORS[color]
+            }${CHAIRS[hair]}.png`}`}
+            className="left-0 top-0 z-[3]"
           />
         )}
         <AttributeImage
-          imageUrl={`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Accesories/${CACCS[acc]}.png`}
+          imageUrl={`${noCors ? "" : DOMAIN_URL}/images/Characters/${CTYPES[type]}/Accesories/${
+            CACCS[acc]
+          }.png`}
+          className="left-0 top-0 z-[4]"
         />
         <AttributeImage
-          imageUrl={`${DOMAIN_URL}/images/Characters/${CTYPES[type]}/Outfit/${COUTFITS[outfit]}.png`}
+          imageUrl={`${noCors ? "" : DOMAIN_URL}/images/Characters/${CTYPES[type]}/Outfit/${
+            COUTFITS[outfit]
+          }.png`}
+          className="left-0 top-0 z-[5]"
         />
       </div>
     </div>

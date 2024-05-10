@@ -8,7 +8,7 @@
     "start": "next start",
     "lint": "next lint --max-warnings 0",
     "lint:fix": "next lint --fix",
-    "prettier:fix": "npx prettier --write components lib pages shared providers",
+    "prettier:fix": "npx prettier --write components lib pages shared providers hooks",
     "format": "yarn run prettier:fix && yarn run lint:fix"
   },
   "dependencies": {
@@ -20,6 +20,7 @@
     "@wagmi/core": "^1.3.3",
     "@zoralabs/zorb": "^0.1.0",
     "axios": "^1.2.1",
+    "dom-to-image": "^2.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-prettier": "^4.2.1",
     "ethereum-multicall": "^2.21.0",
@@ -30,9 +31,11 @@
     "next": "^12.2.2",
     "next-api-decorators": "^2.0.0",
     "next-auth": "^4.20.1",
+    "nft.storage": "^7.1.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-icons": "^4.11.0",
+    "react-loading": "^2.0.3",
     "react-toastify": "^9.1.1",
     "react-use": "^17.4.0",
     "swiper": "^9.4.1",
