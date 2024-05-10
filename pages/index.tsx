@@ -7,11 +7,11 @@ import CreateProvider from "../providers/CreateProvider"
 const Create = () => (
   <CharacterProvider>
     <PfpRendererProvider>
-      <CreateProvider>
-        <AnimatedBookProvider>
+      <AnimatedBookProvider>
+        <CreateProvider>
           <CreatePage />
-        </AnimatedBookProvider>
-      </CreateProvider>
+        </CreateProvider>
+      </AnimatedBookProvider>
     </PfpRendererProvider>
   </CharacterProvider>
 )

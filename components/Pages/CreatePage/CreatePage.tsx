@@ -16,20 +16,22 @@ const CreatePage = () => {
   const { currentStatus } = useAnimatedBook()
 
   return (
-    <Layout type="base">
-      <SeoHead />
-      <AnimatedBook>
-        {currentStatus === STATUS.OPENED && (
-          <>
-            {currentStep === STEPS.CHOOSE_CHARACTER_TYPE && <CharacterSelect />}
-            {currentStep === STEPS.SELECT_CHARACTER && <AttributeSelect />}
-            {currentStep === STEPS.SUCCESS && <Success />}
-            {currentStep === STEPS.SUCCESS_MULTIPLE && <SuccessMultiple />}
-          </>
-        )}
-      </AnimatedBook>
+    <>
+      <Layout type="base">
+        <SeoHead />
+        <AnimatedBook>
+          {currentStatus === STATUS.OPENED && (
+            <>
+              {currentStep === STEPS.CHOOSE_CHARACTER_TYPE && <CharacterSelect />}
+              {currentStep === STEPS.SELECT_CHARACTER && <AttributeSelect />}
+              {currentStep === STEPS.SUCCESS && <Success />}
+              {currentStep === STEPS.SUCCESS_MULTIPLE && <SuccessMultiple />}
+            </>
+          )}
+        </AnimatedBook>
+      </Layout>
       <PfpRenderer />
-    </Layout>
+    </>
   )
 }
 

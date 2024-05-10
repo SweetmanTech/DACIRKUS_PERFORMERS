@@ -1,22 +1,15 @@
-import useZoraMintByPrivy from "@/hooks/useZoraMintByPrivy"
 import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
-import addMetadata from "@/lib/firebase/addMetadata"
-import getAttributes from "@/lib/getAttributes"
-import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import { STATUS } from "../../../../lib/bookStatus"
 import { STEPS } from "../../../../lib/createStep"
 import { useAnimatedBook } from "../../../../providers/AnimatedBookProvider"
-import { useCharacter } from "../../../../providers/CharacterProvider"
 import { useCreate } from "../../../../providers/CreateProvider"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
 
 const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
-  const { setCurrentStep, setMintedTokenId } = useCreate()
-  const { randomAttr, setDummyRandom } = useCharacter()
-  const { mintWithRewards } = useZoraMintByPrivy()
+  const { setCurrentStep, multipleMint } = useCreate()
   const [loading, setLoading] = useState(false)
   const { prepare } = usePreparePrivyWallet()
 
@@ -25,40 +18,13 @@ const DaPerformerCharacterCustomizer = () => {
     setCurrentStep(STEPS.SELECT_CHARACTER)
   }
 
-  const mintMultiple = async (quantity) => {
-    const randomAttributes = randomAttr(quantity)
-    setDummyRandom(randomAttributes)
-    const firstMintedTokenId = (await mintWithRewards(quantity)) as any
-    const metadataPromise = randomAttributes.map(async (sheet, i) => {
-      const attribute = getAttributes(
-        CTYPES[sheet.type],
-        CSKINS[sheet.skin],
-        CACCS[sheet.acc],
-        CEYES[sheet.eye],
-        CHAIRS[sheet.hair],
-        CCOLORS[sheet.color],
-        COUTFITS[sheet.outfit],
-        CBGNAMES[sheet.bg],
-      )
-      await addMetadata(firstMintedTokenId + i + 1, attribute, sheet)
-    })
-    await Promise.all(metadataPromise)
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
-    }
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS_MULTIPLE)
-  }
-
   const handleMint = async (quantity) => {
     setLoading(true)
     if (!prepare()) {
       setLoading(false)
       return
     }
-    await mintMultiple(quantity)
+    await multipleMint(quantity)
     setLoading(false)
   }
 
