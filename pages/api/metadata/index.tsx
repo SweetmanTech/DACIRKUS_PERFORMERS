@@ -39,12 +39,13 @@ export default async function handler(req: any, res: any) {
     sheet?.outfit || outfit
   }&bg=${sheet?.bg || bg}&tokenId=${tokenId}`
 
+  const pfpUrl = pfp ? getIpfsLink(pfp) : `${DOMAIN_URL}/${endpoint}`
+  const sheetUrl = `${DOMAIN_URL}/spritesheet/${chainId || CHAIN_ID}/${tokenId}`
+
   const metaData = {
     name: `Performer #${tokenId}`,
-    image: `${pfp ? getIpfsLink(pfp) : `${DOMAIN_URL}/${endpoint}`}`,
-    description: `PFP: ${DOMAIN_URL}/${endpoint} \n Spritesheet: ${DOMAIN_URL}/spritesheet/${
-      chainId || CHAIN_ID
-    }/${tokenId}`,
+    image: pfpUrl,
+    description: `PFP: ${pfpUrl} \n Spritesheet: ${sheetUrl}`,
     attributes: finalAttribute,
   }
 
