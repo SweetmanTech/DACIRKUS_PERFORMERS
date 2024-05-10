@@ -10,6 +10,7 @@ import AttributeSelect from "./AttributeSelect"
 import Success from "./Success"
 import SuccessMultiple from "./SuccessMultiple"
 import PfpRenderer from "./PfpRenderer"
+import SheetRenderer from "./SheetRenderer"
 
 const CreatePage = () => {
   const { currentStep } = useCreate()
@@ -31,6 +32,7 @@ const CreatePage = () => {
         </AnimatedBook>
       </Layout>
       <PfpRenderer />
+      <SheetRenderer />
     </>
   )
 }

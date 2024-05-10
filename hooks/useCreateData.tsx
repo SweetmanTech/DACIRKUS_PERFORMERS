@@ -11,6 +11,7 @@ import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { STATUS } from "@/lib/bookStatus"
 import { usePfpRenderer } from "@/providers/PfpRendererProvder"
 import handleTxError from "@/lib/handleTxError"
+import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -35,6 +36,7 @@ const useCreateData = () => {
   const { mint: zoraMint } = useZoraPremint()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
+  const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
 
   const singleMint = async () => {
     const firstMintedTokenId = (IS_TESTNET ? await mintWithRewards() : await zoraMint()) as any
@@ -63,8 +65,15 @@ const useCreateData = () => {
       bg: cBG,
     }
 
-    const cid = await renderSinglePfp()
-    await addMetadata(firstMintedTokenId + 1, attributes, sheet, `ipfs://${cid}`)
+    const cidOfPfp = await renderSinglePfp()
+    const cidOfSheet = await renderSingleSheet()
+    await addMetadata(
+      firstMintedTokenId + 1,
+      attributes,
+      sheet,
+      `ipfs://${cidOfPfp}`,
+      `ipfs://${cidOfSheet}`,
+    )
     setMintedTokenId(firstMintedTokenId + 1)
     setCurrentStatus(STATUS.LEFTFLIP)
     setCurrentStep(STEPS.SUCCESS)
@@ -78,7 +87,8 @@ const useCreateData = () => {
       handleTxError(mintError)
       return
     }
-    const cids = await renderMultiplePfps(quantity)
+    const cidsOfPfp = await renderMultiplePfps(quantity)
+    const cidsOfSheets = await renderMultipleSheets(quantity)
     const metadataPromise = dummyRandom.slice(0, quantity).map(async (sheet, i) => {
       const attribute = getAttributes(
         CTYPES[sheet.type],
@@ -90,7 +100,13 @@ const useCreateData = () => {
         COUTFITS[sheet.outfit],
         CBGNAMES[sheet.bg],
       )
-      await addMetadata(firstMintedTokenId + i + 1, attribute, sheet, `ipfs://${cids[i]}`)
+      await addMetadata(
+        firstMintedTokenId + i + 1,
+        attribute,
+        sheet,
+        `ipfs://${cidsOfPfp[i]}`,
+        `ipfs://${cidsOfSheets[i]}`,
+      )
     })
     await Promise.all(metadataPromise)
     const { error } = firstMintedTokenId

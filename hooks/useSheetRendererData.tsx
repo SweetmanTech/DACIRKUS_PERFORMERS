@@ -2,10 +2,10 @@ import { createRef, useMemo, useRef } from "react"
 import domtoimage from "dom-to-image"
 import { uploadToIpfs } from "@/lib/ipfs"
 
-const usePfpRendererData = () => {
-  const singleRef = useRef()
+const useSheetRendererData = () => {
+  const singleSheetRef = useRef()
 
-  const multipleRefs = useMemo(() => {
+  const multipleSheetRefs = useMemo(() => {
     return Array.from({ length: 25 }).map(() => createRef())
   }, [])
 
@@ -20,18 +20,18 @@ const usePfpRendererData = () => {
     }
   }
 
-  const renderSinglePfp = async () => {
-    const cid = await uploadPfp(singleRef)
+  const renderSingleSheet = async () => {
+    const cid = await uploadPfp(singleSheetRef)
     return cid
   }
 
-  const renderMultiplePfps = async (quantity) => {
+  const renderMultipleSheets = async (quantity) => {
     let cids = []
     let renderModuleCnt = 5
 
     for (let i = 0; i < quantity; i += renderModuleCnt) {
       const renderPromise = Array.from({ length: renderModuleCnt }).map(async (_, j) => {
-        const cid = await uploadPfp(multipleRefs[i + j])
+        const cid = await uploadPfp(multipleSheetRefs[i + j])
         return cid
       })
       const groupCids = await Promise.all(renderPromise)
@@ -41,11 +41,11 @@ const usePfpRendererData = () => {
   }
 
   return {
-    singleRef,
-    multipleRefs,
-    renderSinglePfp,
-    renderMultiplePfps,
+    singleSheetRef,
+    multipleSheetRefs,
+    renderSingleSheet,
+    renderMultipleSheets,
   }
 }
 
-export default usePfpRendererData
+export default useSheetRendererData
