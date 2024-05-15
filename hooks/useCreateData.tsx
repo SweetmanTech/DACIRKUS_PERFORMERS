@@ -3,7 +3,6 @@ import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect, useState } from "react"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
 import useZoraPremint from "./useZoraPremint"
-import { IS_TESTNET } from "@/lib/consts"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
@@ -71,7 +70,7 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-    const firstMintedTokenId = (IS_TESTNET ? await mintWithRewards() : await zoraMint()) as any
+    const firstMintedTokenId = (await mintWithRewards()) as any
     const { error } = firstMintedTokenId
     if (error) {
       return
