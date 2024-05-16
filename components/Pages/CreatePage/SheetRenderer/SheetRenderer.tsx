@@ -12,7 +12,7 @@ const SheetRenderer = () => {
         flex flex-wrap"
     >
       <div className="relative w-full h-full">
-        <div className="absolute w-full h-full bg-[#239063]" />
+        <div className="absolute w-full h-full bg-[#239063] z-[100]" />
         <div className="w-fit h-fit" ref={singleSheetRef}>
           <SheetModel
             type={cType}

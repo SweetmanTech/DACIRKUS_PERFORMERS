@@ -12,7 +12,7 @@ const PfpRenderer = () => {
         flex flex-wrap"
     >
       <div className="relative w-full h-full">
-        <div className="absolute w-full h-full bg-[#239063]" />
+        <div className="absolute w-full h-full bg-[#239063] z-[100]" />
         <div className="w-[480px] h-[480px]" ref={singleRef}>
           <CharacterModel
             type={cType}
