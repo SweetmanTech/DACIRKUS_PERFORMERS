@@ -11,7 +11,7 @@ const SheetRenderer = () => {
       className="fixed w-screen h-screen left-0 top-0 z-[-1000] sheet-renderer
         flex flex-wrap"
     >
-      <div className="relative">
+      <div className="relative w-full h-full">
         <div className="absolute w-full h-full bg-[#239063]" />
         <div className="w-fit h-fit" ref={singleSheetRef}>
           <SheetModel
