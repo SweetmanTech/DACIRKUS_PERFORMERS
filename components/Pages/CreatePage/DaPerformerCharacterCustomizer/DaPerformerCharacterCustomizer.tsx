@@ -1,4 +1,3 @@
-import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
 import ReactLoading from "react-loading"
 import { STATUS } from "../../../../lib/bookStatus"
@@ -12,7 +11,6 @@ const DaPerformerCharacterCustomizer = () => {
   const { setCurrentStatus } = useAnimatedBook()
   const { setCurrentStep, multipleMint } = useCreate()
   const [loading, setLoading] = useState(false)
-  const { prepare } = usePreparePrivyWallet()
   const [selectedQuantity, setSelectedQuantity] = useState(-1)
 
   const selectCustom = () => {
@@ -23,11 +21,6 @@ const DaPerformerCharacterCustomizer = () => {
   const handleMint = async (quantity) => {
     setSelectedQuantity(quantity)
     setLoading(true)
-    if (!prepare()) {
-      setLoading(false)
-      setSelectedQuantity(-1)
-      return
-    }
     await multipleMint(quantity)
     setSelectedQuantity(-1)
     setLoading(false)

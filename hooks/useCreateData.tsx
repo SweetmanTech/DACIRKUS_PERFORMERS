@@ -2,7 +2,6 @@ import { STEPS } from "@/lib/createStep"
 import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect, useState } from "react"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
-import useZoraPremint from "./useZoraPremint"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
@@ -12,6 +11,7 @@ import { usePfpRenderer } from "@/providers/PfpRendererProvder"
 import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
+import usePreparePrivyWallet from "./usePrepareWallet"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -33,12 +33,14 @@ const useCreateData = () => {
     dummyRandom,
   } = useCharacter()
   const { mintWithRewards } = useZoraMintByPrivy()
-  const { mint: zoraMint } = useZoraPremint()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
+  const { prepare } = usePreparePrivyWallet()
 
   const singleMint = async () => {
+    if (!prepare()) return
+
     const totalSupply = await getTotalSupply()
     const attributes = getAttributes(
       CTYPES[cType],
@@ -81,6 +83,8 @@ const useCreateData = () => {
   }
 
   const multipleMint = async (quantity) => {
+    if (!prepare()) return
+
     setQuantity(quantity)
     const totalSupply = await getTotalSupply()
     const cidsOfPfp = await renderMultiplePfps(quantity)
