@@ -1,20 +1,12 @@
 import { useCreate } from "@/providers/CreateProvider"
-import usePreparePrivyWallet from "@/hooks/usePrepareWallet"
 import { useState } from "react"
 
 const MintButton = () => {
   const { singleMint } = useCreate()
   const [loading, setLoading] = useState(false)
 
-  const { prepare } = usePreparePrivyWallet(singleMint)
-
   const handleMint = async () => {
     setLoading(true)
-    const isPrepared = prepare()
-    if (!isPrepared) {
-      setLoading(false)
-      return
-    }
     await singleMint()
     setLoading(false)
   }
