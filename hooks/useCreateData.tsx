@@ -37,7 +37,7 @@ const useCreateData = () => {
   const isWhitelist = useIsWhitelist()
 
   const { purchaseWithComment } = useZoraMintByPrivy()
-  const { mint } = useZoraPremint()
+  const { mint: zoraPreMint } = useZoraPremint()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
@@ -77,7 +77,9 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-    const firstMintedTokenId: any = isWhitelist ? await mint(quantity) : await purchaseWithComment(quantity)
+    const firstMintedTokenId: any = isWhitelist
+      ? await zoraPreMint(quantity)
+      : await purchaseWithComment(quantity)
     const { error } = firstMintedTokenId
     if (error) {
       return
@@ -116,7 +118,9 @@ const useCreateData = () => {
 
     await Promise.all(metadataPromise)
 
-    const firstMintedTokenId: any = isWhitelist ? await mint(quantity) : await purchaseWithComment(quantity)
+    const firstMintedTokenId: any = isWhitelist
+      ? await zoraPreMint(quantity)
+      : await purchaseWithComment(quantity)
     const { error: mintError } = firstMintedTokenId
     if (mintError) {
       handleTxError(mintError)
