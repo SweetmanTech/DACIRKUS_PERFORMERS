@@ -89,13 +89,15 @@ const WeCantWork = () => (
             containerClasses="sm:h-[50px] md:h-[50px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
           />
           <div className="absolute m-auto">
-            <Media
-              type="image"
-              link="/images/Create/faq.png"
-              alt="faq"
-              blurLink="/images/Create/faq.png"
-              containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-            />
+            <a href="/faq" type="link">
+              <Media
+                type="image"
+                link="/images/Create/faq.png"
+                alt="faq"
+                blurLink="/images/Create/faq.png"
+                containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
+              />
+            </a>
           </div>
         </Button>
       </div>
