@@ -32,7 +32,7 @@ const useCreateData = () => {
     setDummyRandom,
     dummyRandom,
   } = useCharacter()
-  const { mintWithRewards } = useZoraMintByPrivy()
+  const { purchaseWithComment } = useZoraMintByPrivy()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
@@ -72,7 +72,7 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-    const firstMintedTokenId = (await mintWithRewards()) as any
+    const firstMintedTokenId = (await purchaseWithComment()) as any
     const { error } = firstMintedTokenId
     if (error) {
       return
@@ -111,7 +111,7 @@ const useCreateData = () => {
 
     await Promise.all(metadataPromise)
 
-    const firstMintedTokenId = (await mintWithRewards(quantity)) as any
+    const firstMintedTokenId = (await purchaseWithComment(quantity)) as any
     const { error: mintError } = firstMintedTokenId
     if (mintError) {
       handleTxError(mintError)
