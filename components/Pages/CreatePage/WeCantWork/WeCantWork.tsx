@@ -94,6 +94,7 @@ const WeCantWork = () => {
             />
             <div className="absolute m-auto">
               <button
+                type="button"
                 onClick={() => {
                   setCurrentStep(STEPS.FAQ_STEP)
                 }}
