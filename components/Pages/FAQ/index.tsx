@@ -1,3 +1,3 @@
-import FAQ from "./FAQ"
+import FAQCard from "./FAQCard"
 
-export default FAQ
+export default FAQCard
