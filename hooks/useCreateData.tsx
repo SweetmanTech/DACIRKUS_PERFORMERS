@@ -12,6 +12,8 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
+import useIsWhitelist from "./useIsWhitelist"
+import useZoraPremint from "./useZoraPremint"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -32,7 +34,10 @@ const useCreateData = () => {
     setDummyRandom,
     dummyRandom,
   } = useCharacter()
+  const isWhitelist = useIsWhitelist()
+
   const { purchaseWithComment } = useZoraMintByPrivy()
+  const { mint } = useZoraPremint()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
@@ -72,7 +77,7 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-    const firstMintedTokenId = (await purchaseWithComment()) as any
+    const firstMintedTokenId: any = isWhitelist ? await mint(quantity) : await purchaseWithComment(quantity)
     const { error } = firstMintedTokenId
     if (error) {
       return
@@ -111,7 +116,7 @@ const useCreateData = () => {
 
     await Promise.all(metadataPromise)
 
-    const firstMintedTokenId = (await purchaseWithComment(quantity)) as any
+    const firstMintedTokenId: any = isWhitelist ? await mint(quantity) : await purchaseWithComment(quantity)
     const { error: mintError } = firstMintedTokenId
     if (mintError) {
       handleTxError(mintError)
