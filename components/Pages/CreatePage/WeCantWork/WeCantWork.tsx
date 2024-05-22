@@ -91,15 +91,13 @@ font-slimfit text-white"
           />
           <div className="absolute m-auto">
             <Link href="/faq" passHref>
-              <a href="/faq" type="link">
-                <Media
-                  type="image"
-                  link="/images/Create/faq.png"
-                  alt="faq"
-                  blurLink="/images/Create/faq.png"
-                  containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-                />
-              </a>
+              <Media
+                type="image"
+                link="/images/Create/faq.png"
+                alt="faq"
+                blurLink="/images/Create/faq.png"
+                containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
+              />
             </Link>
           </div>
         </Button>
