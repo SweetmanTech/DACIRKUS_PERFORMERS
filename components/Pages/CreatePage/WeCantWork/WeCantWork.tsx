@@ -1,11 +1,12 @@
+import Link from "next/link"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
 
 const WeCantWork = () => (
   <div
     className="
-  md:text-[12px] lg:text-[16px] xl:text-[20px] 
-  font-slimfit text-white"
+md:text-[12px] lg:text-[16px] xl:text-[20px] 
+font-slimfit text-white"
   >
     <div className="xl:pt-6 xl:pl-20 lg:pt-6 lg:pl-16 md:pt-3 md:pl-12 sm:pt-20 sm:pl-12">
       <Media
@@ -89,15 +90,17 @@ const WeCantWork = () => (
             containerClasses="sm:h-[50px] md:h-[50px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
           />
           <div className="absolute m-auto">
-            <a href="/faq" type="link">
-              <Media
-                type="image"
-                link="/images/Create/faq.png"
-                alt="faq"
-                blurLink="/images/Create/faq.png"
-                containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-              />
-            </a>
+            <Link href="/faq" passHref>
+              <a href="/faq" type="link">
+                <Media
+                  type="image"
+                  link="/images/Create/faq.png"
+                  alt="faq"
+                  blurLink="/images/Create/faq.png"
+                  containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
+                />
+              </a>
+            </Link>
           </div>
         </Button>
       </div>
