@@ -11,6 +11,7 @@ import Success from "./Success"
 import SuccessMultiple from "./SuccessMultiple"
 import PfpRenderer from "./PfpRenderer"
 import SheetRenderer from "./SheetRenderer"
+import FAQCard from "./FAQ"
 
 const CreatePage = () => {
   const { currentStep } = useCreate()
@@ -27,6 +28,7 @@ const CreatePage = () => {
               {currentStep === STEPS.SELECT_CHARACTER && <AttributeSelect />}
               {currentStep === STEPS.SUCCESS && <Success />}
               {currentStep === STEPS.SUCCESS_MULTIPLE && <SuccessMultiple />}
+              {currentStep === STEPS.FAQ_STEP && <FAQCard />}
             </>
           )}
         </AnimatedBook>
