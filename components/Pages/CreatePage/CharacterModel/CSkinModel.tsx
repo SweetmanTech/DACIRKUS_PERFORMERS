@@ -1,18 +1,18 @@
-import { CACCS, CTYPES } from "../../../../lib/character"
+import { CSKINS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
-const CAccModel = ({ isSingle, index }) => {
-  const { cAcc, cType, dummyRandom } = useCharacter()
+const CSkinModel = ({ isSingle, index }) => {
+  const { cSkin, cType, dummyRandom } = useCharacter()
 
-  const accImage = isSingle
-    ? `/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`
-    : `/images/Characters/${CTYPES[dummyRandom[index].type]}/Accesories/${
-        CACCS[dummyRandom[index].acc]
+  const skinImage = isSingle
+    ? `/images/Characters/${CTYPES[cType]}/SkinTone/${CSKINS[cSkin]}.png`
+    : `/images/Characters/${CTYPES[dummyRandom[index].type]}/SkinTone/${
+        CSKINS[dummyRandom[index].skin]
       }.png`
 
   return (
     <div
-      className="absolute w-full h-full left-0 top-0 z-[5] 
+      className="absolute w-full h-full left-0 top-0 z-[1]
     md:pl-[60px] lg:pl-[80px] xl:pl-[100px] overflow-hidden"
     >
       <div
@@ -25,7 +25,7 @@ const CAccModel = ({ isSingle, index }) => {
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/img-redundant-alt */}
         <img
           className="absolute !w-full object-contain"
-          src={accImage}
+          src={skinImage}
           alt="not found image"
           placeholder="blur"
         />
@@ -34,4 +34,4 @@ const CAccModel = ({ isSingle, index }) => {
   )
 }
 
-export default CAccModel
+export default CSkinModel
