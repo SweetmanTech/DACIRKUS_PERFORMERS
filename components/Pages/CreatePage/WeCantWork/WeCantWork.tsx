@@ -1,6 +1,6 @@
+import { useRouter } from "next/router"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
-import { useRouter } from "next/router"
 
 const WeCantWork = () => {
   const router = useRouter()
