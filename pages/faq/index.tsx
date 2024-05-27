@@ -7,7 +7,6 @@ const Faq = () => (
     <div className="space-y-6">
       <h1 className="font-semibold text-2xl">Frequently Asked Questions (FAQs)</h1>
 
-      {/* Map through the termsContent array */}
       {faqContent.map((section) => (
         <FaqSection key={section.id} title={section.title} content={section.content} />
       ))}
