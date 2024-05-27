@@ -1,6 +1,6 @@
 import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect } from "react"
-import { CBGCOLORS, CBGNAMES } from "@/lib/character"
+import { CBGCOLORS } from "@/lib/character"
 import AttributeButtons from "../AttributeButtons"
 import CharacterModel from "../CharacterModel"
 import MenuButtons from "../MenuButtons"
@@ -23,21 +23,21 @@ const AttributeSelect = () => {
         <AttributeButtons />
         <MenuButtons />
       </div>
-      <div className="relative w-full md:pr-[18px] md:pr-[24px] xl:pr-[30px]">
+      <div className="relative w-full md:pr-[18px] xl:pr-[30px]">
         <div
           className="absolute left-0 top-0 z-[10]
-        flex items-center flex-col gap-1 w-full md:pt-4 lg:pt-6 xl:pt-8"
+        flex items-center flex-col gap-0 w-full md:pt-4 lg:pt-6 xl:pt-8"
         >
-          <Button label="Background." onNext={nextCBG} onPrev={prevCBG} />
-          <p className="text-white font-slimfit md:text-[19px] lg:text-[26px] xl:text-[32px]">
-            {CBGNAMES[cBG]}
+          <Button className="!text-[32px]" label="Background" onNext={nextCBG} onPrev={prevCBG} />
+          <p className="text-white font-slimfit md:text-[12px] lg:text-[20px] xl:text-[24px]">
+            {CBGCOLORS[cBG]}
           </p>
         </div>
         <div
-          className="absolute
-          md:left-[18px] lg:left-[24px] xl:left-[30px]
-          md:top-[9px] lg:top-[12px] xl:top-[15px]
-          md:w-[calc(100%-30px)] lg:w-[calc(100%-40px)] xl:w-[calc(100%-50px)] 
+          className="absolute !h-2/3 
+          md:left-[12%] lg:left-[12%] xl:left-[12%]
+          md:bottom-[10%] lg:bottom-[10%] xl:bottom-[10%]
+          md:w-[calc(100%-20%)] lg:w-[calc(100%-20%)] xl:w-[calc(100%-20%)] 
           md:h-[calc(100%-18px)] lg:h-[calc(100%-24px)] xl:h-[calc(100%-30px)]"
           style={{
             background: CBGCOLORS[cBG],
@@ -47,7 +47,7 @@ const AttributeSelect = () => {
           <div className="relative w-full h-full overflow-hidden">
             <div
               className="absolute scale-[3.5] h-full w-full left-0 top-0
-            md:translate-y-[510px] lg:translate-y-[680px] xl:translate-y-[850px] 
+            md:translate-y-[490px] lg:translate-y-[645px] xl:translate-y-[780px] 
             md:translate-x-[258px] lg:translate-x-[344px] xl:translate-x-[430px]"
             >
               <CharacterModel isSingle />
