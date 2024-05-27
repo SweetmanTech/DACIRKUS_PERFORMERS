@@ -1,6 +1,6 @@
 import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect } from "react"
-import { CBGCOLORS } from "@/lib/character"
+import { CBGNAMES } from "@/lib/character"
 import AttributeButtons from "../AttributeButtons"
 import MenuButtons from "../MenuButtons"
 import Button from "../Button"
@@ -30,7 +30,7 @@ const AttributeSelect = () => {
         >
           <Button className="!text-[32px]" label="Background" onNext={nextCBG} onPrev={prevCBG} />
           <p className="text-white font-slimfit md:text-[12px] lg:text-[20px] xl:text-[24px]">
-            {CBGCOLORS[cBG]}
+            {CBGNAMES[cBG]}
           </p>
         </div>
         <div
