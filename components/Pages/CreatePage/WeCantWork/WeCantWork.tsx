@@ -126,15 +126,7 @@ const WeCantWork = () => {
               blurLink="/images/Create/DaPerformersCharactererformers.png"
               containerClasses="sm:h-[50px] md:h-[50px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
             />
-
             <div className="absolute m-auto">
-              {/* <Media
-                type="image"
-                link="/images/Create/question-mark.png"
-                alt="question-mark"
-                blurLink="/images/Create/question-mark.png"
-                containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-              /> */}
               <Zorb width={45} height={45} />
             </div>
           </Button>
