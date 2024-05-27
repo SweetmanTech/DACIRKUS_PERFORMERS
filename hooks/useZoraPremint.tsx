@@ -46,6 +46,7 @@ const useZoraPremint = () => {
       if ((hash as { error: any })?.error) {
         return { error: true }
       }
+      //@ts-ignore
       const response = await publicClient.waitForTransactionReceipt({
         hash: hash as Address,
       })

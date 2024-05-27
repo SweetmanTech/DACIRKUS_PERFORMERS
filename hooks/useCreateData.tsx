@@ -2,6 +2,7 @@ import { STEPS } from "@/lib/createStep"
 import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect, useState } from "react"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
+import useZoraPremint from "./useZoraPremint" // Import useZoraPremint
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
@@ -12,12 +13,22 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
+import { ethers } from "ethers"
+
+const whitelistedAddresses = [
+  "0x2d9cBC4ECFBd1B8F66Aa798FD51585AE058dAA8B",
+  "0x7A631B4a6b1D0a6b1e433d92690d7C8Aba4F23b4",
+  "0xD6C09962E907428112069273d5C0dc861e7B1C57",
+  "0x5a5811E0A22695FEC271fe908E2a1A64Dc3b06F9",
+  "0x254768D47Cf8958a68242ce5AA1aDB401E1feF2B",
+]
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
   const [characterType, setCharacterType] = useState(1)
   const [mintedTokenId, setMintedTokenId] = useState(1)
   const [quantity, setQuantity] = useState(1)
+  const [isWhitelisted, setIsWhitelisted] = useState(false)
 
   const {
     cType,
@@ -33,10 +44,23 @@ const useCreateData = () => {
     dummyRandom,
   } = useCharacter()
   const { purchaseWithComment } = useZoraMintByPrivy()
+  const { mint: purchasePresaleWithComment } = useZoraPremint() // Rename the mint method for consistency
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
   const { prepare } = usePreparePrivyWallet()
+
+  useEffect(() => {
+    const checkIfWhitelisted = async () => {
+      if (window.ethereum) {
+        const provider = new ethers.providers.Web3Provider(window.ethereum)
+        const signer = provider.getSigner()
+        const connectedAddress = await signer.getAddress()
+        setIsWhitelisted(whitelistedAddresses.includes(connectedAddress.toLowerCase()))
+      }
+    }
+    checkIfWhitelisted()
+  }, [])
 
   const singleMint = async () => {
     if (!prepare()) return
@@ -72,14 +96,23 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-    const firstMintedTokenId = (await purchaseWithComment()) as any
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
+
+    try {
+      const firstMintedTokenId: any = isWhitelisted
+        ? await purchasePresaleWithComment()
+        : await purchaseWithComment()
+
+      const { error }: any = firstMintedTokenId
+      if (error) {
+        throw new Error("Minting failed")
+      }
+
+      setMintedTokenId(firstMintedTokenId + 1)
+      setCurrentStatus(STATUS.LEFTFLIP)
+      setCurrentStep(STEPS.SUCCESS)
+    } catch (err) {
+      handleTxError(err)
     }
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS)
   }
 
   const multipleMint = async (quantity) => {
@@ -109,21 +142,24 @@ const useCreateData = () => {
       )
     })
 
-    await Promise.all(metadataPromise)
+    try {
+      await Promise.all(metadataPromise)
 
-    const firstMintedTokenId = (await purchaseWithComment(quantity)) as any
-    const { error: mintError } = firstMintedTokenId
-    if (mintError) {
-      handleTxError(mintError)
-      return
+      const firstMintedTokenId: any = isWhitelisted
+        ? await purchasePresaleWithComment(quantity)
+        : await purchaseWithComment(quantity)
+
+      const { error }: any = firstMintedTokenId
+      if (error) {
+        throw new Error("Minting failed")
+      }
+
+      setMintedTokenId(firstMintedTokenId + 1)
+      setCurrentStatus(STATUS.LEFTFLIP)
+      setCurrentStep(STEPS.SUCCESS_MULTIPLE)
+    } catch (err) {
+      handleTxError(err)
     }
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
-    }
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS_MULTIPLE)
   }
 
   useEffect(() => {
@@ -143,6 +179,7 @@ const useCreateData = () => {
     singleMint,
     multipleMint,
     quantity,
+    setQuantity,
   }
 }
 
