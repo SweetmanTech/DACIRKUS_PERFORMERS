@@ -1,7 +1,7 @@
 import { useRouter } from "next/router"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
-
+import Zorb from "@/components/Zorb"
 const WeCantWork = () => {
   const router = useRouter()
 
@@ -109,7 +109,15 @@ const WeCantWork = () => {
           </Button>
         </div>
         <div>
-          <Button className="relative">
+          <Button
+            onClick={() => {
+              window.open(
+                "https://zora.co/collect/base:0xafa0c0a5a706538c40031224b89d9a5ac6004c65",
+                "_blank",
+              )
+            }}
+            className="relative"
+          >
             <Media
               type="image"
               link="/images/Create/DaPerformersCharactererformers.png"
@@ -117,14 +125,16 @@ const WeCantWork = () => {
               blurLink="/images/Create/DaPerformersCharactererformers.png"
               containerClasses="sm:h-[50px] md:h-[50px] lg:h-[60px] xl:h-[90px] aspect-[1/1]"
             />
+
             <div className="absolute m-auto">
-              <Media
+              {/* <Media
                 type="image"
                 link="/images/Create/question-mark.png"
                 alt="question-mark"
                 blurLink="/images/Create/question-mark.png"
                 containerClasses="sm:h-[30px] md:h-[30px] lg:h-[40px] xl:h-[60px] aspect-[1/1]"
-              />
+              /> */}
+              <Zorb width={45} height={45} />
             </div>
           </Button>
         </div>
