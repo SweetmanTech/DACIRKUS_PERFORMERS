@@ -2,9 +2,9 @@ import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect } from "react"
 import { CBGCOLORS } from "@/lib/character"
 import AttributeButtons from "../AttributeButtons"
-import CharacterModel from "../CharacterModel"
 import MenuButtons from "../MenuButtons"
 import Button from "../Button"
+import Animation from "../CharacterModel/Animation"
 
 const AttributeSelect = () => {
   const { randomAttr, cBG, nextCBG, prevCBG } = useCharacter()
@@ -43,14 +43,15 @@ const AttributeSelect = () => {
             background: CBGCOLORS[cBG],
           }}
         />
-        <div className="relative w-full h-full md:ml-[-30px] lg:ml-[-40px] xl:ml-[-50px]">
-          <div className="relative w-full h-full overflow-hidden">
+        <div className="relative w-full h-full md:ml-[-30px] lg:ml-[-40px] xl:ml-[-50px] pointer-events-none">
+          <div className="relative w-full h-full">
             <div
-              className="absolute scale-[3.5] h-full w-full left-0 top-0
-            md:translate-y-[490px] lg:translate-y-[645px] xl:translate-y-[780px] 
-            md:translate-x-[258px] lg:translate-x-[344px] xl:translate-x-[430px]"
+              className="absolute h-full left-0 bottom-12
+            md:w-[165px] lg:w-[220px] xl:w-[275px] overflow-hidden
+            md:left-[118.2px] lg:left-[157.6px] xl:left-[197px]
+           "
             >
-              <CharacterModel isSingle />
+              <Animation />
             </div>
           </div>
         </div>
