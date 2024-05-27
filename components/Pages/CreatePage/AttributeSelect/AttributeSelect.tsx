@@ -1,6 +1,6 @@
 import { useCharacter } from "@/providers/CharacterProvider"
 import { useEffect } from "react"
-import { CBGNAMES } from "@/lib/character"
+import { CBGNAMES, CBGCOLORS } from "@/lib/character"
 import AttributeButtons from "../AttributeButtons"
 import MenuButtons from "../MenuButtons"
 import Button from "../Button"
