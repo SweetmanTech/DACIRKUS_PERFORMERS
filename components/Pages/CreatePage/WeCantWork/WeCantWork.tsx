@@ -84,7 +84,12 @@ const WeCantWork = () => {
       </div>
       <div className="pl-20 pr-20 xl:-mt-10 lg:-mt-11 md:-mt-12 lg:pl-16 lg:pr-16 md:pl-12 md:pr-12 sm:pl-12 sm:pr-12 flex justify-between">
         <div>
-          <Button className="relative">
+          <Button
+            onClick={() => {
+              router.push("/faq")
+            }}
+            className="relative"
+          >
             <Media
               type="image"
               link="/images/Create/DaPerformersCharactererformers.png"
