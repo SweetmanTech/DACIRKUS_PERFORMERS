@@ -1,6 +1,6 @@
 import Media from "../../../../shared/Media"
 
-const Button = ({ value = null, label, onNext, onPrev, onRandom = null }) => {
+const Button = ({ value = null, label, onNext, onPrev, onRandom = null, className = null }) => {
   const buttonClasses = `md:w-[33px] lg:w-[44px] xl:w-[55px] aspect-[1/1] border-[2px] border-black flex justify-center items-center
   bg-[#626975] active:bg-[#4e545d] shadow-[inset_0px_-3px_0px_1px_#323840] active:shadow-[inset_none] rounded-[5px]`
   const qButtonClasses = `md:w-[25px] lg:w-[34px] xl:w-[42px] aspect-[1/1] border-[2px] border-black flex justify-center items-center
@@ -27,7 +27,9 @@ const Button = ({ value = null, label, onNext, onPrev, onRandom = null }) => {
             containerClasses="md:w-[26.4px] lg:w-[35.2px] xl:w-[44px] aspect-[1/1]"
           />
         </button>
-        <p className="md:text-[14.4px] lg:text-[19.2px] xl:text-[24px] font-slimfit text-white leading-[100%]">
+        <p
+          className={`md:text-[14.4px] lg:text-[19.2px] xl:text-[24px] font-slimfit text-white leading-[100%] ${className}`}
+        >
           {label}
         </p>
         <button type="button" className={buttonClasses} onClick={onNext}>
