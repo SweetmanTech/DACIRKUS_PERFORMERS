@@ -34,7 +34,7 @@ const useZoraMintByPrivy = () => {
       if ((hash as { error: any })?.error) {
         return { error: true }
       }
-      
+
       const response = await publicClient.waitForTransactionReceipt({
         hash: hash as Address,
       })
