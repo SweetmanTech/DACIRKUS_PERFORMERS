@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react"
 import { STEPS } from "@/lib/createStep"
 import { useCharacter } from "@/providers/CharacterProvider"
-import { useEffect, useState } from "react"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
-import useZoraPremint from "./useZoraPremint" // Import useZoraPremint
+import useZoraPremint from "./useZoraPremint"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
@@ -21,6 +21,9 @@ const whitelistedAddresses = [
   "0xD6C09962E907428112069273d5C0dc861e7B1C57",
   "0x5a5811E0A22695FEC271fe908E2a1A64Dc3b06F9",
   "0x254768D47Cf8958a68242ce5AA1aDB401E1feF2B",
+  "0xcfBf34d385EA2d5Eb947063b67eA226dcDA3DC38",
+  "0x99Fc221482ca78664d0288FfC6531cb6dfEB0c5a",
+  "0xA0EA34448738357e0c2e58147b5719A19022ac76",
 ]
 
 const useCreateData = () => {
@@ -44,7 +47,7 @@ const useCreateData = () => {
     dummyRandom,
   } = useCharacter()
   const { purchaseWithComment } = useZoraMintByPrivy()
-  const { mint: purchasePresaleWithComment } = useZoraPremint() // Rename the mint method for consistency
+  const { mint: purchasePresaleWithComment } = useZoraPremint()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
@@ -56,7 +59,9 @@ const useCreateData = () => {
         const provider = new ethers.providers.Web3Provider(window.ethereum)
         const signer = provider.getSigner()
         const connectedAddress = await signer.getAddress()
-        setIsWhitelisted(whitelistedAddresses.includes(connectedAddress.toLowerCase()))
+        const isWhitelistedAddress = whitelistedAddresses.includes(connectedAddress)
+        console.log(`Address: ${connectedAddress}, Is Whitelisted: ${isWhitelistedAddress}`)
+        setIsWhitelisted(isWhitelistedAddress)
       }
     }
     checkIfWhitelisted()
@@ -96,8 +101,8 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-
     try {
+      console.log(`Is Whitelisted: ${isWhitelisted}`)
       const firstMintedTokenId: any = isWhitelisted
         ? await purchasePresaleWithComment()
         : await purchaseWithComment()
@@ -145,6 +150,7 @@ const useCreateData = () => {
     try {
       await Promise.all(metadataPromise)
 
+      console.log(`Is Whitelisted: ${isWhitelisted}`)
       const firstMintedTokenId: any = isWhitelisted
         ? await purchasePresaleWithComment(quantity)
         : await purchaseWithComment(quantity)
@@ -164,8 +170,8 @@ const useCreateData = () => {
 
   useEffect(() => {
     if (currentStep === STEPS.CHOOSE_CHARACTER_TYPE) {
-      const randomAttrbutes = randomAttr(25)
-      setDummyRandom(randomAttrbutes)
+      const randomAttributes = randomAttr(25)
+      setDummyRandom(randomAttributes)
     }
   }, [currentStep])
 
