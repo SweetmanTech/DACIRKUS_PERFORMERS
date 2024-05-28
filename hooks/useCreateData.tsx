@@ -1,8 +1,8 @@
+import { useEffect, useState } from "react"
 import { STEPS } from "@/lib/createStep"
 import { useCharacter } from "@/providers/CharacterProvider"
-import { useEffect, useState } from "react"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
-import useZoraPremint from "./useZoraPremint" // Import useZoraPremint
+import useZoraPremint from "./useZoraPremint"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
