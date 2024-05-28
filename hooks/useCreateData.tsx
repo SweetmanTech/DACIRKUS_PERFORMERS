@@ -143,8 +143,6 @@ const useCreateData = () => {
 
     try {
       await Promise.all(metadataPromise)
-
-      console.log(`Is Whitelisted: ${isWhitelisted}`)
       const firstMintedTokenId: any = isWhitelisted
         ? await purchasePresaleWithComment(quantity)
         : await purchaseWithComment(quantity)
