@@ -2,7 +2,7 @@ import handleTxError from "@/lib/handleTxError"
 import getZoraFee from "@/lib/viem/getZoraFee"
 import { CHAIN_ID, COMMENT, DROP_ADDRESS } from "@/lib/consts"
 import abi from "@/lib/abi/zora-drop.json"
-import { Address, numberToHex } from "viem"
+import { Address, numberToHex, zeroAddress } from "viem"
 import { toast } from "react-toastify"
 import getTokenId from "@/lib/getTokenId"
 import { usePrivy } from "@privy-io/react-auth"
@@ -14,6 +14,8 @@ const useZoraPremint = () => {
   const { externalWallet } = useConnectedWallet()
   const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
   const { connectWallet } = usePrivy()
+
+  const IS_TESTNET = process.env.NEXT_PUBLIC_TESTNET === "true"
 
   const mint = async (quantity = 1) => {
     try {
@@ -35,14 +37,13 @@ const useZoraPremint = () => {
       const totalPrice = price.toString()
       const hexValue = numberToHex(BigInt(totalPrice))
 
-      const hash = await sendTxByWallet(
-        DROP_ADDRESS,
-        CHAIN_ID,
-        abi,
-        "purchasePresaleWithComment",
-        args,
-        hexValue,
-      )
+      let methodName = "purchasePresaleWithComment"
+      if (IS_TESTNET) {
+        methodName = "purchasePresaleWithRewards"
+        args.push(zeroAddress)
+      }
+
+      const hash = await sendTxByWallet(DROP_ADDRESS, CHAIN_ID, abi, methodName, args, hexValue)
       if ((hash as { error: any })?.error) {
         return { error: true }
       }
