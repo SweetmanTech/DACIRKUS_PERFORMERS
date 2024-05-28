@@ -106,11 +106,6 @@ const useCreateData = () => {
         ? await purchasePresaleWithComment()
         : await purchaseWithComment()
 
-      const { error }: any = firstMintedTokenId
-      if (error) {
-        throw new Error("Minting failed")
-      }
-
       setMintedTokenId(firstMintedTokenId + 1)
       setCurrentStatus(STATUS.LEFTFLIP)
       setCurrentStep(STEPS.SUCCESS)
@@ -153,11 +148,6 @@ const useCreateData = () => {
       const firstMintedTokenId: any = isWhitelisted
         ? await purchasePresaleWithComment(quantity)
         : await purchaseWithComment(quantity)
-
-      const { error }: any = firstMintedTokenId
-      if (error) {
-        throw new Error("Minting failed")
-      }
 
       setMintedTokenId(firstMintedTokenId + 1)
       setCurrentStatus(STATUS.LEFTFLIP)
