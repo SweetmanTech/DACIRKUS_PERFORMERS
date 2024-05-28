@@ -101,7 +101,6 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-
     try {
       console.log(`Is Whitelisted: ${isWhitelisted}`)
       const firstMintedTokenId: any = isWhitelisted
