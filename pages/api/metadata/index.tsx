@@ -48,6 +48,7 @@ export default async function handler(req: any, res: any) {
   const metaData = {
     name: `Performer #${tokenId}`,
     image: pfpUrl,
+    external_url: "https://www.daperformers.com",
     description: `PFP: ${pfpUrl} \n Spritesheet: ${sheetUrl}`,
     attributes: finalAttribute,
   }
