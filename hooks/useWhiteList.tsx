@@ -6,9 +6,6 @@ const useWhitelist = () => {
 
   useEffect(() => {
     checkIfWhitelisted()
-    if (externalWallet?.address) {
-      checkIfWhitelisted()
-    }
   }, [externalWallet])
 
   const checkIfWhitelisted = () => {
