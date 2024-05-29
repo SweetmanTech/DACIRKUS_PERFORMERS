@@ -3,6 +3,7 @@ import { STEPS } from "@/lib/createStep"
 import { useCharacter } from "@/providers/CharacterProvider"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
 import useZoraPremint from "./useZoraPremint"
+import useConnectedWallet from "./useConnectedWallet"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
@@ -13,7 +14,7 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
-import useWhitelist from "./useWhiteList"
+import { checkIfWhitelisted } from "@/lib/isWhiteListed"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -36,7 +37,9 @@ const useCreateData = () => {
   } = useCharacter()
   const { purchaseWithComment } = useZoraMintByPrivy()
   const { mint: purchasePresaleWithComment } = useZoraPremint()
-  const { checkIfWhitelisted }: any = useWhitelist()
+  const { externalWallet } = useConnectedWallet()
+  const address = externalWallet?.address
+  const isWhitelist = checkIfWhitelisted(address)
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
@@ -77,7 +80,7 @@ const useCreateData = () => {
       `ipfs://${cidOfSheet}`,
     )
     try {
-      const firstMintedTokenId: any = checkIfWhitelisted()
+      const firstMintedTokenId: any = isWhitelist
         ? await purchasePresaleWithComment()
         : await purchaseWithComment()
 
@@ -122,7 +125,7 @@ const useCreateData = () => {
 
     try {
       await Promise.all(metadataPromise)
-      const firstMintedTokenId: any = checkIfWhitelisted()
+      const firstMintedTokenId: any = isWhitelist
         ? await purchasePresaleWithComment(quantity)
         : await purchaseWithComment(quantity)
 
