@@ -89,9 +89,8 @@ const useZoraPremint = () => {
 
       const hash = await sendTxByWallet(DROP_ADDRESS, CHAIN_ID, abi, methodName, args, hexValue)
 
-      if (hash.error) {
+      if ((hash as { error: any })?.error) {
         toast.error("Rejected transaction")
-        console.error("Transaction rejected:", hash)
         return { error: true }
       }
 
