@@ -1,9 +1,8 @@
-import { useState, useEffect } from "react"
+import { useEffect } from "react"
 import { whitelistedAddresses } from "@/lib/whitelistAddresses"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 const useWhitelist = () => {
   const { externalWallet } = useConnectedWallet()
-  const [isWhitelisted, setIsWhitelisted] = useState(false)
 
   useEffect(() => {
     checkIfWhitelisted()

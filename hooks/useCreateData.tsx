@@ -20,7 +20,6 @@ const useCreateData = () => {
   const [characterType, setCharacterType] = useState(1)
   const [mintedTokenId, setMintedTokenId] = useState(1)
   const [quantity, setQuantity] = useState(1)
-  // const [isWhitelisted, setIsWhitelisted] = useState(false)
 
   const {
     cType,
