@@ -3,7 +3,7 @@ import { ARTIST, TITLE } from "../../lib/consts"
 
 const SeoHead = ({
   description = `${TITLE} by ${ARTIST}`,
-  image = "/images/logo.jpg",
+  image = "/images/FInalCRT.png",
   title = TITLE,
 }: any) => (
   <Head>
