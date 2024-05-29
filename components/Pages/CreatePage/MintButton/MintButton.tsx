@@ -7,9 +7,19 @@ const MintButton = () => {
 
   const handleMint = async () => {
     setLoading(true)
-    await singleMint()
-    setLoading(false)
+    const result = await singleMint()
+
+    if ((result as { error: any })?.error) {
+      setLoading(false)
+      return { error: true }
+    }
   }
+
+  // const handleMint = async () => {
+  //   setLoading(true)
+  //   await singleMint()
+  //   setLoading(false)
+  // }
 
   return (
     <button

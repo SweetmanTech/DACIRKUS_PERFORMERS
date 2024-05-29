@@ -23,7 +23,6 @@ const whitelistedAddresses = [
   "0x254768D47Cf8958a68242ce5AA1aDB401E1feF2B",
   "0xcfBf34d385EA2d5Eb947063b67eA226dcDA3DC38",
   "0x99Fc221482ca78664d0288FfC6531cb6dfEB0c5a",
-  "0xA0EA34448738357e0c2e58147b5719A19022ac76",
 ]
 
 const useCreateData = () => {
@@ -106,6 +105,10 @@ const useCreateData = () => {
         ? await purchasePresaleWithComment()
         : await purchaseWithComment()
 
+      if ((firstMintedTokenId as { error: any })?.error) {
+        return { error: true }
+      }
+
       setMintedTokenId(firstMintedTokenId + 1)
       setCurrentStatus(STATUS.LEFTFLIP)
       setCurrentStep(STEPS.SUCCESS)
@@ -146,6 +149,10 @@ const useCreateData = () => {
       const firstMintedTokenId: any = isWhitelisted
         ? await purchasePresaleWithComment(quantity)
         : await purchaseWithComment(quantity)
+
+      if ((firstMintedTokenId as { error: any })?.error) {
+        return { error: true }
+      }
 
       setMintedTokenId(firstMintedTokenId + 1)
       setCurrentStatus(STATUS.LEFTFLIP)

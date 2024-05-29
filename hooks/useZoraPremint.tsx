@@ -20,8 +20,12 @@ const useZoraPremint = () => {
   const mint = async (quantity = 1) => {
     try {
       if (!externalWallet?.address) {
-        await connectWallet()
-        return { error: true }
+        const connectionResult: any = await connectWallet()
+
+        if ((connectionResult as { error: any })?.error) {
+          toast.error("Failed to connect wallet")
+          return { error: true }
+        }
       }
 
       const zoraFee = (await getZoraFee(quantity)) as any
@@ -44,17 +48,21 @@ const useZoraPremint = () => {
       }
 
       const hash = await sendTxByWallet(DROP_ADDRESS, CHAIN_ID, abi, methodName, args, hexValue)
+
       if ((hash as { error: any })?.error) {
+        toast.error("Rejected transaction")
         return { error: true }
       }
 
       const response = await publicClient.waitForTransactionReceipt({
         hash: hash as Address,
       })
+
       toast.success("Collected!")
       return getTokenId(response)
     } catch (err) {
       handleTxError(err)
+      toast.error("Rejected transaction")
       return { error: err }
     }
   }
