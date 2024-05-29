@@ -30,7 +30,6 @@ const useZoraPremint = () => {
       const presaleMaxQuantity = BigInt(1000)
       const pricePerToken = BigInt(0)
       const userProof = proofs[externalWallet.address]
-      console.log(externalWallet.address)
       if (!userProof || userProof.length === 0) {
         toast.error("No proof found for address")
         return { error: true }
