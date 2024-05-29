@@ -1,7 +1,9 @@
+import { useEffect, useState } from "react"
 import { STEPS } from "@/lib/createStep"
 import { useCharacter } from "@/providers/CharacterProvider"
-import { useEffect, useState } from "react"
 import useZoraMintByPrivy from "./useZoraMintByPrivy"
+import useZoraPremint from "./useZoraPremint"
+import useConnectedWallet from "./useConnectedWallet"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import addMetadata from "@/lib/firebase/addMetadata"
@@ -12,6 +14,7 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
+import { checkIfWhitelisted } from "@/lib/isWhiteListed"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -33,6 +36,10 @@ const useCreateData = () => {
     dummyRandom,
   } = useCharacter()
   const { purchaseWithComment } = useZoraMintByPrivy()
+  const { mint: purchasePresaleWithComment } = useZoraPremint()
+  const { externalWallet } = useConnectedWallet()
+  const address = externalWallet?.address
+  const isWhitelist = checkIfWhitelisted(address)
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
@@ -72,14 +79,21 @@ const useCreateData = () => {
       `ipfs://${cidOfPfp}`,
       `ipfs://${cidOfSheet}`,
     )
-    const firstMintedTokenId = (await purchaseWithComment()) as any
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
+    try {
+      const firstMintedTokenId: any = isWhitelist
+        ? await purchasePresaleWithComment()
+        : await purchaseWithComment()
+
+      if ((firstMintedTokenId as { error: any })?.error) {
+        return { error: true }
+      }
+
+      setMintedTokenId(firstMintedTokenId + 1)
+      setCurrentStatus(STATUS.LEFTFLIP)
+      setCurrentStep(STEPS.SUCCESS)
+    } catch (err) {
+      handleTxError(err)
     }
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS)
   }
 
   const multipleMint = async (quantity) => {
@@ -109,27 +123,28 @@ const useCreateData = () => {
       )
     })
 
-    await Promise.all(metadataPromise)
+    try {
+      await Promise.all(metadataPromise)
+      const firstMintedTokenId: any = isWhitelist
+        ? await purchasePresaleWithComment(quantity)
+        : await purchaseWithComment(quantity)
 
-    const firstMintedTokenId = (await purchaseWithComment(quantity)) as any
-    const { error: mintError } = firstMintedTokenId
-    if (mintError) {
-      handleTxError(mintError)
-      return
+      if ((firstMintedTokenId as { error: any })?.error) {
+        return { error: true }
+      }
+
+      setMintedTokenId(firstMintedTokenId + 1)
+      setCurrentStatus(STATUS.LEFTFLIP)
+      setCurrentStep(STEPS.SUCCESS_MULTIPLE)
+    } catch (err) {
+      handleTxError(err)
     }
-    const { error } = firstMintedTokenId
-    if (error) {
-      return
-    }
-    setMintedTokenId(firstMintedTokenId + 1)
-    setCurrentStatus(STATUS.LEFTFLIP)
-    setCurrentStep(STEPS.SUCCESS_MULTIPLE)
   }
 
   useEffect(() => {
     if (currentStep === STEPS.CHOOSE_CHARACTER_TYPE) {
-      const randomAttrbutes = randomAttr(25)
-      setDummyRandom(randomAttrbutes)
+      const randomAttributes = randomAttr(25)
+      setDummyRandom(randomAttributes)
     }
   }, [currentStep])
 
@@ -143,6 +158,7 @@ const useCreateData = () => {
     singleMint,
     multipleMint,
     quantity,
+    setQuantity,
   }
 }
 
