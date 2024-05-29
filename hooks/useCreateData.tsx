@@ -13,7 +13,7 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
-import { whitelistedAddresses } from "@/lib/whitelistAddress"
+import { whitelistedAddresses } from "@/lib/whitelistAddresses"
 import useConnectedWallet from "@/hooks/useConnectedWallet"
 
 const useCreateData = () => {
