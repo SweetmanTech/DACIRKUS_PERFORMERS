@@ -13,18 +13,8 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
-import { ethers } from "ethers"
-
-const whitelistedAddresses = [
-  "0x2d9cBC4ECFBd1B8F66Aa798FD51585AE058dAA8B",
-  "0x7A631B4a6b1D0a6b1e433d92690d7C8Aba4F23b4",
-  "0xD6C09962E907428112069273d5C0dc861e7B1C57",
-  "0x5a5811E0A22695FEC271fe908E2a1A64Dc3b06F9",
-  "0x254768D47Cf8958a68242ce5AA1aDB401E1feF2B",
-  "0xcfBf34d385EA2d5Eb947063b67eA226dcDA3DC38",
-  "0x99Fc221482ca78664d0288FfC6531cb6dfEB0c5a",
-  "0xA0EA34448738357e0c2e58147b5719A19022ac76",
-]
+import { whitelistedAddresses } from "@/lib/consts"
+import useConnectedWallet from "@/hooks/useConnectedWallet" // Importing your custom hook
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
@@ -52,23 +42,16 @@ const useCreateData = () => {
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
   const { prepare } = usePreparePrivyWallet()
+  const { externalWallet } = useConnectedWallet()
 
   useEffect(() => {
-    const checkIfWhitelisted = async () => {
-      if (window.ethereum) {
-        const provider = new ethers.providers.Web3Provider(window.ethereum)
-        const signer = provider.getSigner()
-        const connectedAddress = (await signer.getAddress()).toLowerCase()
-        const whitelistedAddressesLowerCase = whitelistedAddresses.map((address) =>
-          address.toLowerCase(),
-        )
-        const isWhitelistedAddress = whitelistedAddressesLowerCase.includes(connectedAddress)
-        console.log(`Address: ${connectedAddress}, Is Whitelisted: ${isWhitelistedAddress}`)
-        setIsWhitelisted(isWhitelistedAddress)
-      }
+    const checkIfWhitelisted = () => {
+      const lowercaseAddress = externalWallet?.address
+      const isWhitelistedAddress = whitelistedAddresses.includes(lowercaseAddress)
+      setIsWhitelisted(isWhitelistedAddress)
     }
     checkIfWhitelisted()
-  }, [])
+  }, [externalWallet])
 
   const singleMint = async () => {
     if (!prepare()) return
