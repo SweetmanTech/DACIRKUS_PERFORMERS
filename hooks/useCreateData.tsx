@@ -14,7 +14,7 @@ import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
 import { whitelistedAddresses } from "@/lib/whitelistAddress"
-import useConnectedWallet from "@/hooks/useConnectedWallet" // Importing your custom hook
+import useConnectedWallet from "@/hooks/useConnectedWallet"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
