@@ -13,15 +13,14 @@ import handleTxError from "@/lib/handleTxError"
 import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
-import { whitelistedAddresses } from "@/lib/whitelistAddresses"
-import useConnectedWallet from "@/hooks/useConnectedWallet"
+import useWhitelist from "./useWhiteList"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
   const [characterType, setCharacterType] = useState(1)
   const [mintedTokenId, setMintedTokenId] = useState(1)
   const [quantity, setQuantity] = useState(1)
-  const [isWhitelisted, setIsWhitelisted] = useState(false)
+  // const [isWhitelisted, setIsWhitelisted] = useState(false)
 
   const {
     cType,
@@ -38,20 +37,11 @@ const useCreateData = () => {
   } = useCharacter()
   const { purchaseWithComment } = useZoraMintByPrivy()
   const { mint: purchasePresaleWithComment } = useZoraPremint()
+  const { checkIfWhitelisted }: any = useWhitelist()
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
   const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
   const { prepare } = usePreparePrivyWallet()
-  const { externalWallet } = useConnectedWallet()
-
-  useEffect(() => {
-    const checkIfWhitelisted = () => {
-      const lowercaseAddress = externalWallet?.address
-      const isWhitelistedAddress = whitelistedAddresses.includes(lowercaseAddress)
-      setIsWhitelisted(isWhitelistedAddress)
-    }
-    checkIfWhitelisted()
-  }, [externalWallet])
 
   const singleMint = async () => {
     if (!prepare()) return
@@ -88,7 +78,7 @@ const useCreateData = () => {
       `ipfs://${cidOfSheet}`,
     )
     try {
-      const firstMintedTokenId: any = isWhitelisted
+      const firstMintedTokenId: any = checkIfWhitelisted()
         ? await purchasePresaleWithComment()
         : await purchaseWithComment()
 
@@ -133,7 +123,7 @@ const useCreateData = () => {
 
     try {
       await Promise.all(metadataPromise)
-      const firstMintedTokenId: any = isWhitelisted
+      const firstMintedTokenId: any = checkIfWhitelisted()
         ? await purchasePresaleWithComment(quantity)
         : await purchaseWithComment(quantity)
 
