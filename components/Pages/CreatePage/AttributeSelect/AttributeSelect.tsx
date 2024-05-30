@@ -46,7 +46,7 @@ const AttributeSelect = () => {
         <div className="relative w-full h-full md:ml-[-30px] lg:ml-[-40px] xl:ml-[-50px] pointer-events-none">
           <div className="relative w-full h-full">
             <div
-              className="absolute h-full left-0 bottom-12
+              className="absolute h-full left-0 bottom-20
             md:w-[165px] lg:w-[220px] xl:w-[275px] overflow-hidden
             md:left-[118.2px] lg:left-[157.6px] xl:left-[197px]
            "
