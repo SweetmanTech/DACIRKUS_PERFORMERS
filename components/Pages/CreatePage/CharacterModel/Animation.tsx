@@ -14,7 +14,7 @@ const Animation = () => {
         <div
           className="absolute scale-[3.5] h-full w-full left-0 top-0
             md:translate-y-[510px] lg:translate-y-[680px] xl:translate-y-[850px] 
-            md:translate-x-[258px] lg:translate-x-[344px] xl:translate-x-[430px]"
+            md:translate-x-[258px] lg:translate-x-[344px] xl:translate-x-[429.97px]"
         >
           <CharacterModel isSingle />
         </div>
@@ -23,7 +23,7 @@ const Animation = () => {
         <div
           className="absolute scale-[3.5] h-full w-full left-0 top-0
             md:translate-y-[510px] lg:translate-y-[680px] xl:translate-y-[850px] 
-            md:translate-x-[100.8px] lg:translate-x-[134.4px] xl:translate-x-[168px]"
+            md:translate-x-[100.8px] lg:translate-x-[134px] xl:translate-x-[167.5px]"
         >
           <CharacterModel isSingle />
         </div>
@@ -32,7 +32,7 @@ const Animation = () => {
         <div
           className="absolute scale-[3.5] h-full w-full left-0 top-0
             md:translate-y-[510px] lg:translate-y-[680px] xl:translate-y-[850px] 
-            md:translate-x-[-56.4px] lg:translate-x-[-75.2px] xl:translate-x-[-94px]"
+            md:translate-x-[-56.4px] lg:translate-x-[-76px] xl:translate-x-[-95px]"
         >
           <CharacterModel isSingle />
         </div>
@@ -41,7 +41,7 @@ const Animation = () => {
         <div
           className="absolute scale-[3.5] h-full w-full left-0 top-0
             md:translate-y-[510px] lg:translate-y-[680px] xl:translate-y-[850px] 
-            md:translate-x-[-214.2px] lg:translate-x-[-285.6px] xl:translate-x-[-357px]"
+            md:translate-x-[-214.2px] lg:translate-x-[-286px] xl:translate-x-[-357.5px]"
         >
           <CharacterModel isSingle />
         </div>
