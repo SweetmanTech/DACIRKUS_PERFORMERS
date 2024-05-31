@@ -1,9 +1,12 @@
 import { ZORA_COLLECTION_URL } from "@/lib/consts"
-import Zorb from "../Zorb"
+import { useCreate } from "@/providers/CreateProvider"
+import Image from "next/image"
 
-const ZoraButton = () => {
+const OpenseaButton = () => {
+  const { mintedTokenId } = useCreate()
+
   const handleClick = () => {
-    window.open(`${ZORA_COLLECTION_URL}`, "_blank")
+    window.open(`${ZORA_COLLECTION_URL}/${mintedTokenId}`, "_blank")
   }
 
   return (
@@ -13,9 +16,15 @@ const ZoraButton = () => {
                     bg-[#626975] active:bg-[#4e545d] shadow-[inset_0px_-3px_0px_1px_#323840] active:shadow-[inset_none] rounded-[5px]"
       onClick={handleClick}
     >
-      <Zorb width={45} height={45} />
+      <Image
+        src="/images/Buttons/opensea.png"
+        alt="zorb"
+        width={45}
+        height={45}
+        className="cursor-pointer"
+      />
     </button>
   )
 }
 
-export default ZoraButton
+export default OpenseaButton
