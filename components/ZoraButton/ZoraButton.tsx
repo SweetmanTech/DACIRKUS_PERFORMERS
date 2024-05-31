@@ -1,12 +1,9 @@
 import { ZORA_COLLECTION_URL } from "@/lib/consts"
-import { useCreate } from "@/providers/CreateProvider"
 import Zorb from "../Zorb"
 
 const ZoraButton = () => {
-  const { mintedTokenId } = useCreate()
-
   const handleClick = () => {
-    window.open(`${ZORA_COLLECTION_URL}/${mintedTokenId}`, "_blank")
+    window.open(`${ZORA_COLLECTION_URL}`, "_blank")
   }
 
   return (
