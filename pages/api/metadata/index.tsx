@@ -1,13 +1,12 @@
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import getAttributes from "@/lib/getAttributes"
 import { CACCS, CBGNAMES, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
-import { DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
+import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import tokenMinted from "@/lib/tokenMinted"
 import getMetadata from "@/lib/firebase/getMetadata"
-import getIpfsLink from "@/lib/getIpfsLink"
 
 export default async function handler(req: any, res: any) {
-  const { tokenId } = req.query
+  const { tokenId, chainId } = req.query
 
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return res.status(500).json({ message: "Not minted yet!" })
@@ -28,9 +27,8 @@ export default async function handler(req: any, res: any) {
     CBGNAMES[bg],
   )
 
-  const metadata = response["CHAIN_ID"]
+  const metadata = response[`${chainId || CHAIN_ID}`]
   const finalAttribute = metadata?.attributes || deterministicAttribute
-
   const imageUrl = `${DOMAIN_URL}/api/image/${tokenId}`
   const sheetUrl = `${DOMAIN_URL}/api/spritesheet/${tokenId}`
 
