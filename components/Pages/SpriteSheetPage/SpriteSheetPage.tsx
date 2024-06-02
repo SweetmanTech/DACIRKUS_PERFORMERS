@@ -5,8 +5,9 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Media from "@/shared/Media"
 import SeoHead from "@/components/SeoHead"
-import CharacterModel from "./CharacterModel"
 import { CHAIN_ID } from "@/lib/consts"
+import CharacterModel from "./CharacterModel"
+
 const SpriteSheetPage = () => {
   const { setCType, setCAcc, setCEye, setCHair, setCColor, setCOutFit, setCSkin, setCBG } =
     useCharacter()
