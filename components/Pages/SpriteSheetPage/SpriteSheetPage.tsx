@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
 import Media from "@/shared/Media"
 import SeoHead from "@/components/SeoHead"
 import CharacterModel from "./CharacterModel"
-
+import { CHAIN_ID } from "@/lib/consts"
 const SpriteSheetPage = () => {
   const { setCType, setCAcc, setCEye, setCHair, setCColor, setCOutFit, setCSkin, setCBG } =
     useCharacter()
@@ -14,7 +14,6 @@ const SpriteSheetPage = () => {
   const [loading, setLoading] = useState(true)
 
   const { query } = useRouter()
-  const chainId = query?.chainId
   const tokenId = query?.tokenId as string
 
   useEffect(() => {
@@ -24,7 +23,7 @@ const SpriteSheetPage = () => {
       )
       const response = (await getMetadata(tokenId)) as any
 
-      const firebaseSheet = response?.[`${chainId}`]?.sheet
+      const firebaseSheet = response?.[`${CHAIN_ID}`]?.sheet
 
       setCType(firebaseSheet?.type || type)
       setCAcc(firebaseSheet?.acc || acc)
@@ -36,10 +35,10 @@ const SpriteSheetPage = () => {
       setCBG(firebaseSheet?.bg || bg)
       setLoading(false)
     }
-    if (!tokenId || !chainId) return
+    if (!tokenId || !CHAIN_ID) return
     init()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenId, chainId])
+  }, [tokenId, CHAIN_ID])
 
   return (
     <div className="relative min-h-screen min-w-screen">
