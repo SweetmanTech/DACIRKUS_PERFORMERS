@@ -12,10 +12,24 @@ const usePfpRendererData = () => {
   const uploadPfp = async (pfpRef) => {
     if (!pfpRef?.current) return ""
     try {
-      const blob = await domtoimage.toBlob(pfpRef.current)
+      const options = {
+        quality: 1,
+        scale: 2,
+        style: {
+          transform: "scale(2)",
+          transformOrigin: "top left",
+          width: `${pfpRef.current.offsetWidth}px`,
+          height: `${pfpRef.current.offsetHeight}px`,
+        },
+        width: pfpRef.current.offsetWidth * 2,
+        height: pfpRef.current.offsetHeight * 2,
+      }
+
+      const blob = await domtoimage.toBlob(pfpRef.current, options)
       const ipfsCid = await uploadToIpfs(blob)
       return ipfsCid
     } catch (error) {
+      console.error("Error uploading PFP:", error)
       return ""
     }
   }
