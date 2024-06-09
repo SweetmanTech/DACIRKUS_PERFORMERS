@@ -5,7 +5,6 @@ import { useRouter } from "next/router"
 import { useEffect, useState } from "react"
 import Media from "@/shared/Media"
 import SeoHead from "@/components/SeoHead"
-import { CHAIN_ID } from "@/lib/consts"
 import CharacterModel from "./CharacterModel"
 
 const SpriteSheetPage = () => {
@@ -15,6 +14,7 @@ const SpriteSheetPage = () => {
   const [loading, setLoading] = useState(true)
 
   const { query } = useRouter()
+  const chainId = query?.chainId
   const tokenId = query?.tokenId as string
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const SpriteSheetPage = () => {
       )
       const response = (await getMetadata(tokenId)) as any
 
-      const firebaseSheet = response?.[`${CHAIN_ID}`]?.sheet
+      const firebaseSheet = response?.[`${chainId}`]?.sheet
 
       setCType(firebaseSheet?.type || type)
       setCAcc(firebaseSheet?.acc || acc)
@@ -36,10 +36,10 @@ const SpriteSheetPage = () => {
       setCBG(firebaseSheet?.bg || bg)
       setLoading(false)
     }
-    if (!tokenId || !CHAIN_ID) return
+    if (!tokenId || !chainId) return
     init()
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [tokenId, CHAIN_ID])
+  }, [tokenId, chainId])
 
   return (
     <div className="relative min-h-screen min-w-screen">
