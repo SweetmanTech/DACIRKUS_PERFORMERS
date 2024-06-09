@@ -17,6 +17,10 @@ export const ZORA_COLLECTION_URL = IS_TESTNET
   ? `https://testnets.opensea.io/assets/base-sepolia/${DROP_ADDRESS}`
   : `https://zora.co/collect/base:${DROP_ADDRESS}`
 
+export const OPENSEA_MINTED_TOKEN_URL = IS_TESTNET
+  ? `https://testnets.opensea.io/assets/base-sepolia/${DROP_ADDRESS}`
+  : `https://opensea.io/assets/base/:${DROP_ADDRESS}`
+
 export const DOMAIN_URL = "https://daperformers.com"
 export const COMMENT = "Da Performers are coming!!!"
 export const MINT_REFERRAL = process.env.NEXT_PUBLIC_MINT_REFERRAL

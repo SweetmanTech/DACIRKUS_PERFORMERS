@@ -1,4 +1,4 @@
-import { ZORA_COLLECTION_URL } from "@/lib/consts"
+import { OPENSEA_MINTED_TOKEN_URL } from "@/lib/consts"
 import { useCreate } from "@/providers/CreateProvider"
 import Image from "next/image"
 
@@ -6,7 +6,7 @@ const OpenseaButton = () => {
   const { mintedTokenId } = useCreate()
 
   const handleClick = () => {
-    window.open(`${ZORA_COLLECTION_URL}/${mintedTokenId}`, "_blank")
+    window.open(`${OPENSEA_MINTED_TOKEN_URL}/${mintedTokenId}`, "_blank")
   }
 
   return (
