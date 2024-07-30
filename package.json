@@ -27,6 +27,7 @@
     "ethers": "^5.0.0",
     "firebase": "10.3.0",
     "framer-motion": "^10.16.15",
+    "ipfs-http-client": "^60.0.1",
     "lodash": "^4.17.21",
     "next": "^12.2.2",
     "next-api-decorators": "^2.0.0",

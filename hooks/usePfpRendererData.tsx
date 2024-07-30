@@ -1,6 +1,6 @@
 import { createRef, useMemo, useRef } from "react"
 import domtoimage from "dom-to-image"
-import { uploadToIpfs } from "@/lib/ipfs"
+import { uploadFile } from "@/lib/uploadFile"
 
 const usePfpRendererData = () => {
   const singleRef = useRef()
@@ -13,8 +13,11 @@ const usePfpRendererData = () => {
     if (!pfpRef?.current) return ""
     try {
       const blob = await domtoimage.toBlob(pfpRef.current)
-      const ipfsCid = await uploadToIpfs(blob)
-      return ipfsCid
+      const fileName = "pfp.png"
+      const fileType = "image/png"
+      const pfpFile = new File([blob], fileName, { type: fileType })
+      const { uri } = await uploadFile(pfpFile)
+      return uri
     } catch (error) {
       return ""
     }

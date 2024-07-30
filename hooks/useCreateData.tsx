@@ -17,7 +17,7 @@ import usePreparePrivyWallet from "./usePrepareWallet"
 import { checkIfWhitelisted } from "@/lib/isWhiteListed"
 
 const useCreateData = () => {
-  const [currentStep, setCurrentStep] = useState(STEPS.CHOOSE_CHARACTER_TYPE)
+  const [currentStep, setCurrentStep] = useState(STEPS.SELECT_CHARACTER)
   const [characterType, setCharacterType] = useState(1)
   const [mintedTokenId, setMintedTokenId] = useState(1)
   const [quantity, setQuantity] = useState(1)
@@ -142,7 +142,7 @@ const useCreateData = () => {
   }
 
   useEffect(() => {
-    if (currentStep === STEPS.CHOOSE_CHARACTER_TYPE) {
+    if (currentStep === STEPS.SELECT_CHARACTER) {
       const randomAttributes = randomAttr(25)
       setDummyRandom(randomAttributes)
     }

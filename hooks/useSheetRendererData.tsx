@@ -1,6 +1,6 @@
 import { createRef, useMemo, useRef } from "react"
 import domtoimage from "dom-to-image"
-import { uploadToIpfs } from "@/lib/ipfs"
+import { uploadFile } from "@/lib/uploadFile"
 
 const useSheetRendererData = () => {
   const singleSheetRef = useRef()
@@ -13,9 +13,14 @@ const useSheetRendererData = () => {
     if (!pfpRef?.current) return ""
     try {
       const blob = await domtoimage.toBlob(pfpRef.current)
-      const ipfsCid = await uploadToIpfs(blob)
-      return ipfsCid
+      const fileName = "sheet.png"
+      const fileType = "image/png"
+      const sheetFile = new File([blob], fileName, { type: fileType })
+      const { uri } = await uploadFile(sheetFile)
+      console.log("ZIAD", uri)
+      return uri
     } catch (error) {
+      console.log("ZIAD", error)
       return ""
     }
   }
