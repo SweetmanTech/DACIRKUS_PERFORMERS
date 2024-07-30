@@ -14,7 +14,7 @@ const MenuButtons = () => {
       className="flex items-center md:gap-x-[18px] lg:gap-x-[24px] xl:gap-x-[30px]
           md:px-[18px] lg:px-[24px] xl:px-[30px]"
     >
-      <HomeButton onClick={() => setCurrentStep(STEPS.CHOOSE_CHARACTER_TYPE)} />
+      <HomeButton onClick={() => setCurrentStep(STEPS.SELECT_CHARACTER)} />
       <button
         type="button"
         className="md:w-[39px] lg:w-[52px] xl:w-[65px] aspect-[1/1] border-[2px] border-black flex justify-center items-center
