@@ -7,12 +7,12 @@ const CEyeModel = () => {
 
   const eyeImage = `/images/Characters/${CTYPES[cType]}/Eyes/${CEYES[cEye]}.png`
   return (
-    <div className="absolute w-fit left-0 top-0 z-[3]">
+    <div className="absolute w-fit left-0 top-0 z-[3] h-full">
       <Media
         type="image"
         link={eyeImage}
         blurLink={eyeImage}
-        containerClasses="w-[250px] aspect-[192/1152]"
+        containerClasses="h-full aspect-[192/1152]"
         containerStyle={{
           imageRendering: "pixelated",
         }}
