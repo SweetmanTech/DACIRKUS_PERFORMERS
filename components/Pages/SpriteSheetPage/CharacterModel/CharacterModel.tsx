@@ -14,12 +14,12 @@ const CharacterModel = () => {
   return (
     <div className="relative z-[2] flex justify-center">
       <div
-        className="w-fit px-4 pb-6 pointer-events-none"
+        className="w-fit px-4 pb-6 pointer-events-none h-screen overflow-hidden"
         style={{
           background: CBGCOLORS[cBG],
         }}
       >
-        <div className="relative w-fit">
+        <div className="relative w-fit h-full">
           <CSkinkModel />
           <CAccModel />
           <CEyeModel />
