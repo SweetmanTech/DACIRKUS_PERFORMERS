@@ -8,12 +8,12 @@ const CHairModel = () => {
   const hairImage = `/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`
 
   return (
-    <div className="absolute w-fit left-0 top-0 z-[2]">
+    <div className="absolute w-fit left-0 top-0 z-[2] h-full">
       <Media
         type="image"
         link={hairImage}
         blurLink={hairImage}
-        containerClasses="w-[250px] aspect-[192/1152]"
+        containerClasses="h-full aspect-[192/1152]"
         containerStyle={{
           imageRendering: "pixelated",
         }}

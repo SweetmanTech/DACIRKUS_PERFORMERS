@@ -8,12 +8,12 @@ const CAccModel = () => {
   const accImage = `/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`
 
   return (
-    <div className="absolute w-fit left-0 top-0 z-[5]">
+    <div className="absolute w-fit left-0 top-0 z-[5] h-full">
       <Media
         type="image"
         link={accImage}
         blurLink={accImage}
-        containerClasses="w-[250px] aspect-[192/1152]"
+        containerClasses="h-full aspect-[192/1152]"
         containerStyle={{
           imageRendering: "pixelated",
         }}

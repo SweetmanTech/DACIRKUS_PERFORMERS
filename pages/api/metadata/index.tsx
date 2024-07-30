@@ -32,7 +32,6 @@ export default async function handler(req: any, res: any) {
   const finalAttribute = metadata?.attributes || deterministicAttribute
   const pfp = metadata?.pfp
   const sheet = metadata?.sheet
-  const ss = metadata?.ss
 
   const endpoint = `api/og?type=${sheet?.type || type}&skin=${sheet?.skin || skin}&acc=${
     sheet?.acc || acc
@@ -41,9 +40,11 @@ export default async function handler(req: any, res: any) {
   }&bg=${sheet?.bg || bg}&tokenId=${tokenId}`
 
   const pfpUrl = pfp ? getIpfsLink(pfp) : `${DOMAIN_URL}/${endpoint}`
-  const sheetUrl = ss
-    ? getIpfsLink(ss)
-    : `${DOMAIN_URL}/spritesheet/${chainId || CHAIN_ID}/${tokenId}`
+  const sheetUrl = `${DOMAIN_URL}/api/og/spritesheet?tokenId=${tokenId}&type=${
+    sheet?.type || type
+  }&skin=${sheet?.skin || skin}&acc=${sheet?.acc || acc}&eye=${sheet?.eye || eye}&hair=${
+    sheet?.hair || hair
+  }&color=${sheet?.color || color}&outfit=${sheet?.outfit || outfit}&bg=${sheet?.bg || bg}`
 
   const metaData = {
     name: `Performer #${tokenId}`,
