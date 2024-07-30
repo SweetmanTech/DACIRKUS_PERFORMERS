@@ -5,6 +5,9 @@ const SheetImage = ({ imageUrl }) => (
     style={{
       width: 192,
       imageRendering: "pixelated",
+      position: "absolute",
+      left: 0,
+      top: 0,
     }}
     alt="not found"
   />
