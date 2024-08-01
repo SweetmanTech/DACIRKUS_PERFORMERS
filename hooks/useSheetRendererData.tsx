@@ -13,10 +13,7 @@ const useSheetRendererData = () => {
     if (!pfpRef?.current) return ""
     try {
       const blob = await domtoimage.toBlob(pfpRef.current)
-      const fileName = "sheet.png"
-      const fileType = "image/png"
-      const sheetFile = new File([blob], fileName, { type: fileType })
-      const ipfsCid = await uploadToIpfs(sheetFile)
+      const ipfsCid = await uploadToIpfs(blob)
       return ipfsCid
     } catch (error) {
       return ""
