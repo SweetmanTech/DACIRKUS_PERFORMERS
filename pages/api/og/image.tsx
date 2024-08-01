@@ -21,23 +21,26 @@ export default async function GET(req: NextRequest) {
   const [type, skin, acc, eye, hair, color, outfit, bg] = getDeterministricAttributes(
     parseInt(tokenId, 10),
   )
-  
+
   return new ImageResponse(
     (
-      <div style={{
-        display: "flex",
-        background: CBGCOLORS[bg],
-        width: 50,
-        height: 50,
-        justifyContent: 'center',
-      }}
-      >
-        <div style={{
-          display: 'flex',
-          width: 30,
+      <div
+        style={{
+          display: "flex",
+          background: CBGCOLORS[bg],
+          width: 50,
           height: 50,
-          overflow: 'hidden',
-        }}>
+          justifyContent: "center",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            width: 30,
+            height: 50,
+            overflow: "hidden",
+          }}
+        >
           <div
             style={{
               display: "flex",
@@ -45,7 +48,7 @@ export default async function GET(req: NextRequest) {
               width: 192,
               height: 1152,
               imageRendering: "pixelated",
-              top: -528
+              top: -528,
             }}
           >
             <img

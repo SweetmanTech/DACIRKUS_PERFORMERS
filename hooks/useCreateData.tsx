@@ -11,7 +11,6 @@ import { useAnimatedBook } from "@/providers/AnimatedBookProvider"
 import { STATUS } from "@/lib/bookStatus"
 import { usePfpRenderer } from "@/providers/PfpRendererProvder"
 import handleTxError from "@/lib/handleTxError"
-import { useSheetRenderer } from "@/providers/SheetRendererProvider"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
 import { checkIfWhitelisted } from "@/lib/isWhiteListed"
@@ -42,7 +41,6 @@ const useCreateData = () => {
   const isWhitelist = checkIfWhitelisted(address)
   const { setCurrentStatus } = useAnimatedBook()
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
-  const { renderSingleSheet, renderMultipleSheets } = useSheetRenderer()
   const { prepare } = usePreparePrivyWallet()
 
   const singleMint = async () => {
@@ -71,14 +69,7 @@ const useCreateData = () => {
     }
 
     const cidOfPfp = await renderSinglePfp()
-    const cidOfSheet = await renderSingleSheet()
-    await addMetadata(
-      totalSupply + 1,
-      attributes,
-      sheet,
-      `ipfs://${cidOfPfp}`,
-      `ipfs://${cidOfSheet}`,
-    )
+    await addMetadata(totalSupply + 1, attributes, sheet, `ipfs://${cidOfPfp}`)
     try {
       const firstMintedTokenId: any = isWhitelist
         ? await purchasePresaleWithComment()
@@ -102,7 +93,6 @@ const useCreateData = () => {
     setQuantity(quantity)
     const totalSupply = await getTotalSupply()
     const cidsOfPfp = await renderMultiplePfps(quantity)
-    const cidsOfSheets = await renderMultipleSheets(quantity)
     const metadataPromise = dummyRandom.slice(0, quantity).map(async (sheet, i) => {
       const attribute = getAttributes(
         CTYPES[sheet.type],
@@ -114,13 +104,7 @@ const useCreateData = () => {
         COUTFITS[sheet.outfit],
         CBGNAMES[sheet.bg],
       )
-      await addMetadata(
-        totalSupply + i + 1,
-        attribute,
-        sheet,
-        `ipfs://${cidsOfPfp[i]}`,
-        `ipfs://${cidsOfSheets[i]}`,
-      )
+      await addMetadata(totalSupply + i + 1, attribute, sheet, `ipfs://${cidsOfPfp[i]}`)
     })
 
     try {
