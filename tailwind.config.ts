@@ -1,8 +1,7 @@
-/* eslint-disable global-require */
-/** @type {import('tailwindcss').Config} */
+import type { Config } from "tailwindcss";
 const defaultTheme = require("tailwindcss/defaultTheme")
 
-module.exports = {
+const config: Config = {
   content: [
     "./app/**/*.{js,ts,jsx,tsx}",
     "./pages/**/*.{js,ts,jsx,tsx}",
@@ -45,4 +44,5 @@ module.exports = {
     require("tailwind-scrollbar")({ nocompatible: true }),
     // ...
   ],
-}
+};
+export default config;

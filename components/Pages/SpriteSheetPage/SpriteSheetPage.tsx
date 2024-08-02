@@ -1,7 +1,7 @@
 import getMetadata from "@/lib/firebase/getMetadata"
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import { useCharacter } from "@/providers/CharacterProvider"
-import { useRouter } from "next/router"
+import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Media from "@/shared/Media"
 import SeoHead from "@/components/SeoHead"
@@ -9,11 +9,11 @@ import CharacterModel from "./CharacterModel"
 
 const SpriteSheetPage = () => {
   const { setCType, setCAcc, setCEye, setCHair, setCColor, setCOutFit, setCSkin, setCBG } =
-    useCharacter()
+    useCharacter() as any
 
   const [loading, setLoading] = useState(true)
 
-  const { query } = useRouter()
+  const { query } = useParams() as any
   const chainId = query?.chainId
   const tokenId = query?.tokenId as string
 

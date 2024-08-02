@@ -1,6 +1,8 @@
 import { initializeApp } from "firebase/app"
 import { getFirestore } from "firebase/firestore"
 
+if (typeof global.navigator === "undefined") global.navigator = {} as any
+
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
   authDomain: "daperformers-9ae66.firebaseapp.com",

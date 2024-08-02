@@ -2,26 +2,30 @@ import { ImageResponse } from "@vercel/og"
 import { NextRequest, NextResponse } from "next/server"
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import tokenMinted from "@/lib/tokenMinted"
-import { DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
+import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
 import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import SheetImage from "@/components/OgImages/Spritesheet/SheetImage"
+import getMetadata from "@/lib/firebase/getMetadata"
 
-export const config = {
-  runtime: "experimental-edge",
-  dynamic: "force-dynamic",
-}
+export const runtime = "edge"
+export const dynamic = "force-dynamic"
 
-export default async function GET(req: NextRequest) {
+export async function GET(req: NextRequest) {
   const queryParams = req.nextUrl.searchParams
   const tokenId: any = queryParams.get("tokenId")
-  const cType: any = queryParams.get("type")
-  const cSkin: any = queryParams.get("skin")
-  const cAcc: any = queryParams.get("acc")
-  const cEye: any = queryParams.get("eye")
-  const cHair: any = queryParams.get("hair")
-  const cColor: any = queryParams.get("color")
-  const cOutfit: any = queryParams.get("outfit")
-  const cBg: any = queryParams.get("bg")
+  const chainId: any = queryParams.get("chainId")
+
+  const data = await getMetadata(tokenId)
+  const metadata = data[`${chainId || CHAIN_ID}`]
+
+  const cType: any = metadata.sheet.type
+  const cSkin: any = metadata.sheet.skin
+  const cAcc: any = metadata.sheet.acc
+  const cEye: any = metadata.sheet.eye
+  const cHair: any = metadata.sheet.hair
+  const cColor: any = metadata.sheet.color
+  const cOutfit: any = metadata.sheet.outfit
+  const cBg: any = metadata.sheet.bg
 
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return NextResponse.json({ message: "Not minted yet!" })

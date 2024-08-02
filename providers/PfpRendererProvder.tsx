@@ -1,3 +1,5 @@
+"use client"
+
 import usePfpRendererData from "@/hooks/usePfpRendererData"
 import { createContext, useContext, useMemo } from "react"
 
@@ -11,7 +13,7 @@ const PfpRendererProvider = ({ children }) => {
       ...rendererData,
     }),
     [rendererData],
-  )
+  ) as any
 
   return <PfpRendererContext.Provider value={value}>{children}</PfpRendererContext.Provider>
 }

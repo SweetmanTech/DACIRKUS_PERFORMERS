@@ -1,3 +1,5 @@
+"use client"
+
 import useCharacterData from "@/hooks/useCharacterData"
 import { createContext, useContext, useMemo } from "react"
 
@@ -11,7 +13,7 @@ const CharacterProvider = ({ children }) => {
       ...characterData,
     }),
     [characterData],
-  )
+  ) as any
 
   return <CharacterContext.Provider value={value}>{children}</CharacterContext.Provider>
 }
