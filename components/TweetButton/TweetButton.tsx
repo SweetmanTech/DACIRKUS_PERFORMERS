@@ -2,7 +2,7 @@ import { useCreate } from "@/providers/CreateProvider"
 import Media from "../../shared/Media"
 
 const TweetButton = () => {
-  const { mintedTokenId } = useCreate()
+  const { mintedTokenId } = useCreate() as any
   const tweetText = `I minted Performer #${mintedTokenId} by @DaPerformers`
   const handleClick = () => {
     const twitterUrl = `https://twitter.com/intent/tweet?text=${encodeURIComponent(tweetText)}`

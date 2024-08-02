@@ -13,8 +13,8 @@ import SuccessMultiple from "./SuccessMultiple"
 import PfpRenderer from "./PfpRenderer"
 
 const CreatePage = () => {
-  const { currentStep } = useCreate()
-  const { currentStatus } = useAnimatedBook()
+  const { currentStep } = useCreate() as any
+  const { currentStatus } = useAnimatedBook() as any
 
   return (
     <>

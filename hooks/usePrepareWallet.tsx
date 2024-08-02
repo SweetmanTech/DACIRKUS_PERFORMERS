@@ -3,7 +3,7 @@ import useConnectedWallet from "./useConnectedWallet"
 
 // eslint-disable-next-line no-console
 const usePreparePrivyWallet = () => {
-  const { externalWallet } = useConnectedWallet()
+  const { externalWallet } = useConnectedWallet() as any
   const { connectWallet } = usePrivy()
 
   const prepare = async () => {

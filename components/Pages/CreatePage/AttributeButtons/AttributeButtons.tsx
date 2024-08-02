@@ -32,7 +32,7 @@ const AttributeButtons = () => {
     randomCSkin,
     prevCSkin,
     nextCSkin,
-  } = useCharacter()
+  } = useCharacter() as any
 
   return (
     <div

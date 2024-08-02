@@ -7,7 +7,7 @@ import COutFitModel from "./COutFitModel"
 import CSkinkModel from "./CSkinkModel"
 
 const CharacterModel = () => {
-  const { cHair, cBG } = useCharacter()
+  const { cHair, cBG } = useCharacter() as any
 
   const visibleHair = cHair !== 1
 

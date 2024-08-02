@@ -4,7 +4,7 @@ import { CHAIN } from "@/lib/consts"
 import useConnectedWallet from "./useConnectedWallet"
 
 const usePrivyWalletClient = (chain = CHAIN as Chain) => {
-  const { externalWallet } = useConnectedWallet()
+  const { externalWallet } = useConnectedWallet() as any
   const [walletClient, setWalletClient] = useState<WalletClient | null>(null)
 
   useEffect(() => {

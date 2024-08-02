@@ -5,8 +5,8 @@ import useConnectedWallet from "./useConnectedWallet"
 import usePrivyWalletClient from "./usePrivyWalletClient"
 
 const useWalletSendTransaction = () => {
-  const { externalWallet } = useConnectedWallet()
-  const { walletClient } = usePrivyWalletClient()
+  const { externalWallet } = useConnectedWallet() as any
+  const { walletClient } = usePrivyWalletClient() as any
 
   const sendTransaction = async (
     to: Address,

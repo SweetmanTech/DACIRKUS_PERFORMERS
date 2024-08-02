@@ -4,12 +4,11 @@ import { useCharacter } from "@/providers/CharacterProvider"
 import { useParams } from "next/navigation"
 import { useEffect, useState } from "react"
 import Media from "@/shared/Media"
-import SeoHead from "@/components/SeoHead"
 import CharacterModel from "./CharacterModel"
 
 const SpriteSheetPage = () => {
   const { setCType, setCAcc, setCEye, setCHair, setCColor, setCOutFit, setCSkin, setCBG } =
-    useCharacter() as any
+    useCharacter() as any as any
 
   const [loading, setLoading] = useState(true)
 
@@ -43,7 +42,6 @@ const SpriteSheetPage = () => {
 
   return (
     <div className="relative min-h-screen min-w-screen">
-      <SeoHead />
       <Media
         type="image"
         link="/images/Layout/background-green.png"

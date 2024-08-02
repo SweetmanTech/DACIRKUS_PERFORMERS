@@ -1,5 +1,5 @@
 import { ethers } from "ethers"
-import { zora, zoraTestnet } from "@wagmi/core/chains"
+import { zora, zoraTestnet } from "viem/chains"
 import getAlchemyBaseUrl from "./alchemy/getAlchemyBaseUrl"
 
 const ZORA = "https://rpc.zora.energy/"

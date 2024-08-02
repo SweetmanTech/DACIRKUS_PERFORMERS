@@ -3,7 +3,7 @@ import getNFTs from "./getNFTs"
 export const getClaimTickets = async (address: string) => {
   const res = await getNFTs(
     address,
-    process.env.NEXT_PUBLIC_CRE8ORS_CLAIM_TICKET_ADDRESS,
+    process.env.NEXT_PUBLIC_CRE8ORS_CLAIM_TICKET_ADDRESS as string,
     process.env.NEXT_PUBLIC_TESTNET ? 5 : 1,
   )
   return res?.ownedNfts

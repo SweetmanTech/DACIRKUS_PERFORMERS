@@ -2,7 +2,7 @@ import { useCreate } from "@/providers/CreateProvider"
 import { useState } from "react"
 
 const MintButton = () => {
-  const { singleMint } = useCreate()
+  const { singleMint } = useCreate() as any
   const [loading, setLoading] = useState(false)
 
   const handleMint = async () => {

@@ -3,8 +3,9 @@ import { useCharacter } from "@/providers/CharacterProvider"
 import { usePfpRenderer } from "@/providers/PfpRendererProvder"
 
 const PfpRenderer = () => {
-  const { cType, cSkin, cAcc, cEye, cHair, cColor, cOutFit, cBG, dummyRandom } = useCharacter()
-  const { singleRef, multipleRefs } = usePfpRenderer()
+  const { cType, cSkin, cAcc, cEye, cHair, cColor, cOutFit, cBG, dummyRandom } =
+    useCharacter() as any
+  const { singleRef, multipleRefs } = usePfpRenderer() as any
 
   return (
     <main

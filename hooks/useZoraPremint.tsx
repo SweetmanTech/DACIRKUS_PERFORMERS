@@ -12,8 +12,8 @@ import useWalletSendTransaction from "./useWalletSendTransaction"
 import proofs from "@/lib/whitelistProof"
 import { IS_TESTNET } from "@/lib/consts"
 const useZoraPremint = () => {
-  const { externalWallet } = useConnectedWallet()
-  const { sendTransaction: sendTxByWallet } = useWalletSendTransaction()
+  const { externalWallet } = useConnectedWallet() as any
+  const { sendTransaction: sendTxByWallet } = useWalletSendTransaction() as any
   const { connectWallet } = usePrivy()
 
   const mint = async (quantity = 1) => {
@@ -26,7 +26,7 @@ const useZoraPremint = () => {
         }
       }
 
-      const zoraFee = await getZoraFee(quantity)
+      const zoraFee: any = await getZoraFee(quantity)
       const presaleMaxQuantity = BigInt(1000)
       const pricePerToken = BigInt(0)
       const userProof = proofs[externalWallet.address]
