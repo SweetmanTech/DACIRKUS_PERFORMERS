@@ -11,6 +11,7 @@ import useConnectedWallet from "./useConnectedWallet"
 import useWalletSendTransaction from "./useWalletSendTransaction"
 import proofs from "@/lib/whitelistProof"
 import { IS_TESTNET } from "@/lib/consts"
+
 const useZoraPremint = () => {
   const { externalWallet } = useConnectedWallet() as any
   const { sendTransaction: sendTxByWallet } = useWalletSendTransaction() as any

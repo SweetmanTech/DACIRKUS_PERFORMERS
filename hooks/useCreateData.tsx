@@ -14,6 +14,7 @@ import handleTxError from "@/lib/handleTxError"
 import getTotalSupply from "@/lib/getTotalSupply"
 import usePreparePrivyWallet from "./usePrepareWallet"
 import { checkIfWhitelisted } from "@/lib/isWhiteListed"
+import useCheckWhitelist from "./useCheckWhitelist"
 
 const useCreateData = () => {
   const [currentStep, setCurrentStep] = useState(STEPS.SELECT_CHARACTER)
@@ -38,13 +39,14 @@ const useCreateData = () => {
   const { mint: purchasePresaleWithComment } = useZoraPremint()
   const { externalWallet } = useConnectedWallet() as any
   const address = externalWallet?.address
-  const isWhitelist = checkIfWhitelisted(address)
+  const { isWhitelist } = useCheckWhitelist(address)
   const { setCurrentStatus } = useAnimatedBook() as any
   const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer() as any
   const { prepare } = usePreparePrivyWallet()
 
   const singleMint = async () => {
     if (!prepare()) return
+    if (isWhitelist === null) return
 
     const totalSupply = await getTotalSupply()
     const attributes = getAttributes(
@@ -89,6 +91,7 @@ const useCreateData = () => {
 
   const multipleMint = async (quantity) => {
     if (!prepare()) return
+    if (isWhitelist === null) return
 
     setQuantity(quantity)
     const totalSupply = await getTotalSupply()
