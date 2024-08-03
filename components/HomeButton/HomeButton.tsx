@@ -3,7 +3,7 @@ import { useAnimatedBook } from "../../providers/AnimatedBookProvider"
 import Media from "../../shared/Media"
 
 const HomeButton = ({ onClick }) => {
-  const { setCurrentStatus } = useAnimatedBook() as any as any
+  const { setCurrentStatus } = useAnimatedBook() as any
   const backToHome = () => {
     setCurrentStatus(STATUS.CLOSE)
     onClick()

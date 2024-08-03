@@ -9,7 +9,6 @@ const tokenMinted = async (contractAddress: string, tokenId: string) => {
     abi: erc721Abi as any,
   })) as string
   const totalSupply = response.toString()
-
   return parseInt(tokenId, 10) <= parseInt(totalSupply, 10)
 }
 
