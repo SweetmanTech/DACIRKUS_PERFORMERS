@@ -13,7 +13,10 @@ const usePfpRendererData = () => {
     if (!pfpRef?.current) return ""
     try {
       const blob = await domtoimage.toBlob(pfpRef.current)
-      const ipfsCid = await uploadToIpfs(blob)
+      const fileName = "pfp.png"
+      const fileType = "image/png"
+      const pfpFile = new File([blob], fileName, { type: fileType })
+      const ipfsCid = await uploadToIpfs(pfpFile)
       return ipfsCid
     } catch (error) {
       return ""
