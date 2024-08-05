@@ -35,8 +35,8 @@ async function metadata(req: NextRequest): Promise<NextResponse> {
   const data = response[`${chainId || CHAIN_ID}`]
   const finalAttribute = data?.attributes || deterministicAttribute
 
-  const pfpUrl = `${DOMAIN_URL}/api/og/image?tokenId=${tokenId}`
-  const sheetUrl = `${DOMAIN_URL}/api/og/spritesheet?tokenId=${tokenId}`
+  const pfpUrl = `${DOMAIN_URL}/api/image?tokenId=${tokenId}`
+  const sheetUrl = `${DOMAIN_URL}/api/spritesheet?tokenId=${tokenId}`
 
   const meta = {
     name: `Performer #${tokenId}`,

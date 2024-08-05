@@ -8,7 +8,7 @@ import CharacterModel from "./CharacterModel"
 
 const SpriteSheetPage = () => {
   const { setCType, setCAcc, setCEye, setCHair, setCColor, setCOutFit, setCSkin, setCBG } =
-    useCharacter() as any as any
+    useCharacter() as any
 
   const [loading, setLoading] = useState(true)
 

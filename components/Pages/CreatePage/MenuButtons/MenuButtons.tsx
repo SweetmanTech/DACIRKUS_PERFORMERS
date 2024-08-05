@@ -6,8 +6,8 @@ import HomeButton from "../../../HomeButton"
 import MintButton from "../MintButton"
 
 const MenuButtons = () => {
-  const { setCurrentStep } = useCreate() as any as any
-  const { randomAttr } = useCharacter() as any as any
+  const { setCurrentStep } = useCreate() as any
+  const { randomAttr } = useCharacter() as any
 
   return (
     <div
