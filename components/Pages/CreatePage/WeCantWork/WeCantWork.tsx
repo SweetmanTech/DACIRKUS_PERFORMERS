@@ -1,10 +1,10 @@
-import { useRouter } from "next/router"
+import { useRouter } from "next/navigation"
 import Zorb from "@/components/Zorb"
 import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
 
 const WeCantWork = () => {
-  const router = useRouter()
+  const { push } = useRouter()
 
   return (
     <div
@@ -87,7 +87,7 @@ const WeCantWork = () => {
         <div>
           <Button
             onClick={() => {
-              router.push("/faq")
+              push("/faq")
             }}
             className="relative"
           >
@@ -134,7 +134,7 @@ const WeCantWork = () => {
         <div>
           <Button
             onClick={() => {
-              router.push("/terms")
+              push("/terms")
             }}
             className="relative"
           >

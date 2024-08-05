@@ -37,7 +37,7 @@ const usePfpRendererData = () => {
         const cid = await uploadPfp(multipleRefs[i + j])
         return cid
       })
-      const groupCids = await Promise.all(renderPromise)
+      const groupCids: any = await Promise.all(renderPromise)
       cids = cids.concat(groupCids)
     }
     return cids

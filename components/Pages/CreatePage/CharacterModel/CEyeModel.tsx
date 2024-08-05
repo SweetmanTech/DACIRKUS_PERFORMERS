@@ -2,7 +2,7 @@ import { CEYES, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
 const CEyeModel = ({ isSingle, index }) => {
-  const { cEye, cType, dummyRandom } = useCharacter()
+  const { cEye, cType, dummyRandom } = useCharacter() as any
 
   const eyeImage = isSingle
     ? `/images/Characters/${CTYPES[cType]}/Eyes/${CEYES[cEye]}.png`
@@ -23,12 +23,7 @@ const CEyeModel = ({ isSingle, index }) => {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/img-redundant-alt */}
-        <img
-          className="absolute !w-full object-contain"
-          src={eyeImage}
-          alt="not found image"
-          placeholder="blur"
-        />
+        <img className="absolute !w-full object-contain" src={eyeImage} alt="not found image" />
       </div>
     </div>
   )

@@ -3,7 +3,7 @@ import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
 const CEyeModel = () => {
-  const { cEye, cType } = useCharacter()
+  const { cEye, cType } = useCharacter() as any
 
   const eyeImage = `/images/Characters/${CTYPES[cType]}/Eyes/${CEYES[cEye]}.png`
   return (

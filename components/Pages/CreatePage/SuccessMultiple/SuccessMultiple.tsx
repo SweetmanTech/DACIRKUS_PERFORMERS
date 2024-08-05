@@ -8,8 +8,8 @@ import SelectedAttributes from "../SelectedAttributes"
 import SuccessButtons from "../SuccessButtons"
 
 const SuccessMultiple = () => {
-  const { mintedTokenId, quantity } = useCreate()
-  const { dummyRandom } = useCharacter()
+  const { mintedTokenId, quantity } = useCreate() as any
+  const { dummyRandom } = useCharacter() as any
 
   const cols = getMultipleCols(quantity)
   const uiMedatdata = useUiMetadata(quantity)

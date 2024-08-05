@@ -3,7 +3,7 @@ import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
 const CSkinkModel = () => {
-  const { cSkin, cType } = useCharacter()
+  const { cSkin, cType } = useCharacter() as any
 
   const skinImage = `/images/Characters/${CTYPES[cType]}/SkinTone/${CSKINS[cSkin]}.png`
 

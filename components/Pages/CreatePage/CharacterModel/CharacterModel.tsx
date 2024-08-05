@@ -6,7 +6,7 @@ import COutFitModel from "./COutFitModel"
 import CSkinModel from "./CSkinModel"
 
 const CharacterModel = ({ isSingle = false, index = 0 }) => {
-  const { cHair, dummyRandom } = useCharacter()
+  const { cHair, dummyRandom } = useCharacter() as any
 
   const visibleHair = isSingle ? cHair !== 1 : dummyRandom[index].hair !== 1
 

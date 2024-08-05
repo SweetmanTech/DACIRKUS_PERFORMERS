@@ -1,7 +1,7 @@
 import { useCreate } from "../../../../providers/CreateProvider"
 
 const CharacterItem = ({ type, label, onClick }) => {
-  const { setCharacterType } = useCreate()
+  const { setCharacterType } = useCreate() as any
 
   return (
     <div

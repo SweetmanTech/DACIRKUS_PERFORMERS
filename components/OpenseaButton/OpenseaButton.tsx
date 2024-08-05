@@ -3,7 +3,7 @@ import { useCreate } from "@/providers/CreateProvider"
 import Image from "next/image"
 
 const OpenseaButton = () => {
-  const { mintedTokenId } = useCreate()
+  const { mintedTokenId } = useCreate() as any
 
   const handleClick = () => {
     window.open(`${ZORA_COLLECTION_URL}/${mintedTokenId}`, "_blank")

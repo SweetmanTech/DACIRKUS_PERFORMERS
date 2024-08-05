@@ -6,7 +6,7 @@ import OpenseaButton from "../../../OpenseaButton"
 import TweetButton from "../../../TweetButton"
 
 const SuccessButtons = () => {
-  const { setCurrentStep } = useCreate()
+  const { setCurrentStep } = useCreate() as any
 
   return (
     <div

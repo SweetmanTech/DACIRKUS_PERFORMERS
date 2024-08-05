@@ -2,7 +2,7 @@ import { CACCS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
 const CAccModel = ({ isSingle, index }) => {
-  const { cAcc, cType, dummyRandom } = useCharacter()
+  const { cAcc, cType, dummyRandom } = useCharacter() as any
 
   const accImage = isSingle
     ? `/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`
@@ -23,12 +23,7 @@ const CAccModel = ({ isSingle, index }) => {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/img-redundant-alt */}
-        <img
-          className="absolute !w-full object-contain"
-          src={accImage}
-          alt="not found image"
-          placeholder="blur"
-        />
+        <img className="absolute !w-full object-contain" src={accImage} alt="not found image" />
       </div>
     </div>
   )

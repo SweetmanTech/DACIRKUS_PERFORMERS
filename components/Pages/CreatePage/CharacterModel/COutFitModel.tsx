@@ -2,7 +2,7 @@ import { COUTFITS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
 const COutFitModel = ({ isSingle, index }) => {
-  const { cOutFit, cType, dummyRandom } = useCharacter()
+  const { cOutFit, cType, dummyRandom } = useCharacter() as any
 
   const outfitImage = isSingle
     ? `/images/Characters/${CTYPES[cType]}/Outfit/${COUTFITS[cOutFit]}.png`
@@ -23,12 +23,7 @@ const COutFitModel = ({ isSingle, index }) => {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/img-redundant-alt */}
-        <img
-          className="absolute !w-full object-contain"
-          src={outfitImage}
-          alt="not found image"
-          placeholder="blur"
-        />
+        <img className="absolute !w-full object-contain" src={outfitImage} alt="not found image" />
       </div>
     </div>
   )

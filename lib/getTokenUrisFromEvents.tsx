@@ -1,6 +1,6 @@
 const getTokenIdsFromEvents = (events, address) => {
-  const ownedTokenIds = []
-  events.forEach((call) => {
+  const ownedTokenIds: any = []
+  events.forEach((call: any) => {
     if (call.success && call.returnValues[0] === address) {
       ownedTokenIds.push(call.methodParameters[0])
     }

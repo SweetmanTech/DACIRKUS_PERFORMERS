@@ -37,16 +37,15 @@ function Media({
           src={link}
           layout={layout}
           alt={alt || "not found image"}
-          placeholder="blur"
           blurDataURL={
             blurLink ||
             "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mOcMXP2OQAGOQKc/DqDigAAAABJRU5ErkJggg=="
           }
-          {...(width &&
+          {...((width &&
             height && {
               width,
               height,
-            })}
+            }) as any)}
           unoptimized
         />
       )}

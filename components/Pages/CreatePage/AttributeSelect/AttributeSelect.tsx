@@ -7,7 +7,7 @@ import Button from "../Button"
 import Animation from "../CharacterModel/Animation"
 
 const AttributeSelect = () => {
-  const { randomAttr, cBG, nextCBG, prevCBG } = useCharacter()
+  const { randomAttr, cBG, nextCBG, prevCBG } = useCharacter() as any
 
   useEffect(() => {
     randomAttr()

@@ -1,3 +1,5 @@
+"use client"
+
 import { createContext, useContext, useEffect, useMemo, useState } from "react"
 import { STATUS } from "../lib/bookStatus"
 
@@ -88,7 +90,7 @@ const AnimatedBookProvider = ({ children }) => {
       openBook,
     }),
     [currentFrame, frameUrl, currentStatus, openBook, setCurrentStatus],
-  )
+  ) as any
 
   return <AnimatedBookContext.Provider value={value}>{children}</AnimatedBookContext.Provider>
 }

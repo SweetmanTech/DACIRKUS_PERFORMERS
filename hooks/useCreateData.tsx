@@ -33,14 +33,14 @@ const useCreateData = () => {
     randomAttr,
     setDummyRandom,
     dummyRandom,
-  } = useCharacter()
+  } = useCharacter() as any
   const { purchaseWithComment } = useZoraMintByPrivy()
   const { mint: purchasePresaleWithComment } = useZoraPremint()
-  const { externalWallet } = useConnectedWallet()
+  const { externalWallet } = useConnectedWallet() as any
   const address = externalWallet?.address
   const isWhitelist = checkIfWhitelisted(address)
-  const { setCurrentStatus } = useAnimatedBook()
-  const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer()
+  const { setCurrentStatus } = useAnimatedBook() as any
+  const { renderSinglePfp, renderMultiplePfps } = usePfpRenderer() as any
   const { prepare } = usePreparePrivyWallet()
 
   const singleMint = async () => {

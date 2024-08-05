@@ -2,7 +2,7 @@ import { CSKINS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
 const CSkinModel = ({ isSingle, index }) => {
-  const { cSkin, cType, dummyRandom } = useCharacter()
+  const { cSkin, cType, dummyRandom } = useCharacter() as any
 
   const skinImage = isSingle
     ? `/images/Characters/${CTYPES[cType]}/SkinTone/${CSKINS[cSkin]}.png`
@@ -23,12 +23,7 @@ const CSkinModel = ({ isSingle, index }) => {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/img-redundant-alt */}
-        <img
-          className="absolute !w-full object-contain"
-          src={skinImage}
-          alt="not found image"
-          placeholder="blur"
-        />
+        <img className="absolute !w-full object-contain" src={skinImage} alt="not found image" />
       </div>
     </div>
   )

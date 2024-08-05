@@ -1,4 +1,4 @@
-import { base, baseGoerli, polygon } from "@wagmi/core/chains"
+import { base, baseGoerli, polygon } from "viem/chains"
 
 const ETH = "https://eth-mainnet.g.alchemy.com/"
 const GOERLI = "https://eth-goerli.g.alchemy.com/"

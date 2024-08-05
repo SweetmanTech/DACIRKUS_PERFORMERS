@@ -2,7 +2,7 @@ import { CCOLORS, CHAIRS, CTYPES } from "../../../../lib/character"
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
 const CHairModel = ({ isSingle, index }) => {
-  const { cHair, cColor, cType, dummyRandom } = useCharacter()
+  const { cHair, cColor, cType, dummyRandom } = useCharacter() as any
 
   const hairImage = isSingle
     ? `/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`
@@ -23,12 +23,7 @@ const CHairModel = ({ isSingle, index }) => {
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element, jsx-a11y/img-redundant-alt */}
-        <img
-          className="absolute !w-full object-contain"
-          src={hairImage}
-          alt="not found image"
-          placeholder="blur"
-        />
+        <img className="absolute !w-full object-contain" src={hairImage} alt="not found image" />
       </div>
     </div>
   )
