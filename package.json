@@ -1,12 +1,12 @@
 {
-  "name": "my-app",
+  "name": "DACIRKUS",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "next lint --max-warnings 0",
     "lint:fix": "next lint --fix",
     "prettier:fix": "npx prettier --write components lib app shared providers hooks",
     "format": "yarn run prettier:fix && yarn run lint:fix"
@@ -16,7 +16,6 @@
     "@tailwindcss/forms": "^0.5.3",
     "@typescript-eslint/eslint-plugin": "^5.46.1",
     "@vercel/og": "^0.6.2",
-    "axios": "^1.7.3",
     "dom-to-image": "^2.6.0",
     "eslint-config-airbnb": "^19.0.4",
     "eslint-plugin-prettier": "^5.2.1",
