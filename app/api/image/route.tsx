@@ -14,6 +14,8 @@ export async function GET(req: NextRequest) {
   const metadata = data[`${chainId || CHAIN_ID}`]
   const pfp = getIpfsLink(metadata?.pfp)
 
+  if (!pfp) return NextResponse.json({ message: "Not uploaded pfp yet!" })
+
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return NextResponse.json({ message: "Not minted yet!" })
 
