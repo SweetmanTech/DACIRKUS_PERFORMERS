@@ -1,4 +1,5 @@
-import SeoHead from "@/components/SeoHead"
+"use client"
+
 import { STEPS } from "../../../lib/createStep"
 import { useCreate } from "../../../providers/CreateProvider"
 import AnimatedBook from "../../AnimatedBook"
@@ -10,16 +11,14 @@ import AttributeSelect from "./AttributeSelect"
 import Success from "./Success"
 import SuccessMultiple from "./SuccessMultiple"
 import PfpRenderer from "./PfpRenderer"
-import SheetRenderer from "./SheetRenderer"
 
 const CreatePage = () => {
-  const { currentStep } = useCreate()
-  const { currentStatus } = useAnimatedBook()
+  const { currentStep } = useCreate() as any
+  const { currentStatus } = useAnimatedBook() as any
 
   return (
     <>
       <Layout type="base">
-        <SeoHead />
         <AnimatedBook>
           {currentStatus === STATUS.OPENED && (
             <>
@@ -32,7 +31,6 @@ const CreatePage = () => {
         </AnimatedBook>
       </Layout>
       <PfpRenderer />
-      <SheetRenderer />
     </>
   )
 }

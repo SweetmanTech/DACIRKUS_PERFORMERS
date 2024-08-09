@@ -3,7 +3,7 @@ import { STATUS } from "../../lib/bookStatus"
 import { useAnimatedBook } from "../../providers/AnimatedBookProvider"
 
 const AnimatedBook = ({ children }) => {
-  const { currentFrame, frameUrl, currentStatus, openBook } = useAnimatedBook()
+  const { currentFrame, frameUrl, currentStatus, openBook } = useAnimatedBook() as any
 
   return (
     <div className="relative flex items-center">

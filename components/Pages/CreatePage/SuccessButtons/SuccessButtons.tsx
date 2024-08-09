@@ -6,7 +6,7 @@ import OpenseaButton from "../../../OpenseaButton"
 import TweetButton from "../../../TweetButton"
 
 const SuccessButtons = () => {
-  const { setCurrentStep } = useCreate()
+  const { setCurrentStep } = useCreate() as any
 
   return (
     <div
@@ -15,7 +15,7 @@ const SuccessButtons = () => {
     >
       <OpenseaButton />
       <ZoraButton />
-      <HomeButton onClick={() => setCurrentStep(STEPS.CHOOSE_CHARACTER_TYPE)} />
+      <HomeButton onClick={() => setCurrentStep(STEPS.SELECT_CHARACTER)} />
       <TweetButton />
     </div>
   )

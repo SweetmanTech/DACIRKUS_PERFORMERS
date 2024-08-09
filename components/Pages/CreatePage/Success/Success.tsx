@@ -5,7 +5,7 @@ import SelectedAttributes from "../SelectedAttributes"
 import SuccessButtons from "../SuccessButtons"
 
 const Success = () => {
-  const { mintedTokenId } = useCreate()
+  const { mintedTokenId } = useCreate() as any
   return (
     <div className="w-full h-full grid grid-cols-2">
       <div className="relative w-full md:pr-[18px] md:pr-[24px] xl:pr-[30px]">

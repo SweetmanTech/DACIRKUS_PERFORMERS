@@ -1,3 +1,5 @@
+"use client"
+
 import { usePrivy } from "@privy-io/react-auth"
 import { createContext, useMemo, useEffect, useContext, useState } from "react"
 
@@ -5,7 +7,7 @@ const UserContext = createContext(null)
 
 const UserProvider = ({ children }) => {
   const [privyEmail, setPrivyEmail] = useState(null)
-  const { user } = usePrivy()
+  const { user } = usePrivy() as any
 
   const isLoggedByEmail = Boolean(privyEmail)
 
@@ -24,7 +26,7 @@ const UserProvider = ({ children }) => {
       isLoggedByEmail,
     }),
     [privyEmail, isLoggedByEmail],
-  )
+  ) as any
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>
 }

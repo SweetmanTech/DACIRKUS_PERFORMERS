@@ -13,7 +13,10 @@ const usePfpRendererData = () => {
     if (!pfpRef?.current) return ""
     try {
       const blob = await domtoimage.toBlob(pfpRef.current)
-      const ipfsCid = await uploadToIpfs(blob)
+      const fileName = "pfp.png"
+      const fileType = "image/png"
+      const pfpFile = new File([blob], fileName, { type: fileType })
+      const ipfsCid = await uploadToIpfs(pfpFile)
       return ipfsCid
     } catch (error) {
       return ""
@@ -34,7 +37,7 @@ const usePfpRendererData = () => {
         const cid = await uploadPfp(multipleRefs[i + j])
         return cid
       })
-      const groupCids = await Promise.all(renderPromise)
+      const groupCids: any = await Promise.all(renderPromise)
       cids = cids.concat(groupCids)
     }
     return cids

@@ -2,7 +2,7 @@ import { CACCS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "../../../../lib/
 import { useCharacter } from "../../../../providers/CharacterProvider"
 
 const SelectedAttributes = () => {
-  const { cAcc, cEye, cHair, cOutFit, cSkin, cType } = useCharacter()
+  const { cAcc, cEye, cHair, cOutFit, cSkin, cType } = useCharacter() as any
 
   return (
     <div className="font-slimfit md:text-[14.4px] lg:text-[19.2px] xl:text-[24px] text-white">

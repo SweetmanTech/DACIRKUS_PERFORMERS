@@ -1,3 +1,5 @@
+"use client"
+
 import useCreateData from "@/hooks/useCreateData"
 import { createContext, useContext, useMemo } from "react"
 
@@ -11,7 +13,7 @@ const CreateProvider = ({ children }) => {
       ...createData,
     }),
     [createData],
-  )
+  ) as any
 
   return <CreateContext.Provider value={value}>{children}</CreateContext.Provider>
 }

@@ -3,7 +3,7 @@ import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
 const COutFitModel = () => {
-  const { cOutFit, cType } = useCharacter()
+  const { cOutFit, cType } = useCharacter() as any
 
   const outfitImage = `/images/Characters/${CTYPES[cType]}/Outfit/${COUTFITS[cOutFit]}.png`
 

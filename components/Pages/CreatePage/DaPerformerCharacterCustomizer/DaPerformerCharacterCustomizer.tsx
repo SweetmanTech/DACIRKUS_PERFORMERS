@@ -8,8 +8,8 @@ import Button from "../../../../shared/Button"
 import Media from "../../../../shared/Media"
 
 const DaPerformerCharacterCustomizer = () => {
-  const { setCurrentStatus } = useAnimatedBook()
-  const { setCurrentStep, multipleMint } = useCreate()
+  const { setCurrentStatus } = useAnimatedBook() as any
+  const { setCurrentStep, multipleMint } = useCreate() as any
   const [loading, setLoading] = useState(false)
   const [selectedQuantity, setSelectedQuantity] = useState(-1)
 

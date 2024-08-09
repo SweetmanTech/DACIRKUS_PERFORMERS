@@ -7,7 +7,7 @@ import Button from "../Button"
 import Animation from "../CharacterModel/Animation"
 
 const AttributeSelect = () => {
-  const { randomAttr, cBG, nextCBG, prevCBG } = useCharacter()
+  const { randomAttr, cBG, nextCBG, prevCBG } = useCharacter() as any
 
   useEffect(() => {
     randomAttr()
@@ -46,10 +46,9 @@ const AttributeSelect = () => {
         <div className="relative w-full h-full md:ml-[-30px] lg:ml-[-40px] xl:ml-[-50px] pointer-events-none">
           <div className="relative w-full h-full">
             <div
-              className="absolute h-full left-0 bottom-20
+              className="absolute h-full left-0 md:bottom-[12px] lg:bottom-[16px] xl:bottom-[20px]
             md:w-[165px] lg:w-[220px] xl:w-[275px] overflow-hidden
-            md:left-[118.2px] lg:left-[157.6px] xl:left-[197px]
-           "
+            md:left-[118.2px] lg:left-[157.6px] xl:left-[197px] scale-[0.9]"
             >
               <Animation />
             </div>

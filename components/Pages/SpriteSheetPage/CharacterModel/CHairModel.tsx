@@ -3,7 +3,7 @@ import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
 const CHairModel = () => {
-  const { cHair, cColor, cType } = useCharacter()
+  const { cHair, cColor, cType } = useCharacter() as any
 
   const hairImage = `/images/Characters/${CTYPES[cType]}/Hair/${CCOLORS[cColor]}${CHAIRS[cHair]}.png`
 

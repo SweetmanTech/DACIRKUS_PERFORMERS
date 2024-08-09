@@ -3,7 +3,7 @@ import { useCharacter } from "../../../../providers/CharacterProvider"
 import Media from "../../../../shared/Media"
 
 const CAccModel = () => {
-  const { cAcc, cType } = useCharacter()
+  const { cAcc, cType } = useCharacter() as any
 
   const accImage = `/images/Characters/${CTYPES[cType]}/Accesories/${CACCS[cAcc]}.png`
 
