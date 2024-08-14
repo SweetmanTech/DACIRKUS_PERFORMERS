@@ -3,7 +3,7 @@ import { NextRequest, NextResponse } from "next/server"
 import getDeterministricAttributes from "@/lib/getDeterministricAttributes"
 import tokenMinted from "@/lib/tokenMinted"
 import { CHAIN_ID, DOMAIN_URL, DROP_ADDRESS } from "@/lib/consts"
-import { CACCS, CBGCOLORS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
+import { CACCS, CCOLORS, CEYES, CHAIRS, COUTFITS, CSKINS, CTYPES } from "@/lib/character"
 import SheetImage from "@/components/OgImages/Spritesheet/SheetImage"
 import getMetadata from "@/lib/firebase/getMetadata"
 
@@ -25,12 +25,11 @@ export async function GET(req: NextRequest) {
   const cHair: any = metadata.sheet.hair
   const cColor: any = metadata.sheet.color
   const cOutfit: any = metadata.sheet.outfit
-  const cBg: any = metadata.sheet.bg
 
   const isMinted = await tokenMinted(DROP_ADDRESS, tokenId)
   if (!isMinted) return NextResponse.json({ message: "Not minted yet!" })
 
-  const [type, skin, acc, eye, hair, color, outfit, bg] = getDeterministricAttributes(
+  const [type, skin, acc, eye, hair, color, outfit] = getDeterministricAttributes(
     parseInt(tokenId, 10),
   )
 
@@ -41,7 +40,6 @@ export async function GET(req: NextRequest) {
   const finalHair = parseInt(cHair, 10) || hair
   const finalColor = parseInt(cColor, 10) || color
   const finalOutfit = parseInt(cOutfit, 10) || outfit
-  const finalBg = parseInt(cBg, 10) || bg
 
   return new ImageResponse(
     (
@@ -52,7 +50,6 @@ export async function GET(req: NextRequest) {
           width: 192,
           height: 1152,
           imageRendering: "pixelated",
-          background: CBGCOLORS[finalBg],
         }}
       >
         <SheetImage
